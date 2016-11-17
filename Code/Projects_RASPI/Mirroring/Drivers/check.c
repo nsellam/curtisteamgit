@@ -7,8 +7,7 @@
 
 #include <stdint.h>
 #include "CRC.h"
-
-#define CRC_INIT 0x00
+#define CANARY 0xCA
 
 /**
  * @fn compute_CRC
@@ -25,36 +24,6 @@ uint8_t compute_CRC(uint8_t *pdata, size_t len) {
     CRC ^= pdata[i];
   }
   return CRC;
-}
-
-int compute_CRC(uint8_t *pdata, size_t len) {
-  uint8_t shift_register = CRC_INIT;
-  int i;
-  for (i = 0 ; i < len ; i++) {
-    for (j = 8 ; j > 0 ; j--) {
-      if ( (shift_register ^ pdata[i]) >> j) {
-	shift_register = (shift_register >> 1) ^ polynome;
-      } else {
-	shift_register = shift_register >> 1;
-      }
-    }
-  }
-      
-      pour i de 1 à longueur
-    {
-        si bit de poids fort de shiftRegister xor bitString[i] vaut 1
-        {
-            // décaler d'1 bit vers la gauche équivaut à multiplier par 2
-            shiftRegister := (shiftRegister décalé d'1 bit vers la gauche) xor polynome
-        }
-        sinon
-        {
-            shiftRegister := (shiftRegister décalé d'1 bit vers la gauche)
-        }
-    }
-    retourne shiftRegister
-}
-
 }
 
 /**
