@@ -24,29 +24,33 @@
 /*       FUNCTIONS              */
 /********************************/
 
+
 /**
 * @fn SPI_init
-* @brief initializes SPI device 
-* @param length: the data to send -> int
-* @return : 0 if successful / -1 if error -> int
+* @brief Initializes the SPI device with circular DMA on the given buffers.
+* @param buffer_Rx: pointer to the buffer where the received data is stored
+* @param buffer_Tx: pointer to the buffer where the data to send is stored
+* @param bufferSize_Rx: size of buffer_Rx in bytes
+* @param bufferSize_Tx: size of buffer_Tx in bytes
+* @return None
 */
 
-int SPI_init(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t bufferSize_Rx, size_t bufferSize_Tx);
+void SPI_init(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t bufferSize_Rx, size_t bufferSize_Tx);
 
 /**
 * @fn SPI_start
-* @brief start the SPI communication
-* @return : 0 if successful / -1 if error -> int
+* @brief Starts the SPI communication.
+* @return None
 */
 
-int SPI_start(void);
+void SPI_start(void);
 
 /**
 * @fn SPI_stop
-* @brief stop the SPI communication
-* @return : 0 if successful / -1 if error -> int
+* @brief Stops the SPI communication.
+* @return None
 */
 
-int SPI_stop(void);
+void SPI_stop(void);
 
 #endif // _SPI_H_

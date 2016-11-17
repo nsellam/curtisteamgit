@@ -47,12 +47,15 @@ void SPI_Configuration(void);
 
 /**
 * @fn SPI_init
-* @brief initializes SPI device 
-* @param length: the data to send -> int
-* @return : 0 if successful / -1 if error -> int
+* @brief Initializes the SPI device.
+* @param buffer_Rx: pointer to the buffer where the received data is stored
+* @param buffer_Tx: pointer to the buffer where the data to send is stored
+* @param bufferSize_Rx: size of buffer_Rx in bytes
+* @param bufferSize_Tx: size of buffer_Tx in bytes
+* @return None
 */
 
-int SPI_init(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t bufferSize_Rx, size_t bufferSize_Tx) {
+void SPI_init(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t bufferSize_Rx, size_t bufferSize_Tx) {
 
    // Save buffers adress and size
    SPI_SLAVE_BufferSize_Rx = bufferSize_Rx;
@@ -68,37 +71,33 @@ int SPI_init(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t bufferSize_Rx, siz
 
    // SPI configuration
    SPI_Configuration();
-
-   return 0;
 }
 
 /**
 * @fn SPI_start
-* @brief start the SPI communication
-* @return : 0 if successful / -1 if error -> int
+* @brief Starts the SPI communication.
+* @return None
 */
 
-int SPI_start(void) {
+void SPI_start(void) {
    // Enable SPI_SLAVE
    SPI_Cmd(SPI_SLAVE, ENABLE);
-   return 0;
 }
 
 /**
 * @fn SPI_stop
-* @brief stop the SPI communication
-* @return : 0 if successful / -1 if error -> int
+* @brief Stops the SPI communication.
+* @return None
 */
 
-int SPI_stop(void) {
+void SPI_stop(void) {
    // Make sure tranfer is complete:
-   // - avoid data corruption
-   while(SPI_I2S_GetFlagStatus(SPI_SLAVE, SPI_I2S_FLAG_TXE) !=   SET);
-   // - avoid unreliable BUSY flag
+   //    - avoid data corruption
+   while(SPI_I2S_GetFlagStatus(SPI_SLAVE, SPI_I2S_FLAG_TXE) != SET);
+   //    - avoid unreliable BUSY flag
    while(SPI_I2S_GetFlagStatus(SPI_SLAVE, SPI_I2S_FLAG_BSY) != RESET);
    // Disable SPI_SLAVE
    SPI_Cmd(SPI_SLAVE, DISABLE);
-   return 0;
 }
 
 
@@ -188,7 +187,7 @@ void SPI_Configuration(void) {
    SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
    SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_64;
    SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
-   SPI_InitStructure.SPI_CRCPolynomial = 0;
+   SPI_InitStructure.SPI_CRCPolynomial = 0; // no CRC
    SPI_Init(SPI2, &SPI_InitStructure);
 
    // Enable SPI_SLAVE Rx and Tx request

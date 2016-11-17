@@ -1,5 +1,5 @@
-#ifndef MIRRORING_H
-#define MIRRORING_H
+#ifndef _MIRRORING_H_
+#define _MIRRORING_H_
 
 /**
  * @file mirroring.h
@@ -16,7 +16,7 @@
 
 /**
  * @struct sensors
- * @brief data of the sensors, written by the STM32
+ * @brief Data of the sensors, written by the STM32.
  * size: 10 bytes
  */
 typedef struct sensors {
@@ -36,7 +36,7 @@ extern volatile sensors_t *psensors;
 
 /**
  * @struct actuators
- * @brief data of the actuators, written by the Raspberry Pi
+ * @brief Data of the actuators, written by the Raspberry Pi.
  * size: 10 bytes
  */
 
@@ -55,17 +55,27 @@ extern volatile actuators_t *pactuators;
  ************************/
 
 /**
- * @fn sync_sensors
- * @brief synchronizes the value of the sensors
- * @return 0 if successful / -1 if error
- */
-int sync_actuators(void);
+* @fn Mirroring_init
+* @brief Initialize the mirroring for both sensors (sent) and actuators (received).
+* @return None
+*/
+
+void Mirroring_init(void);
 
 /**
- * @fn sync_actuators
- * @brief synchronizes the value of the sensors
- * @return 0 if successful / -1 if error
- */
-int sync_sensors(void);
+* @fn Mirroring_start
+* @brief Starts the mirroring.
+* @return None
+*/
 
-#endif //MIRRORING_H
+void Mirroring_start(void);
+
+/**
+* @fn Mirroring_stop
+* @brief Stops the mirroring.
+* @return None
+*/
+
+void Mirroring_stop(void);
+
+#endif // _MIRRORING_H_

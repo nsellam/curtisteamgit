@@ -6,25 +6,19 @@
  */
 
 #include "mirroring.h"
-//#include "SPI.h"
+#include "spi.h"
 
 volatile sensors_t sensors, *psensors = &sensors;
 volatile actuators_t actuators, *pactuators = &actuators;
 
-/**
- * @fn sync_sensors
- * @brief sends the value of the sensors to the Raspberry Pi
- * @return 0 if successful / -1 if error
- */
-int sync_sensors(void) {
-return 0;//SPI_send((uint8_t*)psensors, sizeof(sensors));
+void Mirroring_init(void) {
+   SPI_init((uint8_t*)pactuators, (uint8_t*)psensors, sizeof(actuators), sizeof(sensors));
 }
 
-/**
- * @fn sync_actuators
- * @brief receives the value of the actuators from the Raspberry Pi
- * @return 0 if successful / -1 if error
- */
-int sync_actuators(void) {
-return 0;//SPI_receive((uint8_t*)pactuators, sizeof(actuators));
+void Mirroring_start(void) {
+   SPI_start();
+}
+
+void Mirroring_stop(void) {
+   SPI_stop();
 }
