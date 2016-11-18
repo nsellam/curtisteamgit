@@ -420,6 +420,11 @@
               <FileType>1</FileType>
               <FilePath>..\Services\mirroring_st.c</FilePath>
             </File>
+            <File>
+              <FileName>data.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Lib_COM\CurtisLib\HDM_API\src\data.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
