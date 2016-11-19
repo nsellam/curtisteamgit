@@ -423,6 +423,11 @@
               <FileType>5</FileType>
               <FilePath>..\Drivers\stm32f10x_conf.h</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\stm32f10x_it.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
