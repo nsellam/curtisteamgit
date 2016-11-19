@@ -14,7 +14,7 @@
  * @brief data updated by the STM32
  * size: 11 bytes
  */
-typedef struct data_STM {
+typedef struct {
   uint8_t ultrasonic_sensors[US_NUM];
 
   uint8_t wheel_position_sensor_R;
@@ -34,7 +34,7 @@ extern volatile data_STM_t *pdata_STM;
  * @brief data updated by the Raspberry Pi
  * size: 4 bytes
  */
-typedef struct data_PI {
+typedef struct {
   uint8_t motor_prop;
   uint8_t motor_dir;
   uint8_t led;
