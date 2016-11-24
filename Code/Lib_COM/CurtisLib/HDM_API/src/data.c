@@ -6,6 +6,8 @@
 
 #include "data.h"
 
+#include <stddef.h>
+
 #define INITIAL_8B_VALUE 0x00
 
 /************************
@@ -55,8 +57,10 @@ void init_data(void) {
  */
 void init_data_STM(void) {
    int i;
-   for(i = 0; i < US_NUM; i++)
+
+   for(i = 0; i < DATA_STM_US_NUM; i++)
       data_STM.ultrasonic_sensors[i] = INITIAL_8B_VALUE;
+
    data_STM.wheel_position_sensor_R = INITIAL_8B_VALUE;
    data_STM.wheel_position_sensor_L = INITIAL_8B_VALUE;
    data_STM.steering_stop_sensor_R  = INITIAL_8B_VALUE;
