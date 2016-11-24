@@ -1,5 +1,13 @@
 --cpu Cortex-M3
 ".\release\main.o"
+".\release\speed_sensor.o"
+".\release\position_sensor.o"
+".\release\hall_sensor.o"
+".\release\callbacks_services.o"
+".\release\stm32f10x_it.o"
+".\release\gpio.o"
+".\release\systick.o"
+".\release\exti.o"
 ".\release\misc.o"
 ".\release\stm32f10x_exti.o"
 ".\release\stm32f10x_gpio.o"

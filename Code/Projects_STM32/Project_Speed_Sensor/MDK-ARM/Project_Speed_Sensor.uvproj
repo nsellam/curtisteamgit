@@ -119,7 +119,7 @@
             <Oh166RecLen>16</Oh166RecLen>
           </OPTHX>
           <Simulator>
-            <UseSimulator>0</UseSimulator>
+            <UseSimulator>1</UseSimulator>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -131,7 +131,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
-            <UseTarget>1</UseTarget>
+            <UseTarget>0</UseTarget>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -144,7 +144,7 @@
             <UsePdscDebugDescription>0</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>11</TargetSelection>
+          <TargetSelection>8</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -410,10 +410,32 @@
               <FileType>1</FileType>
               <FilePath>..\Application\main.c</FilePath>
             </File>
+            <File>
+              <FileName>speed_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\speed_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>position_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\position_sensor.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Services</GroupName>
+          <Files>
+            <File>
+              <FileName>hall_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\hall_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>callbacks_services.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\callbacks_services.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Drivers</GroupName>
@@ -422,6 +444,26 @@
               <FileName>stm32f10x_conf.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Drivers\stm32f10x_conf.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\stm32f10x_it.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>systick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\systick.c</FilePath>
+            </File>
+            <File>
+              <FileName>exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\exti.c</FilePath>
             </File>
           </Files>
         </Group>
