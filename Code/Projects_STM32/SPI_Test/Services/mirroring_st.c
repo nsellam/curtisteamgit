@@ -4,14 +4,18 @@
  * @brief service layer for the STM32
  * Synchronizes data by sending the data of the STM and receiving the data of the RASPI
  */
+#include <data.h>
 
 #include "mirroring.h"
 
 #include "spi.h"
-#include "data.h"
+
+uint8_t buffer[DATA_SIZE_MAX];
+uint8_t buffer2[DATA_SIZE_MAX] = {0};
 
 void Mirroring_init(void) {
-   SPI_init((uint8_t*)pdata_PI, (uint8_t*)pdata_STM, sizeof(data_PI_t), sizeof(data_STM_t));
+   buffer2[3] = 0x06;
+   SPI_init(buffer, buffer2, DATA_SIZE_MAX, DATA_SIZE_MAX);
 }
 
 void Mirroring_start(void) {

@@ -1,0 +1,13 @@
+# Kevgitignore
+
+# Object files
+*.o
+
+# Compilation files
+*.crf
+*.d
+*.lst
+
+# Keilduc
+*.lnp
+*.map

@@ -1,21 +1,24 @@
-#ifndef _DATA_H_
-#define _DATA_H_
+#ifndef DATA_H
+#define DATA_H
 
 #include <stdint.h>
+#include <stddef.h>
 
-#define US_NUM 6
+#define DATA_STM_US_NUM 6
+
+#define DATA_SIZE_MAX ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
 
 /************************
  *     STRUCTURES       *
  ************************/
 
 /**
- * @struct data_STM
+ * @struct data_STM_t
  * @brief data updated by the STM32
  * size: 11 bytes
  */
-typedef struct data_STM {
-  uint8_t ultrasonic_sensors[US_NUM];
+typedef struct {
+  uint8_t ultrasonic_sensors[DATA_STM_US_NUM];
 
   uint8_t wheel_position_sensor_R;
   uint8_t wheel_position_sensor_L;
@@ -26,15 +29,13 @@ typedef struct data_STM {
   uint8_t errors_SPI;
 } data_STM_t;
 
-extern volatile data_STM_t *pdata_STM;
-
 
 /**
- * @struct data_PI
+ * @struct data_PI_t
  * @brief data updated by the Raspberry Pi
  * size: 4 bytes
  */
-typedef struct data_PI {
+typedef struct {
   uint8_t motor_prop;
   uint8_t motor_dir;
   uint8_t led;
@@ -42,8 +43,12 @@ typedef struct data_PI {
   uint8_t errors_SPI;
 } data_PI_t;
 
-extern volatile data_PI_t *pdata_PI;
+/************************
+ *      VARIABLES       *
+ ************************/
 
+extern volatile data_STM_t *pdata_STM;
+extern volatile data_PI_t *pdata_PI;
 
 /************************
  *      FUNCTIONS       *
@@ -57,4 +62,4 @@ extern volatile data_PI_t *pdata_PI;
 
 void init_data(void);
 
-#endif // _DATA_H_
+#endif // DATA_H
