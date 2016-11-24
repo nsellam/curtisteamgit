@@ -148,4 +148,69 @@ void SysTick_Handler(void)
 {
 }*/
 
+__weak void DMA1_Callback(int channel){}
+
+/**
+  * @brief  This function handles DMA1_Channel1 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel1_IRQHandler(void) {
+   DMA1_Callback(1);
+}
+
+/**
+  * @brief  This function handles DMA1_Channel2 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel2_IRQHandler(void) {
+   DMA1_Callback(2);
+}
+
+/**
+  * @brief  This function handles DMA1_Channel3 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel3_IRQHandler(void) {
+   DMA1_Callback(3);
+}
+
+/**
+  * @brief  This function handles DMA1_Channel4 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel4_IRQHandler(void) {
+   DMA1_Callback(4);
+}
+
+/**
+  * @brief  This function handles DMA1_Channel5 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel5_IRQHandler(void) {
+   DMA1_Callback(5);
+}
+
+/**
+  * @brief  This function handles DMA1_Channel6 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel6_IRQHandler(void) {
+   DMA1_Callback(6);
+}
+
+/**
+  * @brief  This function handles DMA1_Channel7 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel7_IRQHandler(void) {
+   DMA1_Callback(7);
+}
+
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

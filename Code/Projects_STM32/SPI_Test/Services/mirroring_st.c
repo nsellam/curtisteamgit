@@ -10,8 +10,10 @@
 
 #include "spi.h"
 
+   uint8_t buffer[(sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t)];
+
 void Mirroring_init(void) {
-   SPI_init((uint8_t*)pdata_PI, (uint8_t*)pdata_STM, sizeof(data_PI_t), sizeof(data_STM_t));
+   SPI_init(buffer, buffer, data_size_max, data_size_max);
 }
 
 void Mirroring_start(void) {

@@ -6,6 +6,8 @@
 
 #define DATA_STM_US_NUM 6
 
+#define DATA_SIZE_MAX ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
+
 /************************
  *     STRUCTURES       *
  ************************/
@@ -47,7 +49,6 @@ typedef struct {
 
 extern volatile data_STM_t *pdata_STM;
 extern volatile data_PI_t *pdata_PI;
-const size_t data_size_max = (sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t);
 
 /************************
  *      FUNCTIONS       *
