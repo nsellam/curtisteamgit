@@ -1,10 +1,21 @@
-#ifndef __SWITCH_H__
-#define __SWITCH_H__
+#ifndef SWITCH_H
+#define SWITCH_H
 
 #include <stdint.h>
 
-void Switch_Config(void);           // external pull-up switch
+/**
+ * @fn switch_config(void)
+ * @brief external pull-up switch
+ */
+void Switch_Config(void);
 
-uint8_t Switch_IsPressed(void);     // returns the state of the switch (1 = pressed, 0 = released)
+/**
+ * @fn switch_is_pressed(void)
+ * @brief
+ * @return state of the switch
+ * @retval 1 pressed
+ * @retval 0 pressed
+ */
+uint8_t Switch_IsPressed(void);
 
-#endif // __SWITCH_H__
+#endif // SWITCH_H

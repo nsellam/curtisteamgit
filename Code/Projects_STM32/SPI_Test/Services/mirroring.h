@@ -1,5 +1,5 @@
-#ifndef _MIRRORING_H_
-#define _MIRRORING_H_
+#ifndef MIRRORING_H
+#define MIRRORING_H
 
 /**
  * @file mirroring.h
