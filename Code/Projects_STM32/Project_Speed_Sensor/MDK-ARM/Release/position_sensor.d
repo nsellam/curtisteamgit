@@ -2,3 +2,13 @@
 .\release\position_sensor.o: ..\Application\position_sensor.h
 .\release\position_sensor.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
 .\release\position_sensor.o: ..\Application\car.h
+.\release\position_sensor.o: ..\Services\hall_sensor.h
+.\release\position_sensor.o: ..\..\..\Lib_STM32\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
+.\release\position_sensor.o: ..\..\..\Lib_STM32\CMSIS\CM3\CoreSupport\core_cm3.h
+.\release\position_sensor.o: ..\..\..\Lib_STM32\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
+.\release\position_sensor.o: ..\Drivers\stm32f10x_conf.h
+.\release\position_sensor.o: ..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h
+.\release\position_sensor.o: ..\..\..\Lib_STM32\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
+.\release\position_sensor.o: ..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h
+.\release\position_sensor.o: ..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h
+.\release\position_sensor.o: ..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc\misc.h

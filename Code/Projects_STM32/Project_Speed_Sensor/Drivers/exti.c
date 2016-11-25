@@ -259,11 +259,14 @@ int exti_init (GPIO_TypeDef *GPIO, uint16_t Pin , EXTIMode_TypeDef EXTI_Mode, EX
 	if (IRQChannel == ERROR_COMPUTING_CHANNEL) return EXTI_ERROR_INVALID_CHANNEL; else {}
 	if (GPIO_PortSource == ERROR_PORT_SOURCE) return EXTI_ERROR_INVALID_PORT_SOURCE; else {}	
 	if (GPIO_PinSource == ERROR_PIN_SOURCE) return EXTI_ERROR_INVALID_PIN_SOURCE; else {}	
+	
+	// Enable AFIO clock (required for EXTI)
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO , ENABLE);
 		
 	// Configure Port Pin as recommended	
 	gpio_init(GPIO, Pin, GPIO_SPEED_EXTI, GPIO_MODE_EXTI);	
 		
-	// Associate 
+	// Associate port to exti
 	GPIO_EXTILineConfig(GPIO_PortSource, GPIO_PinSource);
 	
 	// Configure the particular EXTI 

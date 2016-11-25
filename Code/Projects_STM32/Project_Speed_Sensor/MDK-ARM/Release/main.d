@@ -11,3 +11,6 @@
 .\release\main.o: ..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\release\main.o: ..\Drivers\systick.h
 .\release\main.o: ..\Services\hall_sensor.h
+.\release\main.o: ..\Application\position_sensor.h
+.\release\main.o: ..\Application\car.h
+.\release\main.o: ..\Application\speed_sensor.h

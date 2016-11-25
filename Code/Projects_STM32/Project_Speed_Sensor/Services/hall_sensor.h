@@ -49,7 +49,7 @@
  * @def HALL_SENSOR_MAX_SAVED_POP
  * @brief Number of date of interrupt saved. Must be inferior to 0xFFFFFFFF
 */
-#define HALL_SENSOR_MAX_SAVED_POP 			0xFF
+#define HALL_SENSOR_MAX_SAVED_POP 			0x0A
 
 /**
  * @def HALL_SENSOR_NUMBER_OF_SECTORS
