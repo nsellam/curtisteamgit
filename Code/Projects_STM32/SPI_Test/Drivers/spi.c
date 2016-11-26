@@ -7,6 +7,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include "stm32f10x.h"
+#include "stm32f10x_it.h"
 
 /********************************/
 /*       ALIAS                  */
@@ -30,11 +31,12 @@
 #define SPIx_DMA_Tx_Channel      DMA1_Channel5
 #define SPIx_DMA_Rx_Channel_IRQn DMA1_Channel4_IRQn
 #define SPIx_DMA_Tx_Channel_IRQn DMA1_Channel5_IRQn
-#define SPIx_DMA_SUBPRIO         1
+#define SPIx_DMA_PRIO            1
 
 /********************************/
 /*       VARIABLES              */
 /********************************/
+
 size_t SPIx_BufferSize_Rx;
 size_t SPIx_BufferSize_Tx;
 uint8_t *SPIx_Buffer_Rx;
@@ -113,7 +115,18 @@ void SPI_stop(void) {
 
 
 
-
+/**
+  * @brief  Handles the DMA interrupts.
+  * @param  dma     DMA number
+  * @param  channel Channel number
+  * @retval None
+  */
+void SPI_DMA_Callback(int dma, int channel) {
+   if (GET_DMA_CHANNEL[dma, channel] == SPIx_DMA_Rx_Channel) {
+      
+   } else if (GET_DMA_CHANNEL[dma, channel] == SPIx_DMA_Tx_Channel) {
+   }
+}
 
 /**
   * @brief  Configures the different system clocks.
@@ -140,13 +153,13 @@ void RCC_Configuration(void) {
 void NVIC_Configuration(void) {
    NVIC_InitTypeDef NVIC_InitStructure;
 
-   // 0 bit for pre-emption priority, 4 bits for subpriority
-   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
+   // 4 bit for pre-emption priority, 0 bits for subpriority
+   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
 
    // Configure and enable DMA_Rx interrupt
    NVIC_InitStructure.NVIC_IRQChannel = SPIx_DMA_Rx_Channel_IRQn;
-   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-   NVIC_InitStructure.NVIC_IRQChannelSubPriority = SPIx_DMA_SUBPRIO;
+   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = SPIx_DMA_PRIO;
+   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
    NVIC_Init(&NVIC_InitStructure);
 
@@ -181,9 +194,8 @@ void GPIO_Configuration(void) {
   * @retval None
   */
 void SPI_Configuration(void) {
-   SPI_InitTypeDef  SPI_InitStructure;
-   DMA_InitTypeDef  DMA_InitStructure;
-   //NVIC_InitTypeDef NVIC_InitStructure;
+   SPI_InitTypeDef SPI_InitStructure;
+   DMA_InitTypeDef DMA_InitStructure;
 
    // SPIx_Rx_DMA_Channel configuration
    DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SPIx_DR_Base;
@@ -229,8 +241,11 @@ void SPI_Configuration(void) {
    SPI_I2S_DMACmd(SPIx, SPI_I2S_DMAReq_Rx, ENABLE);
    SPI_I2S_DMACmd(SPIx, SPI_I2S_DMAReq_Tx, ENABLE);
 
-   // Enable SPIx_Rx_DMA_Channel
+   // Enable SPIx Rx and Tx DMA channels interrupt
+   DMA_ITConfig(SPIx_DMA_Rx_Channel, DMA_IT_HT | DMA_IT_TC | DMA_IT_TE, ENABLE);
+   DMA_ITConfig(SPIx_DMA_Tx_Channel, DMA_IT_HT | DMA_IT_TC | DMA_IT_TE, ENABLE);
+   
+   // Enable SPIx Rx and Tx DMA channels
    DMA_Cmd(SPIx_DMA_Rx_Channel, ENABLE);
-   // Enable SPIx_Tx_DMA_Channel
    DMA_Cmd(SPIx_DMA_Tx_Channel, ENABLE);
 }

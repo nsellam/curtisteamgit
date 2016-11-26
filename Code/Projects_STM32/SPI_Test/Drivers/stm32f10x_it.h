@@ -28,10 +28,12 @@
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
+
+extern const DMA_TypeDef * GET_DMA[];
+extern const DMA_Channel_TypeDef * GET_DMA_CHANNEL[];
+
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-
-void DMA_Callback(int DMA, int channel);
 
 #endif /* __STM32F10x_IT_H */
 
