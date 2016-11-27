@@ -8,8 +8,8 @@
 
 #include <stddef.h>
 
-#define INITIAL_8B_VALUE 0x00
-#define INITIAL_FLOAT_VALUE 0.0
+#define INITIAL_8B_VALUE      0x00
+#define INITIAL_FLOAT_VALUE   0.0
 
 /************************
  *      VARIABLES       *
@@ -67,8 +67,8 @@ void init_data_STM(void) {
    data_STM.steering_stop_sensor_R  = INITIAL_8B_VALUE;
    data_STM.steering_stop_sensor_L  = INITIAL_8B_VALUE;
    data_STM.errors_SPI              = INITIAL_8B_VALUE;
-	 data_STM.car_speed								= INITIAL_FLOAT_VALUE;
-	 data_STM.travelled_distance			= INITIAL_FLOAT_VALUE;
+	data_STM.car_speed					= INITIAL_FLOAT_VALUE;
+	data_STM.travelled_distance		= INITIAL_FLOAT_VALUE;
 }
 
 /**
@@ -77,8 +77,8 @@ void init_data_STM(void) {
  * @return void
  */
 void init_data_PI(void) {
-   data_PI.motor_prop   = INITIAL_8B_VALUE;
-   data_PI.motor_dir    = INITIAL_8B_VALUE;
-   data_PI.led          = INITIAL_8B_VALUE;
-   data_PI.errors_SPI   = INITIAL_8B_VALUE;
+   data_PI.motor_prop = INITIAL_8B_VALUE;
+   data_PI.motor_dir  = INITIAL_8B_VALUE;
+   data_PI.led        = INITIAL_8B_VALUE;
+   data_PI.errors_SPI = INITIAL_8B_VALUE;
 }

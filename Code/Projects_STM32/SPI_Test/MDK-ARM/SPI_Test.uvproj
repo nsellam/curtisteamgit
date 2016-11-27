@@ -445,6 +445,11 @@
               <FileType>1</FileType>
               <FilePath>..\Drivers\spicomm_st.c</FilePath>
             </File>
+            <File>
+              <FileName>framecheck.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\framecheck.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

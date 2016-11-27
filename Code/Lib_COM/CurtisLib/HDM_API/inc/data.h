@@ -6,7 +6,7 @@
 
 #define DATA_STM_US_NUM 6
 
-#define DATA_SIZE_MAX 11//((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
+#define DATA_SIZE_MAX ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
 
 /************************
  *     STRUCTURES       *
@@ -15,7 +15,7 @@
 /**
  * @struct data_STM_t
  * @brief data updated by the STM32
- * size: 11 bytes
+ * size: 19 bytes
  */
 typedef struct {
   uint8_t ultrasonic_sensors[DATA_STM_US_NUM];
