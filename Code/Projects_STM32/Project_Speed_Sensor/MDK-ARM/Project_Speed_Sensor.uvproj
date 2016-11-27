@@ -119,7 +119,7 @@
             <Oh166RecLen>16</Oh166RecLen>
           </OPTHX>
           <Simulator>
-            <UseSimulator>0</UseSimulator>
+            <UseSimulator>1</UseSimulator>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -131,7 +131,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
-            <UseTarget>1</UseTarget>
+            <UseTarget>0</UseTarget>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -144,7 +144,7 @@
             <UsePdscDebugDescription>0</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>11</TargetSelection>
+          <TargetSelection>8</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -434,6 +434,16 @@
               <FileName>callbacks_services.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Services\callbacks_services.c</FilePath>
+            </File>
+            <File>
+              <FileName>compress.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\compress.c</FilePath>
+            </File>
+            <File>
+              <FileName>uncompress.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\uncompress.c</FilePath>
             </File>
           </Files>
         </Group>

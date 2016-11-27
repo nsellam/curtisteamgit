@@ -40,9 +40,8 @@ void hall_sensor_init(void) {
 	exti_init(& HALL_SENSOR_GPIO, HALL_SENSOR_PIN, HALL_SENSOR_MODE, HALL_SENSOR_TRIGG, HALL_SENSOR_PRIO, HALL_SENSOR_SUBPRIO);
 }
 
-int hall_sensor_callback (void) {
-	int output_code = 0; 
-	
+void hall_sensor_callback (void) {
+
 	hall_sensor_last_pops[hall_sensor_number_of_pop] = micros();
 	
 	hall_sensor_number_of_pop ++;
@@ -53,10 +52,7 @@ int hall_sensor_callback (void) {
 	{
 		hall_sensor_sector = 0; 
 		hall_sensor_lap ++;
-		output_code = ONE_MORE_LAP;
 	}
-	
-	return output_code;
 }
 
 /**

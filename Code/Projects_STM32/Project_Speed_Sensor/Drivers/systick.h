@@ -4,12 +4,29 @@
 #include <stdint.h>
 #include <stm32f10x.h>
 
+/**
+ * @def SYSTICK_FREQ 
+ * @brief Frequency to count systicks 
+*/
 #define SYSTICK_FREQ  1000000 // Hz
 
-static uint64_t timeMicros;
-
+/**
+ * @fn systick_init
+ * @brief Initializes systick system 
+*/
 void systick_init(void);
+
+/**
+ * @fn micros
+ * @brief Returns the current STM32 time
+ * @return uint64_t (time elapsed since systick initialization expressed in microseconds) 
+*/
 uint64_t micros(void);
+
+/**
+ * @fn systick_inc
+ * @brief Increments current time. NOT SUPPOSED TO BE USE OUT OF SysTick_Handler (in stm32f10x_it.c).
+*/
 void systick_inc(void);
 
 #endif //SYSTICK_H

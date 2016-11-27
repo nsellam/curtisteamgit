@@ -70,52 +70,38 @@
 #define ERROR_VALUE_NOT_FOUND 	0xFFFFFFFFFFFFFFFF
 
 /**
- * @def ONE_MORE_LAP
- * @brief The last hall sensor pop produces a new full lap
+ * @fn hall_sensor_callback
+ * @brief Called function on external interrupt (EXTI). Must not be call by user. 
 */
-#define ONE_MORE_LAP		1
+void hall_sensor_callback (void);
 
 /**
- * @fn hall_sensor_callback
- * @brief 
- * @return 
- * @retval 
+ * @fn get_hall_sensor_last_pop
+ * @brief Return the date (in microseconds) of the last - n detection of the hall sensor. 
+ * @param n -> uint8_t (number of the sample wanted)
+ * @return uint64_t time of the detection passed as parameter
+ * @retval time if it is possible to found it, ERROR_VALUE_NOT_FOUND if not
 */
-int hall_sensor_callback (void);
-
-/**
- * @fn hall_sensor_callback
- * @brief 
- * @param 
- * @return 
- * @retval 
-*/
-uint64_t get_hall_sensor_last_pop (uint8_t);
+uint64_t get_hall_sensor_last_pop (uint8_t n);
 
 /**
  * @fn get_hall_sensor_sector
- * @brief 
- * @param 
- * @return 
- * @retval 
+ * @brief Return the current sector
+ * @return uint16_t -> curent sector
+ * @retval Current sector if current sector is under number of sectors, ERROR_SENSOR_OUT_OF_RANGE if not.
 */
 uint16_t hall_sensor_get_sector (void);
 
 /**
  * @fn hall_sensor_get_lap
- * @brief 
- * @param 
- * @return 
- * @retval 
+ * @brief Return the current lap
+ * @return uint16_t -> curent lap
 */
 uint32_t hall_sensor_get_lap(void);
 
 /**
  * @fn hall_sensor_init
- * @brief 
- * @param 
- * @return 
- * @retval 
+ * @brief Initialize hall sensor
 */
 void hall_sensor_init(void);
 

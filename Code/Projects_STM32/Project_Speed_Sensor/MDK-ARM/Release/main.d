@@ -14,3 +14,6 @@
 .\release\main.o: ..\Application\position_sensor.h
 .\release\main.o: ..\Application\car.h
 .\release\main.o: ..\Application\speed_sensor.h
+.\release\main.o: ..\Services\compress.h
+.\release\main.o: ..\..\..\Lib_COM\CurtisLib\HDM_API\inc\data.h
+.\release\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stddef.h
