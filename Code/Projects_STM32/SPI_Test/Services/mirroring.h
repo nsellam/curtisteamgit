@@ -15,27 +15,27 @@
  ************************/
 
 /**
-* @fn Mirroring_init
-* @brief Initialize the mirroring for both data_STM (sent) and data_PI (received).
-* @return None
-*/
+ * @fn Mirroring_Init
+ * @brief Initialize the mirroring for both data_STM (sent) and data_PI (received).
+ * @return None
+ */
 
-void Mirroring_init(void);
-
-/**
-* @fn Mirroring_start
-* @brief Starts the mirroring.
-* @return None
-*/
-
-void Mirroring_start(void);
+void Mirroring_Init(void);
 
 /**
-* @fn Mirroring_stop
-* @brief Stops the mirroring.
-* @return None
-*/
+ * @fn Mirroring_Start
+ * @brief Starts the mirroring.
+ * @return None
+ */
 
-void Mirroring_stop(void);
+void Mirroring_Start(void);
+
+/**
+ * @fn Mirroring_Stop
+ * @brief Stops the mirroring.
+ * @return None
+ */
+
+void Mirroring_Stop(void);
 
 #endif // _MIRRORING_H_

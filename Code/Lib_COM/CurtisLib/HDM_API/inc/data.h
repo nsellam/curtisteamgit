@@ -6,7 +6,7 @@
 
 #define DATA_STM_US_NUM 6
 
-#define DATA_SIZE_MAX ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
+#define DATA_SIZE_MAX 11//((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
 
 /************************
  *     STRUCTURES       *

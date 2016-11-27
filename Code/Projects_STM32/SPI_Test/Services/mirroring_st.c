@@ -8,20 +8,28 @@
 
 #include "mirroring.h"
 
-#include "spi.h"
+#include "spicomm_st.h"
 
-uint8_t buffer[DATA_SIZE_MAX];
-uint8_t buffer2[DATA_SIZE_MAX] = {0};
+#define BUFFER_RX_SIZE (DATA_SIZE_MAX)
+#define BUFFER_TX_SIZE (DATA_SIZE_MAX)
 
-void Mirroring_init(void) {
-   buffer2[3] = 0x06;
-   SPI_init(buffer, buffer2, DATA_SIZE_MAX, DATA_SIZE_MAX);
+uint8_t buffer_Rx[BUFFER_RX_SIZE];
+uint8_t buffer_Tx[BUFFER_TX_SIZE];
+
+/********************************/
+/*       Public Functions       */
+/********************************/
+
+void Mirroring_Init(void) {
+   pdata_PI  = (data_PI_t  *)buffer_Rx;
+   pdata_STM = (data_STM_t *)buffer_Tx;
+   SPIComm_Init((uint8_t *)buffer_Rx, (uint8_t *)buffer_Tx, BUFFER_RX_SIZE, BUFFER_TX_SIZE);
 }
 
-void Mirroring_start(void) {
-   SPI_start();
+void Mirroring_Start(void) {
+   SPIComm_Start();
 }
 
-void Mirroring_stop(void) {
-   SPI_stop();
+void Mirroring_Stop(void) {
+   SPIComm_Stop();
 }

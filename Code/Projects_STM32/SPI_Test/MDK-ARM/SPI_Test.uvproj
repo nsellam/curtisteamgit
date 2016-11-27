@@ -441,9 +441,9 @@
               <FilePath>..\Drivers\stm32f10x_it.c</FilePath>
             </File>
             <File>
-              <FileName>spi.c</FileName>
+              <FileName>spicomm_st.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Drivers\spi.c</FilePath>
+              <FilePath>..\Drivers\spicomm_st.c</FilePath>
             </File>
           </Files>
         </Group>

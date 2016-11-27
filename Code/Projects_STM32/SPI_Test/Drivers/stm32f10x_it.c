@@ -24,32 +24,59 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
 
+/* Private typedef -----------------------------------------------------------*/
+/* Private define ------------------------------------------------------------*/
+/* Private macro -------------------------------------------------------------*/
+
 #define DMA_IRQ_HANDLER(dma, channel) \
-   DMA_Callbacks(dma, channel);\
+   DMA_Callbacks(dma, channel, ((uint8_t)DMA_GetFlagStatus(DMA##dma##_FLAG_TE##channel) << 3) +\
+                               ((uint8_t)DMA_GetFlagStatus(DMA##dma##_FLAG_HT##channel) << 2) +\
+                               ((uint8_t)DMA_GetFlagStatus(DMA##dma##_FLAG_TC##channel) << 1) +\
+                               ((uint8_t)DMA_GetFlagStatus(DMA##dma##_FLAG_GL##channel) << 0));\
    DMA_ClearITPendingBit(DMA##dma##_IT_GL##channel);
 
-const DMA_TypeDef * GET_DMA[] = {0, DMA1, DMA2};
+/* Private variables ---------------------------------------------------------*/
+
 const DMA_Channel_TypeDef * GET_DMA_CHANNEL[2][8] = {
    {0            , DMA1_Channel1, DMA1_Channel2, DMA1_Channel3, DMA1_Channel4, DMA1_Channel5, DMA1_Channel6, DMA1_Channel7},
    {0            , DMA2_Channel1, DMA2_Channel2, DMA2_Channel3, DMA2_Channel4, DMA2_Channel5, 0            , 0            }
 };
 
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
+
+void DMA_Callbacks(int dma, int channel, uint8_t flags);
+
 /* Private functions ---------------------------------------------------------*/
+
+
+
+/********************************/
+/*       Public Functions       */
+/********************************/
+
+
+/**
+ * @brief  Handles the DMA interrupts for SPIComm.
+ * @param  dma     DMA number
+ * @param  channel Channel number
+ * @param  flags   Interrupts flags
+ * @retval None
+ */
+__weak void SPIComm_DMA_Callback(int dma, int channel, uint8_t flags){}
+
+   
+
+/********************************/
+/*      Private Functions       */
+/********************************/
 
 
 /******************************************************************************/
 /*                         IT Callbacks                                       */
 /******************************************************************************/
 
-__weak void SPI_DMA_Callback(int dma, int channel){}
-
-inline void DMA_Callbacks(int dma, int channel) {
-   SPI_DMA_Callback(dma, channel);
+__INLINE void DMA_Callbacks(int dma, int channel, uint8_t flags) {
+   SPIComm_DMA_Callback(dma, channel, flags);
 }
 
 /******************************************************************************/
