@@ -19,7 +19,7 @@
  * @def HALL_SENSOR_GPIO
  * @brief Pointer on the GPIO port interfacing the hall sensor
 */
-#define HALL_SENSOR_GPIO *GPIOC
+#define HALL_SENSOR_GPIO GPIOC
 
 /**
  * @def HALL_SENSOR_MODE
@@ -35,13 +35,13 @@
 
 /**
  * @def HALL_SENSOR_PRIO
- * @brief Mode of exti for this sensor
+ * @brief EXTI preemption priority
 */
-#define HALL_SENSOR_PRIO 0
+#define HALL_SENSOR_PRIO 1
 
 /**
  * @def HALL_SENSOR_SUBPRIO
- * @brief Mode of exti for this sensor
+ * @brief EXTI subpriority
 */
 #define HALL_SENSOR_SUBPRIO 0
 
@@ -61,13 +61,13 @@
  * @def ERROR_SENSOR_OUT_RANGE
  * @brief An error occured : current sector if superior to number of sectors 
 */ 
-#define ERROR_SENSOR_OUT_OF_RANGE 	0xFFFF
+#define ERROR_SENSOR_OUT_OF_RANGE 	(uint16_t)(-1)
 
 /**
  * @def ERROR_VALUE_NOT_FOUND
  * @brief An error occured : this value was not computed (too few pops are kept in memory)
 */ 
-#define ERROR_VALUE_NOT_FOUND 	0xFFFFFFFFFFFFFFFF
+#define ERROR_VALUE_NOT_FOUND 	(uint64_t)(-1)
 
 /**
  * @fn hall_sensor_callback

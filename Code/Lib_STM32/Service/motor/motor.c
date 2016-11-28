@@ -34,7 +34,7 @@
 * @def Frequence_Hz
 * @brief Frequency used to motors PWM generation in Hz
 */
-#define Frequence_Hz 2.0e4 //in Hz
+#define Frequence_Hz (float)(20e3) //in Hz
 
 /**
 * @def GPIOx
@@ -49,17 +49,28 @@
 #define ENABLE_PIN 6
 
 /**
-* @def PWM_min
-* @brief Min value used in motors
+* @def PWM_MIN
+* @brief Min PWM value used in motors
 */
-#define PWM_min 0.245
+#define PWM_MIN (float)(0.245)
 
 /**
-* @def PWM_max
-* @brief Max value used in motors
+* @def PWM_MAX
+* @brief Max PWM value used in motors
 */
-#define PWM_max 0.754
+#define PWM_MAX (float)(0.754)
 
+/**
+* @def SPEED_MIN
+* @brief Min speed in motors
+*/
+#define SPEED_MIN (float)(-1.0)
+
+/**
+* @def SPEED_MAX
+* @brief Max speed in motors
+*/
+#define SPEED_MAX (float)(1.0)
 
 
 
@@ -77,10 +88,14 @@ void motors_init(void) {
      PWM_Init(TIMx,CH,Frequence_Hz);
      Active_Complementary_Output(TIMx,CH);
 	  PWM_Port_Init(TIMx,CH);
+     PWM_Set_Duty_Cycle(TIMx,CH,0.5);
 
      //Enable Pin
      Port_IO_Clock_Enable(GPIOx);
      Port_IO_Init_Output(GPIOx,ENABLE_PIN);
+     Port_IO_Reset(GPIOx,ENABLE_PIN);
+   
+     PWM_Enable(TIMx);
 }
 
 /**
@@ -90,16 +105,13 @@ void motors_init(void) {
 * @return void
 */
 void motor_set_speed(float speed){
-     float duty_cycle = 0.5*speed + 0.5;
-     if(duty_cycle >= PWM_min && duty_cycle <= PWM_max){
-        PWM_Set_Duty_Cycle(TIMx,CH,duty_cycle);
-     }
-     else{
-        if(speed>0)
-           PWM_Set_Duty_Cycle(TIMx,CH,PWM_max);
-        else
-           PWM_Set_Duty_Cycle(TIMx,CH,PWM_min);
-     }
+   float duty_cycle;
+
+   if(speed > SPEED_MAX)      speed = SPEED_MAX;
+   else if(speed < SPEED_MIN) speed = SPEED_MIN;
+   
+   duty_cycle = (PWM_MAX - PWM_MIN)/(SPEED_MAX - SPEED_MIN) * (speed - SPEED_MIN) + PWM_MIN;
+   PWM_Set_Duty_Cycle(TIMx,CH,duty_cycle);
 }
 
 /**
@@ -109,7 +121,6 @@ void motor_set_speed(float speed){
 * @return void
 */
 void motors_start(void){
-     PWM_Enable(TIMx);
      Port_IO_Set(GPIOx,ENABLE_PIN);
 }
 
@@ -120,5 +131,5 @@ void motors_start(void){
 * @return void
 */
 void motors_stop(void){
-     PWM_Set_Duty_Cycle(TIMx,CH,0); 
+     Port_IO_Reset(GPIOx,ENABLE_PIN);
 }

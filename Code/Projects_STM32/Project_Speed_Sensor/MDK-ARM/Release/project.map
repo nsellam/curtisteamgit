@@ -26,9 +26,6 @@ Section Cross References
     position_sensor.o(.text) refers to d2f.o(x$fpl$d2f) for __aeabi_d2f
     position_sensor.o(.text) refers to fmul.o(x$fpl$fmul) for __aeabi_fmul
     position_sensor.o(.text) refers to position_sensor.o(.data) for position
-    data.o(.text) refers to data.o(.bss) for data_STM
-    data.o(.text) refers to data.o(.data) for data_PI
-    data.o(.data) refers to data.o(.bss) for data_STM
     hall_sensor.o(.text) refers to exti.o(.text) for exti_init
     hall_sensor.o(.text) refers to systick.o(.text) for micros
     hall_sensor.o(.text) refers to hall_sensor.o(.data) for hall_sensor_number_of_pop
@@ -43,6 +40,9 @@ Section Cross References
     compress.o(.text) refers to fmul.o(x$fpl$fmul) for __aeabi_fmul
     compress.o(.text) refers to ddiv.o(x$fpl$ddiv) for __aeabi_ddiv
     compress.o(.text) refers to dfixu.o(x$fpl$dfixu) for __aeabi_d2uiz
+    data.o(.text) refers to data.o(.bss) for data_STM
+    data.o(.text) refers to data.o(.data) for data_PI
+    data.o(.data) refers to data.o(.bss) for data_STM
     stm32f10x_it.o(.text) refers to systick.o(.text) for systick_inc
     stm32f10x_it.o(.text) refers to stm32f10x_exti.o(.text) for EXTI_GetFlagStatus
     stm32f10x_it.o(.text) refers to callbacks_services.o(.text) for callbacks_services_exti
@@ -221,9 +221,9 @@ Section Cross References
 
 Removing Unused input sections from the image.
 
-    Removing data.o(.text), (72 bytes).
     Removing compress.o(.text), (464 bytes).
     Removing uncompress.o(.text), (12 bytes).
+    Removing data.o(.text), (72 bytes).
     Removing core_cm3.o(.emb_text), (32 bytes).
 
 4 unused section(s) (total 580 bytes) removed from the image.
@@ -242,9 +242,9 @@ Image Symbol Table
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry4.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry2.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
@@ -413,17 +413,17 @@ Image Symbol Table
     .data                                    0x20000000   Section        8  main.o(.data)
     .data                                    0x20000008   Section        5  speed_sensor.o(.data)
     .data                                    0x20000010   Section        4  position_sensor.o(.data)
-    .data                                    0x20000014   Section       12  data.o(.data)
-    .data                                    0x20000020   Section       12  hall_sensor.o(.data)
+    .data                                    0x20000014   Section       12  hall_sensor.o(.data)
+    .data                                    0x20000020   Section       12  data.o(.data)
     .data                                    0x20000030   Section        8  systick.o(.data)
     time_micros                              0x20000030   Data           8  systick.o(.data)
     .data                                    0x20000038   Section       20  stm32f10x_rcc.o(.data)
     APBAHBPrescTable                         0x20000038   Data          16  stm32f10x_rcc.o(.data)
     ADCPrescTable                            0x20000048   Data           4  stm32f10x_rcc.o(.data)
     .data                                    0x2000004c   Section       20  system_stm32f10x.o(.data)
-    .bss                                     0x20000060   Section       20  data.o(.bss)
-    .bss                                     0x20000078   Section       80  hall_sensor.o(.bss)
-    .bss                                     0x200000c8   Section       96  libspace.o(.bss)
+    .bss                                     0x20000060   Section       80  hall_sensor.o(.bss)
+    .bss                                     0x200000b0   Section       20  data.o(.bss)
+    .bss                                     0x200000c4   Section       96  libspace.o(.bss)
     HEAP                                     0x20000128   Section      512  startup_stm32f10x_md.o(HEAP)
     Heap_Mem                                 0x20000128   Data         512  startup_stm32f10x_md.o(HEAP)
     STACK                                    0x20000328   Section     1024  startup_stm32f10x_md.o(STACK)
@@ -520,11 +520,11 @@ Image Symbol Table
     position_sensor_compute                  0x0800028d   Thumb Code    74  position_sensor.o(.text)
     position_sensor_get                      0x080002d7   Thumb Code    16  position_sensor.o(.text)
     hall_sensor_reset                        0x080002f9   Thumb Code    40  hall_sensor.o(.text)
-    hall_sensor_init                         0x08000321   Thumb Code    26  hall_sensor.o(.text)
-    hall_sensor_callback                     0x0800033b   Thumb Code    74  hall_sensor.o(.text)
-    hall_sensor_get_sector                   0x08000385   Thumb Code    20  hall_sensor.o(.text)
-    hall_sensor_get_lap                      0x08000399   Thumb Code     6  hall_sensor.o(.text)
-    get_hall_sensor_last_pop                 0x0800039f   Thumb Code    36  hall_sensor.o(.text)
+    hall_sensor_init                         0x08000321   Thumb Code    28  hall_sensor.o(.text)
+    hall_sensor_callback                     0x0800033d   Thumb Code    74  hall_sensor.o(.text)
+    hall_sensor_get_sector                   0x08000387   Thumb Code    20  hall_sensor.o(.text)
+    hall_sensor_get_lap                      0x0800039b   Thumb Code     6  hall_sensor.o(.text)
+    get_hall_sensor_last_pop                 0x080003a1   Thumb Code    36  hall_sensor.o(.text)
     callbacks_services_exti                  0x080003d9   Thumb Code    16  callbacks_services.o(.text)
     NMI_Handler                              0x080003e9   Thumb Code     2  stm32f10x_it.o(.text)
     HardFault_Handler                        0x080003eb   Thumb Code     4  stm32f10x_it.o(.text)
@@ -702,18 +702,18 @@ Image Symbol Table
     speed                                    0x20000008   Data           4  speed_sensor.o(.data)
     SAMPLE_TO_USE                            0x2000000c   Data           1  speed_sensor.o(.data)
     position                                 0x20000010   Data           4  position_sensor.o(.data)
-    pdata_STM                                0x20000014   Data           4  data.o(.data)
-    pdata_PI                                 0x20000018   Data           4  data.o(.data)
-    data_PI                                  0x2000001c   Data           4  data.o(.data)
-    hall_sensor_number_of_pop                0x20000020   Data           4  hall_sensor.o(.data)
-    hall_sensor_sector                       0x20000024   Data           2  hall_sensor.o(.data)
-    hall_sensor_lap                          0x20000028   Data           4  hall_sensor.o(.data)
+    hall_sensor_number_of_pop                0x20000014   Data           4  hall_sensor.o(.data)
+    hall_sensor_sector                       0x20000018   Data           2  hall_sensor.o(.data)
+    hall_sensor_lap                          0x2000001c   Data           4  hall_sensor.o(.data)
+    pdata_STM                                0x20000020   Data           4  data.o(.data)
+    pdata_PI                                 0x20000024   Data           4  data.o(.data)
+    data_PI                                  0x20000028   Data           4  data.o(.data)
     SystemCoreClock                          0x2000004c   Data           4  system_stm32f10x.o(.data)
     AHBPrescTable                            0x20000050   Data          16  system_stm32f10x.o(.data)
-    data_STM                                 0x20000060   Data          20  data.o(.bss)
-    hall_sensor_last_pops                    0x20000078   Data          80  hall_sensor.o(.bss)
-    __libspace_start                         0x200000c8   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x20000128   Data           0  libspace.o(.bss)
+    hall_sensor_last_pops                    0x20000060   Data          80  hall_sensor.o(.bss)
+    data_STM                                 0x200000b0   Data          20  data.o(.bss)
+    __libspace_start                         0x200000c4   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20000124   Data           0  libspace.o(.bss)
 
 
 
@@ -778,8 +778,8 @@ Memory Map of the image
     0x08000188   0x00000054   Code   RO            1    .text               main.o
     0x080001dc   0x000000a8   Code   RO           72    .text               speed_sensor.o
     0x08000284   0x00000074   Code   RO           87    .text               position_sensor.o
-    0x080002f8   0x000000e0   Code   RO          121    .text               hall_sensor.o
-    0x080003d8   0x00000010   Code   RO          143    .text               callbacks_services.o
+    0x080002f8   0x000000e0   Code   RO          102    .text               hall_sensor.o
+    0x080003d8   0x00000010   Code   RO          124    .text               callbacks_services.o
     0x080003e8   0x000000d0   Code   RO          182    .text               stm32f10x_it.o
     0x080004b8   0x000000b8   Code   RO          197    .text               gpio.o
     0x08000570   0x000000a4   Code   RO          209    .text               systick.o
@@ -828,8 +828,8 @@ Memory Map of the image
     0x20000008   0x00000005   Data   RW           73    .data               speed_sensor.o
     0x2000000d   0x00000003   PAD
     0x20000010   0x00000004   Data   RW           88    .data               position_sensor.o
-    0x20000014   0x0000000c   Data   RW          104    .data               data.o
-    0x20000020   0x0000000c   Data   RW          123    .data               hall_sensor.o
+    0x20000014   0x0000000c   Data   RW          104    .data               hall_sensor.o
+    0x20000020   0x0000000c   Data   RW          165    .data               data.o
     0x2000002c   0x00000004   PAD
     0x20000030   0x00000008   Data   RW          210    .data               systick.o
     0x20000038   0x00000014   Data   RW          276    .data               stm32f10x_rcc.o
@@ -840,10 +840,10 @@ Memory Map of the image
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000060   0x00000014   Zero   RW          103    .bss                data.o
-    0x20000074   0x00000004   PAD
-    0x20000078   0x00000050   Zero   RW          122    .bss                hall_sensor.o
-    0x200000c8   0x00000060   Zero   RW          407    .bss                c_w.l(libspace.o)
+    0x20000060   0x00000050   Zero   RW          103    .bss                hall_sensor.o
+    0x200000b0   0x00000014   Zero   RW          164    .bss                data.o
+    0x200000c4   0x00000060   Zero   RW          407    .bss                c_w.l(libspace.o)
+    0x20000124   0x00000004   PAD
     0x20000128   0x00000200   Zero   RW          319    HEAP                startup_stm32f10x_md.o
     0x20000328   0x00000400   Zero   RW          318    STACK               startup_stm32f10x_md.o
 
@@ -855,28 +855,28 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        16          0          0          0          0        546   callbacks_services.o
+        16          0          0          0          0        570   callbacks_services.o
          0          0          0          0          0         32   core_cm3.o
-         0          0          0         12         20       1710   data.o
-       792         30          0          0          0       2989   exti.o
-       184         30          0          0          0       1170   gpio.o
-       224         22          0         12         80       2239   hall_sensor.o
-        84         12          0          8          0     228286   main.o
-       220         20          0          0          0       1965   misc.o
-       116         18          0          4          0       1170   position_sensor.o
-       168         20          0          5          0       1252   speed_sensor.o
-        64         26        236          0       1536        928   startup_stm32f10x_md.o
-       284         10          0          0          0       2395   stm32f10x_exti.o
-       856         40          0          0          0       5805   stm32f10x_gpio.o
-       208          0          0          0          0       2642   stm32f10x_it.o
-       932         44          0         20          0       9012   stm32f10x_rcc.o
-       476         36          0         20          0       2115   system_stm32f10x.o
-       164         22          0          8          0      16365   systick.o
+         0          0          0         12         20       1974   data.o
+       792         30          0          0          0       3041   exti.o
+       184         30          0          0          0       1218   gpio.o
+       224         20          0         12         80       2311   hall_sensor.o
+        84         12          0          8          0     228534   main.o
+       220         20          0          0          0       2013   misc.o
+       116         18          0          4          0       1222   position_sensor.o
+       168         20          0          5          0       1304   speed_sensor.o
+        64         26        236          0       1536        952   startup_stm32f10x_md.o
+       284         10          0          0          0       2443   stm32f10x_exti.o
+       856         40          0          0          0       5853   stm32f10x_gpio.o
+       208          0          0          0          0       2666   stm32f10x_it.o
+       932         44          0         20          0       9088   stm32f10x_rcc.o
+       476         36          0         20          0       2187   system_stm32f10x.o
+       164         22          0          8          0      16461   systick.o
 
     ----------------------------------------------------------------------
-      4788        330        268         96       1640     280621   Object Totals
+      4788        328        268         96       1636     281869   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         0          0          0          7          4          0   (incl. Padding)
+         0          0          0          7          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -917,8 +917,8 @@ Image component sizes
          0          0          0          0          0          0   usenofp.o
 
     ----------------------------------------------------------------------
-      2380        132          0          0         96       1736   Library Totals
-        14          0          0          0          0          0   (incl. Padding)
+      2380        132          0          0        100       1736   Library Totals
+        14          0          0          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -928,7 +928,7 @@ Image component sizes
       2100        116          0          0          0       1160   fz_ws.l
 
     ----------------------------------------------------------------------
-      2380        132          0          0         96       1736   Library Totals
+      2380        132          0          0        100       1736   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -937,9 +937,9 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7168        462        268         96       1736     280069   Grand Totals
-      7168        462        268         96       1736     280069   ELF Image Totals
-      7168        462        268         96          0          0   ROM Totals
+      7168        460        268         96       1736     281317   Grand Totals
+      7168        460        268         96       1736     281317   ELF Image Totals
+      7168        460        268         96          0          0   ROM Totals
 
 ==============================================================================
 

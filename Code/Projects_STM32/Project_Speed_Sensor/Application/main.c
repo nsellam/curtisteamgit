@@ -60,7 +60,7 @@ int main(void) {
 	hall_sensor_init();
 	position_sensor_init();
 	speed_sensor_init();
-	
+
 	while(1) {
 		position_sensor_compute();
 		jeanmichelposition = position_sensor_get(POSITION_CM);
