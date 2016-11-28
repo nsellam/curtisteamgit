@@ -13,10 +13,10 @@ $(EXEC): $(OBJ)
 
 $(OBJ): | $(OBJ_DIR)
 
-$(OBJ_DIR)/utils.o:     utils.h
-$(OBJ_DIR)/file.o:              file.h
-$(OBJ_DIR)/directory.o: utils.h file.h directory.h
-$(OBJ_DIR)/main.o:              file.h directory.h
+#$(OBJ_DIR)/utils.o:     utils.h
+#$(OBJ_DIR)/file.o:              file.h
+#$(OBJ_DIR)/directory.o: utils.h file.h directory.h
+#$(OBJ_DIR)/main.o:              file.h directory.h
 
 $(OBJ_DIR):
 	@mkdir -p $@

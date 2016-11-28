@@ -69,50 +69,50 @@ void set_errors_SPI (uint8_t Error_CLK, uint8_t Error_MISO, uint8_t Error_MOSI) 
 	} 
 	else {} 
 		
-	pthread_mutex_lock(&mutexdata);
+	pthread_mutex_lock(&mutexDataSTM);
 	pdata->data_STM.errors_SPI = new_errors_SPI;
-	pthread_mutex_unlock(&mutexdata);
+	pthread_mutex_unlock(&mutexDataSTM);
 }
 
 
 void set_error_CLK (uint8_t Error) {
 	if (! Error) {
-		pthread_mutex_lock(&mutexdata);
+		pthread_mutex_lock(&mutexDataSTM);
 		pdata->data_STM.errors_SPI = pdata->data_STM.errors_SPI | MASK_ERROR_CLK;
-		pthread_mutex_unlock(&mutexdata);
+		pthread_mutex_unlock(&mutexDataSTM);
 	}
 	else {
-		pthread_mutex_lock(&mutexdata);
+		pthread_mutex_lock(&mutexDataSTM);
 		pdata->data_STM.errors_SPI = pdata->data_STM.errors_SPI & ~(MASK_ERROR_CLK) ;
-		pthread_mutex_unlock(&mutexdata);
+		pthread_mutex_unlock(&mutexDataSTM);
 	}
 }
 
 
 void set_error_MISO (uint8_t Error) {
 	if (! Error) {
-		pthread_mutex_lock(&mutexdata);
+		pthread_mutex_lock(&mutexDataSTM);
 		pdata->data_STM.errors_SPI = pdata->data_STM.errors_SPI | MASK_ERROR_MISO;
-		pthread_mutex_unlock(&mutexdata);
+		pthread_mutex_unlock(&mutexDataSTM);
 	}
 	else {
-		pthread_mutex_lock(&mutexdata);
+		pthread_mutex_lock(&mutexDataSTM);
 		pdata->data_STM.errors_SPI = pdata->data_STM.errors_SPI & ~(MASK_ERROR_MISO) ;
-		pthread_mutex_unlock(&mutexdata);
+		pthread_mutex_unlock(&mutexDataSTM);
 	}
 }
 
 
 void set_error_MOSI (uint8_t Error) {
 	if (! Error) {
-		pthread_mutex_lock(&mutexdata);
+		pthread_mutex_lock(&mutexDataSTM);
 		pdata->data_STM.errors_SPI = pdata->data_STM.errors_SPI | MASK_ERROR_MOSI;
-		pthread_mutex_unlock(&mutexdata);
+		pthread_mutex_unlock(&mutexDataSTM);
 	}
 	else {
-		pthread_mutex_lock(&mutexdata);
+		pthread_mutex_lock(&mutexDataSTM);
 		pdata->data_STM.errors_SPI = pdata->data_STM.errors_SPI & ~(MASK_ERROR_MOSI) ;
-		pthread_mutex_unlock(&mutexdata);
+		pthread_mutex_unlock(&mutexDataSTM);
 	}
 }
 
@@ -120,9 +120,9 @@ uint8_t get_error_CLK (void) {
 	uint8_t R = TRUE;
 	uint8_t localerrors_SPI = 255; //b 1111 1111
 	
-	pthread_mutex_lock(&mutexdata);
+	pthread_mutex_lock(&mutexDataSTM);
 	localerrors_SPI = pdata->data_STM.errors_SPI;
-	pthread_mutex_unlock(&mutexdata);	
+	pthread_mutex_unlock(&mutexDataSTM);	
 
 	R = (localerrors_SPI & MASK_ERROR_CLK);
 
@@ -134,9 +134,9 @@ uint8_t get_error_MISO (void) {
 	uint8_t R = TRUE;
 	uint8_t localerrors_SPI = 255; //b 1111 1111
 	
-	pthread_mutex_lock(&mutexdata);
+	pthread_mutex_lock(&mutexDataSTM);
 	localerrors_SPI = pdata->data_STM.errors_SPI;
-	pthread_mutex_unlock(&mutexdata); 
+	pthread_mutex_unlock(&mutexDataSTM); 
 	
 	R = (localerrors_SPI & MASK_ERROR_MISO);
 	
@@ -148,9 +148,9 @@ uint8_t get_error_MOSI (void) {
 	uint8_t R = TRUE;
 	uint8_t localerrors_SPI = 255; //b 1111 1111
 	
-	pthread_mutex_lock(&mutexdata);
+	pthread_mutex_lock(&mutexDataSTM);
 	localerrors_SPI = pdata->data_STM.errors_SPI;
-	pthread_mutex_unlock(&mutexdata); 
+	pthread_mutex_unlock(&mutexDataSTM); 
 		
 	R = (localerrors_SPI & MASK_ERROR_MOSI);
 	
