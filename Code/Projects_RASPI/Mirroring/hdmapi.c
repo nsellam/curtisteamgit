@@ -39,6 +39,7 @@ int get_ultrasonic_data(int id) {
     tmp = pdata_STM->ultrasonic_sensors[id];
     pthread_mutex_unlock(&m_data_STM);
   }
+  // return -1 if the id is not in range
   else {
     tmp = -1;
   }
@@ -60,6 +61,7 @@ int get_wheel_position_data(int id) {
     tmp = pdata_STM->wheel_position_sensor_L;
     pthread_mutex_unlock(&m_data_STM);
   }
+  // the id does not exist
   else {
     tmp = -1;
   }
@@ -82,6 +84,7 @@ int get_steering_stop_data(int id) {
     tmp = pdata_STM->steering_stop_sensor_L;
     pthread_mutex_unlock(&m_data_STM);
   }
+  // idea does not exist
   else {
     tmp = -1;
   }

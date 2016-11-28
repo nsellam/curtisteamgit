@@ -3,6 +3,12 @@
 
 #define CREATE_THREADS_H
 
+/**
+ * @file create_threads.h
+ * @author Curtis Team
+ * @brief header of create_threads.c
+ */
+
 /********************************/
 /*       LIBRARIES              */
 /********************************/
@@ -13,8 +19,23 @@
 /********************************/
 /*       DEFINES                */
 /********************************/
+
+/**
+ * @def PRIO_MIRRORING
+ * @brief the priority of thread mirroring
+ */ 
 #define PRIO_MIRRORING 30
+
+/**
+ * @def PRIO_PRINT
+ * @brief the priority of thread print
+ */ 
 #define PRIO_PRINT 4
+
+/**
+ * @def PRIO_DEMO
+ * @brief the priority of thread demo_mirroring
+ */ 
 #define PRIO_DEMO 8
 
 /********************************/

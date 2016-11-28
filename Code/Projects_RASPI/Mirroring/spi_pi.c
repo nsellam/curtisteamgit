@@ -1,3 +1,8 @@
+/**
+ * @file spi_pi.c
+ * @author curtisTeam
+ * @brief files where there are the functions for SPI communication
+ */
 
 
 
@@ -14,9 +19,7 @@
 /********************************/
 
 #include <spi.h>
-
 #include <stdio.h>
-#include <CRC.h>
 #include <framecheck.h>
 
 
@@ -25,10 +28,22 @@
 /*       ALIAS                  */
 /********************************/
 
+/**
+ * @def SPI_SPEED
+ * @brief the SPI clock frequency (Hz)
+ */ 
 #define SPI_SPEED 2e6
 
+/**
+ * @def SPI_CHANNEL
+ * @brief the channel for spi on Pi
+ */ 
 #define SPI_CHANNEL 0
 
+/**
+ * @def SPI_MODE
+ * @brief the spi mode
+ */ 
 #define SPI_MODE SPI_MODE_0
 
 
@@ -55,6 +70,8 @@ int SPI_init(void) {
 
 
 int SPI_send(uint8_t * pdata, int length) {
+
+    // declarations
     int error = 0x00;
     int i, j;
 
@@ -69,8 +86,6 @@ int SPI_send(uint8_t * pdata, int length) {
   
     // CRC
     tmp[length + FRAME_CANARY_SIZE] = Frame_compute_CRC((uint8_t*)&tmp, length + FRAME_CANARY_SIZE);
-
-
 
     // SPI send/receive
     error = wiringPiSPIDataRW (SPI_CHANNEL, (uint8_t*)&tmp, length + FRAME_CANARY_SIZE + FRAME_CRC_SIZE);

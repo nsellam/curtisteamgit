@@ -26,7 +26,10 @@
 /************************
  *      DEFINES         *
  ************************/
-
+/**
+ * @def max(a,b)
+ * @brief macro for maximum computing
+ */
 #define max(a,b)  (((a) > (b)) ? (a) : (b))
 
 /**
@@ -47,15 +50,36 @@
  ************************/
 
 
-
+/**
+ * @var m_data_PI
+ * @brief mutex for data_PI structure
+ */
 pthread_mutex_t m_data_PI;
+
+/**
+ * @var m_data_STM
+ * @brief mutex for data_STM structure
+ */
 pthread_mutex_t m_data_STM;
 
-//const size_t padding_size = (DATA_SIZE_MAX-sizeof(data_STM_t));
-
+/**
+ * @ send_error
+ * @brief to store the errors when SPI sending 
+ */
 int send_error = 0x00;
+
+/**
+ * @ canary_error_count
+ * @brief to count the canary errors 
+ */
 int canary_error_count = 0x00;
+
+/**
+ * @ crc_error_count
+ * @brief to count the crc errors 
+ */
 int crc_error_count = 0x00;
+
 int k = 0;
 /************************
  *      FUNCTIONS       *

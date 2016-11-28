@@ -9,6 +9,10 @@
 
 #include <stdint.h>
 
+/**
+ * @def CANARY
+ * @brief the value for the canary of SPI frames
+ */ 
 #define CANARY ((uint8_t)0xCA)
 
 /**

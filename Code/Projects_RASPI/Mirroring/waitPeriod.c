@@ -67,7 +67,6 @@ void waitPeriod (int period_ns,struct timespec * pT1, struct timespec * pT2){
         elapsedTime = (pT2->tv_sec - pT1->tv_sec)*1000000000;
         elapsedTime +=  (pT2->tv_nsec - pT1->tv_nsec);
     }while (elapsedTime <= period_ns - DRIFT_COMPENSATION);
-
 }
 
 

@@ -10,9 +10,22 @@
 #include <stdint.h>
 #include <stddef.h>
 
+/**
+ * @def FRAME_CANARY_SIZE
+ * @brief size of the canary field in a frame
+ */ 
 #define FRAME_CANARY_SIZE 1
+
+/**
+ * @def FRAME_CRC_SIZE
+ * @brief size of the crc field in a frame
+ */ 
 #define FRAME_CRC_SIZE 1
 
+/**
+ * @def FRAME_CHECK_SIZE
+ * @brief size of the canary plus the CRC fields in a frame
+ */ 
 #define FRAME_CHECK_SIZE (FRAME_CANARY_SIZE + FRAME_CRC_SIZE)
 
 /************************
