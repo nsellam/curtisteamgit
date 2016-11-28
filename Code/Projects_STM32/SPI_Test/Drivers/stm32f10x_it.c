@@ -75,7 +75,7 @@ __weak void SPIComm_DMA_Callback(int dma, int channel, uint8_t flags){}
 /*                         IT Callbacks                                       */
 /******************************************************************************/
 
-__INLINE void DMA_Callbacks(int dma, int channel, uint8_t flags) {
+void DMA_Callbacks(int dma, int channel, uint8_t flags) {
    SPIComm_DMA_Callback(dma, channel, flags);
 }
 

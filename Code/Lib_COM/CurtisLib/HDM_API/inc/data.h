@@ -18,18 +18,18 @@
  * size: 19 bytes
  */
 typedef struct {
-  uint8_t ultrasonic_sensors[DATA_STM_US_NUM];
+   uint8_t ultrasonic_sensors[DATA_STM_US_NUM];
 
-  uint8_t wheel_position_sensor_R;
-  uint8_t wheel_position_sensor_L;
-  
-  float travelled_distance; 
-  float car_speed;
+   uint8_t wheel_position_sensor_R;
+   uint8_t wheel_position_sensor_L;
 
-  uint8_t steering_stop_sensor_R;
-  uint8_t steering_stop_sensor_L;
+   //float travelled_distance;
+   //float car_speed;
 
-  uint8_t errors_SPI;
+   uint8_t steering_stop_sensor_R;
+   uint8_t steering_stop_sensor_L;
+
+   uint8_t errors_SPI;
 } data_STM_t;
 
 
