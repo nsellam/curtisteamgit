@@ -1,0 +1,61 @@
+\hypertarget{speed__sensor_8c}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Application/speed\+\_\+sensor.c File Reference}
+\label{speed__sensor_8c}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Application/speed\+\_\+sensor.\+c@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Application/speed\+\_\+sensor.\+c}}
+
+
+Application functions for speed sensors.  
+
+
+{\ttfamily \#include \char`\"{}speed\+\_\+sensor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hall\+\_\+sensor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}systick.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{speed__sensor_8c_a9f27b14f6e9977df2cd8c410212ab3ff}{}\label{speed__sensor_8c_a9f27b14f6e9977df2cd8c410212ab3ff} 
+\#define \hyperlink{speed__sensor_8c_a9f27b14f6e9977df2cd8c410212ab3ff}{D\+E\+L\+T\+A\+\_\+\+D\+I\+S\+T\+A\+N\+CE}~(float) PI$\ast$((float)(((float)C\+A\+R\+\_\+\+W\+H\+E\+E\+L\+\_\+\+S\+I\+ZE/(float)\hyperlink{hall__sensor_8h_adc67b7bdc8602f86ce5cd427887082d5}{H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+S\+E\+C\+T\+O\+RS})))
+\begin{DoxyCompactList}\small\item\em Travelled distance between two samples. \end{DoxyCompactList}\item 
+\hypertarget{speed__sensor_8c_aa84a29002ab81c719c0d07bb446296e0}{}\label{speed__sensor_8c_aa84a29002ab81c719c0d07bb446296e0} 
+\#define \hyperlink{speed__sensor_8c_aa84a29002ab81c719c0d07bb446296e0}{I\+N\+F\+I\+N\+I\+TE}~9999.\+99
+\begin{DoxyCompactList}\small\item\em Value given if car browses instantly the distance between two samples. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{speed__sensor_8c_aab598bee0686f1ce051b425142099e6f}{}\label{speed__sensor_8c_aab598bee0686f1ce051b425142099e6f} 
+void \hyperlink{speed__sensor_8c_aab598bee0686f1ce051b425142099e6f}{speed\+\_\+sensor\+\_\+init} ()
+\begin{DoxyCompactList}\small\item\em Initializes speed sensor. \end{DoxyCompactList}\item 
+\hypertarget{speed__sensor_8c_aaf2ab9cb84117bee5a2cec4259e36c52}{}\label{speed__sensor_8c_aaf2ab9cb84117bee5a2cec4259e36c52} 
+void \hyperlink{speed__sensor_8c_aaf2ab9cb84117bee5a2cec4259e36c52}{speed\+\_\+sensor\+\_\+compute} ()
+\begin{DoxyCompactList}\small\item\em Computes speed and stores the result in a private variable. \end{DoxyCompactList}\item 
+\hypertarget{speed__sensor_8c_ab832822162b4f0ce9b91f294ad10d948}{}\label{speed__sensor_8c_ab832822162b4f0ce9b91f294ad10d948} 
+float {\bfseries speed\+\_\+sensor\+\_\+get} (float unit)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{speed__sensor_8c_a812e70636ed6014791b61c23012ceb9b}{}\label{speed__sensor_8c_a812e70636ed6014791b61c23012ceb9b} 
+uint8\+\_\+t \hyperlink{speed__sensor_8c_a812e70636ed6014791b61c23012ceb9b}{S\+A\+M\+P\+L\+E\+\_\+\+T\+O\+\_\+\+U\+SE}
+\begin{DoxyCompactList}\small\item\em Number of the sample to consider to compute speed. \end{DoxyCompactList}\item 
+float \hyperlink{speed__sensor_8c_ab04a44aead88cfdbd44325ec2cf7a33a}{speed} = 0
+\begin{DoxyCompactList}\small\item\em Last computed position (expressed in centimeters) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Application functions for speed sensors. 
+
+\begin{DoxyAuthor}{Author}
+Curtis Team 
+\end{DoxyAuthor}
+
+
+\subsection{Variable Documentation}
+\hypertarget{speed__sensor_8c_ab04a44aead88cfdbd44325ec2cf7a33a}{}\label{speed__sensor_8c_ab04a44aead88cfdbd44325ec2cf7a33a} 
+\index{speed\+\_\+sensor.\+c@{speed\+\_\+sensor.\+c}!speed@{speed}}
+\index{speed@{speed}!speed\+\_\+sensor.\+c@{speed\+\_\+sensor.\+c}}
+\subsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily speed = 0}
+
+
+
+Last computed position (expressed in centimeters) 
+
+Last computed speed (expressed in centimeters per second) 

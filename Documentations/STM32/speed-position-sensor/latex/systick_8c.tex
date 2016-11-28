@@ -1,0 +1,43 @@
+\hypertarget{systick_8c}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Drivers/systick.c File Reference}
+\label{systick_8c}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Drivers/systick.\+c@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Drivers/systick.\+c}}
+
+
+Functions to handle systick (S\+TM internal time)  
+
+
+{\ttfamily \#include \char`\"{}systick.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{systick_8c_a85638f2217d7c84c81be7c65b30738c4}{}\label{systick_8c_a85638f2217d7c84c81be7c65b30738c4} 
+void \hyperlink{systick_8c_a85638f2217d7c84c81be7c65b30738c4}{systick\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes systick system. \end{DoxyCompactList}\item 
+uint64\+\_\+t \hyperlink{systick_8c_a5f1de6192da18b725405f7a13cf6cecc}{micros} (void)
+\begin{DoxyCompactList}\small\item\em Returns the current S\+T\+M32 time. \end{DoxyCompactList}\item 
+\hypertarget{systick_8c_af0b6aa3cf7f07e26536372d26b412926}{}\label{systick_8c_af0b6aa3cf7f07e26536372d26b412926} 
+void \hyperlink{systick_8c_af0b6aa3cf7f07e26536372d26b412926}{systick\+\_\+inc} (void)
+\begin{DoxyCompactList}\small\item\em Increments current time. N\+OT S\+U\+P\+P\+O\+S\+ED TO BE U\+SE O\+UT OF Sys\+Tick\+\_\+\+Handler (in \hyperlink{stm32f10x__it_8c}{stm32f10x\+\_\+it.\+c}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions to handle systick (S\+TM internal time) 
+
+\begin{DoxyAuthor}{Author}
+Curtis Team 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{systick_8c_a5f1de6192da18b725405f7a13cf6cecc}{}\label{systick_8c_a5f1de6192da18b725405f7a13cf6cecc} 
+\index{systick.\+c@{systick.\+c}!micros@{micros}}
+\index{micros@{micros}!systick.\+c@{systick.\+c}}
+\subsubsection{\texorpdfstring{micros()}{micros()}}
+{\footnotesize\ttfamily micros (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current S\+T\+M32 time. 
+
+\begin{DoxyReturn}{Returns}
+uint64\+\_\+t (time elapsed since systick initialization expressed in microseconds) 
+\end{DoxyReturn}

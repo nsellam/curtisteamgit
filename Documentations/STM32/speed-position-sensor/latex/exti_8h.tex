@@ -1,0 +1,41 @@
+\hypertarget{exti_8h}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Drivers/exti.h File Reference}
+\label{exti_8h}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Drivers/exti.\+h@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Drivers/exti.\+h}}
+
+
+Headers of functions to handle external interrupts (E\+X\+TI)  
+
+
+{\ttfamily \#include $<$stm32f10x.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{exti_8h_a2294d5797552e995bed96f8343cc2a1e}{}\label{exti_8h_a2294d5797552e995bed96f8343cc2a1e} 
+\#define \hyperlink{exti_8h_a2294d5797552e995bed96f8343cc2a1e}{E\+X\+T\+I\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}~0
+\begin{DoxyCompactList}\small\item\em Given pin was succesfully initialize as external interruption. \end{DoxyCompactList}\item 
+\hypertarget{exti_8h_aadf92e4e0654663511035697636edca7}{}\label{exti_8h_aadf92e4e0654663511035697636edca7} 
+\#define \hyperlink{exti_8h_aadf92e4e0654663511035697636edca7}{E\+X\+T\+I\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+L\+I\+NE}~-\/1
+\begin{DoxyCompactList}\small\item\em Given pin couldn\textquotesingle{}t be initialize as external interruption due to a non valid line. \end{DoxyCompactList}\item 
+\hypertarget{exti_8h_a69d3ee1b38dd6cb6565c61852669a17c}{}\label{exti_8h_a69d3ee1b38dd6cb6565c61852669a17c} 
+\#define \hyperlink{exti_8h_a69d3ee1b38dd6cb6565c61852669a17c}{E\+X\+T\+I\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+C\+H\+A\+N\+N\+EL}~-\/2
+\begin{DoxyCompactList}\small\item\em Given pin couldn\textquotesingle{}t be initialize as external interruption due to a problem while computing channel. \end{DoxyCompactList}\item 
+\hypertarget{exti_8h_a18b1749e409f9bba4ce53da4f8504d45}{}\label{exti_8h_a18b1749e409f9bba4ce53da4f8504d45} 
+\#define \hyperlink{exti_8h_a18b1749e409f9bba4ce53da4f8504d45}{E\+X\+T\+I\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+P\+O\+R\+T\+\_\+\+S\+O\+U\+R\+CE}~-\/3
+\begin{DoxyCompactList}\small\item\em Given port couldn\textquotesingle{}t be found. \end{DoxyCompactList}\item 
+\hypertarget{exti_8h_aceb91ca8c99be08378080db8dbda8208}{}\label{exti_8h_aceb91ca8c99be08378080db8dbda8208} 
+\#define \hyperlink{exti_8h_aceb91ca8c99be08378080db8dbda8208}{E\+X\+T\+I\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+P\+I\+N\+\_\+\+S\+O\+U\+R\+CE}~-\/4
+\begin{DoxyCompactList}\small\item\em Given pin couldn\textquotesingle{}t be found. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{exti_8h_a4b7e494df5213e477c8b711ac0aa1ee3}{}\label{exti_8h_a4b7e494df5213e477c8b711ac0aa1ee3} 
+int {\bfseries exti\+\_\+init} (G\+P\+I\+O\+\_\+\+Type\+Def $\ast$G\+P\+IO, uint16\+\_\+t Pin, E\+X\+T\+I\+Mode\+\_\+\+Type\+Def E\+X\+T\+I\+\_\+\+Mode, E\+X\+T\+I\+Trigger\+\_\+\+Type\+Def E\+X\+T\+I\+Trigger, uint8\+\_\+t Priority, uint8\+\_\+t Sub\+Priority)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Headers of functions to handle external interrupts (E\+X\+TI) 
+
+\begin{DoxyAuthor}{Author}
+Curtis Team 
+\end{DoxyAuthor}

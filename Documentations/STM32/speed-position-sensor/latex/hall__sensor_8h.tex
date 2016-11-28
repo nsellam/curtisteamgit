@@ -1,0 +1,97 @@
+\hypertarget{hall__sensor_8h}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Services/hall\+\_\+sensor.h File Reference}
+\label{hall__sensor_8h}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Services/hall\+\_\+sensor.\+h@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Services/hall\+\_\+sensor.\+h}}
+
+
+Handlers of service functions for hall sensors.  
+
+
+{\ttfamily \#include $<$stm32f10x.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{hall__sensor_8h_a2272fb48e5d2cfd5bc5ccb98b44c5c4f}{}\label{hall__sensor_8h_a2272fb48e5d2cfd5bc5ccb98b44c5c4f} 
+\#define \hyperlink{hall__sensor_8h_a2272fb48e5d2cfd5bc5ccb98b44c5c4f}{H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+L\+I\+NE}~E\+X\+T\+I\+\_\+\+Line8
+\begin{DoxyCompactList}\small\item\em Number of the exti-\/line corresponding to the hall sensor. \end{DoxyCompactList}\item 
+\hypertarget{hall__sensor_8h_a8cfc49fc95187506313c1d189aad41a7}{}\label{hall__sensor_8h_a8cfc49fc95187506313c1d189aad41a7} 
+\#define \hyperlink{hall__sensor_8h_a8cfc49fc95187506313c1d189aad41a7}{H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+Pin\+\_\+8
+\begin{DoxyCompactList}\small\item\em Number of the pin where the hall sensor is plugged. \end{DoxyCompactList}\item 
+\hypertarget{hall__sensor_8h_a8a3277127f3f203dbd778503800791c8}{}\label{hall__sensor_8h_a8a3277127f3f203dbd778503800791c8} 
+\#define \hyperlink{hall__sensor_8h_a8a3277127f3f203dbd778503800791c8}{H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+P\+IO}~G\+P\+I\+OC
+\begin{DoxyCompactList}\small\item\em Pointer on the G\+P\+IO port interfacing the hall sensor. \end{DoxyCompactList}\item 
+\hypertarget{hall__sensor_8h_a2e111e846c2d5669e5d4ba3f8a9b332e}{}\label{hall__sensor_8h_a2e111e846c2d5669e5d4ba3f8a9b332e} 
+\#define {\bfseries H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+T\+R\+I\+GG}~E\+X\+T\+I\+\_\+\+Trigger\+\_\+\+Rising
+\item 
+\#define \hyperlink{hall__sensor_8h_a8b567dde11555a1b8f420fbd038e486b}{H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+M\+O\+DE}~E\+X\+T\+I\+\_\+\+Mode\+\_\+\+Interrupt
+\begin{DoxyCompactList}\small\item\em Way to trigg interrupts for this sensor. \end{DoxyCompactList}\item 
+\hypertarget{hall__sensor_8h_aecc3b96c89d1efcb26f1ad40d21d8ed5}{}\label{hall__sensor_8h_aecc3b96c89d1efcb26f1ad40d21d8ed5} 
+\#define \hyperlink{hall__sensor_8h_aecc3b96c89d1efcb26f1ad40d21d8ed5}{H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+P\+R\+IO}~1
+\begin{DoxyCompactList}\small\item\em E\+X\+TI preemption priority. \end{DoxyCompactList}\item 
+\hypertarget{hall__sensor_8h_a862f75f26b216467f57b4430a8d314ca}{}\label{hall__sensor_8h_a862f75f26b216467f57b4430a8d314ca} 
+\#define \hyperlink{hall__sensor_8h_a862f75f26b216467f57b4430a8d314ca}{H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+U\+B\+P\+R\+IO}~0
+\begin{DoxyCompactList}\small\item\em E\+X\+TI subpriority. \end{DoxyCompactList}\item 
+\hypertarget{hall__sensor_8h_a2c6c2aa45e800e1637f55bdf0b979f50}{}\label{hall__sensor_8h_a2c6c2aa45e800e1637f55bdf0b979f50} 
+\#define \hyperlink{hall__sensor_8h_a2c6c2aa45e800e1637f55bdf0b979f50}{H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+M\+A\+X\+\_\+\+S\+A\+V\+E\+D\+\_\+\+P\+OP}~0x0A
+\begin{DoxyCompactList}\small\item\em Number of date of interrupt saved. Must be inferior to 0x\+F\+F\+F\+F\+F\+F\+FF. \end{DoxyCompactList}\item 
+\hypertarget{hall__sensor_8h_adc67b7bdc8602f86ce5cd427887082d5}{}\label{hall__sensor_8h_adc67b7bdc8602f86ce5cd427887082d5} 
+\#define \hyperlink{hall__sensor_8h_adc67b7bdc8602f86ce5cd427887082d5}{H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+S\+E\+C\+T\+O\+RS}~36
+\begin{DoxyCompactList}\small\item\em Number of fronts to count to get one full lap of wheel. \end{DoxyCompactList}\item 
+\hypertarget{hall__sensor_8h_aa245104dd825cf25a7ad0c851c145697}{}\label{hall__sensor_8h_aa245104dd825cf25a7ad0c851c145697} 
+\#define {\bfseries E\+R\+R\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+GE}~(uint16\+\_\+t)(-\/1)
+\item 
+\hypertarget{hall__sensor_8h_ad54b9dcfdca2ca2c5b0aff41aad320f4}{}\label{hall__sensor_8h_ad54b9dcfdca2ca2c5b0aff41aad320f4} 
+\#define \hyperlink{hall__sensor_8h_ad54b9dcfdca2ca2c5b0aff41aad320f4}{E\+R\+R\+O\+R\+\_\+\+V\+A\+L\+U\+E\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND}~(uint64\+\_\+t)(-\/1)
+\begin{DoxyCompactList}\small\item\em An error occured \+: this value was not computed (too few pops are kept in memory) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{hall__sensor_8h_a52c8cafe36638bff46fb18d7cf81cc27}{}\label{hall__sensor_8h_a52c8cafe36638bff46fb18d7cf81cc27} 
+void \hyperlink{hall__sensor_8h_a52c8cafe36638bff46fb18d7cf81cc27}{hall\+\_\+sensor\+\_\+callback} (void)
+\begin{DoxyCompactList}\small\item\em Called function on external interrupt (E\+X\+TI). Must not be call by user. \end{DoxyCompactList}\item 
+\hypertarget{hall__sensor_8h_ad205f5bce2b85d98fbb61411f247a956}{}\label{hall__sensor_8h_ad205f5bce2b85d98fbb61411f247a956} 
+uint64\+\_\+t {\bfseries get\+\_\+hall\+\_\+sensor\+\_\+last\+\_\+pop} (uint8\+\_\+t n)
+\item 
+\hypertarget{hall__sensor_8h_ab6dc1b4a65f7a18db8e0ac26de7ef745}{}\label{hall__sensor_8h_ab6dc1b4a65f7a18db8e0ac26de7ef745} 
+uint16\+\_\+t {\bfseries hall\+\_\+sensor\+\_\+get\+\_\+sector} (void)
+\item 
+uint32\+\_\+t \hyperlink{hall__sensor_8h_ac6c8337fa4b4ec6a6076fa2122177f3d}{hall\+\_\+sensor\+\_\+get\+\_\+lap} (void)
+\begin{DoxyCompactList}\small\item\em Return the current lap. \end{DoxyCompactList}\item 
+\hypertarget{hall__sensor_8h_afcb775e7d127718f88cf974b468989e5}{}\label{hall__sensor_8h_afcb775e7d127718f88cf974b468989e5} 
+void \hyperlink{hall__sensor_8h_afcb775e7d127718f88cf974b468989e5}{hall\+\_\+sensor\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize hall sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handlers of service functions for hall sensors. 
+
+\begin{DoxyAuthor}{Author}
+Curtis Team 
+\end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{hall__sensor_8h_a8b567dde11555a1b8f420fbd038e486b}{}\label{hall__sensor_8h_a8b567dde11555a1b8f420fbd038e486b} 
+\index{hall\+\_\+sensor.\+h@{hall\+\_\+sensor.\+h}!H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+M\+O\+DE@{H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+M\+O\+DE}}
+\index{H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+M\+O\+DE@{H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+M\+O\+DE}!hall\+\_\+sensor.\+h@{hall\+\_\+sensor.\+h}}
+\subsubsection{\texorpdfstring{H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+M\+O\+DE}{HALL\_SENSOR\_MODE}}
+{\footnotesize\ttfamily \#define H\+A\+L\+L\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+M\+O\+DE~E\+X\+T\+I\+\_\+\+Mode\+\_\+\+Interrupt}
+
+
+
+Way to trigg interrupts for this sensor. 
+
+Mode of exti for this sensor. 
+
+\subsection{Function Documentation}
+\hypertarget{hall__sensor_8h_ac6c8337fa4b4ec6a6076fa2122177f3d}{}\label{hall__sensor_8h_ac6c8337fa4b4ec6a6076fa2122177f3d} 
+\index{hall\+\_\+sensor.\+h@{hall\+\_\+sensor.\+h}!hall\+\_\+sensor\+\_\+get\+\_\+lap@{hall\+\_\+sensor\+\_\+get\+\_\+lap}}
+\index{hall\+\_\+sensor\+\_\+get\+\_\+lap@{hall\+\_\+sensor\+\_\+get\+\_\+lap}!hall\+\_\+sensor.\+h@{hall\+\_\+sensor.\+h}}
+\subsubsection{\texorpdfstring{hall\+\_\+sensor\+\_\+get\+\_\+lap()}{hall\_sensor\_get\_lap()}}
+{\footnotesize\ttfamily uint32\+\_\+t hall\+\_\+sensor\+\_\+get\+\_\+lap (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Return the current lap. 
+
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t -\/$>$ curent lap 
+\end{DoxyReturn}
