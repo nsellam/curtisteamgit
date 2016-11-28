@@ -6,9 +6,9 @@
 
 #define DATA_STM_US_NUM 6
 
-#define DATA_ADRESS_SIZE_PI   4
-#define DATA_SIZE_MAX_RAW     ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
-#define DATA_SIZE_MAX         ((DATA_SIZE_MAX_RAW % DATA_ADRESS_SIZE_PI == 0) ? (DATA_SIZE_MAX_RAW) : (DATA_SIZE_MAX_RAW + DATA_ADRESS_SIZE_PI - DATA_SIZE_MAX_RAW % DATA_ADRESS_SIZE_PI))
+#define DATA_ALIGNMENT_PI  4
+#define DATA_SIZE_MAX_RAW  ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
+#define DATA_SIZE_MAX      (DATA_SIZE_MAX_RAW - (DATA_ALIGNMENT_PI - DATA_SIZE_MAX_RAW % DATA_ALIGNMENT_PI) % DATA_ALIGNMENT_PI)
 
 /************************
  *     STRUCTURES       *

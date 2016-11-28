@@ -60,6 +60,9 @@ uint8_t *data_buffer_Tx;
 uint8_t frame_buffer_Rx[SPICOMM_BUFFER_SIZE_MAX + FRAME_CHECK_SIZE];
 uint8_t frame_buffer_Tx[SPICOMM_BUFFER_SIZE_MAX + FRAME_CHECK_SIZE];
 
+int error_canary_num = 0;
+int error_crc_num = 0;
+
 /********************************/
 /*       STRUCTURES             */
 /********************************/
@@ -177,18 +180,21 @@ void SPIComm_DMA_Callback(int dma, int channel, uint8_t flags) {
 
 void handle_data_Rx(SPIComm_TransferStatus status) {
    uint8_t canary, crc, error_canary, error_crc;
-   // avoid data inconsistency
-   memcpy(data_buffer_Rx, frame_buffer_Rx, data_buffer_Rx_size);
+   // extract canary and crc
    canary = frame_buffer_Rx[FRAME_CANARY_POS(data_buffer_Rx_size)];
    crc = frame_buffer_Rx[FRAME_CRC_POS(data_buffer_Rx_size)];
    // check canary
-   error_canary = Frame_check_canary(canary);
+   error_canary = (Frame_check_canary(canary) != 0);
+   error_canary_num += error_canary;
    // check crc
-   error_crc = Frame_check_CRC(data_buffer_Rx, data_buffer_Rx_size + FRAME_CANARY_SIZE, crc);
+   error_crc = (Frame_check_CRC(frame_buffer_Rx, data_buffer_Rx_size + FRAME_CANARY_SIZE, crc) != 0);
+   error_crc_num += error_crc;
+   // copy frame to data
+   if(!error_canary && !error_crc) memcpy(data_buffer_Rx, frame_buffer_Rx, data_buffer_Rx_size);
 }
 
 void handle_data_Tx(SPIComm_TransferStatus status) {
-   // avoid data inconsistency
+   // copy data to frame
    memcpy(frame_buffer_Tx, data_buffer_Tx, data_buffer_Tx_size);
    // add canary
    frame_buffer_Tx[FRAME_CANARY_POS(data_buffer_Tx_size)] = Frame_compute_canary();
