@@ -13,6 +13,8 @@
 #include <stddef.h>
 
 #define INITIAL_8B_VALUE 0x00
+#define INITIAL_16B_VALUE 0x0000
+#define INITIAL_32B_VALUE 0x00000000
 
 /************************
  *      VARIABLES       *
@@ -67,8 +69,8 @@ void init_data_STM(void) {
 
    data_STM.wheel_position_sensor_R = INITIAL_8B_VALUE;
    data_STM.wheel_position_sensor_L = INITIAL_8B_VALUE;
-  // data_STM.travelled_distance = 0.0;
-  // data_STM.car_speed = 0.0;
+   data_STM.travelled_distance = 0.0;//INITIAL_32B_VALUE;
+   data_STM.car_speed = 0.0;//INITIAL_16B_VALUE;
    data_STM.steering_stop_sensor_R  = INITIAL_8B_VALUE;
    data_STM.steering_stop_sensor_L  = INITIAL_8B_VALUE;
    data_STM.errors_SPI              = INITIAL_8B_VALUE;

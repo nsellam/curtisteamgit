@@ -17,6 +17,7 @@
 
 #include <stdio.h>
 #include <CRC.h>
+#include <framecheck.h>
 
 
 
@@ -29,6 +30,7 @@
 #define SPI_CHANNEL 0
 
 #define SPI_MODE SPI_MODE_0
+
 
 /********************************/
 /*       VARIABLES              */
@@ -53,28 +55,39 @@ int SPI_init(void) {
 
 
 int SPI_send(uint8_t * pdata, int length) {
-    int error;
+    int error = 0x00;
     int i, j;
 
-    // temporary buffer for SPI (it will contain the structure, the CRC and the CANARI)
-    uint8_t tmp[length+1];
+    // temporary buffer for SPI (it will contain the structure, the FRAME_CRC and the FRAME_CANARY)
+    uint8_t tmp[length + FRAME_CANARY_SIZE + FRAME_CRC_SIZE];
     for (i = 0; i < length; i++) {
         tmp[i] = pdata[i];
     }
-
+ 
+    // CANARI - 0xCA
+    tmp[length] = Frame_compute_canary();
+  
     // CRC
+    tmp[length + FRAME_CANARY_SIZE] = Frame_compute_CRC((uint8_t*)&tmp, length + FRAME_CANARY_SIZE);
 
-    //uint8_t CRC = compute_CRC(pdata, length);
-    //tmp[length] = CRC;
+
 
     // SPI send/receive
-    error = wiringPiSPIDataRW (SPI_CHANNEL, (uint8_t*)&tmp, length);
+    error = wiringPiSPIDataRW (SPI_CHANNEL, (uint8_t*)&tmp, length + FRAME_CANARY_SIZE + FRAME_CRC_SIZE);
 
-    // update the data structure given as a parameter with the received value
-    for (j = 0; j < length; j++) {
-        ((uint8_t*)(pdata))[j] = tmp[j];
+    // check CRC & canari
+    if (Frame_check_canary(tmp[length]) != 0x00) {
+      error = SPI_CANARY_ERROR;
+      if (Frame_check_CRC((uint8_t*)&tmp, length + FRAME_CANARY_SIZE, tmp[length + FRAME_CANARY_SIZE]) != 0x00) error = SPI_CRC_ERROR;
     }
+    
 
+    // update the data structure given as a parameter with the received value if no error
+    if ((error != SPI_CANARY_ERROR) && (error != SPI_CRC_ERROR)) {
+      for (j = 0; j < length; j++) {
+        ((uint8_t*)(pdata))[j] = tmp[j];
+      }
+    }
 
     return error;
 }

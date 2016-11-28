@@ -90,7 +90,7 @@ int get_steering_stop_data(int id) {
 }
 
 
-/*
+ 
 float get_travelled_distance() {
   float tmp;  // to store the return value
   pthread_mutex_lock(&m_data_STM);
@@ -111,7 +111,7 @@ float get_car_speed() {
   return tmp;
 }
 
-*/
+
 
 void set_motor_speed_data(uint8_t speed) {
   pthread_mutex_lock(&m_data_PI);

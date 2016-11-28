@@ -19,6 +19,7 @@
 #include <demo_mirroring.h>
 #include <waitPeriod.h>
 #include <data.h>
+#include <hdmapi.h>
 
 /************************
  *      DEFINES         *
@@ -73,7 +74,7 @@ void* demo_mirroring(void* arg) {
   printf("													- 127 means stop the motor\n");
   printf("													- 255 means max forward speed\n");
 
-  scanf("%i", &motor_speed);
+  scanf("%hhu", &motor_speed);
 
 
   set_motor_speed_data(motor_speed); 

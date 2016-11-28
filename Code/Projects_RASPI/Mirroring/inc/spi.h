@@ -16,8 +16,13 @@
 
 
 /********************************/
-/*       ALIAS                  */
+/*       DEFINES                */
 /********************************/
+
+#define SPI_SEND_ERROR -1
+#define SPI_CANARY_ERROR -2
+#define SPI_CRC_ERROR -3
+
 
 /********************************/
 /*       VARIABLES              */

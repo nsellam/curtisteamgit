@@ -37,21 +37,23 @@
  *      VARIABLES       *
  ************************/
 
-
+extern int send_error;
+extern int canary_error_count;
+extern int crc_error_count;
+extern int k;
 
 /********************************/
 /*       FUNCTIONS              */
 /********************************/
 
 void print_struct_PI(data_PI_t *D) {
+  printf("\n\n\n\n\n\n\n\n\n");
   pthread_mutex_lock(&m_data_PI);
   printf("Sent:     \n");
   printf("	Motor_prop               : %i\n", D->motor_prop);
   printf("	Motor_dir                : %i\n", D->motor_dir);
   printf("	LED                      : %i\n", D->led);
   printf("	Errors_SPI               : %i\n", D->errors_SPI);
-  printf("        Canari                   : %i\n", D->canari);
-  printf("        CRC                      : %i\n", D->CRC);
   printf("\n");
   pthread_mutex_unlock(&m_data_PI);
 }
@@ -66,21 +68,23 @@ void print_struct_STM(data_STM_t *D) {
   printf("	Ultrasonic_Front_Left    : %i\n", get_ultrasonic_data(US_BL));
   printf("	wheel_position_sensor_R  : %i\n", get_wheel_position_data(WP_R));
   printf("	wheel_position_sensor_L  : %i\n", get_wheel_position_data(WP_L));
-  //printf("	travelled_distance       : %f\n", get_travelled_distance());
-  //printf("	car_speed                : %f\n", get_car_speed());
+  printf("	travelled_distance       : %f\n", get_travelled_distance());
+  printf("	car_speed                : %f\n", get_car_speed());
   printf("	steering_stop_sensor_R   : %i\n", get_steering_stop_data(SS_R));
   printf("	steering_stop_sensor_L   : %i\n", get_steering_stop_data(SS_L));
   printf("	Errors_SPI               : %i\n", D->errors_SPI);
-  printf("        CANARI                   : %i\n", D->canari);
-  printf("        CRC                      : %i\n", D->CRC);
   printf("\n\n\n");
   printf("-------------------------------------------------------------");
   printf("\n");
 
-  printf ("DATA_SIZE_MAX : %i\n\n", DATA_SIZE_MAX);
-  printf ("float         : %i\n", sizeof(float));
-  printf ("data_stm      : %i\n", sizeof(data_STM_t));
-  printf ("data_pi      : %i\n", sizeof(data_PI_t));
+  printf ("DATA_SIZE_MAX : %i\n", DATA_SIZE_MAX);
+  printf ("ERROR_SPI_SEND : %i\n", send_error);
+  printf ("canary_error_count : %i\n", canary_error_count);
+  printf ("crc_error_count : %i\n", crc_error_count);
+  printf ("count : %i\n", k);
+  printf("-------------------------------------------------------------\n");
+  printf("-------------------------------------------------------------");
+  printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 }
 
 

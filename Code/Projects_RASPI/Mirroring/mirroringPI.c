@@ -47,12 +47,16 @@
  ************************/
 
 
-int k;
+
 pthread_mutex_t m_data_PI;
 pthread_mutex_t m_data_STM;
 
 //const size_t padding_size = (DATA_SIZE_MAX-sizeof(data_STM_t));
 
+int send_error = 0x00;
+int canary_error_count = 0x00;
+int crc_error_count = 0x00;
+int k = 0;
 /************************
  *      FUNCTIONS       *
  ************************/
@@ -66,13 +70,13 @@ void * mirroringPI (void * arg) {
 
   uint8_t buffer_send_receive[DATA_SIZE_MAX];
 
+
   // initializations
   assert (SPI_init() >=0);
   init_data();
-  pdata_PI->motor_dir = 0xA5;
-  pdata_PI->led = 0x0F;
-  pdata_PI->errors_SPI = 0xBF;
-
+  pdata_PI->motor_dir = 0xBB;
+  pdata_PI->led = 0xAA;
+  pdata_PI->errors_SPI = 0x99;
 
   // set reference for 1st period
   clock_gettime(CLOCK_REALTIME, &T1); 
@@ -90,6 +94,7 @@ void * mirroringPI (void * arg) {
 // thread core
     
 
+    // create data to send (data_PI + padding)
     int i;
     for (i=0;i<sizeof(data_PI_t);i++) {
       pthread_mutex_lock(&m_data_PI);
@@ -102,16 +107,28 @@ void * mirroringPI (void * arg) {
     }
 
 
-    SPI_send(buffer_send_receive, DATA_SIZE_MAX);
+    // send - receive data from SPI
+    send_error = SPI_send(buffer_send_receive, DATA_SIZE_MAX);
 
 
-    int j;
-    for (j = 0;j < DATA_SIZE_MAX;j++) {
-      pthread_mutex_lock(&m_data_STM);
-      ((uint8_t*)pdata_STM)[j] = buffer_send_receive[j];
-      pthread_mutex_unlock(&m_data_STM);
+    // canary error -> increment canary error count
+    if (send_error == SPI_CANARY_ERROR) canary_error_count++;
+
+    // CRC error -> increment CRC error count
+    if (send_error == SPI_CRC_ERROR) crc_error_count++;
+
+    // CRC error -> increment CRC error count
+
+
+    // update buffer STM if no send_error
+    if ((send_error != SPI_CANARY_ERROR) && (send_error != SPI_CRC_ERROR)) {
+      int j;
+      for (j = 0;j < DATA_SIZE_MAX;j++) {
+        pthread_mutex_lock(&m_data_STM);
+        ((uint8_t*)pdata_STM)[j] = buffer_send_receive[j];
+        pthread_mutex_unlock(&m_data_STM);
+      }
     }
-
 
 k++;
 
