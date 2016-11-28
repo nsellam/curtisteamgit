@@ -9,7 +9,7 @@
 
 #include <stdint.h>
 
-#define CANARY 0xCA
+#define CANARY ((uint8_t)0xCA)
 
 /**
  * @fn Frame_compute_CRC

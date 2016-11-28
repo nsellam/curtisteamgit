@@ -8,7 +8,7 @@
 
 #define DATA_ADRESS_SIZE_PI   4
 #define DATA_SIZE_MAX_RAW     ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
-#define DATA_SIZE_MAX         (((DATA_SIZE_MAX_RAW % DATA_ADRESS_SIZE_PI == 0) ? (DATA_SIZE_MAX_RAW) : (DATA_SIZE_MAX_RAW + DATA_ADRESS_SIZE_PI - DATA_SIZE_MAX_RAW % DATA_ADRESS_SIZE_PI))-2)
+#define DATA_SIZE_MAX         ((DATA_SIZE_MAX_RAW % DATA_ADRESS_SIZE_PI == 0) ? (DATA_SIZE_MAX_RAW) : (DATA_SIZE_MAX_RAW + DATA_ADRESS_SIZE_PI - DATA_SIZE_MAX_RAW % DATA_ADRESS_SIZE_PI))
 
 /************************
  *     STRUCTURES       *
@@ -32,7 +32,6 @@ typedef struct {
    uint8_t steering_stop_sensor_L;
 
    uint8_t errors_SPI;
-   uint8_t truc[2];
 } data_STM_t;
 
 

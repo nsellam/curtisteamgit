@@ -22,7 +22,7 @@
 #endif
 
 #define FRAME_CANARY_POS(length) ((length) + 0)
-#define FRAME_CRC_POS(length)    ((length) + 1)
+#define FRAME_CRC_POS(length)    (FRAME_CANARY_POS(length) + FRAME_CANARY_SIZE)
 
 #define SPIx_DR_Offset           0x0C
 #define SPIx_DR_Base             (SPI2_BASE + SPIx_DR_Offset)
