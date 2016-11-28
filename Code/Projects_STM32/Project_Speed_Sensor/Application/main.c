@@ -56,7 +56,7 @@ int main(void) {
 	
 	
 	
-	systick_init ();
+	systick_init();
 	hall_sensor_init();
 	position_sensor_init();
 	speed_sensor_init();

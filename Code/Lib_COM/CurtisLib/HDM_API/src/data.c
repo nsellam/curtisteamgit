@@ -67,8 +67,8 @@ void init_data_STM(void) {
    data_STM.steering_stop_sensor_R  = INITIAL_8B_VALUE;
    data_STM.steering_stop_sensor_L  = INITIAL_8B_VALUE;
    data_STM.errors_SPI              = INITIAL_8B_VALUE;
-	//data_STM.car_speed					= INITIAL_FLOAT_VALUE;
-	//data_STM.travelled_distance		= INITIAL_FLOAT_VALUE;
+	data_STM.car_speed					= INITIAL_FLOAT_VALUE;
+	data_STM.travelled_distance		= INITIAL_FLOAT_VALUE;
 }
 
 /**

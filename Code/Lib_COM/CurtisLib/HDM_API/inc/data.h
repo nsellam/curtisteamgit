@@ -6,7 +6,9 @@
 
 #define DATA_STM_US_NUM 6
 
-#define DATA_SIZE_MAX ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
+#define DATA_ADRESS_SIZE_PI   4
+#define DATA_SIZE_MAX_RAW     ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
+#define DATA_SIZE_MAX         (((DATA_SIZE_MAX_RAW % DATA_ADRESS_SIZE_PI == 0) ? (DATA_SIZE_MAX_RAW) : (DATA_SIZE_MAX_RAW + DATA_ADRESS_SIZE_PI - DATA_SIZE_MAX_RAW % DATA_ADRESS_SIZE_PI))-2)
 
 /************************
  *     STRUCTURES       *
@@ -23,13 +25,14 @@ typedef struct {
    uint8_t wheel_position_sensor_R;
    uint8_t wheel_position_sensor_L;
 
-   //float travelled_distance;
-   //float car_speed;
+   float travelled_distance;
+   float car_speed;
 
    uint8_t steering_stop_sensor_R;
    uint8_t steering_stop_sensor_L;
 
    uint8_t errors_SPI;
+   uint8_t truc[2];
 } data_STM_t;
 
 

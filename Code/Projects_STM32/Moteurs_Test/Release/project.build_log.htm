@@ -1,0 +1,89 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Kévin\Google Drive\INSA\5A\Projet_SEC_UnderSoftware\old_Code_STM32\CurtisCar\Projects\Moteurs_Test\Moteurs_Test.uvproj
+Project File Date:  11/18/2016
+
+<h2>Output:</h2>
+Build target 'NUCLEO-F103RB'
+compiling misc.c...
+linking...
+Program Size: Code=8308 RO-data=268 RW-data=56 ZI-data=1632  
+".\Release\project.axf" - 0 Error(s), 0 Warning(s).
+</pre>
+</body>
+</html>
+hed: 1 information, 0 warning and 1 error messages.
+".\Release\project.axf" - 1 Error(s), 0 Warning(s).
+Target not created
+ion to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+".\Release\project.axf" - 1 Error(s), 1 Warning(s).
+Target not created
+ation is incompatible with "uint16_t capture_get_high_state_periode(void)" (declared at line 48 of "..\..\Libraries\Driver\pwm\pwm.h")
+  uint16_t capture_get_high_state_periode(TIM_TypeDef *Timer, int Channel){
+..\..\Libraries\Driver\pwm\pwm.c(379): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\Libraries\Driver\pwm\pwm.c(379): warning:  #940-D: missing return statement at end of non-void function "capture_get_high_state_periode"
+  }
+..\..\Libraries\Driver\pwm\pwm.c: 3 warnings, 3 errors
+".\Release\project.axf" - 3 Error(s), 3 Warning(s).
+Target not created
+entifier "GPIO_Pin_1" is undefined
+     else if(pin == 1)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_1;
+..\..\Libraries\Driver\gpio\gpio.c(107): error:  #20: identifier "GPIO_Pin_2" is undefined
+     else if(pin == 2)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_2;
+..\..\Libraries\Driver\gpio\gpio.c(108): error:  #20: identifier "GPIO_Pin_3" is undefined
+     else if(pin == 3)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_3;
+..\..\Libraries\Driver\gpio\gpio.c(109): error:  #20: identifier "GPIO_Pin_4" is undefined
+     else if(pin == 4)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_4;
+..\..\Libraries\Driver\gpio\gpio.c(110): error:  #20: identifier "GPIO_Pin_5" is undefined
+     else if(pin == 5)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_5;
+..\..\Libraries\Driver\gpio\gpio.c(111): error:  #20: identifier "GPIO_Pin_6" is undefined
+     else if(pin == 6)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_6;
+..\..\Libraries\Driver\gpio\gpio.c(112): error:  #20: identifier "GPIO_Pin_7" is undefined
+     else if(pin == 7)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_7;
+..\..\Libraries\Driver\gpio\gpio.c(113): error:  #20: identifier "GPIO_Pin_8" is undefined
+     else if(pin == 8)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_8;
+..\..\Libraries\Driver\gpio\gpio.c(114): error:  #20: identifier "GPIO_Pin_9" is undefined
+     else if(pin == 9)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_9;
+..\..\Libraries\Driver\gpio\gpio.c(115): error:  #20: identifier "GPIO_Pin_10" is undefined
+     else if(pin == 10) GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_10;
+..\..\Libraries\Driver\gpio\gpio.c(116): error:  #20: identifier "GPIO_Pin_11" is undefined
+     else if(pin == 11)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_11;
+..\..\Libraries\Driver\gpio\gpio.c(117): error:  #20: identifier "GPIO_Pin_12" is undefined
+     else if(pin == 12)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_12;
+..\..\Libraries\Driver\gpio\gpio.c(118): error:  #20: identifier "GPIO_Pin_13" is undefined
+     else if(pin == 13)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_13;
+..\..\Libraries\Driver\gpio\gpio.c(119): error:  #20: identifier "GPIO_Pin_14" is undefined
+     else if(pin == 14)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_14;
+..\..\Libraries\Driver\gpio\gpio.c(120): error:  #20: identifier "GPIO_Pin_15" is undefined
+     else if(pin == 15)  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_15;
+..\..\Libraries\Driver\gpio\gpio.c(122): error:  #20: identifier "GPIO_Mode_IN_FLOATING" is undefined
+     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+..\..\Libraries\Driver\gpio\gpio.c(125): warning:  #223-D: function "GPIO_Init" declared implicitly
+     GPIO_Init(GPIOA, &GPIO_InitStructure);
+..\..\Libraries\Driver\gpio\gpio.c: 1 warning, 19 errors
+compiling pwm.c...
+..\..\Libraries\Driver\pwm\pwm.h(48): warning:  #1295-D: Deprecated declaration capture_get_high_state_periode - give arg types
+  uint16_t capture_get_high_state_periode();
+..\..\Libraries\Driver\pwm\pwm.c(361): warning:  #223-D: function "GPIO_DeInit" declared implicitly
+        GPIO_DeInit(GPIOA);
+..\..\Libraries\Driver\pwm\pwm.c(364): error:  #20: identifier "f" is undefined
+              f
+..\..\Libraries\Driver\pwm\pwm.c(365): error:  #65: expected a ";"
+           break;
+..\..\Libraries\Driver\pwm\pwm.c(379): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\Libraries\Driver\pwm\pwm.c(379): warning:  #940-D: missing return statement at end of non-void function "capture_get_high_state_periode"
+  }
+..\..\Libraries\Driver\pwm\pwm.c: 4 warnings, 2 errors
+compiling timer.c...
+compiling stm32f10x_rcc.c...
+compiling core_cm3.c...
+compiling system_stm32f10x.c...
+assembling startup_stm32f10x_md.s...
+".\Release\project.axf" - 21 Error(s), 7 Warning(s).
+Target not created
