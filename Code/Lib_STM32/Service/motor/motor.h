@@ -16,7 +16,7 @@
 /*       LIBRARIES              */
 /********************************/
 #include <timer.h>
-#include <gpio.h>
+#include <gpio2.h>
 #include <pwm.h>
 
 

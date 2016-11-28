@@ -89,6 +89,5 @@ void RCC_Configuration(void);
 
 void RCC_timer_configuration(TIM_TypeDef *timer);
 
-void NVIC_Configuration(IRQn_Type Timer_IRQn, uint8_t PreemptionPriority, uint8_t SubPriority, void (*IT_function)(void));
 
 #endif // _TIMER_H_

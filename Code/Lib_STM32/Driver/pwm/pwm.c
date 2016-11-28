@@ -4,7 +4,7 @@
 
 #include <system_stm32f10x.h>
 #include <timer.h>
-#include <gpio.h>
+#include <gpio2.h>
 
 //------- Private functions -----------
 

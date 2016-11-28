@@ -1,5 +1,5 @@
 Dependencies for Project 'SPI_Test', Target 'NUCLEO-F103RB': (DO NOT MODIFY !)
-F (..\Application\main.c)(0x583C4DD6)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork -I..\..\..\Lib_STM32\CMSIS\CM3\CoreSupport -I..\..\..\Lib_STM32\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Lib_COM\CurtisLib\HDM_API\inc -I..\..\..\Lib_COM\CurtisLib\XPS_API\inc -I..\Drivers -I..\Services -I..\Application --diag_suppress=111 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\release\main.o --omf_browse .\release\main.crf --depend .\release\main.d)
+F (..\Application\main.c)(0x583C5000)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork -I..\..\..\Lib_STM32\CMSIS\CM3\CoreSupport -I..\..\..\Lib_STM32\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc -I..\..\..\Lib_COM\CurtisLib\HDM_API\inc -I..\..\..\Lib_COM\CurtisLib\XPS_API\inc -I..\Drivers -I..\Services -I..\Application --diag_suppress=111 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\release\main.o --omf_browse .\release\main.crf --depend .\release\main.d)
 I (C:\Program Files (x86)\Keil\ARM\ARMCC\include\stdint.h)(0x5450A88F)
 I (..\Services\mirroring.h)(0x583AF04F)
 I (..\..\..\Lib_COM\CurtisLib\HDM_API\inc\data.h)(0x583C4EF0)

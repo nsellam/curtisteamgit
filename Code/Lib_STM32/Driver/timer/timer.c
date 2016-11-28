@@ -5,7 +5,7 @@
 /********************************/
 #include <stdint.h>
 #include <stm32f10x.h>
-#include <gpio.h>
+#include <gpio2.h>
 
 
 /********************************/
@@ -238,13 +238,14 @@ void RCC_timer_configuration(TIM_TypeDef *timer){
    
 }
 
+void NVIC_Conf(IRQn_Type Timer_IRQn, uint8_t PreemptionPriority, uint8_t SubPriority, void (*IT_function)(void));
 
 /**
   * @brief  Configure the nested vectored interrupt controller.
   * @param  None
   * @retval None
   */
-void NVIC_Configuration(IRQn_Type Timer_IRQn, uint8_t PreemptionPriority, uint8_t SubPriority, void (*IT_function)(void)){
+void NVIC_Conf(IRQn_Type Timer_IRQn, uint8_t PreemptionPriority, uint8_t SubPriority, void (*IT_function)(void)){
   /* Enable the TIMx global Interrupt */
   NVIC_InitTypeDef NVIC_InitStructure;
   

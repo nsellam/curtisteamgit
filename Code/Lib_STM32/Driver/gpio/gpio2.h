@@ -1,5 +1,5 @@
-#ifndef _GPIO_H_
-#define _GPIO_H_
+#ifndef _GPIO2_H_
+#define _GPIO2_H_
 
 #include <stdint.h>
 #include <stm32f10x.h>

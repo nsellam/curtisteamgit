@@ -1,5 +1,4 @@
 #include <stdint.h>
-#include "stm32f10x.h"
 #include "systick.h"
 #include "hall_sensor.h"
 #include "position_sensor.h"

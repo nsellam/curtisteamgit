@@ -1,12 +1,4 @@
-//__________________________________________________________
-// BINOME : 
-// ETAT : 
-//__________________________________________________________
 
-// registres de périphériques du stm32
-#include "stm32f10x.h"
-
-#include <system_stm32f10x.h>
 #include <motor.h>
 
 
