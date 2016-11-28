@@ -1,7 +1,20 @@
+/**
+ * @file motor.h
+ * @author Curtis team
+ * @brief Service library that allows to manipulate motors
+ */
+
+/********************************/
+/*       LIBRARIES              */
+/********************************/
 #include "gpio.h"
 
 #include <stdint.h>
 #include <stm32f10x.h>
+
+/********************************/
+/*       FUNCTIONS              */
+/********************************/
 
 
 //------- Private prototypes ----------
@@ -9,7 +22,12 @@ static int Port_IO_Init(GPIO_TypeDef* GPIOx, uint8_t broche, uint8_t config);
 
 
 //------- Public functions ------------
-// Active la clock du GPIO
+/**
+* @fn Port_IO_Clock_Enable
+* @brief Enables GPIOx 
+* @param GPIO_TypeDef* GPIOx
+* @return void
+*/
 void Port_IO_Clock_Enable(GPIO_TypeDef* GPIOx) {
    if (GPIOx == GPIOA)
       RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
@@ -21,27 +39,57 @@ void Port_IO_Clock_Enable(GPIO_TypeDef* GPIOx) {
       RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
 }
 
-// Permet de configurer une broche d'un port en output push-pull 50MHz
+/**
+* @fn Port_IO_Init_Output
+* @brief Configures pin as output push-pull 50MHz 
+* @param GPIO_TypeDef* GPIOx
+* @param uint8_t broche
+* @return void
+*/
 int Port_IO_Init_Output(GPIO_TypeDef* GPIOx, uint8_t broche) {
    return Port_IO_Init(GPIOx, broche, 0x3);
 }
 
-// Permet de configurer une broche d'un port en alternate function output push-pull 50MHz
+/**
+* @fn Port_IO_Init_Output_AltFunct
+* @brief Configures pin as alternate function output push-pull 50MHz 
+* @param GPIO_TypeDef* GPIOx
+* @param uint8_t broche
+* @return void
+*/
 int Port_IO_Init_Output_AltFunct(GPIO_TypeDef* GPIOx, uint8_t broche) {
    return Port_IO_Init(GPIOx, broche, 0xB);
 }
 
-// Permet de configurer une broche d'un port en floating input
+/**
+* @fn Port_IO_Init_Input
+* @brief Configures pin as floating input 
+* @param GPIO_TypeDef* GPIOx
+* @param uint8_t broche
+* @return void
+*/
 int Port_IO_Init_Input(GPIO_TypeDef* GPIOx, uint8_t broche) {
    return Port_IO_Init(GPIOx, broche, 0x4);
 }
 
-// Permet de configurer une broche d'un port en analog input
+/**
+* @fn Port_IO_Init_Input_Analog
+* @brief Configures pin as analog input 
+* @param GPIO_TypeDef* GPIOx
+* @param uint8_t broche
+* @return void
+*/
 int Port_IO_Init_Input_Analog(GPIO_TypeDef* GPIOx, uint8_t broche) {
    return Port_IO_Init(GPIOx, broche, 0x0);
 }
 
-
+/**
+* @fn Port_IO_Set
+* @brief Sets 
+* @param GPIO_TypeDef* GPIOx
+* @param uint8_t broche
+* @return void
+*/
 // Permet de mettre à 1 une broche d'un port
 void Port_IO_Set(GPIO_TypeDef* GPIOx, uint8_t broche) {
    GPIOx->BSRR = (1 << broche);
