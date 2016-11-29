@@ -249,11 +249,14 @@ void Active_Complementary_Output(TIM_TypeDef *Timer, int Channel){
    }
 
    if (Timer == TIM1){
+      RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+      Port_IO_Clock_Enable(GPIOA);
       Port_IO_Clock_Enable(GPIOB);
+      GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, ENABLE);
       switch (Channel)
       {
          case 1 :
-            Port_IO_Init_Output_AltFunct(GPIOB, 13);
+            Port_IO_Init_Output_AltFunct(GPIOA, 7);
             break;
          case 2 :
             Port_IO_Init_Output_AltFunct(GPIOB, 14);

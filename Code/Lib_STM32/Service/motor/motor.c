@@ -38,39 +38,57 @@
 
 /**
 * @def GPIOx
-* @brief GPIO used to motors Enable generation
+* @brief GPIO used to enable the motors
 */
 #define GPIOx GPIOC
 
 /**
 * @def ENABLE_PIN
-* @brief Pin used to motors Enable generation
+* @brief Pin used to enable the motors
 */
 #define ENABLE_PIN 6
 
 /**
 * @def PWM_MIN
-* @brief Min PWM value used in motors
+* @brief Minimum PWM value used to turn the motors backwards to their maximum
 */
-#define PWM_MIN (float)(0.245)
+#define PWM_MIN ((float)0.245)
 
 /**
 * @def PWM_MAX
-* @brief Max PWM value used in motors
+* @brief Maximum PWM value used to turn the motors forwards to their maximum
 */
-#define PWM_MAX (float)(0.754)
+#define PWM_MAX ((float)0.754)
+
+/**
+* @def PWM_ZERO
+* @brief Zero PWM value used to turn the motors off
+*/
+#define PWM_ZERO ((float)0.500)
+
+/**
+* @def PWM_DELTA_MAX
+* @brief Maximum variation of the PWM value from the PWM_ZERO value
+*/
+#define PWM_DELTA_MAX (((PWM_MAX - PWM_ZERO) < (PWM_ZERO - PWM_MIN)) ? (PWM_MAX - PWM_ZERO) : (PWM_ZERO - PWM_MIN))
+
+/**
+* @def SPEED_DELTA
+* @brief Variation of the speed value between its maximum or minimum value and the zero
+*/
+#define SPEED_DELTA ((float)1.0)
 
 /**
 * @def SPEED_MIN
-* @brief Min speed in motors
+* @brief Minimum speed value used to turn the motors backwards to their maximum
 */
-#define SPEED_MIN (float)(-1.0)
+#define SPEED_MIN (-SPEED_DELTA)
 
 /**
 * @def SPEED_MAX
-* @brief Max speed in motors
+* @brief Maximum speed value used to turn the motors forwards to their maximum
 */
-#define SPEED_MAX (float)(1.0)
+#define SPEED_MAX (SPEED_DELTA)
 
 
 
@@ -110,7 +128,7 @@ void motor_set_speed(float speed){
    if(speed > SPEED_MAX)      speed = SPEED_MAX;
    else if(speed < SPEED_MIN) speed = SPEED_MIN;
    
-   duty_cycle = (PWM_MAX - PWM_MIN)/(SPEED_MAX - SPEED_MIN) * (speed - SPEED_MIN) + PWM_MIN;
+   duty_cycle = (PWM_DELTA_MAX)/(SPEED_DELTA) * speed + PWM_ZERO;
    PWM_Set_Duty_Cycle(TIMx,CH,duty_cycle);
 }
 

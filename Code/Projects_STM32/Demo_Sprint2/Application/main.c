@@ -14,7 +14,7 @@
 int main(void) {
    int i;
 
-   volatile float motor_speed;
+   volatile float motor_speed = 0.0;
 
    motors_init();
    motors_start();
@@ -26,9 +26,10 @@ int main(void) {
 
    Mirroring_Init();
    Mirroring_Start();
-   
+   pdata_PI->motor_prop = 127;
+
    while(1) {
-      motor_speed = (float)pdata_PI->motor_prop/255.0/**2.0 - 1.0*/;
+      motor_speed = ((float)pdata_PI->motor_prop - 127.0)/128.0;
       motor_set_speed(motor_speed);
 
       position_sensor_compute();
