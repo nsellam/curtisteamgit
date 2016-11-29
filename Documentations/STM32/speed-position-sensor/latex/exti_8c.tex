@@ -1,0 +1,55 @@
+\hypertarget{exti_8c}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Drivers/exti.c File Reference}
+\label{exti_8c}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Drivers/exti.\+c@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Project\+\_\+\+Speed\+\_\+\+Sensor/\+Drivers/exti.\+c}}
+
+
+Functions to handle external interrupts (E\+X\+TI)  
+
+
+{\ttfamily \#include \char`\"{}exti.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{exti_8c_aaa95df06c3c69c417451c5017e6b39bc}{}\label{exti_8c_aaa95df06c3c69c417451c5017e6b39bc} 
+\#define \hyperlink{exti_8c_aaa95df06c3c69c417451c5017e6b39bc}{E\+R\+R\+O\+R\+\_\+\+L\+I\+N\+E\+\_\+\+U\+N\+R\+E\+A\+C\+H\+A\+B\+LE}~0x\+F\+F\+F\+F\+F\+F\+FF
+\begin{DoxyCompactList}\small\item\em Secified line is not valid (it is not allowed to specify various lines at one time) \end{DoxyCompactList}\item 
+\hypertarget{exti_8c_a028dd75710bca97483823fee61232400}{}\label{exti_8c_a028dd75710bca97483823fee61232400} 
+\#define \hyperlink{exti_8c_a028dd75710bca97483823fee61232400}{E\+R\+R\+O\+R\+\_\+\+C\+O\+M\+P\+U\+T\+I\+N\+G\+\_\+\+C\+H\+A\+N\+N\+EL}~0x\+FF
+\begin{DoxyCompactList}\small\item\em Parameter given to compute Channel is invalid. \end{DoxyCompactList}\item 
+\hypertarget{exti_8c_ab6405b5d7066b48ed70bed2b49f6e42f}{}\label{exti_8c_ab6405b5d7066b48ed70bed2b49f6e42f} 
+\#define \hyperlink{exti_8c_ab6405b5d7066b48ed70bed2b49f6e42f}{G\+P\+I\+O\+\_\+\+S\+P\+E\+E\+D\+\_\+\+E\+X\+TI}~G\+P\+I\+O\+\_\+\+Speed\+\_\+50\+M\+Hz
+\begin{DoxyCompactList}\small\item\em G\+P\+I\+O\+Speed\+\_\+\+Type\+Def recommended to initialize G\+P\+IO for E\+X\+TI. \end{DoxyCompactList}\item 
+\hypertarget{exti_8c_a6f6ecbaff008a0ffc6726651942308a6}{}\label{exti_8c_a6f6ecbaff008a0ffc6726651942308a6} 
+\#define \hyperlink{exti_8c_a6f6ecbaff008a0ffc6726651942308a6}{G\+P\+I\+O\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+TI}~G\+P\+I\+O\+\_\+\+Mode\+\_\+\+I\+PU
+\begin{DoxyCompactList}\small\item\em G\+P\+I\+O\+Mode\+\_\+\+Type\+Def recommended to initialize G\+P\+IO for E\+X\+TI. \end{DoxyCompactList}\item 
+\hypertarget{exti_8c_ac9438bb67ccad9801a7cea95d7918143}{}\label{exti_8c_ac9438bb67ccad9801a7cea95d7918143} 
+\#define {\bfseries E\+R\+R\+O\+R\+\_\+\+P\+O\+R\+T\+\_\+\+S\+O\+U\+R\+CE}~0x\+FF
+\item 
+\hypertarget{exti_8c_abf04d7aa0a4c98fb5081cdf66315022f}{}\label{exti_8c_abf04d7aa0a4c98fb5081cdf66315022f} 
+\#define {\bfseries E\+R\+R\+O\+R\+\_\+\+P\+I\+N\+\_\+\+S\+O\+U\+R\+CE}~0x\+F\+F\+FF
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{exti_8c_ac94ae142463856c6e4b8e8e4a154cb4c}{}\label{exti_8c_ac94ae142463856c6e4b8e8e4a154cb4c} 
+uint32\+\_\+t {\bfseries Pin\+\_\+to\+\_\+\+E\+X\+T\+I\+\_\+\+Line} (uint16\+\_\+t Pin)
+\item 
+\hypertarget{exti_8c_a038c02ea61a08ec84a568854d2a154bf}{}\label{exti_8c_a038c02ea61a08ec84a568854d2a154bf} 
+uint8\+\_\+t {\bfseries Line\+\_\+to\+\_\+\+I\+R\+Qn} (uint32\+\_\+t Line)
+\item 
+\hypertarget{exti_8c_a53bb1318a513f09312d02988b0d3179e}{}\label{exti_8c_a53bb1318a513f09312d02988b0d3179e} 
+uint8\+\_\+t {\bfseries G\+P\+I\+O\+\_\+\+Type\+Def\+\_\+to\+\_\+\+G\+P\+I\+O\+\_\+\+Port\+Source} (G\+P\+I\+O\+\_\+\+Type\+Def $\ast$G\+P\+IO)
+\item 
+\hypertarget{exti_8c_a22079ee910ea1744e2e511dd103a9286}{}\label{exti_8c_a22079ee910ea1744e2e511dd103a9286} 
+uint16\+\_\+t {\bfseries G\+P\+I\+O\+\_\+\+Pin\+\_\+to\+\_\+\+G\+P\+I\+O\+\_\+\+Pin\+Source} (uint16\+\_\+t G\+P\+I\+O\+\_\+\+Pin)
+\item 
+\hypertarget{exti_8c_a4b7e494df5213e477c8b711ac0aa1ee3}{}\label{exti_8c_a4b7e494df5213e477c8b711ac0aa1ee3} 
+int {\bfseries exti\+\_\+init} (G\+P\+I\+O\+\_\+\+Type\+Def $\ast$G\+P\+IO, uint16\+\_\+t Pin, E\+X\+T\+I\+Mode\+\_\+\+Type\+Def E\+X\+T\+I\+\_\+\+Mode, E\+X\+T\+I\+Trigger\+\_\+\+Type\+Def E\+X\+T\+I\+Trigger, uint8\+\_\+t Priority, uint8\+\_\+t Sub\+Priority)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions to handle external interrupts (E\+X\+TI) 
+
+\begin{DoxyAuthor}{Author}
+Curtis Team 
+\end{DoxyAuthor}

@@ -33,40 +33,37 @@
 /********************************/
 
 int create_threads(void) {
+
+// declarations
   int error;
-
   pthread_t thMirroring, thPrint, thDemo;  
-
   pthread_attr_t myAttr;
-
   struct sched_param prioMirroring, prioPrint, prioDemo;
 
+// 
   pthread_attr_init(&myAttr);
   pthread_attr_setschedpolicy(&myAttr, SCHED_FIFO);
 
-//print  
-
+// print  
   prioPrint.sched_priority = PRIO_PRINT;
   error = pthread_attr_setschedparam(&myAttr, &prioPrint);
   error = pthread_create(&thPrint, &myAttr, print, 0);
   assert (error == 0);
 
 // mirroring
-
   prioMirroring.sched_priority = PRIO_MIRRORING;
   error = pthread_attr_setschedparam(&myAttr, &prioMirroring);
   error = pthread_create(&thMirroring, &myAttr, mirroringPI, 0);
   assert (error == 0);
 
 // demo_mirroring
-
   prioDemo.sched_priority = PRIO_DEMO;
   error = pthread_attr_setschedparam(&myAttr, &prioDemo);
   error = pthread_create(&thDemo, &myAttr, demo_mirroring, 0);
   assert (error == 0);
 
 
-// joining
+// joining threads
   error = pthread_join(thMirroring, NULL);
   assert (error == 0);
 

@@ -1,17 +1,24 @@
+/**
+ * @file data.h
+ * @author Curtis Team
+ * @brief header of data.c
+ */
+
 #ifndef DATA_H
 #define DATA_H
-
-/************************
- *      INCLUDES        *
- ************************/
 
 #include <stdint.h>
 #include <stddef.h>
 #include <pthread.h>
 
+/************************
+ *     DEFINES          *
+ ************************/
 #define DATA_STM_US_NUM 6
 
-#define DATA_SIZE_MAX ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
+#define DATA_ALIGNMENT_PI  4
+#define DATA_SIZE_MAX_RAW  ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
+#define DATA_SIZE_MAX      (DATA_SIZE_MAX_RAW - (DATA_ALIGNMENT_PI - DATA_SIZE_MAX_RAW % DATA_ALIGNMENT_PI) % DATA_ALIGNMENT_PI)
 
 
 // Ultrasonic ID
@@ -81,21 +88,21 @@
 /**
  * @struct data_STM_t
  * @brief data updated by the STM32
- * size: 11 bytes
+ * size: 19 bytes
  */
 typedef struct {
-  uint8_t ultrasonic_sensors[DATA_STM_US_NUM];
+   uint8_t ultrasonic_sensors[DATA_STM_US_NUM]; /*!< Ultrasonic sensors data */
 
-  uint8_t wheel_position_sensor_R;
-  uint8_t wheel_position_sensor_L;
+   uint8_t wheel_position_sensor_R;				/*!< position sensor data of right motor */
+   uint8_t wheel_position_sensor_L;				/*!< position sensor data of left motor */
 
-  float travelled_distance;
-  float car_speed;
+   float travelled_distance;					/*!< Travelled distance data */
+   float car_speed;
 
-  uint8_t steering_stop_sensor_R;
-  uint8_t steering_stop_sensor_L;
+   uint8_t steering_stop_sensor_R;				/*!< Steering position data */
+   uint8_t steering_stop_sensor_L;				/*!< Steering position data */
 
-  uint8_t errors_SPI;
+   uint8_t errors_SPI;							/*!< Errors of communication data */
 } data_STM_t;
 
 
@@ -105,23 +112,40 @@ typedef struct {
  * size: 4 bytes
  */
 typedef struct {
-  uint8_t motor_prop;
-  uint8_t motor_dir;
-  uint8_t led;
+  uint8_t motor_prop;							/*!< Propulsion motors data */
+  uint8_t motor_dir;							/*!< Direction motor data */
+  uint8_t led;									/*!< LED data */
 
-  uint8_t errors_SPI;
-
+  uint8_t errors_SPI;							/*!< Errors of communication data */
 } data_PI_t;
 
 /************************
  *      VARIABLES       *
  ************************/
-
+/**
+ * @var extern volatile data_STM_t
+ * @brief STM32 data
+ */
 extern volatile data_STM_t *pdata_STM;
+
+/**
+ * @var extern volatile data_PI_t
+ * @brief PI data
+ */
 extern volatile data_PI_t *pdata_PI;
 
+/**
+ * @var m_data_PI
+ * @brief PI data mutex
+ */
 extern pthread_mutex_t m_data_PI;
+
+/**
+ * @var m_data_STM
+ * @brief STM data mutex
+ */
 extern pthread_mutex_t m_data_STM;
+
 
 /************************
  *      FUNCTIONS       *
@@ -132,7 +156,6 @@ extern pthread_mutex_t m_data_STM;
 * @brief initializes the data_PI and data_STM structures pointed by pdata_PI and pdata_STM
 * @return void
 */
-
 void init_data(void);
 
 #endif // DATA_H

@@ -1,0 +1,87 @@
+\hypertarget{motor_8h}{}\section{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Lib\+\_\+\+S\+T\+M32/\+Service/motor/motor.h File Reference}
+\label{motor_8h}\index{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Lib\+\_\+\+S\+T\+M32/\+Service/motor/motor.\+h@{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Lib\+\_\+\+S\+T\+M32/\+Service/motor/motor.\+h}}
+
+
+Service library that allows to manipulate motors.  
+
+
+{\ttfamily \#include $<$timer.\+h$>$}\newline
+{\ttfamily \#include $<$gpio.\+h$>$}\newline
+{\ttfamily \#include $<$pwm.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{motor_8h_abad32bfc46c9f31ba81955775611bd21}{motors\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes motors drivers. \end{DoxyCompactList}\item 
+\hypertarget{motor_8h_a37bd6671db8d780e1586a6f7f1e1d99c}{}\label{motor_8h_a37bd6671db8d780e1586a6f7f1e1d99c} 
+void {\bfseries motor\+\_\+set\+\_\+speed} (float speed)
+\item 
+void \hyperlink{motor_8h_a7fc41317680dfc3f199e441d5f574258}{motors\+\_\+start} (void)
+\begin{DoxyCompactList}\small\item\em Allows car departure with previously selected speed. \end{DoxyCompactList}\item 
+void \hyperlink{motor_8h_a112a5798c0a028e9eb241b308cdfdb9b}{motors\+\_\+stop} (void)
+\begin{DoxyCompactList}\small\item\em Stops the car. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Service library that allows to manipulate motors. 
+
+\begin{DoxyAuthor}{Author}
+Curtis team 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{motor_8h_abad32bfc46c9f31ba81955775611bd21}{}\label{motor_8h_abad32bfc46c9f31ba81955775611bd21} 
+\index{motor.\+h@{motor.\+h}!motors\+\_\+init@{motors\+\_\+init}}
+\index{motors\+\_\+init@{motors\+\_\+init}!motor.\+h@{motor.\+h}}
+\subsubsection{\texorpdfstring{motors\+\_\+init()}{motors\_init()}}
+{\footnotesize\ttfamily void motors\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initializes motors drivers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{motor_8h_a7fc41317680dfc3f199e441d5f574258}{}\label{motor_8h_a7fc41317680dfc3f199e441d5f574258} 
+\index{motor.\+h@{motor.\+h}!motors\+\_\+start@{motors\+\_\+start}}
+\index{motors\+\_\+start@{motors\+\_\+start}!motor.\+h@{motor.\+h}}
+\subsubsection{\texorpdfstring{motors\+\_\+start()}{motors\_start()}}
+{\footnotesize\ttfamily void motors\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Allows car departure with previously selected speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{motor_8h_a112a5798c0a028e9eb241b308cdfdb9b}{}\label{motor_8h_a112a5798c0a028e9eb241b308cdfdb9b} 
+\index{motor.\+h@{motor.\+h}!motors\+\_\+stop@{motors\+\_\+stop}}
+\index{motors\+\_\+stop@{motors\+\_\+stop}!motor.\+h@{motor.\+h}}
+\subsubsection{\texorpdfstring{motors\+\_\+stop()}{motors\_stop()}}
+{\footnotesize\ttfamily void motors\+\_\+stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Stops the car. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

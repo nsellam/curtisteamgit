@@ -1,9 +1,14 @@
+/**
+ * @file spi.h
+ * @author Curtis Team
+ * @brief header of spi.c
+ */
 
 #ifndef SPI_H
 
 /**
 * @def SPI_H
-* @brief to memorize if "fifo.h" file has already been included
+* @brief to memorize if "spi.h" file has already been included
 */
 
 #define SPI_H
@@ -19,8 +24,23 @@
 /*       DEFINES                */
 /********************************/
 
+
+/**
+ * @def SPI_SEND_ERROR
+ * @brief error code when the send function from wiringPI library faces a problem
+ */ 
 #define SPI_SEND_ERROR -1
+
+/**
+ * @def SPI_CANARY_ERROR
+ * @brief error code when the canary is not ok
+ */ 
 #define SPI_CANARY_ERROR -2
+
+/**
+ * @def SPI_CRC_ERROR
+ * @brief error code when the CRC is not ok
+ */ 
 #define SPI_CRC_ERROR -3
 
 

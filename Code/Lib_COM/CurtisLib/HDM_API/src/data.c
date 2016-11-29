@@ -14,11 +14,25 @@
 /************************
  *      VARIABLES       *
  ************************/
-
+/**
+ * @var volatile data_STM_t data_STM
+ * @brief STM32 data
+ */
 volatile data_STM_t data_STM;
+/**
+ * @var volatile data_STM_t *pdata_STM
+ * @brief STM32 data
+ */
 volatile data_STM_t *pdata_STM = &data_STM;
-
+/**
+ * @var volatile data_PI_t data_PI
+ * @brief PI data
+ */
 volatile data_PI_t data_PI;
+/**
+ * @var volatile data_PI_t *pdata_PI
+ * @brief PI data
+ */
 volatile data_PI_t *pdata_PI = &data_PI;
 
 /************************

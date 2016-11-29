@@ -36,6 +36,11 @@
 /************************
  *      VARIABLES       *
  ************************/
+
+  /**
+ * @var motor_speed
+ * @brief to store the motor speed the user wants to set
+ */ 
   uint8_t motor_speed ;
 
 /********************************/
@@ -64,8 +69,7 @@ void* demo_mirroring(void* arg) {
     // update reference time for next call (T1_demo)   -   THIS LINE ADDS IMPERFECTION TO THE LOOP
     clock_gettime(CLOCK_REALTIME, &T1_demo);  
 
-    // demo
-
+// demo
   // ask the user for a motor speed value and update it in the structure to be mirrored
 
 
@@ -76,7 +80,7 @@ void* demo_mirroring(void* arg) {
 
   scanf("%hhu", &motor_speed);
 
-
+  // set the motor_speed
   set_motor_speed_data(motor_speed); 
 
   }

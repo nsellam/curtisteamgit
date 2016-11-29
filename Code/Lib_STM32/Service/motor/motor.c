@@ -118,8 +118,8 @@ void motors_init(void) {
 
 /**
 * @fn motor_set_speed
-* @brief Set motors speed 
-* @param speed : Speed sent to the motors between -1 and +1
+* @brief Sets motors speed 
+* @param float speed 
 * @return void
 */
 void motor_set_speed(float speed){

@@ -5,25 +5,35 @@
  */
 
 
-/************************
- *      INCLUDES        *
- ************************/
-#include <data.h>
+#include "data.h"
 
 #include <stddef.h>
 
-#define INITIAL_8B_VALUE 0x00
-#define INITIAL_16B_VALUE 0x0000
-#define INITIAL_32B_VALUE 0x00000000
+#define INITIAL_8B_VALUE      0x00
+#define INITIAL_FLOAT_VALUE   0.0
 
 /************************
  *      VARIABLES       *
  ************************/
-
+/**
+ * @var volatile data_STM_t data_STM
+ * @brief STM32 data
+ */
 volatile data_STM_t data_STM;
+/**
+ * @var volatile data_STM_t *pdata_STM
+ * @brief STM32 data
+ */
 volatile data_STM_t *pdata_STM = &data_STM;
-
+/**
+ * @var volatile data_PI_t data_PI
+ * @brief PI data
+ */
 volatile data_PI_t data_PI;
+/**
+ * @var volatile data_PI_t *pdata_PI
+ * @brief PI data
+ */
 volatile data_PI_t *pdata_PI = &data_PI;
 
 /************************
@@ -69,11 +79,11 @@ void init_data_STM(void) {
 
    data_STM.wheel_position_sensor_R = INITIAL_8B_VALUE;
    data_STM.wheel_position_sensor_L = INITIAL_8B_VALUE;
-   data_STM.travelled_distance = 0.0;//INITIAL_32B_VALUE;
-   data_STM.car_speed = 0.0;//INITIAL_16B_VALUE;
    data_STM.steering_stop_sensor_R  = INITIAL_8B_VALUE;
    data_STM.steering_stop_sensor_L  = INITIAL_8B_VALUE;
    data_STM.errors_SPI              = INITIAL_8B_VALUE;
+	data_STM.car_speed					= INITIAL_FLOAT_VALUE;
+	data_STM.travelled_distance		= INITIAL_FLOAT_VALUE;
 }
 
 /**
@@ -82,8 +92,8 @@ void init_data_STM(void) {
  * @return void
  */
 void init_data_PI(void) {
-   data_PI.motor_prop   = INITIAL_8B_VALUE;
-   data_PI.motor_dir    = INITIAL_8B_VALUE;
-   data_PI.led          = INITIAL_8B_VALUE;
-   data_PI.errors_SPI   = INITIAL_8B_VALUE;
+   data_PI.motor_prop = INITIAL_8B_VALUE;
+   data_PI.motor_dir  = INITIAL_8B_VALUE;
+   data_PI.led        = INITIAL_8B_VALUE;
+   data_PI.errors_SPI = INITIAL_8B_VALUE;
 }

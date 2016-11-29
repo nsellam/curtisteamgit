@@ -1,10 +1,10 @@
+/**
+ * @file hdmapi.h
+ * @author Curtis Team
+ * @brief header of hdmapi.c
+ */
 
 #ifndef HDMAPI_H
-
-/**
-* @def HDMAPI_H
-* @brief to memorize if "fifo.h" file has already been included
-*/
 
 #define HDMAPI_H
 
@@ -15,9 +15,7 @@
 #include <stdint.h>
 
 
-/********************************/
-/*       DEFINES                */
-/********************************/
+
 
 
 
