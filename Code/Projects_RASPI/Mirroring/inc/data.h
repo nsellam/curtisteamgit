@@ -1,3 +1,9 @@
+/**
+ * @file data.h
+ * @author Curtis Team
+ * @brief header of data.c
+ */
+
 #ifndef DATA_H
 #define DATA_H
 

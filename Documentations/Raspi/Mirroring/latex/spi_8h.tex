@@ -1,0 +1,55 @@
+\hypertarget{spi_8h}{}\section{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/inc/spi.h File Reference}
+\label{spi_8h}\index{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/inc/spi.\+h@{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/inc/spi.\+h}}
+
+
+header of spi.\+c  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{spi_8h_a34aa7de6f2d1c26d3d7c9ecbe053efeb}{}\label{spi_8h_a34aa7de6f2d1c26d3d7c9ecbe053efeb} 
+\#define \hyperlink{spi_8h_a34aa7de6f2d1c26d3d7c9ecbe053efeb}{S\+P\+I\+\_\+H}
+\begin{DoxyCompactList}\small\item\em to memorize if \char`\"{}spi.\+h\char`\"{} file has already been included \end{DoxyCompactList}\item 
+\hypertarget{spi_8h_a730b0b6d5f02977fc8be980510f56bcf}{}\label{spi_8h_a730b0b6d5f02977fc8be980510f56bcf} 
+\#define \hyperlink{spi_8h_a730b0b6d5f02977fc8be980510f56bcf}{S\+P\+I\+\_\+\+S\+E\+N\+D\+\_\+\+E\+R\+R\+OR}~-\/1
+\begin{DoxyCompactList}\small\item\em error code when the send function from wiring\+PI library faces a problem \end{DoxyCompactList}\item 
+\hypertarget{spi_8h_ad80ef6cdb87c5c14ea312fce4834cf7c}{}\label{spi_8h_ad80ef6cdb87c5c14ea312fce4834cf7c} 
+\#define \hyperlink{spi_8h_ad80ef6cdb87c5c14ea312fce4834cf7c}{S\+P\+I\+\_\+\+C\+A\+N\+A\+R\+Y\+\_\+\+E\+R\+R\+OR}~-\/2
+\begin{DoxyCompactList}\small\item\em error code when the canary is not ok \end{DoxyCompactList}\item 
+\hypertarget{spi_8h_a3051638afff4b7efe550c3b63622fbb3}{}\label{spi_8h_a3051638afff4b7efe550c3b63622fbb3} 
+\#define \hyperlink{spi_8h_a3051638afff4b7efe550c3b63622fbb3}{S\+P\+I\+\_\+\+C\+R\+C\+\_\+\+E\+R\+R\+OR}~-\/3
+\begin{DoxyCompactList}\small\item\em error code when the C\+RC is not ok \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{spi_8h_a5221e8a657d1bb0a55d4693de984ded4}{S\+P\+I\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em initializes S\+PI device \end{DoxyCompactList}\item 
+\hypertarget{spi_8h_a6d5c70a6fa9aed862dd5a8caf1b3279c}{}\label{spi_8h_a6d5c70a6fa9aed862dd5a8caf1b3279c} 
+int {\bfseries S\+P\+I\+\_\+send} (uint8\+\_\+t $\ast$pdata, int length)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+header of spi.\+c 
+
+\begin{DoxyAuthor}{Author}
+Curtis Team 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{spi_8h_a5221e8a657d1bb0a55d4693de984ded4}{}\label{spi_8h_a5221e8a657d1bb0a55d4693de984ded4} 
+\index{spi.\+h@{spi.\+h}!S\+P\+I\+\_\+init@{S\+P\+I\+\_\+init}}
+\index{S\+P\+I\+\_\+init@{S\+P\+I\+\_\+init}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{S\+P\+I\+\_\+init()}{SPI\_init()}}
+{\footnotesize\ttfamily S\+P\+I\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+initializes S\+PI device 
+
+\begin{DoxyReturn}{Returns}
+\+: 0 if successful / -\/1 if error -\/$>$ int 
+\end{DoxyReturn}

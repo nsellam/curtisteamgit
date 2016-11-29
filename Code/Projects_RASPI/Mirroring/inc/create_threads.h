@@ -1,13 +1,14 @@
 
-#ifndef CREATE_THREDS_H
-
-#define CREATE_THREADS_H
-
 /**
  * @file create_threads.h
  * @author Curtis Team
  * @brief header of create_threads.c
  */
+
+#ifndef CREATE_THREDS_H
+
+#define CREATE_THREADS_H
+
 
 /********************************/
 /*       LIBRARIES              */
