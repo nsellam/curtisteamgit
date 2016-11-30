@@ -410,15 +410,60 @@
               <FileType>1</FileType>
               <FilePath>..\Application\main.c</FilePath>
             </File>
+            <File>
+              <FileName>position_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\position_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>speed_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\speed_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>car.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\car.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Services</GroupName>
           <Files>
             <File>
+              <FileName>callbacks_services.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\callbacks_services.c</FilePath>
+            </File>
+            <File>
               <FileName>motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\Lib_STM32\Service\motor\motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>hall_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\hall_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>uncompress.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\uncompress.c</FilePath>
+            </File>
+            <File>
+              <FileName>compress.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\compress.c</FilePath>
+            </File>
+            <File>
+              <FileName>data.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Lib_COM\CurtisLib\HDM_API\src\data.c</FilePath>
+            </File>
+            <File>
+              <FileName>mirroring_st.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\mirroring_st.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -449,6 +494,31 @@
               <FileName>gpio2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\Lib_STM32\Driver\gpio\gpio2.c</FilePath>
+            </File>
+            <File>
+              <FileName>exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>systick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\systick.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>spicomm_st.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\spicomm_st.c</FilePath>
+            </File>
+            <File>
+              <FileName>framecheck.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\framecheck.c</FilePath>
             </File>
           </Files>
         </Group>
