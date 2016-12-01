@@ -1,7 +1,7 @@
 /**
  * @file mirroring.h
  * @author Curtis Team
- * @brief Salut header to mirroring_pi and mirroring_st
+ * @brief Common header to mirroring_pi and mirroring_st
  */
 
 #ifndef MIRRORING_H
@@ -39,3 +39,4 @@ void Mirroring_Start(void);
 void Mirroring_Stop(void);
 
 #endif // MIRRORING_H
+
