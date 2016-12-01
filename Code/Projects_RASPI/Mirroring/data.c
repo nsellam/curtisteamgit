@@ -4,6 +4,7 @@
  * @brief functions for initialization of sensors and actuators
  */
 
+
 #include "data.h"
 
 #include <stddef.h>

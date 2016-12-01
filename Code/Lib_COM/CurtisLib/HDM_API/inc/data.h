@@ -1,3 +1,9 @@
+/**
+ * @file data.h
+ * @author Curtis Team
+ * @brief functions for initialization of sensors and actuators
+ */
+
 #ifndef DATA_H
 #define DATA_H
 
@@ -15,6 +21,19 @@
  ************************/
 
 /**
+ * @struct data_PI_t
+ * @brief data updated by the Raspberry Pi
+ * size: 4 bytes
+ */
+typedef struct {
+   int8_t motor_prop;   /*!< Propulsion motors data */
+   uint8_t motor_dir;   /*!< Direction motor data */
+   uint8_t led;         /*!< LED data */
+
+   uint8_t errors_SPI;  /*!< Errors of communication data */
+} data_PI_t;
+
+/**
  * @struct data_STM_t
  * @brief data updated by the STM32
  * size: 19 bytes
@@ -22,55 +41,46 @@
 typedef struct {
    uint8_t ultrasonic_sensors[DATA_STM_US_NUM]; /*!< Ultrasonic sensors data */
 
-   uint8_t wheel_position_sensor_R;				/*!< Returns position sensor data of right motor */
-   uint8_t wheel_position_sensor_L;				/*!< Returns position sensor data of left motor */
+   uint8_t wheel_position_sensor_R;             /*!< Returns position sensor data of right motor */
+   uint8_t wheel_position_sensor_L;             /*!< Returns position sensor data of left motor */
 
-   float travelled_distance;					/*!< Travelled distance data */
-   float car_speed;
+   float travelled_distance;                    /*!< Travelled distance data */
+   float car_speed;                             /*!< Wheel speed data */
 
-   uint8_t steering_stop_sensor_R;				/*!< Steering position data */
-   uint8_t steering_stop_sensor_L;				/*!< Steering position data */
+   uint8_t steering_stop_sensor_R;              /*!< Steering position data */
+   uint8_t steering_stop_sensor_L;              /*!< Steering position data */
 
-   uint8_t errors_SPI;							/*!< Errors of communication data */
+   uint8_t errors_SPI;                          /*!< Errors of communication data */
 } data_STM_t;
-
-
-/**
- * @struct data_PI_t
- * @brief data updated by the Raspberry Pi
- * size: 4 bytes
- */
-typedef struct {
-  uint8_t motor_prop;							/*!< Propulsion motors data */
-  uint8_t motor_dir;							/*!< Direction motor data */
-  uint8_t led;									/*!< LED data */
-
-  uint8_t errors_SPI;							/*!< Errors of communication data */
-} data_PI_t;
 
 /************************
  *      VARIABLES       *
  ************************/
 /**
- * @var extern volatile data_STM_t
- * @brief STM32 data
- */
-extern volatile data_STM_t *pdata_STM;
-/**
  * @var extern volatile data_PI_t
  * @brief PI data
  */
 extern volatile data_PI_t *pdata_PI;
+/**
+ * @var extern volatile data_STM_t
+ * @brief STM32 data
+ */
+extern volatile data_STM_t *pdata_STM;
 
 /************************
  *      FUNCTIONS       *
  ************************/
 
 /**
-* @fn init_data
-* @brief initializes the data_PI and data_STM structures pointed by pdata_PI and pdata_STM
-* @return void
-*/
-void init_data(void);
+ * @brief initializes the data_PI structure pointed by pdata_PI with the default values
+ * @return void
+ */
+void data_init_PI(void);
+
+/**
+ * @brief initializes the data_STM structure pointed by pdata_STM with the default values
+ * @return void
+ */
+void data_init_STM(void);
 
 #endif // DATA_H

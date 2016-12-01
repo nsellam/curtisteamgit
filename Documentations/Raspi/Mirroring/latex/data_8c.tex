@@ -1,0 +1,92 @@
+\hypertarget{data_8c}{}\section{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/data.c File Reference}
+\label{data_8c}\index{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/data.\+c@{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/data.\+c}}
+
+
+functions for initialization of sensors and actuators  
+
+
+{\ttfamily \#include \char`\"{}data.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{data_8c_abcc63bc29e1b0b6c6f93d983b103dd44}{}\label{data_8c_abcc63bc29e1b0b6c6f93d983b103dd44} 
+\#define {\bfseries I\+N\+I\+T\+I\+A\+L\+\_\+8\+B\+\_\+\+V\+A\+L\+UE}~0x00
+\item 
+\hypertarget{data_8c_ad660758c337dad7d277ea1f172a701af}{}\label{data_8c_ad660758c337dad7d277ea1f172a701af} 
+\#define {\bfseries I\+N\+I\+T\+I\+A\+L\+\_\+\+F\+L\+O\+A\+T\+\_\+\+V\+A\+L\+UE}~0.\+0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{data_8c_a0721a8fc8361e790a46b3350da8c7421}{init\+\_\+data\+\_\+\+PI} (void)
+\begin{DoxyCompactList}\small\item\em initializes the data\+\_\+\+PI structure with bytes of zeros \end{DoxyCompactList}\item 
+void \hyperlink{data_8c_a5b81423bfba4411cb2f3ab1945c35851}{init\+\_\+data\+\_\+\+S\+TM} (void)
+\begin{DoxyCompactList}\small\item\em initializes the data\+\_\+\+S\+TM structure with bytes of zeros \end{DoxyCompactList}\item 
+void \hyperlink{data_8c_ae2106d23b5bd92fcf8f0e7d13d9011ff}{init\+\_\+data} (void)
+\begin{DoxyCompactList}\small\item\em initializes the data\+\_\+\+PI and data\+\_\+\+S\+TM structures \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{data_8c_abd0a7e0fd221b14c89684b5e2370d91d}{}\label{data_8c_abd0a7e0fd221b14c89684b5e2370d91d} 
+volatile data\+\_\+\+S\+T\+M\+\_\+t \hyperlink{data_8c_abd0a7e0fd221b14c89684b5e2370d91d}{data\+\_\+\+S\+TM}
+\begin{DoxyCompactList}\small\item\em S\+T\+M32 data. \end{DoxyCompactList}\item 
+\hypertarget{data_8c_ab3cd995ea8d9a7683fbb6c764aea83a7}{}\label{data_8c_ab3cd995ea8d9a7683fbb6c764aea83a7} 
+volatile data\+\_\+\+S\+T\+M\+\_\+t $\ast$ \hyperlink{data_8c_ab3cd995ea8d9a7683fbb6c764aea83a7}{pdata\+\_\+\+S\+TM} = \&\hyperlink{data_8c_abd0a7e0fd221b14c89684b5e2370d91d}{data\+\_\+\+S\+TM}
+\begin{DoxyCompactList}\small\item\em S\+T\+M32 data. \end{DoxyCompactList}\item 
+\hypertarget{data_8c_a5b940fb8e2779ba236ae4324120661ff}{}\label{data_8c_a5b940fb8e2779ba236ae4324120661ff} 
+volatile data\+\_\+\+P\+I\+\_\+t \hyperlink{data_8c_a5b940fb8e2779ba236ae4324120661ff}{data\+\_\+\+PI}
+\begin{DoxyCompactList}\small\item\em PI data. \end{DoxyCompactList}\item 
+\hypertarget{data_8c_a38c2a20e8f705b9a491fb43c75f2e303}{}\label{data_8c_a38c2a20e8f705b9a491fb43c75f2e303} 
+volatile data\+\_\+\+P\+I\+\_\+t $\ast$ \hyperlink{data_8c_a38c2a20e8f705b9a491fb43c75f2e303}{pdata\+\_\+\+PI} = \&\hyperlink{data_8c_a5b940fb8e2779ba236ae4324120661ff}{data\+\_\+\+PI}
+\begin{DoxyCompactList}\small\item\em PI data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+functions for initialization of sensors and actuators 
+
+\begin{DoxyAuthor}{Author}
+Curtis Team 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{data_8c_ae2106d23b5bd92fcf8f0e7d13d9011ff}{}\label{data_8c_ae2106d23b5bd92fcf8f0e7d13d9011ff} 
+\index{data.\+c@{data.\+c}!init\+\_\+data@{init\+\_\+data}}
+\index{init\+\_\+data@{init\+\_\+data}!data.\+c@{data.\+c}}
+\subsubsection{\texorpdfstring{init\+\_\+data()}{init\_data()}}
+{\footnotesize\ttfamily init\+\_\+data (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+initializes the data\+\_\+\+PI and data\+\_\+\+S\+TM structures 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{data_8c_a0721a8fc8361e790a46b3350da8c7421}{}\label{data_8c_a0721a8fc8361e790a46b3350da8c7421} 
+\index{data.\+c@{data.\+c}!init\+\_\+data\+\_\+\+PI@{init\+\_\+data\+\_\+\+PI}}
+\index{init\+\_\+data\+\_\+\+PI@{init\+\_\+data\+\_\+\+PI}!data.\+c@{data.\+c}}
+\subsubsection{\texorpdfstring{init\+\_\+data\+\_\+\+P\+I()}{init\_data\_PI()}}
+{\footnotesize\ttfamily void init\+\_\+data\+\_\+\+PI (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+initializes the data\+\_\+\+PI structure with bytes of zeros 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{data_8c_a5b81423bfba4411cb2f3ab1945c35851}{}\label{data_8c_a5b81423bfba4411cb2f3ab1945c35851} 
+\index{data.\+c@{data.\+c}!init\+\_\+data\+\_\+\+S\+TM@{init\+\_\+data\+\_\+\+S\+TM}}
+\index{init\+\_\+data\+\_\+\+S\+TM@{init\+\_\+data\+\_\+\+S\+TM}!data.\+c@{data.\+c}}
+\subsubsection{\texorpdfstring{init\+\_\+data\+\_\+\+S\+T\+M()}{init\_data\_STM()}}
+{\footnotesize\ttfamily void init\+\_\+data\+\_\+\+S\+TM (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+initializes the data\+\_\+\+S\+TM structure with bytes of zeros 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

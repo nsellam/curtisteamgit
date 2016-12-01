@@ -1,0 +1,118 @@
+\hypertarget{motor_8c}{}\section{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Lib\+\_\+\+S\+T\+M32/\+Service/motor/motor.c File Reference}
+\label{motor_8c}\index{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Lib\+\_\+\+S\+T\+M32/\+Service/motor/motor.\+c@{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Lib\+\_\+\+S\+T\+M32/\+Service/motor/motor.\+c}}
+
+
+Service library that allows to manipulate motors.  
+
+
+{\ttfamily \#include \char`\"{}motor.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$timer.\+h$>$}\newline
+{\ttfamily \#include $<$gpio.\+h$>$}\newline
+{\ttfamily \#include $<$pwm.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{motor_8c_a25d69bed0692e5f9388fbf3df864e075}{}\label{motor_8c_a25d69bed0692e5f9388fbf3df864e075} 
+\#define \hyperlink{motor_8c_a25d69bed0692e5f9388fbf3df864e075}{T\+I\+Mx}~T\+I\+M1
+\begin{DoxyCompactList}\small\item\em Timer used to motors P\+WM generation. \end{DoxyCompactList}\item 
+\hypertarget{motor_8c_af6dab4edf4abb4b312e0680cd04a498c}{}\label{motor_8c_af6dab4edf4abb4b312e0680cd04a498c} 
+\#define \hyperlink{motor_8c_af6dab4edf4abb4b312e0680cd04a498c}{CH}~1
+\begin{DoxyCompactList}\small\item\em Channel used to motors P\+WM generation. \end{DoxyCompactList}\item 
+\hypertarget{motor_8c_a0ccd536df097633b3bcbdb289276d971}{}\label{motor_8c_a0ccd536df097633b3bcbdb289276d971} 
+\#define \hyperlink{motor_8c_a0ccd536df097633b3bcbdb289276d971}{Frequence\+\_\+\+Hz}~(float)(20e3)
+\begin{DoxyCompactList}\small\item\em Frequency used to motors P\+WM generation in Hz. \end{DoxyCompactList}\item 
+\hypertarget{motor_8c_a899f80634a53b1b81c4547b550bf3a49}{}\label{motor_8c_a899f80634a53b1b81c4547b550bf3a49} 
+\#define \hyperlink{motor_8c_a899f80634a53b1b81c4547b550bf3a49}{G\+P\+I\+Ox}~G\+P\+I\+OC
+\begin{DoxyCompactList}\small\item\em G\+P\+IO used to motors Enable generation. \end{DoxyCompactList}\item 
+\hypertarget{motor_8c_a5a1062ffa0437eb43db9f95d82f77ec0}{}\label{motor_8c_a5a1062ffa0437eb43db9f95d82f77ec0} 
+\#define \hyperlink{motor_8c_a5a1062ffa0437eb43db9f95d82f77ec0}{E\+N\+A\+B\+L\+E\+\_\+\+P\+IN}~6
+\begin{DoxyCompactList}\small\item\em Pin used to motors Enable generation. \end{DoxyCompactList}\item 
+\hypertarget{motor_8c_a6a06d5e0af804c23442d316bd0b873d6}{}\label{motor_8c_a6a06d5e0af804c23442d316bd0b873d6} 
+\#define \hyperlink{motor_8c_a6a06d5e0af804c23442d316bd0b873d6}{P\+W\+M\+\_\+\+M\+IN}~(float)(0.\+245)
+\begin{DoxyCompactList}\small\item\em Min P\+WM value used in motors. \end{DoxyCompactList}\item 
+\hypertarget{motor_8c_a391fa1e490bd712720989b58fa0d9904}{}\label{motor_8c_a391fa1e490bd712720989b58fa0d9904} 
+\#define \hyperlink{motor_8c_a391fa1e490bd712720989b58fa0d9904}{P\+W\+M\+\_\+\+M\+AX}~(float)(0.\+754)
+\begin{DoxyCompactList}\small\item\em Max P\+WM value used in motors. \end{DoxyCompactList}\item 
+\hypertarget{motor_8c_ada4422db99c2d28e2a126f8693b387b0}{}\label{motor_8c_ada4422db99c2d28e2a126f8693b387b0} 
+\#define \hyperlink{motor_8c_ada4422db99c2d28e2a126f8693b387b0}{S\+P\+E\+E\+D\+\_\+\+M\+IN}~(float)(-\/1.\+0)
+\begin{DoxyCompactList}\small\item\em Min speed in motors. \end{DoxyCompactList}\item 
+\hypertarget{motor_8c_ad7c86544bbb397ff14a6bb7f288f63a0}{}\label{motor_8c_ad7c86544bbb397ff14a6bb7f288f63a0} 
+\#define \hyperlink{motor_8c_ad7c86544bbb397ff14a6bb7f288f63a0}{S\+P\+E\+E\+D\+\_\+\+M\+AX}~(float)(1.\+0)
+\begin{DoxyCompactList}\small\item\em Max speed in motors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{motor_8c_a54370e3413d4713f1cd95ff423a89849}{motors\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes motors drivers. \end{DoxyCompactList}\item 
+\hypertarget{motor_8c_a37bd6671db8d780e1586a6f7f1e1d99c}{}\label{motor_8c_a37bd6671db8d780e1586a6f7f1e1d99c} 
+void {\bfseries motor\+\_\+set\+\_\+speed} (float speed)
+\item 
+void \hyperlink{motor_8c_a71ad7e763c5f61cb233b9fdf8679c5e2}{motors\+\_\+start} (void)
+\begin{DoxyCompactList}\small\item\em Allows car departure with previously selected speed. \end{DoxyCompactList}\item 
+void \hyperlink{motor_8c_a0789c1037809393daaf94b98ff64e589}{motors\+\_\+stop} (void)
+\begin{DoxyCompactList}\small\item\em Stops the car. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Service library that allows to manipulate motors. 
+
+\begin{DoxyAuthor}{Author}
+Curtis team 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{motor_8c_a54370e3413d4713f1cd95ff423a89849}{}\label{motor_8c_a54370e3413d4713f1cd95ff423a89849} 
+\index{motor.\+c@{motor.\+c}!motors\+\_\+init@{motors\+\_\+init}}
+\index{motors\+\_\+init@{motors\+\_\+init}!motor.\+c@{motor.\+c}}
+\subsubsection{\texorpdfstring{motors\+\_\+init()}{motors\_init()}}
+{\footnotesize\ttfamily motors\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initializes motors drivers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{motor_8c_a71ad7e763c5f61cb233b9fdf8679c5e2}{}\label{motor_8c_a71ad7e763c5f61cb233b9fdf8679c5e2} 
+\index{motor.\+c@{motor.\+c}!motors\+\_\+start@{motors\+\_\+start}}
+\index{motors\+\_\+start@{motors\+\_\+start}!motor.\+c@{motor.\+c}}
+\subsubsection{\texorpdfstring{motors\+\_\+start()}{motors\_start()}}
+{\footnotesize\ttfamily motors\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Allows car departure with previously selected speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{motor_8c_a0789c1037809393daaf94b98ff64e589}{}\label{motor_8c_a0789c1037809393daaf94b98ff64e589} 
+\index{motor.\+c@{motor.\+c}!motors\+\_\+stop@{motors\+\_\+stop}}
+\index{motors\+\_\+stop@{motors\+\_\+stop}!motor.\+c@{motor.\+c}}
+\subsubsection{\texorpdfstring{motors\+\_\+stop()}{motors\_stop()}}
+{\footnotesize\ttfamily motors\+\_\+stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Stops the car. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

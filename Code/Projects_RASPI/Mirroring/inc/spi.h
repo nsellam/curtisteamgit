@@ -1,9 +1,14 @@
+/**
+ * @file spi.h
+ * @author Curtis Team
+ * @brief header of spi.c
+ */
 
 #ifndef SPI_H
 
 /**
 * @def SPI_H
-* @brief to memorize if "fifo.h" file has already been included
+* @brief to memorize if "spi.h" file has already been included
 */
 
 #define SPI_H

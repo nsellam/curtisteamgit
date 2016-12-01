@@ -20,16 +20,16 @@ uint8_t buffer_Tx[BUFFER_TX_SIZE];
 /*       Public Functions       */
 /********************************/
 
-void Mirroring_Init(void) {
-   pdata_PI  = (data_PI_t  *)buffer_Rx;
+void mirroring_init(void) {
+   pdata_PI  = (data_PI_t *)buffer_Rx;
    pdata_STM = (data_STM_t *)buffer_Tx;
-   SPIComm_Init((uint8_t *)buffer_Rx, (uint8_t *)buffer_Tx, BUFFER_RX_SIZE, BUFFER_TX_SIZE);
+   SPIComm_init((uint8_t *)buffer_Rx, (uint8_t *)buffer_Tx, BUFFER_RX_SIZE, BUFFER_TX_SIZE);
 }
 
-void Mirroring_Start(void) {
-   SPIComm_Start();
+void mirroring_start(void) {
+   SPIComm_start();
 }
 
-void Mirroring_Stop(void) {
-   SPIComm_Stop();
+void mirroring_stop(void) {
+   SPIComm_stop();
 }

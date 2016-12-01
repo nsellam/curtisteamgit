@@ -1,3 +1,9 @@
+/**
+ * @file speed_sensor.c
+ * @author Curtis Team
+ * @brief Application functions for speed sensors
+ */
+ 
 #include "speed_sensor.h"
 #include "hall_sensor.h"
 #include "systick.h"

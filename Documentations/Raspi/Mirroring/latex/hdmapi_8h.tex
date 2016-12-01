@@ -1,0 +1,64 @@
+\hypertarget{hdmapi_8h}{}\section{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/inc/hdmapi.h File Reference}
+\label{hdmapi_8h}\index{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/inc/hdmapi.\+h@{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/inc/hdmapi.\+h}}
+
+
+header of hdmapi.\+c  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{hdmapi_8h_acb52fff48185d8339514dc5f541dfd68}{}\label{hdmapi_8h_acb52fff48185d8339514dc5f541dfd68} 
+int {\bfseries get\+\_\+ultrasonic\+\_\+data} (int id)
+\item 
+\hypertarget{hdmapi_8h_a1423c19c8bd4ed0669e0a666052ec72a}{}\label{hdmapi_8h_a1423c19c8bd4ed0669e0a666052ec72a} 
+int {\bfseries get\+\_\+wheel\+\_\+position\+\_\+data} (int id)
+\item 
+\hypertarget{hdmapi_8h_ab700b1061cce92ffaa5db7777930001a}{}\label{hdmapi_8h_ab700b1061cce92ffaa5db7777930001a} 
+int {\bfseries get\+\_\+steering\+\_\+stop\+\_\+data} (int id)
+\item 
+float \hyperlink{hdmapi_8h_adbef7a4f0c018ffddf0b829330be8acb}{get\+\_\+travelled\+\_\+distance} ()
+\begin{DoxyCompactList}\small\item\em returns the travelled distance (cm) \end{DoxyCompactList}\item 
+float \hyperlink{hdmapi_8h_a2647a5576be2f572595cb7f01bd7c410}{get\+\_\+car\+\_\+speed} ()
+\begin{DoxyCompactList}\small\item\em returns the car speed (cm/s) \end{DoxyCompactList}\item 
+\hypertarget{hdmapi_8h_a8a5a4cca28b661a32b4fc93433d47909}{}\label{hdmapi_8h_a8a5a4cca28b661a32b4fc93433d47909} 
+void {\bfseries set\+\_\+motor\+\_\+speed\+\_\+data} (uint8\+\_\+t speed)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+header of hdmapi.\+c 
+
+\begin{DoxyAuthor}{Author}
+Curtis Team 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{hdmapi_8h_a2647a5576be2f572595cb7f01bd7c410}{}\label{hdmapi_8h_a2647a5576be2f572595cb7f01bd7c410} 
+\index{hdmapi.\+h@{hdmapi.\+h}!get\+\_\+car\+\_\+speed@{get\+\_\+car\+\_\+speed}}
+\index{get\+\_\+car\+\_\+speed@{get\+\_\+car\+\_\+speed}!hdmapi.\+h@{hdmapi.\+h}}
+\subsubsection{\texorpdfstring{get\+\_\+car\+\_\+speed()}{get\_car\_speed()}}
+{\footnotesize\ttfamily get\+\_\+car\+\_\+speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns the car speed (cm/s) 
+
+\begin{DoxyReturn}{Returns}
+\+: the car speed in cm/s 
+\end{DoxyReturn}
+\hypertarget{hdmapi_8h_adbef7a4f0c018ffddf0b829330be8acb}{}\label{hdmapi_8h_adbef7a4f0c018ffddf0b829330be8acb} 
+\index{hdmapi.\+h@{hdmapi.\+h}!get\+\_\+travelled\+\_\+distance@{get\+\_\+travelled\+\_\+distance}}
+\index{get\+\_\+travelled\+\_\+distance@{get\+\_\+travelled\+\_\+distance}!hdmapi.\+h@{hdmapi.\+h}}
+\subsubsection{\texorpdfstring{get\+\_\+travelled\+\_\+distance()}{get\_travelled\_distance()}}
+{\footnotesize\ttfamily get\+\_\+travelled\+\_\+distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns the travelled distance (cm) 
+
+\begin{DoxyReturn}{Returns}
+\+: the travelled distance in cm 
+\end{DoxyReturn}

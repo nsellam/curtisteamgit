@@ -1,3 +1,9 @@
+/**
+ * @file position_sensor.h
+ * @author Curtis Team
+ * @brief Headers of application functions for position sensors
+ */
+
 #ifndef POSITION_SENSOR_H
 #define POSITION_SENSOR_H
 

@@ -1,0 +1,92 @@
+\hypertarget{mirroring_p_i_8c}{}\section{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/mirroring\+PI.c File Reference}
+\label{mirroring_p_i_8c}\index{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/mirroring\+P\+I.\+c@{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/mirroring\+P\+I.\+c}}
+
+
+service layer for the Raspberry Pi Synchronizes data by sending values of actuators and receiving values of sensors  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$mirroring.\+h$>$}\newline
+{\ttfamily \#include $<$spi.\+h$>$}\newline
+{\ttfamily \#include $<$data.\+h$>$}\newline
+{\ttfamily \#include $<$wait\+Period.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{mirroring_p_i_8c_affe776513b24d84b39af8ab0930fef7f}{}\label{mirroring_p_i_8c_affe776513b24d84b39af8ab0930fef7f} 
+\#define \hyperlink{mirroring_p_i_8c_affe776513b24d84b39af8ab0930fef7f}{max}(a,  b)~(((a) $>$ (b)) ? (a) \+: (b))
+\begin{DoxyCompactList}\small\item\em macro for maximum computing \end{DoxyCompactList}\item 
+\hypertarget{mirroring_p_i_8c_ac616afd9c5b4d26f9d3f6a5cffea5dd3}{}\label{mirroring_p_i_8c_ac616afd9c5b4d26f9d3f6a5cffea5dd3} 
+\#define \hyperlink{mirroring_p_i_8c_ac616afd9c5b4d26f9d3f6a5cffea5dd3}{P\+E\+R\+I\+O\+D\+\_\+\+M\+I\+R\+R\+O\+R\+I\+N\+G\+\_\+\+NS}~1000000
+\begin{DoxyCompactList}\small\item\em the period of thread mirroring\+PI in nano seconds \end{DoxyCompactList}\item 
+\hypertarget{mirroring_p_i_8c_a3eebd09a9a94c914de17855816e6ac45}{}\label{mirroring_p_i_8c_a3eebd09a9a94c914de17855816e6ac45} 
+\#define \hyperlink{mirroring_p_i_8c_a3eebd09a9a94c914de17855816e6ac45}{P\+A\+D\+D\+I\+NG}~0x00
+\begin{DoxyCompactList}\small\item\em padding byte \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{mirroring_p_i_8c_a7e1ac1d43b9599236f11073421406dab}{}\label{mirroring_p_i_8c_a7e1ac1d43b9599236f11073421406dab} 
+void $\ast$ {\bfseries mirroring\+PI} (void $\ast$arg)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{mirroring_p_i_8c_ad6028bfe71dbf9cde6aaa5b1be4055cd}{}\label{mirroring_p_i_8c_ad6028bfe71dbf9cde6aaa5b1be4055cd} 
+pthread\+\_\+mutex\+\_\+t \hyperlink{mirroring_p_i_8c_ad6028bfe71dbf9cde6aaa5b1be4055cd}{m\+\_\+data\+\_\+\+PI}
+\begin{DoxyCompactList}\small\item\em mutex for data\+\_\+\+PI structure \end{DoxyCompactList}\item 
+\hypertarget{mirroring_p_i_8c_a8c6b9257ba3da006cde509d84c5c2b02}{}\label{mirroring_p_i_8c_a8c6b9257ba3da006cde509d84c5c2b02} 
+pthread\+\_\+mutex\+\_\+t \hyperlink{mirroring_p_i_8c_a8c6b9257ba3da006cde509d84c5c2b02}{m\+\_\+data\+\_\+\+S\+TM}
+\begin{DoxyCompactList}\small\item\em mutex for data\+\_\+\+S\+TM structure \end{DoxyCompactList}\item 
+int \hyperlink{mirroring_p_i_8c_a4a90cf3da541758ceee3923977ae9bdd}{send\+\_\+error} = 0x00
+\begin{DoxyCompactList}\small\item\em to store the errors when S\+PI sending \end{DoxyCompactList}\item 
+int \hyperlink{mirroring_p_i_8c_a63ac2146b069f68affcf5ba94c484237}{canary\+\_\+error\+\_\+count} = 0x00
+\begin{DoxyCompactList}\small\item\em to count the canary errors \end{DoxyCompactList}\item 
+int \hyperlink{mirroring_p_i_8c_a98df1986bdc789836e5272ed4a7e5cf7}{crc\+\_\+error\+\_\+count} = 0x00
+\begin{DoxyCompactList}\small\item\em to count the crc errors \end{DoxyCompactList}\item 
+\hypertarget{mirroring_p_i_8c_ab66ed8e0098c0a86b458672a55a9cca9}{}\label{mirroring_p_i_8c_ab66ed8e0098c0a86b458672a55a9cca9} 
+int {\bfseries k} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+service layer for the Raspberry Pi Synchronizes data by sending values of actuators and receiving values of sensors 
+
+\begin{DoxyAuthor}{Author}
+Curtis team 
+\end{DoxyAuthor}
+
+
+\subsection{Variable Documentation}
+\hypertarget{mirroring_p_i_8c_a63ac2146b069f68affcf5ba94c484237}{}\label{mirroring_p_i_8c_a63ac2146b069f68affcf5ba94c484237} 
+\index{mirroring\+P\+I.\+c@{mirroring\+P\+I.\+c}!canary\+\_\+error\+\_\+count@{canary\+\_\+error\+\_\+count}}
+\index{canary\+\_\+error\+\_\+count@{canary\+\_\+error\+\_\+count}!mirroring\+P\+I.\+c@{mirroring\+P\+I.\+c}}
+\subsubsection{\texorpdfstring{canary\+\_\+error\+\_\+count}{canary\_error\_count}}
+{\footnotesize\ttfamily int canary\+\_\+error\+\_\+count = 0x00}
+
+
+
+to count the canary errors 
+
+@ canary\+\_\+error\+\_\+count \hypertarget{mirroring_p_i_8c_a98df1986bdc789836e5272ed4a7e5cf7}{}\label{mirroring_p_i_8c_a98df1986bdc789836e5272ed4a7e5cf7} 
+\index{mirroring\+P\+I.\+c@{mirroring\+P\+I.\+c}!crc\+\_\+error\+\_\+count@{crc\+\_\+error\+\_\+count}}
+\index{crc\+\_\+error\+\_\+count@{crc\+\_\+error\+\_\+count}!mirroring\+P\+I.\+c@{mirroring\+P\+I.\+c}}
+\subsubsection{\texorpdfstring{crc\+\_\+error\+\_\+count}{crc\_error\_count}}
+{\footnotesize\ttfamily int crc\+\_\+error\+\_\+count = 0x00}
+
+
+
+to count the crc errors 
+
+@ crc\+\_\+error\+\_\+count \hypertarget{mirroring_p_i_8c_a4a90cf3da541758ceee3923977ae9bdd}{}\label{mirroring_p_i_8c_a4a90cf3da541758ceee3923977ae9bdd} 
+\index{mirroring\+P\+I.\+c@{mirroring\+P\+I.\+c}!send\+\_\+error@{send\+\_\+error}}
+\index{send\+\_\+error@{send\+\_\+error}!mirroring\+P\+I.\+c@{mirroring\+P\+I.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+error}{send\_error}}
+{\footnotesize\ttfamily int send\+\_\+error = 0x00}
+
+
+
+to store the errors when S\+PI sending 
+
+@ send\+\_\+error 

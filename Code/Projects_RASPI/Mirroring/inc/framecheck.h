@@ -1,11 +1,15 @@
-#ifndef FRAMECHECK_H
-#define FRAMECHECK_H
-
 /**
  * @file framecheck.h
  * @author Curtis Team
  * @brief common header to check_pi.c and check_st.c
  */
+
+#ifndef FRAMECHECK_H
+#define FRAMECHECK_H
+
+/********************************/
+/*       LIBRARIES              */
+/********************************/
 
 #include <stdint.h>
 #include <stddef.h>

@@ -1,3 +1,8 @@
+/**
+ * @file spicomm.c
+ * @author Curtis Team
+ * @brief SPI communication module
+ */
 
 /********************************/
 /*       LIBRARIES              */
@@ -24,9 +29,6 @@
 #define FRAME_CANARY_POS(length) ((length) + 0)
 #define FRAME_CRC_POS(length)    (FRAME_CANARY_POS(length) + FRAME_CANARY_SIZE)
 
-#define SPIx_DR_Offset           0x0C
-#define SPIx_DR_Base             (SPI2_BASE + SPIx_DR_Offset)
-
 #define SPIx                     SPI2
 #define SPIx_CLK                 RCC_APB1Periph_SPI2
 
@@ -44,9 +46,9 @@
 #define SPIx_DMA_Tx_Channel_IRQn DMA1_Channel5_IRQn
 #define SPIx_DMA_PRIO            1
 
-#define DMA_FLAGS2STATUS(flags) (((flags) & DMA_FLAG_TE) ? TRANSFER_ERROR    :\
-                                (((flags) & DMA_FLAG_HT) ? TRANSFER_HALF     :\
-                                (((flags) & DMA_FLAG_TC) ? TRANSFER_COMPLETE : TRANSFER_UNKNOWN)))
+#define DMA_FLAGS2STATUS(flags) (((flags) & DMA_FLAG_TE) ? SPICOMM_TRANSFER_ERROR    :\
+                                (((flags) & DMA_FLAG_HT) ? SPICOMM_TRANSFER_HALF     :\
+                                (((flags) & DMA_FLAG_TC) ? SPICOMM_TRANSFER_COMPLETE : SPICOMM_TRANSFER_UNKNOWN)))
 
 /********************************/
 /*       VARIABLES              */
@@ -60,8 +62,8 @@ uint8_t *data_buffer_Tx;
 uint8_t frame_buffer_Rx[SPICOMM_BUFFER_SIZE_MAX + FRAME_CHECK_SIZE];
 uint8_t frame_buffer_Tx[SPICOMM_BUFFER_SIZE_MAX + FRAME_CHECK_SIZE];
 
-int error_canary_num = 0;
-int error_crc_num = 0;
+unsigned int error_canary_count = 0;
+unsigned int error_crc_count = 0;
 
 /********************************/
 /*       STRUCTURES             */
@@ -85,7 +87,6 @@ void  SPI_Configuration(void);
 /********************************/
 
 /**
- * @fn SPIComm_Init
  * @brief Initializes the SPI device with circular DMA on the given buffers.
  * @param buffer_Rx: pointer to the buffer where the received data is stored
  * @param buffer_Tx: pointer to the buffer where the data to send is stored
@@ -93,7 +94,7 @@ void  SPI_Configuration(void);
  * @param buffer_Tx_size: size of buffer_Tx in bytes
  * @return None
  */
-void SPIComm_Init(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t buffer_Rx_size, size_t buffer_Tx_size) {
+void SPIComm_init(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t buffer_Rx_size, size_t buffer_Tx_size) {
 
    // Save buffers' adress and size
    data_buffer_Rx_size = buffer_Rx_size;
@@ -115,21 +116,19 @@ void SPIComm_Init(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t buffer_Rx_siz
 }
 
 /**
- * @fn SPIComm_Start
  * @brief Starts the SPI communication.
  * @return None
  */
-void SPIComm_Start(void) {
+void SPIComm_start(void) {
    // Enable SPIx
    SPI_Cmd(SPIx, ENABLE);
 }
 
 /**
- * @fn SPIComm_Stop
  * @brief Stops the SPI communication.
  * @return None
  */
-void SPIComm_Stop(void) {
+void SPIComm_stop(void) {
    // Make sure tranfer is complete:
    //    - avoid data corruption
    while(SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_TXE) != SET);
@@ -140,18 +139,16 @@ void SPIComm_Stop(void) {
 }
 
 /**
- * @fn SPIComm_Rx_Callback
  * @brief Callback to handle Rx transfers events.
  * @return None
  */
-__weak void SPIComm_Rx_Callback(SPIComm_TransferStatus status){}
+__weak void SPIComm_Rx_callback(SPIComm_TransferStatus status){}
 
 /**
- * @fn SPIComm_Tx_Callback
  * @brief Callback to handle Tx transfers events.
  * @return None
  */
-__weak void SPIComm_Tx_Callback(SPIComm_TransferStatus status){}
+__weak void SPIComm_Tx_callback(SPIComm_TransferStatus status){}
 
 
 
@@ -167,39 +164,58 @@ __weak void SPIComm_Tx_Callback(SPIComm_TransferStatus status){}
  * @param  flags   Interrupts flags
  * @retval None
  */
-void SPIComm_DMA_Callback(int dma, int channel, uint8_t flags) {
+void SPIComm_DMA_callback(DMA_Channel_TypeDef * channel, uint8_t flags) {
    SPIComm_TransferStatus status = DMA_FLAGS2STATUS(flags);
-   if (/*GET_DMA_CHANNEL[dma][channel] == SPIx_DMA_Rx_Channel*/channel == 4) {
-      if(status == TRANSFER_COMPLETE) handle_data_Rx(status);
-      SPIComm_Rx_Callback(status);
-   } else if (/*GET_DMA_CHANNEL[dma][channel] == SPIx_DMA_Tx_Channel*/channel == 5) {
-      if(status == TRANSFER_COMPLETE) handle_data_Tx(status);
-      SPIComm_Tx_Callback(status);
+
+   if (channel == SPIx_DMA_Rx_Channel)
+   {
+      if (status == SPICOMM_TRANSFER_COMPLETE) handle_data_Rx(status);
+      SPIComm_Rx_callback(status);
+
+   } else if (channel == SPIx_DMA_Tx_Channel)
+   {
+      if (status == SPICOMM_TRANSFER_COMPLETE) handle_data_Tx(status);
+      SPIComm_Tx_callback(status);
+
    } else {}
 }
 
+/**
+ * @brief  Handles the DMA_Rx interrupts of SPIComm.
+ * @param  status Status of the DMA transfert
+ * @retval void
+ */
 void handle_data_Rx(SPIComm_TransferStatus status) {
    uint8_t canary, crc, error_canary, error_crc;
+
    // extract canary and crc
    canary = frame_buffer_Rx[FRAME_CANARY_POS(data_buffer_Rx_size)];
    crc = frame_buffer_Rx[FRAME_CRC_POS(data_buffer_Rx_size)];
+
    // check canary
-   error_canary = (Frame_check_canary(canary) != 0);
-   error_canary_num += error_canary;
+   error_canary = (Frame_Canary_Check(canary) != 0);
+   error_canary_count += error_canary;
+
    // check crc
-   error_crc = (Frame_check_CRC(frame_buffer_Rx, data_buffer_Rx_size + FRAME_CANARY_SIZE, crc) != 0);
-   error_crc_num += error_crc;
-   // copy frame to data
+   error_crc = (Frame_CRC_Check(frame_buffer_Rx, data_buffer_Rx_size + FRAME_CANARY_SIZE, crc) != 0);
+   error_crc_count += error_crc;
+
+   // copy frame to data if no error
    if(!error_canary && !error_crc) memcpy(data_buffer_Rx, frame_buffer_Rx, data_buffer_Rx_size);
 }
 
+/**
+ * @brief  Handles the DMA_Tx interrupts of SPIComm.
+ * @param  status Status of the DMA transfert
+ * @retval void
+ */
 void handle_data_Tx(SPIComm_TransferStatus status) {
    // copy data to frame
    memcpy(frame_buffer_Tx, data_buffer_Tx, data_buffer_Tx_size);
    // add canary
-   frame_buffer_Tx[FRAME_CANARY_POS(data_buffer_Tx_size)] = Frame_compute_canary();
+   frame_buffer_Tx[FRAME_CANARY_POS(data_buffer_Tx_size)] = Frame_Canary_Compute();
    // add crc
-   frame_buffer_Tx[FRAME_CRC_POS(data_buffer_Tx_size)] = Frame_compute_CRC(frame_buffer_Tx, data_buffer_Tx_size + FRAME_CANARY_SIZE);
+   frame_buffer_Tx[FRAME_CRC_POS(data_buffer_Tx_size)] = Frame_CRC_Compute(frame_buffer_Tx, data_buffer_Tx_size + FRAME_CANARY_SIZE);
 }
 
 
@@ -272,7 +288,7 @@ void SPI_Configuration(void) {
    DMA_InitTypeDef DMA_InitStructure;
 
    // SPIx_Rx_DMA_Channel configuration
-   DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SPIx_DR_Base;
+   DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&SPIx->DR;
    DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)frame_buffer_Rx;
    DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
    DMA_InitStructure.DMA_BufferSize = data_buffer_Rx_size + FRAME_CHECK_SIZE;
@@ -286,7 +302,7 @@ void SPI_Configuration(void) {
    DMA_Init(SPIx_DMA_Rx_Channel, &DMA_InitStructure);
 
    // SPIx_Tx_DMA_Channel configuration
-   DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SPIx_DR_Base;
+   DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&SPIx->DR;
    DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)frame_buffer_Tx;
    DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
    DMA_InitStructure.DMA_BufferSize = data_buffer_Tx_size + FRAME_CHECK_SIZE;

@@ -1,0 +1,84 @@
+\hypertarget{print_8c}{}\section{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/print.c File Reference}
+\label{print_8c}\index{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/print.\+c@{D\+:/\+Estudo/\+Git\+Hub/curtisteamgit/\+Code/\+Projects\+\_\+\+R\+A\+S\+P\+I/\+Mirroring/print.\+c}}
+
+
+application layer for the Raspberry Pi to print any shared variables  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$print.\+h$>$}\newline
+{\ttfamily \#include $<$wait\+Period.\+h$>$}\newline
+{\ttfamily \#include $<$data.\+h$>$}\newline
+{\ttfamily \#include $<$hdmapi.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{print_8c_ab98c1fd20c5bcffebe571044e1fb5552}{}\label{print_8c_ab98c1fd20c5bcffebe571044e1fb5552} 
+\#define \hyperlink{print_8c_ab98c1fd20c5bcffebe571044e1fb5552}{P\+E\+R\+I\+O\+D\+\_\+\+P\+R\+I\+N\+T\+\_\+\+NS}~1000000000
+\begin{DoxyCompactList}\small\item\em the period of thread print in nano seconds \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{print_8c_af154d207e35307e97b28f6d59d41e31b}{}\label{print_8c_af154d207e35307e97b28f6d59d41e31b} 
+void {\bfseries print\+\_\+struct\+\_\+\+PI} (data\+\_\+\+P\+I\+\_\+t $\ast$D)
+\item 
+\hypertarget{print_8c_a1b1ed0fbd1a2e58ae9cb714f35891b54}{}\label{print_8c_a1b1ed0fbd1a2e58ae9cb714f35891b54} 
+void {\bfseries print\+\_\+struct\+\_\+\+S\+TM} (data\+\_\+\+S\+T\+M\+\_\+t $\ast$D)
+\item 
+\hypertarget{print_8c_ac883ef83d0f86973f6a4f1c1174d3cae}{}\label{print_8c_ac883ef83d0f86973f6a4f1c1174d3cae} 
+void $\ast$ {\bfseries print} (void $\ast$arg)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{print_8c_a4a90cf3da541758ceee3923977ae9bdd}{send\+\_\+error}
+\begin{DoxyCompactList}\small\item\em to store the errors when S\+PI sending \end{DoxyCompactList}\item 
+int \hyperlink{print_8c_a63ac2146b069f68affcf5ba94c484237}{canary\+\_\+error\+\_\+count}
+\begin{DoxyCompactList}\small\item\em to count the canary errors \end{DoxyCompactList}\item 
+int \hyperlink{print_8c_a98df1986bdc789836e5272ed4a7e5cf7}{crc\+\_\+error\+\_\+count}
+\begin{DoxyCompactList}\small\item\em to count the crc errors \end{DoxyCompactList}\item 
+\hypertarget{print_8c_ab66ed8e0098c0a86b458672a55a9cca9}{}\label{print_8c_ab66ed8e0098c0a86b458672a55a9cca9} 
+int {\bfseries k}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+application layer for the Raspberry Pi to print any shared variables 
+
+\begin{DoxyAuthor}{Author}
+Curtis team 
+\end{DoxyAuthor}
+
+
+\subsection{Variable Documentation}
+\hypertarget{print_8c_a63ac2146b069f68affcf5ba94c484237}{}\label{print_8c_a63ac2146b069f68affcf5ba94c484237} 
+\index{print.\+c@{print.\+c}!canary\+\_\+error\+\_\+count@{canary\+\_\+error\+\_\+count}}
+\index{canary\+\_\+error\+\_\+count@{canary\+\_\+error\+\_\+count}!print.\+c@{print.\+c}}
+\subsubsection{\texorpdfstring{canary\+\_\+error\+\_\+count}{canary\_error\_count}}
+{\footnotesize\ttfamily int canary\+\_\+error\+\_\+count}
+
+
+
+to count the canary errors 
+
+@ canary\+\_\+error\+\_\+count \hypertarget{print_8c_a98df1986bdc789836e5272ed4a7e5cf7}{}\label{print_8c_a98df1986bdc789836e5272ed4a7e5cf7} 
+\index{print.\+c@{print.\+c}!crc\+\_\+error\+\_\+count@{crc\+\_\+error\+\_\+count}}
+\index{crc\+\_\+error\+\_\+count@{crc\+\_\+error\+\_\+count}!print.\+c@{print.\+c}}
+\subsubsection{\texorpdfstring{crc\+\_\+error\+\_\+count}{crc\_error\_count}}
+{\footnotesize\ttfamily int crc\+\_\+error\+\_\+count}
+
+
+
+to count the crc errors 
+
+@ crc\+\_\+error\+\_\+count \hypertarget{print_8c_a4a90cf3da541758ceee3923977ae9bdd}{}\label{print_8c_a4a90cf3da541758ceee3923977ae9bdd} 
+\index{print.\+c@{print.\+c}!send\+\_\+error@{send\+\_\+error}}
+\index{send\+\_\+error@{send\+\_\+error}!print.\+c@{print.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+error}{send\_error}}
+{\footnotesize\ttfamily int send\+\_\+error}
+
+
+
+to store the errors when S\+PI sending 
+
+@ send\+\_\+error 

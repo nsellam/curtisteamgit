@@ -1,3 +1,9 @@
+/**
+ * @file hall_sensor.c
+ * @author Curtis Team
+ * @brief Service functions for hall sensors
+ */
+
 #include "hall_sensor.h"
 #include "systick.h"
 #include "exti.h"
@@ -37,7 +43,7 @@ void hall_sensor_reset (void);
 
 void hall_sensor_init(void) {
 	hall_sensor_reset(); 
-	exti_init(HALL_SENSOR_GPIO, HALL_SENSOR_PIN, HALL_SENSOR_MODE, HALL_SENSOR_TRIGG, HALL_SENSOR_PRIO, HALL_SENSOR_SUBPRIO);
+	EXTI_QuickInit(HALL_SENSOR_GPIO, HALL_SENSOR_PIN, HALL_SENSOR_TRIGG, HALL_SENSOR_PRIO);
 }
 
 void hall_sensor_callback (void) {
