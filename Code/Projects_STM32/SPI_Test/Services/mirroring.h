@@ -1,7 +1,7 @@
 /**
  * @file mirroring.h
  * @author Curtis Team
- * @brief common header to mirroring_pi and mirroring_st
+ * @brief Common header to mirroring_pi and mirroring_st
  */
 
 #ifndef MIRRORING_H
