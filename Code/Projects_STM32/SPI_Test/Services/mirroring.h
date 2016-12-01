@@ -1,11 +1,11 @@
-#ifndef MIRRORING_H
-#define MIRRORING_H
-
 /**
  * @file mirroring.h
  * @author Curtis Team
  * @brief common header to mirroring_pi and mirroring_st
  */
+
+#ifndef MIRRORING_H
+#define MIRRORING_H
 
 #include <stdint.h>
 #include "data.h"
