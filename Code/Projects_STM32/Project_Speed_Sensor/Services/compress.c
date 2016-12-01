@@ -1,3 +1,9 @@
+/**
+ * @file compress.c
+ * @author Curtis Team
+ * @brief Functions to compress data for sending 
+ */
+ 
 #include "stm32f10x.h"
 #include "position_sensor.h"
 #include "speed_sensor.h"
@@ -40,10 +46,10 @@
 #define POSITION_UNIT			POSITION_M_
 
 
-uint8_t compress_speed (float speed, float unit) {
+int16_t compress_speed (float speed, float unit) {
 	
 	float speed_kmh = (speed/unit) * SPEED_UNIT; // conversion to kilometers per hour
-	uint8_t compressed = COMPRESSED_SPEED_ZERO; 
+	int16_t compressed = COMPRESSED_SPEED_ZERO; 
 	
 	if (speed_kmh > (CAR_MAX_SPEED * SPEED_UNIT)) {
 		compressed = COMPRESSED_SPEED_MAX; 
@@ -52,10 +58,10 @@ uint8_t compress_speed (float speed, float unit) {
 		compressed = COMPRESSED_SPEED_MIN;
 	}
 	else if (speed_kmh < CAR_ZERO_SPEED * SPEED_UNIT) {
-		compressed = COMPRESSED_SPEED_ZERO - (uint8_t) (speed_kmh * SPEED_NEGATIVE_RESCALER);
+		compressed = COMPRESSED_SPEED_ZERO - (int16_t) (speed_kmh * SPEED_NEGATIVE_RESCALER);
 	}
 	else if (speed_kmh > CAR_ZERO_SPEED * SPEED_UNIT) {
-		compressed = (uint8_t) (speed_kmh * SPEED_POSITIVE_RESCALER) + COMPRESSED_SPEED_ZERO;
+		compressed = (int16_t) (speed_kmh * SPEED_POSITIVE_RESCALER) + COMPRESSED_SPEED_ZERO;
 	}
 	else {}
 		

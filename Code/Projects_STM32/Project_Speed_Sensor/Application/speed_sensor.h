@@ -1,3 +1,9 @@
+/**
+ * @file speed_sensor.h
+ * @author Curtis Team
+ * @brief Headers of application functions for speed sensors
+ */
+ 
 #ifndef SPEED_SENSOR_H
 #define SPEED_SENSOR_H
 

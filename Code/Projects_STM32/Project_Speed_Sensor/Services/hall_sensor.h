@@ -1,3 +1,9 @@
+/**
+ * @file hall_sensor.h
+ * @author Curtis Team
+ * @brief Handlers of service functions for hall sensors
+ */
+
 #ifndef HALL_SENSOR_H
 #define HALL_SENSOR_H
 

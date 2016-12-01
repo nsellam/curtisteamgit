@@ -1,3 +1,9 @@
+/**
+ * @file hall_sensor.c
+ * @author Curtis Team
+ * @brief Service functions for hall sensors
+ */
+
 #include "hall_sensor.h"
 #include "systick.h"
 #include "exti.h"

@@ -1,3 +1,9 @@
+/**
+ * @file position_sensor.h
+ * @author Curtis Team
+ * @brief Application functions for position sensors
+ */
+
 #include "position_sensor.h"
 #include "hall_sensor.h"
 

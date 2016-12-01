@@ -1,3 +1,9 @@
+/**
+ * @file callbacks_services.c
+ * @author Curtis Team
+ * @brief Callbacks functions
+ */
+
 #include "callbacks_services.h"
 #include "hall_sensor.h"
 #include "systick.h"
