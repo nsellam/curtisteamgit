@@ -3,11 +3,11 @@
 #include "mirroring.h"
 
 int main(void) {
-   Mirroring_Init();
-   pData_STM->ultrasonic_sensors[0] = 10;
-   pData_STM->travelled_distance = 3.14;
-   pData_STM->errors_SPI = 3;
-   Mirroring_Start();
+   mirroring_init();
+   pdata_STM->ultrasonic_sensors[0] = 10;
+   pdata_STM->travelled_distance = 3.14;
+   pdata_STM->errors_SPI = 3;
+   mirroring_start();
    while(1){};
    return 0;
 }

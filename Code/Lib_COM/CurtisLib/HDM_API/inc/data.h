@@ -13,7 +13,7 @@
 #define DATA_STM_US_NUM 6
 
 #define DATA_ALIGNMENT_PI  4
-#define DATA_SIZE_MAX_RAW  ((sizeof(Data_STM_t) > sizeof(Data_PI_t)) ? sizeof(Data_STM_t) : sizeof(Data_PI_t))
+#define DATA_SIZE_MAX_RAW  ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
 #define DATA_SIZE_MAX      (DATA_SIZE_MAX_RAW - (DATA_ALIGNMENT_PI - DATA_SIZE_MAX_RAW % DATA_ALIGNMENT_PI) % DATA_ALIGNMENT_PI)
 
 /************************
@@ -21,8 +21,8 @@
  ************************/
 
 /**
- * @struct Data_PI_t
- * @brief Data updated by the Raspberry Pi
+ * @struct data_PI_t
+ * @brief data updated by the Raspberry Pi
  * size: 4 bytes
  */
 typedef struct {
@@ -31,11 +31,11 @@ typedef struct {
    uint8_t led;         /*!< LED data */
 
    uint8_t errors_SPI;  /*!< Errors of communication data */
-} Data_PI_t;
+} data_PI_t;
 
 /**
- * @struct Data_STM_t
- * @brief Data updated by the STM32
+ * @struct data_STM_t
+ * @brief data updated by the STM32
  * size: 19 bytes
  */
 typedef struct {
@@ -51,38 +51,36 @@ typedef struct {
    uint8_t steering_stop_sensor_L;              /*!< Steering position data */
 
    uint8_t errors_SPI;                          /*!< Errors of communication data */
-} Data_STM_t;
+} data_STM_t;
 
 /************************
  *      VARIABLES       *
  ************************/
 /**
- * @var extern volatile Data_PI_t
- * @brief PI Data
+ * @var extern volatile data_PI_t
+ * @brief PI data
  */
-extern volatile Data_PI_t *pData_PI;
+extern volatile data_PI_t *pdata_PI;
 /**
- * @var extern volatile Data_STM_t
- * @brief STM32 Data
+ * @var extern volatile data_STM_t
+ * @brief STM32 data
  */
-extern volatile Data_STM_t *pData_STM;
+extern volatile data_STM_t *pdata_STM;
 
 /************************
  *      FUNCTIONS       *
  ************************/
 
 /**
- * @fn Data_Init_PI
- * @brief initializes the Data_PI structure pointed by pData_PI with the default values
+ * @brief initializes the data_PI structure pointed by pdata_PI with the default values
  * @return void
  */
-void Data_Init_PI(void);
+void data_init_PI(void);
 
 /**
- * @fn Data_Init_STM
- * @brief initializes the Data_STM structure pointed by pData_STM with the default values
+ * @brief initializes the data_STM structure pointed by pdata_STM with the default values
  * @return void
  */
-void Data_Init_STM(void);
+void data_init_STM(void);
 
 #endif // DATA_H
