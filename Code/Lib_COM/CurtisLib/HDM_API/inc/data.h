@@ -16,6 +16,68 @@
 #define DATA_SIZE_MAX_RAW  ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
 #define DATA_SIZE_MAX      (DATA_SIZE_MAX_RAW - (DATA_ALIGNMENT_PI - DATA_SIZE_MAX_RAW % DATA_ALIGNMENT_PI) % DATA_ALIGNMENT_PI)
 
+
+// Ultrasonic ID
+
+/**
+* @raw US_FR : id of front right ultrasonic sensor
+*/
+#define US_FR 0x00
+
+/**
+* @raw US_FM : id of front middle ultrasonic sensor
+*/
+#define US_FM 0x01
+
+/**
+* @raw US_FL : id of front left ultrasonic sensor
+*/
+#define US_FL 0x02
+
+/**
+* @raw US_BR : id of back right ultrasonic sensor
+*/
+#define US_BR 0x03
+
+/**
+* @raw US_BM : id of back middle ultrasonic sensor
+*/
+#define US_BM 0x04
+
+/**
+* @raw US_BL : id of back left ultrasonic sensor
+*/
+#define US_BL 0x05
+
+
+
+// Wheel position sensors 
+
+/**
+* @raw WP_R : id of Right wheel position sensor
+*/
+#define WP_R 0x00
+
+/**
+* @raw WP_L : id of Left wheel position sensor
+*/
+#define WP_L 0x01
+
+
+
+// Steering stop sensor
+
+/**
+* @raw SS_R : id of Right wheel position sensor
+*/
+#define SS_R 0x00
+
+/**
+* @raw SS_L : id of Left wheel position sensor
+*/
+#define SS_L 0x01
+
+
 /************************
  *     STRUCTURES       *
  ************************/
