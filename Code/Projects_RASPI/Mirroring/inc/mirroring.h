@@ -8,10 +8,6 @@
  * This header contains structures of sensors and actuators
  */
 
-/**
- * @param mabite
- */
-
 #include <stdint.h>
 #include <pthread.h>
 
