@@ -36,7 +36,13 @@
 * @def Frequence_Hz
 * @brief Frequency used to motors PWM generation in Hz
 */
-#define Frequence_Hz (float)(20e3) //in Hz
+#define MOTORS_FREQUENCY_Hz (float)(20e3) //in Hz
+   
+/**
+* @def PWM_PERIOD
+* @brief Period used to motors PWM generation in Hz
+*/
+#define PWM_PERIOD (float) 1/MOTORS_FREQUENCY_Hz //in Hz
 
 /**
 * @def GPIOx
@@ -74,6 +80,12 @@
 */
 #define PWM_DELTA_MAX (((PWM_MAX - PWM_ZERO) < (PWM_ZERO - PWM_MIN)) ? (PWM_MAX - PWM_ZERO) : (PWM_ZERO - PWM_MIN))
 
+/**
+* @def REMAP_PIN
+* @brief Enables pin remap
+*/
+#define REMAP_PIN 0x1
+
 
 
 /********************************/
@@ -87,15 +99,15 @@
 * @return void
 */
 void motors_init(void) {
-   PWM_Init(TIMx,CH,Frequence_Hz);
-   Active_Complementary_Output(TIMx, CH, 1);
-   PWM_Port_Init(TIMx, CH);
-   PWM_Set_Duty_Cycle(TIMx, CH, 0.5);
+   pwm_init(TIMx,CH,PWM_PERIOD);
+   active_complementary_output(TIMx, CH, REMAP_PIN);
+   pwm_port_init(TIMx, CH);
+   pwm_set_duty_cycle(TIMx, CH, 0.5);
 
    //Enable Pin
-   GPIO_QuickInit(GPIOx, ENABLE_PIN, GPIO_Mode_Out_PP);
+   //GPIO_QuickInit(GPIOx, ENABLE_PIN, GPIO_Mode_Out_PP);
 
-   PWM_Enable(TIMx);
+   pwm_enable(TIMx);
 }
 
 /**
@@ -111,7 +123,7 @@ void motor_set_speed(float speed){
    else if(speed < -SPEED_MAX) speed = -SPEED_MAX;
 
    duty_cycle = (PWM_DELTA_MAX)/(SPEED_DELTA) * speed + PWM_ZERO;
-   PWM_Set_Duty_Cycle(TIMx,CH,duty_cycle);
+   pwm_set_duty_cycle(TIMx,CH,duty_cycle);
 }
 
 /**

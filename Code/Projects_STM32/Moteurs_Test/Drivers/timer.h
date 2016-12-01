@@ -42,7 +42,7 @@
 * @param period_us Timer period in microseconds  
 * @return Period in microseconds obtained
 */
-float Timer_1234_Init(TIM_TypeDef *Timer, float period_us);
+void timer_init (TIM_TypeDef *timer, float period_us);
 
 /**
 * @fn Timer_1234_ITEnable
@@ -60,7 +60,7 @@ void Timer_1234_ITEnable(TIM_TypeDef *Timer, uint8_t priority, void (*IT_functio
 * @param Timer Timer to be used  
 * @return void
 */
-void Timer_1234_Enable(TIM_TypeDef *Timer);
+void timer_start(TIM_TypeDef *Timer);
 
 /**
 * @fn Timer_1234_Disable
@@ -68,7 +68,7 @@ void Timer_1234_Enable(TIM_TypeDef *Timer);
 * @param Timer Timer to be used  
 * @return void
 */
-void Timer_1234_Disable(TIM_TypeDef *Timer);
+void timer_disable(TIM_TypeDef *Timer);
 
 /**
 * @fn Timer_1234_Get_Counter_Val
