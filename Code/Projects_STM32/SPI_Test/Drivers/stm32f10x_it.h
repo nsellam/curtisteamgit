@@ -36,7 +36,7 @@
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 
-void SPI_DMA_Callback(DMA_Channel_TypeDef * channel, uint8_t flags);
+void SPIComm_DMA_callback(DMA_Channel_TypeDef * channel, uint8_t flags);
 
 #endif /* __STM32F10x_IT_H */
 

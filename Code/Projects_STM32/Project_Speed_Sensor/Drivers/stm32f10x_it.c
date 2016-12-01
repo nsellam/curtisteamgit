@@ -133,6 +133,9 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
 	systick_inc();
+	//speed => mettre le calback speed_sensor_time_based_methode_callback();
+	// 			=> faire les fonctions speed_sensor_time_based_methode_callback() et speed_sensor_time_based_methode()
+	//			=> ajouter les variables correspondantes
 }
 
 /******************************************************************************/

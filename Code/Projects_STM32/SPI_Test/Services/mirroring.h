@@ -1,11 +1,11 @@
-#ifndef MIRRORING_H
-#define MIRRORING_H
-
 /**
  * @file mirroring.h
  * @author Curtis Team
- * @brief common header to mirroring_pi and mirroring_st
+ * @brief Common header to mirroring_pi and mirroring_st
  */
+
+#ifndef MIRRORING_H
+#define MIRRORING_H
 
 #include <stdint.h>
 #include "data.h"
@@ -15,27 +15,25 @@
  ************************/
 
 /**
- * @fn Mirroring_Init
  * @brief Initialize the mirroring for both data_STM (sent) and data_PI (received).
  * @return None
  */
 
-void Mirroring_Init(void);
+void mirroring_init(void);
 
 /**
- * @fn Mirroring_Start
  * @brief Starts the mirroring.
  * @return None
  */
 
-void Mirroring_Start(void);
+void mirroring_start(void);
 
 /**
- * @fn Mirroring_Stop
  * @brief Stops the mirroring.
  * @return None
  */
 
-void Mirroring_Stop(void);
+void mirroring_stop(void);
 
 #endif // MIRRORING_H
+

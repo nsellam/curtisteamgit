@@ -3,9 +3,9 @@
 
 #define CAR_WHEEL_SIZE 		19									// cm
 
-#define CAR_MAX_SPEED 		138.889							// cm/s
+#define CAR_MAX_SPEED 		138.889							// cm/s  => 138.889 cm/s = 5 km/h
 #define CAR_MIN_SPEED			-CAR_MAX_SPEED			// cm/s
-#define CAR_ZERO_SPEED		0										// cm/s
+#define CAR_ZERO_SPEED		0.0										// cm/s
 
 #define CAR_MAX_POSITION	10000.0							// cm
 #define CAR_MIN_POSITION	-CAR_MAX_POSITION		// cm

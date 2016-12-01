@@ -1,3 +1,9 @@
+/**
+ * @file speed_sensor.c
+ * @author Curtis Team
+ * @brief Application functions for speed sensors
+ */
+ 
 #include "speed_sensor.h"
 #include "hall_sensor.h"
 #include "systick.h"
@@ -22,13 +28,33 @@ uint8_t SAMPLE_TO_USE;
 
 /**
  * @var speed 
- * @brief Last computed speed (expressed in centimeters per second)
+ * @brief Last computed speed (expressed in centimeters per second) for each speed sensor
 */
-float speed = 0; // cm/s
+float speed[HALL_SENSOR_NUMBER]; // cm/s
+
+/**
+ * @var speed_tick 
+ * @brief Last computed speed by tick based method (expressed in centimeters per second) for each speed sensor
+*/
+float speed_tick[HALL_SENSOR_NUMBER]; // cm/s
+
+/**
+ * @fn speed_sensor_compute
+ * @param speed_identifier -> uint8_t : Number of the speed sensor to consider
+ * @brief Computes speed and stores the result in a private variable 
+*/
+void speed_sensor_compute(uint8_t hall_identifier);
+
+/**
+ * @fn speed_sensor_tick_based_method
+ * @param speed_identifier -> uint8_t : Number of the speed sensor to consider
+ * @brief Computes speed with tick based method 
+*/
+void speed_sensor_tick_based_method (uint8_t speed_identifier);
 
 void speed_sensor_init() {
-	
-	speed = 0; 
+	int i = 0; 
+	for (i=0; i <HALL_SENSOR_NUMBER; i++) speed[i] = 0.0; 
 	
 	if (SPEED_SENSOR_SAMPLES_USED <= HALL_SENSOR_MAX_SAVED_POP) {
 		SAMPLE_TO_USE  = SPEED_SENSOR_SAMPLES_USED - 1;
@@ -38,15 +64,27 @@ void speed_sensor_init() {
 	}
 }
 
-void speed_sensor_compute() {
-	uint64_t tf = micros();
-	uint64_t t0 = get_hall_sensor_last_pop(SAMPLE_TO_USE);
-	
-	if (t0 == 0) {speed = 0;} // Car hasn't move yet
-	else if (t0 != tf) { speed = (float) (DELTA_DISTANCE * (SAMPLE_TO_USE + 1) / ((float)(tf - t0)/((float)SYSTICK_FREQ)));}
-	else {speed = INFINITE;} // Car browses instantly the distance
+void speed_sensor_compute(uint8_t speed_identifier) {
+	speed_sensor_tick_based_method (speed_identifier);
+	speed[speed_identifier] = speed_tick[speed_identifier];
 }
 
-float speed_sensor_get(float unit) {
-	return speed * unit;
+void speed_sensor_tick_based_method (uint8_t speed_identifier) {
+	uint64_t tf = micros();
+	uint64_t t0 = hall_sensor_get_last_pop(SAMPLE_TO_USE, speed_identifier);
+	
+	if (t0 == 0) {
+		speed_tick[speed_identifier] = 0; // Car hasn't move yet
+	} 
+	else if (t0 != tf) { 
+		speed_tick[speed_identifier] = (float) (DELTA_DISTANCE * (SAMPLE_TO_USE + 1) / ((float)(tf - t0)/((float)SYSTICK_FREQ)));
+	}
+	else {
+		speed_tick[speed_identifier] = INFINITE; // Car browses instantly the distance
+	} 
+}
+
+float speed_sensor_get(float unit, uint8_t speed_identifier) {
+	speed_sensor_compute(speed_identifier);
+	return speed[speed_identifier] * unit;
 }

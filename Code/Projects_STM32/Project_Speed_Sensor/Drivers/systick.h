@@ -1,3 +1,9 @@
+/**
+ * @file systick.h
+ * @author Curtis Team
+ * @brief Headers of functions to handle systick (STM internal time)  
+ */
+
 #ifndef SYSTICK_H
 #define SYSTICK_H
 

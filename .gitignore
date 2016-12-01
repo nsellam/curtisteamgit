@@ -6,8 +6,13 @@
 # Compilation files
 *.crf
 *.d
+*.dep
+*.iex
 *.lst
-
-# Keilduc
 *.lnp
 *.map
+
+# Keil
+*.bak
+*.uvgui.*
+*.uvopt.*

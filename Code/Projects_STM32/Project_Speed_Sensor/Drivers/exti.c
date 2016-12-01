@@ -1,3 +1,9 @@
+/**
+ * @file exti.c
+ * @author Curtis Team
+ * @brief Functions to handle external interrupts (EXTI)  
+ */
+ 
 #include "exti.h"
 
 /**
