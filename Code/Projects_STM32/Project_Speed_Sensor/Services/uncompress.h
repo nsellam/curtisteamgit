@@ -10,7 +10,7 @@
 #include <stdint.h>
 #include "stm32f10x.h"
 
-float uncompress_speed (uint16_t speed, float unit);
+float uncompress_speed (int16_t speed, float unit);
 
 float uncompress_position (uint8_t position, float unit);
 

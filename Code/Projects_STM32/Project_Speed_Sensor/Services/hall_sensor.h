@@ -10,22 +10,58 @@
 #include <stm32f10x.h>
 
 /**
- * @def HALL_SENSOR_LINE
- * @brief Number of the exti-line corresponding to the hall sensor
+ * @def HALL_IDENTIFIER_L
+ * @brief Identifier associated to the left hall sensor
 */
-#define HALL_SENSOR_LINE EXTI_Line8
+#define HALL_IDENTIFIER_L 0x00
 
 /**
- * @def HALL_SENSOR_PIN
- * @brief Number of the pin where the hall sensor is plugged
+ * @def HALL_IDENTIFIER_R
+ * @brief Identifier associated to the right hall sensor
 */
-#define HALL_SENSOR_PIN GPIO_Pin_8
+#define HALL_IDENTIFIER_R 0x01
 
 /**
- * @def HALL_SENSOR_GPIO
- * @brief Pointer on the GPIO port interfacing the hall sensor
+ * @def HALL_SENSOR_NUMBER
+ * @brief Identifier associated to the right hall sensor
 */
-#define HALL_SENSOR_GPIO GPIOC
+#define HALL_SENSOR_NUMBER 2
+
+/**
+ * @def HALL_SENSOR_L_LINE
+ * @brief Number of the exti-line corresponding to the left hall sensor
+*/
+#define HALL_SENSOR_L_LINE EXTI_Line8
+
+/**
+ * @def HALL_SENSOR_R_LINE
+ * @brief Number of the exti-line corresponding to the right hall sensor
+*/
+#define HALL_SENSOR_R_LINE EXTI_Line9
+
+/**
+ * @def HALL_SENSOR_L_PIN
+ * @brief Number of the pin where the left hall sensor is plugged
+*/
+#define HALL_SENSOR_L_PIN GPIO_Pin_8
+
+/**
+ * @def HALL_SENSOR_R_PIN
+ * @brief Number of the pin where the right hall sensor is plugged
+*/
+#define HALL_SENSOR_R_PIN GPIO_Pin_9
+
+/**
+ * @def HALL_SENSOR_L_GPIO
+ * @brief Pointer on the GPIO port interfacing the left hall sensor
+*/
+#define HALL_SENSOR_L_GPIO GPIOC
+
+/**
+ * @def HALL_SENSOR_R_GPIO
+ * @brief Pointer on the GPIO port interfacing the right hall sensor
+*/
+#define HALL_SENSOR_R_GPIO GPIOC
 
 /**
  * @def HALL_SENSOR_MODE
@@ -43,7 +79,7 @@
  * @def HALL_SENSOR_MAX_SAVED_POP
  * @brief Number of date of interrupt saved. Must be inferior to 0xFFFFFFFF
 */
-#define HALL_SENSOR_MAX_SAVED_POP 			0x0A
+#define HALL_SENSOR_MAX_SAVED_POP 			36
 
 /**
  * @def HALL_SENSOR_NUMBER_OF_SECTORS
@@ -66,17 +102,19 @@
 /**
  * @fn hall_sensor_callback
  * @brief Called function on external interrupt (EXTI). Must not be call by user. 
+ * @param hall_identifier : hall sensor front detected. It's recommended to use identifier such HALL_IDENTIFIER_L or HALL_IDENTIFIER_R
 */
-void hall_sensor_callback (void);
+void hall_sensor_callback (uint8_t hall_identifier);
 
 /**
  * @fn get_hall_sensor_last_pop
  * @brief Return the date (in microseconds) of the last - n detection of the hall sensor. 
  * @param n -> uint8_t (number of the sample wanted)
+ * @param 
  * @return uint64_t time of the detection passed as parameter
  * @retval time if it is possible to found it, ERROR_VALUE_NOT_FOUND if not
 */
-uint64_t get_hall_sensor_last_pop (uint8_t n);
+uint64_t hall_sensor_get_last_pop (uint8_t n, uint8_t hall_identifier);
 
 /**
  * @fn get_hall_sensor_sector
@@ -84,14 +122,14 @@ uint64_t get_hall_sensor_last_pop (uint8_t n);
  * @return uint16_t -> curent sector
  * @retval Current sector if current sector is under number of sectors, ERROR_SENSOR_OUT_OF_RANGE if not.
 */
-uint16_t hall_sensor_get_sector (void);
+uint16_t hall_sensor_get_sector (uint8_t hall_identifier);
 
 /**
  * @fn hall_sensor_get_lap
  * @brief Return the current lap
  * @return uint16_t -> curent lap
 */
-uint32_t hall_sensor_get_lap(void);
+uint32_t hall_sensor_get_lap(uint8_t hall_identifier);
 
 /**
  * @fn hall_sensor_init

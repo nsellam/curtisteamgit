@@ -31,14 +31,9 @@ void position_sensor_init (void);
  * @fn position_sensor_get
  * @brief Returns the value of position : unit is given by unit parameter
  * @param unit -> float (a parameter to convert centimeters to any expected unit). It is recommended to use defined units such as POSITION_MM, POSITION_CM, POSITION_M, POSITION_IN, POSITION_FT,...
+ * @param position_identifier -> uint8_t : number of the p sensor to examine
  * @return float (car position : unit depends on parameter passed as argument) 
 */
-float position_sensor_get (float unit);
-
-/**
- * @fn position_sensor_compute
- * @brief Computes position and stores the result in a private variable 
-*/
-void position_sensor_compute (void);
+float position_sensor_get (float unit, uint8_t position_identifier);
 
 #endif //POSITION_SENSOR_H

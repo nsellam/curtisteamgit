@@ -8,12 +8,13 @@
 #define SPEED_SENSOR_H
 
 #include "car.h"
+#include <stdint.h>
 
 /**
  * @def SPEED_SENSOR_SAMPLES_USED 
  * @brief Number of samples used to compute speed. It is recommended to keep a value under 5 to keep a good fidelity of the variable. Musn't be negative.  
 */
-#define SPEED_SENSOR_SAMPLES_USED 3
+#define SPEED_SENSOR_SAMPLES_USED 36
 
 /**
  * @def SPEED_xxxx 
@@ -39,14 +40,9 @@ void speed_sensor_init(void);
  * @fn speed_sensor_get
  * @brief Returns the value of speed : unit is given by unit parameter
  * @param unit -> float (a parameter to convert centimeters per second to any expected unit). It is recommended to use defined units such as SPEED_CM_S, SPEED_MM_S, SPEED_M_S, SPEED_KM_H, SPEED_FT_S,...
+ * @param speed_identifier -> uint8_t : number of the speed sensor to examine
  * @return float (car speed : unit depends on parameter passed as argument) 
 */
-float speed_sensor_get(float unit);
-
-/**
- * @fn speed_sensor_compute
- * @brief Computes speed and stores the result in a private variable 
-*/
-void speed_sensor_compute(void);
+float speed_sensor_get(float unit, uint8_t speed_identifier);
 
 #endif //SPEED_SENSOR_H
