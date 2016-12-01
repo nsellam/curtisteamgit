@@ -33,6 +33,12 @@ uint16_t hall_sensor_sector[HALL_SENSOR_NUMBER];
 uint32_t hall_sensor_lap[HALL_SENSOR_NUMBER];
 
 /**
+ * @var hall_sensor_periode_ticks
+ * @brief Number of ticks count during the last periode
+*/
+uint8_t hall_sensor_periode_ticks[HALL_SENSOR_NUMBER];
+
+/**
  * @fn hall_sensor_reset
  * @brief Reset the values kept in hall sensor variables
  * @param hall_identifier -> uint8_t : hall sensor to consider
@@ -60,6 +66,8 @@ void hall_sensor_callback (uint8_t hall_identifier) {
 		hall_sensor_sector[hall_identifier] = 0; 
 		hall_sensor_lap[hall_identifier] ++;
 	}
+	
+	hall_sensor_periode_ticks[hall_identifier]++;
 }
 
 /**
@@ -74,6 +82,7 @@ void hall_sensor_reset (uint8_t hall_identifier) {
 	for (i = 0; i < HALL_SENSOR_MAX_SAVED_POP; i++)	{
 		hall_sensor_last_pops[i][hall_identifier] = 0;
 	}
+	hall_sensor_periode_ticks[hall_identifier] = 0;
 }
 
 uint16_t hall_sensor_get_sector (uint8_t hall_identifier){
@@ -94,4 +103,10 @@ uint64_t hall_sensor_get_last_pop (uint8_t n, uint8_t hall_identifier) {
 	if (position_to_read < 0) position_to_read = position_to_read + HALL_SENSOR_MAX_SAVED_POP; // TODO : verifier ce calcul et le commenter
 		
 	return hall_sensor_last_pops[position_to_read][hall_identifier];
+}
+
+uint8_t hall_sensor_get_periode_ticks(uint8_t hall_identifier) {
+	uint8_t R = hall_sensor_periode_ticks[hall_identifier];
+	hall_sensor_periode_ticks[hall_identifier] = 0;
+	return R;
 }

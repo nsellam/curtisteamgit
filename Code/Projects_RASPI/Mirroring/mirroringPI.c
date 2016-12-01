@@ -98,6 +98,7 @@ void * mirroringPI (void * arg) {
   // initializations
   assert (SPI_init() >=0);
   init_data();
+  pdata_PI->motor_prop = 127;
   pdata_PI->motor_dir = 0xBB;
   pdata_PI->led = 0xAA;
   pdata_PI->errors_SPI = 0x99;

@@ -13,50 +13,48 @@
  ************************/
 
 /**
- * @var volatile Data_PI_t *pData_PI
- * @brief PI Data
+ * @var volatile data_PI_t *pdata_PI
+ * @brief PI data
  */
-volatile Data_PI_t *pData_PI = NULL;
+volatile data_PI_t *pdata_PI = NULL;
 
 /**
- * @var volatile Data_STM_t *pData_STM
- * @brief STM Data
+ * @var volatile data_STM_t *pdata_STM
+ * @brief STM data
  */
-volatile Data_STM_t *pData_STM = NULL;
+volatile data_STM_t *pdata_STM = NULL;
 
 /************************
  *      FUNCTIONS       *
  ************************/
 
 /**
- * @fn Data_Init_PI
- * @brief initializes the Data_PI structure pointed by pData_PI with the default values
+ * @brief initializes the data_PI structure pointed by pdata_PI with the default values
  * @return void
  */
-void Data_Init_PI(void) {
-   pData_PI->motor_prop = 0;
-   pData_PI->motor_dir  = 0;
-   pData_PI->led        = 0;
-   pData_PI->errors_SPI = 0;
+void data_init_PI(void) {
+   pdata_PI->motor_prop = 0;
+   pdata_PI->motor_dir  = 0;
+   pdata_PI->led        = 0;
+   pdata_PI->errors_SPI = 0;
 }
 
 /**
- * @fn Data_Init_STM
- * @brief initializes the Data_STM structure pointed by pData_STM with the default values
+ * @brief initializes the data_STM structure pointed by pdata_STM with the default values
  * @return void
  */
-void Data_Init_STM(void) {
+void data_init_STM(void) {
    int i;
 
    for(i = 0; i < DATA_STM_US_NUM; i++)
-      pData_STM->ultrasonic_sensors[i] = 0;
+      pdata_STM->ultrasonic_sensors[i] = 0;
 
-   pData_STM->wheel_position_sensor_R = 0;
-   pData_STM->wheel_position_sensor_L = 0;
-   pData_STM->steering_stop_sensor_R  = 0;
-   pData_STM->steering_stop_sensor_L  = 0;
-   pData_STM->errors_SPI              = 0;
+   pdata_STM->wheel_position_sensor_R = 0;
+   pdata_STM->wheel_position_sensor_L = 0;
+   pdata_STM->steering_stop_sensor_R  = 0;
+   pdata_STM->steering_stop_sensor_L  = 0;
+   pdata_STM->errors_SPI              = 0;
 
-	pData_STM->car_speed					  = 0.0;
-	pData_STM->travelled_distance		  = 0.0;
+	pdata_STM->car_speed					  = 0.0;
+	pdata_STM->travelled_distance		  = 0.0;
 }

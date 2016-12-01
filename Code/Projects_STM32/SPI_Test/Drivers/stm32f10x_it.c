@@ -50,13 +50,13 @@ void DMA_Callbacks(DMA_Channel_TypeDef * channel, uint8_t flags);
 
 
 /**
- * @brief  Handles the DMA interrupts for SPIComm.
+ * @brief  Callback for the DMA interrupts for SPIComm.
  * @param  dma     DMA number
  * @param  channel Channel number
  * @param  flags   Interrupts flags
  * @retval None
  */
-__weak void SPIComm_DMA_Callback(DMA_Channel_TypeDef * channel, uint8_t flags){}
+__weak void SPIComm_DMA_callback(DMA_Channel_TypeDef * channel, uint8_t flags){}
 
    
 
@@ -70,7 +70,7 @@ __weak void SPIComm_DMA_Callback(DMA_Channel_TypeDef * channel, uint8_t flags){}
 /******************************************************************************/
 
 void DMA_Callbacks(DMA_Channel_TypeDef * channel, uint8_t flags) {
-   SPIComm_DMA_Callback(channel, flags);
+   SPIComm_DMA_callback(channel, flags);
 }
 
 /******************************************************************************/

@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Release\project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Release\project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Wed Nov 30 19:58:46 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Thu Dec 01 13:50:57 2016
 <BR><P>
 <H3>Maximum Stack Usage =        112 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; Mirroring_Init &rArr; SPIComm_Init &rArr; SPI_Configuration &rArr; SPI_Init
+__rt_entry_main &rArr; main &rArr; mirroring_init &rArr; SPIComm_init &rArr; SPI_Configuration &rArr; SPI_Init
 <P>
 <H3>
 Functions with no stack information
@@ -191,7 +191,7 @@ Global Symbols
 
 <P><STRONG><a name="[45]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; Mirroring_Init &rArr; SPIComm_Init &rArr; SPI_Configuration &rArr; SPI_Init
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; mirroring_init &rArr; SPIComm_init &rArr; SPI_Configuration &rArr; SPI_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -214,38 +214,38 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = main &rArr; Mirroring_Init &rArr; SPIComm_Init &rArr; SPI_Configuration &rArr; SPI_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = main &rArr; mirroring_init &rArr; SPIComm_init &rArr; SPI_Configuration &rArr; SPI_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Mirroring_Start
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Mirroring_Init
+<BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mirroring_start
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mirroring_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[4c]"></a>Mirroring_Init</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, mirroring_st.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = Mirroring_Init &rArr; SPIComm_Init &rArr; SPI_Configuration &rArr; SPI_Init
+<P><STRONG><a name="[4c]"></a>mirroring_init</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, mirroring_st.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = mirroring_init &rArr; SPIComm_init &rArr; SPI_Configuration &rArr; SPI_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Init
-</UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[4d]"></a>Mirroring_Start</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, mirroring_st.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Mirroring_Start &rArr; SPIComm_Start
-</UL>
-<BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Start
+<BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[50]"></a>Mirroring_Stop</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, mirroring_st.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Stop
+<P><STRONG><a name="[4d]"></a>mirroring_start</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, mirroring_st.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = mirroring_start &rArr; SPIComm_start
+</UL>
+<BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_start
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[52]"></a>DMA_Callbacks</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = DMA_Callbacks &rArr; SPIComm_DMA_Callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
+<P><STRONG><a name="[50]"></a>mirroring_stop</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, mirroring_st.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_stop
 </UL>
-<BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_DMA_Callback
+
+<P><STRONG><a name="[52]"></a>DMA_Callbacks</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, stm32f10x_it.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = DMA_Callbacks &rArr; SPIComm_DMA_callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
+</UL>
+<BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_DMA_callback
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA1_Channel7_IRQHandler
 <LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA1_Channel6_IRQHandler
@@ -256,8 +256,8 @@ Global Symbols
 <LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA1_Channel1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[18]"></a>DMA1_Channel1_IRQHandler</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = DMA1_Channel1_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_Callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
+<P><STRONG><a name="[18]"></a>DMA1_Channel1_IRQHandler</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, stm32f10x_it.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = DMA1_Channel1_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetFlagStatus
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ClearITPendingBit
@@ -266,7 +266,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[19]"></a>DMA1_Channel2_IRQHandler</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = DMA1_Channel2_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_Callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = DMA1_Channel2_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetFlagStatus
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ClearITPendingBit
@@ -275,7 +275,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[1a]"></a>DMA1_Channel3_IRQHandler</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = DMA1_Channel3_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_Callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = DMA1_Channel3_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetFlagStatus
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ClearITPendingBit
@@ -284,7 +284,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[1b]"></a>DMA1_Channel4_IRQHandler</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = DMA1_Channel4_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_Callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = DMA1_Channel4_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetFlagStatus
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ClearITPendingBit
@@ -293,7 +293,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[1c]"></a>DMA1_Channel5_IRQHandler</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = DMA1_Channel5_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_Callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = DMA1_Channel5_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetFlagStatus
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ClearITPendingBit
@@ -302,7 +302,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[1d]"></a>DMA1_Channel6_IRQHandler</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = DMA1_Channel6_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_Callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = DMA1_Channel6_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetFlagStatus
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ClearITPendingBit
@@ -311,7 +311,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[1e]"></a>DMA1_Channel7_IRQHandler</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = DMA1_Channel7_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_Callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = DMA1_Channel7_IRQHandler &rArr; DMA_Callbacks &rArr; SPIComm_DMA_callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetFlagStatus
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ClearITPendingBit
@@ -355,7 +355,7 @@ Global Symbols
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ITConfig
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Init
+<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_init
 </UL>
 
 <P><STRONG><a name="[5c]"></a>GPIO_Configuration</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, spicomm_st.o(.text))
@@ -363,7 +363,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Init
+<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_init
 </UL>
 
 <P><STRONG><a name="[5e]"></a>NVIC_Configuration</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, spicomm_st.o(.text))
@@ -372,7 +372,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Init
+<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_init
 </UL>
 
 <P><STRONG><a name="[61]"></a>RCC_Configuration</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, spicomm_st.o(.text))
@@ -382,41 +382,41 @@ Global Symbols
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Init
+<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_init
 </UL>
 
-<P><STRONG><a name="[4e]"></a>SPIComm_Init</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, spicomm_st.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = SPIComm_Init &rArr; SPI_Configuration &rArr; SPI_Init
+<P><STRONG><a name="[4e]"></a>SPIComm_init</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, spicomm_st.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = SPIComm_init &rArr; SPI_Configuration &rArr; SPI_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_Configuration
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Configuration
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Configuration
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Configuration
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Mirroring_Init
+<BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mirroring_init
 </UL>
 
-<P><STRONG><a name="[4f]"></a>SPIComm_Start</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, spicomm_st.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SPIComm_Start
+<P><STRONG><a name="[4f]"></a>SPIComm_start</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, spicomm_st.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SPIComm_start
 </UL>
 <BR>[Calls]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Cmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Mirroring_Start
+<BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mirroring_start
 </UL>
 
-<P><STRONG><a name="[51]"></a>SPIComm_Stop</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, spicomm_st.o(.text), UNUSED)
+<P><STRONG><a name="[51]"></a>SPIComm_stop</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, spicomm_st.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_I2S_GetFlagStatus
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Cmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Mirroring_Stop
+<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mirroring_stop
 </UL>
 
-<P><STRONG><a name="[6e]"></a>SPIComm_Rx_Callback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, spicomm_st.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_DMA_Callback
+<P><STRONG><a name="[6e]"></a>SPIComm_Rx_callback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, spicomm_st.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_DMA_callback
 </UL>
 
-<P><STRONG><a name="[6f]"></a>SPIComm_Tx_Callback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, spicomm_st.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_DMA_Callback
+<P><STRONG><a name="[6f]"></a>SPIComm_Tx_callback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, spicomm_st.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_DMA_callback
 </UL>
 
 <P><STRONG><a name="[67]"></a>handle_data_Tx</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, spicomm_st.o(.text))
@@ -426,7 +426,7 @@ Global Symbols
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Frame_Canary_Compute
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Frame_CRC_Compute
 </UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_DMA_Callback
+<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_DMA_callback
 </UL>
 
 <P><STRONG><a name="[6b]"></a>handle_data_Rx</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, spicomm_st.o(.text))
@@ -436,14 +436,14 @@ Global Symbols
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Frame_Canary_Check
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Frame_CRC_Check
 </UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_DMA_Callback
+<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_DMA_callback
 </UL>
 
-<P><STRONG><a name="[53]"></a>SPIComm_DMA_Callback</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, spicomm_st.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = SPIComm_DMA_Callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
+<P><STRONG><a name="[53]"></a>SPIComm_DMA_callback</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, spicomm_st.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = SPIComm_DMA_callback &rArr; handle_data_Rx &rArr; Frame_CRC_Check &rArr; Frame_CRC_Compute
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Tx_Callback
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Rx_Callback
+<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Tx_callback
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Rx_callback
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_data_Rx
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_data_Tx
 </UL>
@@ -681,8 +681,8 @@ Global Symbols
 <P><STRONG><a name="[d1]"></a>I2S_StructInit</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_spi.o(.text), UNUSED)
 
 <P><STRONG><a name="[65]"></a>SPI_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_spi.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Stop
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Start
+<BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_stop
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_start
 </UL>
 
 <P><STRONG><a name="[d2]"></a>I2S_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_spi.o(.text), UNUSED)
@@ -714,7 +714,7 @@ Global Symbols
 <P><STRONG><a name="[dd]"></a>SPI_BiDirectionalLineConfig</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, stm32f10x_spi.o(.text), UNUSED)
 
 <P><STRONG><a name="[66]"></a>SPI_I2S_GetFlagStatus</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_spi.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_Stop
+<BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIComm_stop
 </UL>
 
 <P><STRONG><a name="[de]"></a>SPI_I2S_ClearFlag</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_spi.o(.text), UNUSED)

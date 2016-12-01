@@ -87,7 +87,6 @@ void  SPI_Configuration(void);
 /********************************/
 
 /**
- * @fn SPIComm_Init
  * @brief Initializes the SPI device with circular DMA on the given buffers.
  * @param buffer_Rx: pointer to the buffer where the received data is stored
  * @param buffer_Tx: pointer to the buffer where the data to send is stored
@@ -95,7 +94,7 @@ void  SPI_Configuration(void);
  * @param buffer_Tx_size: size of buffer_Tx in bytes
  * @return None
  */
-void SPIComm_Init(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t buffer_Rx_size, size_t buffer_Tx_size) {
+void SPIComm_init(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t buffer_Rx_size, size_t buffer_Tx_size) {
 
    // Save buffers' adress and size
    data_buffer_Rx_size = buffer_Rx_size;
@@ -117,21 +116,19 @@ void SPIComm_Init(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t buffer_Rx_siz
 }
 
 /**
- * @fn SPIComm_Start
  * @brief Starts the SPI communication.
  * @return None
  */
-void SPIComm_Start(void) {
+void SPIComm_start(void) {
    // Enable SPIx
    SPI_Cmd(SPIx, ENABLE);
 }
 
 /**
- * @fn SPIComm_Stop
  * @brief Stops the SPI communication.
  * @return None
  */
-void SPIComm_Stop(void) {
+void SPIComm_stop(void) {
    // Make sure tranfer is complete:
    //    - avoid data corruption
    while(SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_TXE) != SET);
@@ -142,18 +139,16 @@ void SPIComm_Stop(void) {
 }
 
 /**
- * @fn SPIComm_Rx_Callback
  * @brief Callback to handle Rx transfers events.
  * @return None
  */
-__weak void SPIComm_Rx_Callback(SPIComm_TransferStatus status){}
+__weak void SPIComm_Rx_callback(SPIComm_TransferStatus status){}
 
 /**
- * @fn SPIComm_Tx_Callback
  * @brief Callback to handle Tx transfers events.
  * @return None
  */
-__weak void SPIComm_Tx_Callback(SPIComm_TransferStatus status){}
+__weak void SPIComm_Tx_callback(SPIComm_TransferStatus status){}
 
 
 
@@ -169,22 +164,27 @@ __weak void SPIComm_Tx_Callback(SPIComm_TransferStatus status){}
  * @param  flags   Interrupts flags
  * @retval None
  */
-void SPIComm_DMA_Callback(DMA_Channel_TypeDef * channel, uint8_t flags) {
+void SPIComm_DMA_callback(DMA_Channel_TypeDef * channel, uint8_t flags) {
    SPIComm_TransferStatus status = DMA_FLAGS2STATUS(flags);
 
    if (channel == SPIx_DMA_Rx_Channel)
    {
       if (status == SPICOMM_TRANSFER_COMPLETE) handle_data_Rx(status);
-      SPIComm_Rx_Callback(status);
+      SPIComm_Rx_callback(status);
 
    } else if (channel == SPIx_DMA_Tx_Channel)
    {
       if (status == SPICOMM_TRANSFER_COMPLETE) handle_data_Tx(status);
-      SPIComm_Tx_Callback(status);
+      SPIComm_Tx_callback(status);
 
    } else {}
 }
 
+/**
+ * @brief  Handles the DMA_Rx interrupts of SPIComm.
+ * @param  status Status of the DMA transfert
+ * @retval void
+ */
 void handle_data_Rx(SPIComm_TransferStatus status) {
    uint8_t canary, crc, error_canary, error_crc;
 
@@ -204,6 +204,11 @@ void handle_data_Rx(SPIComm_TransferStatus status) {
    if(!error_canary && !error_crc) memcpy(data_buffer_Rx, frame_buffer_Rx, data_buffer_Rx_size);
 }
 
+/**
+ * @brief  Handles the DMA_Tx interrupts of SPIComm.
+ * @param  status Status of the DMA transfert
+ * @retval void
+ */
 void handle_data_Tx(SPIComm_TransferStatus status) {
    // copy data to frame
    memcpy(frame_buffer_Tx, data_buffer_Tx, data_buffer_Tx_size);
