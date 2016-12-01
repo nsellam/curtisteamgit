@@ -29,22 +29,22 @@
 #define COMPRESSED_POSITION_ZERO	(uint8_t) (((COMPRESSED_POSITION_MAX + COMPRESSED_POSITION_MIN) / 2) + 1)
 
 /**
- * @def COMPRESSED_SPEED_MAX
+ * @def COMPRESSED_SPEED_MAX	
  * @brief Max value possible after speed compression
 */
-#define COMPRESSED_SPEED_MAX			((0x01 << CAR_MESSAGE_LENGTH) - 1)
+#define COMPRESSED_SPEED_MAX			INT16_MAX	
 
 /**
  * @def COMPRESSED_SPEED_MIN
  * @brief Min value possible after speed compression
 */
-#define COMPRESSED_SPEED_MIN			0x00
+#define COMPRESSED_SPEED_MIN 			INT16_MIN	
 
 /**
  * @def COMPRESSED_SPEED_ZERO
  * @brief Value in compressed result for speed equal to zero
 */
-#define COMPRESSED_SPEED_ZERO			(uint8_t) (((COMPRESSED_POSITION_MAX + COMPRESSED_POSITION_MIN) / 2) + 1)
+#define COMPRESSED_SPEED_ZERO			0
 
 /**
  * @fn compress_speed
@@ -53,7 +53,7 @@
  * @param unit -> float (unit of speed parameter)
  * @return uint8_t (compressed speed)
 */
-uint8_t compress_speed (float speed, float unit);
+int16_t compress_speed (float speed, float unit);
 
 /**
  * @fn compress_position
