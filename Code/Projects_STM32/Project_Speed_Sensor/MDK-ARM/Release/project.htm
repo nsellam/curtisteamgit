@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Release\project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Release\project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Mon Nov 28 21:09:57 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Thu Dec 01 01:27:42 2016
 <BR><P>
-<H3>Maximum Stack Usage =        128 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        104 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; hall_sensor_init &rArr; exti_init &rArr; gpio_init &rArr; GPIO_Init
+__rt_entry_main &rArr; main &rArr; hall_sensor_init &rArr; EXTI_QuickInit &rArr; GPIO_QuickInit &rArr; GPIO_Init
 <P>
 <H3>
 Functions with no stack information
@@ -190,8 +190,8 @@ Global Symbols
 <P><STRONG><a name="[a9]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[45]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; hall_sensor_init &rArr; exti_init &rArr; gpio_init &rArr; GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 104 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; hall_sensor_init &rArr; EXTI_QuickInit &rArr; GPIO_QuickInit &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -214,7 +214,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = main &rArr; hall_sensor_init &rArr; exti_init &rArr; gpio_init &rArr; GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = main &rArr; hall_sensor_init &rArr; EXTI_QuickInit &rArr; GPIO_QuickInit &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_init
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_init
@@ -284,10 +284,10 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_init
 </UL>
 
-<P><STRONG><a name="[4d]"></a>hall_sensor_init</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, hall_sensor.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = hall_sensor_init &rArr; exti_init &rArr; gpio_init &rArr; GPIO_Init
+<P><STRONG><a name="[4d]"></a>hall_sensor_init</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, hall_sensor.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = hall_sensor_init &rArr; EXTI_QuickInit &rArr; GPIO_QuickInit &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_init
+<BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_QuickInit
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_reset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -417,21 +417,21 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
-<P><STRONG><a name="[69]"></a>gpio_enable_clock</STRONG> (Thumb, 116 bytes, Stack size 8 bytes, gpio.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = gpio_enable_clock
+<P><STRONG><a name="[69]"></a>GPIO_ClockEnable</STRONG> (Thumb, 116 bytes, Stack size 8 bytes, gpio.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = GPIO_ClockEnable
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_init
+<BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_QuickInit
 </UL>
 
-<P><STRONG><a name="[6b]"></a>gpio_init</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, gpio.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = gpio_init &rArr; GPIO_Init
+<P><STRONG><a name="[6b]"></a>GPIO_QuickInit</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, gpio.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = GPIO_QuickInit &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_enable_clock
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ClockEnable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_init
+<BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_QuickInit
 </UL>
 
 <P><STRONG><a name="[4c]"></a>systick_init</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, systick.o(.text))
@@ -451,34 +451,34 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
-<P><STRONG><a name="[6e]"></a>Pin_to_EXTI_Line</STRONG> (Thumb, 190 bytes, Stack size 0 bytes, exti.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_init
-</UL>
-
-<P><STRONG><a name="[6f]"></a>Line_to_IRQn</STRONG> (Thumb, 152 bytes, Stack size 0 bytes, exti.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_init
+<P><STRONG><a name="[71]"></a>GPIO_Pin_to_GPIO_PinSource</STRONG> (Thumb, 164 bytes, Stack size 0 bytes, exti.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_QuickInit
 </UL>
 
 <P><STRONG><a name="[70]"></a>GPIO_TypeDef_to_GPIO_PortSource</STRONG> (Thumb, 78 bytes, Stack size 0 bytes, exti.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_init
+<BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_QuickInit
 </UL>
 
-<P><STRONG><a name="[71]"></a>GPIO_Pin_to_GPIO_PinSource</STRONG> (Thumb, 164 bytes, Stack size 0 bytes, exti.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_init
+<P><STRONG><a name="[6f]"></a>Line_to_IRQn</STRONG> (Thumb, 152 bytes, Stack size 0 bytes, exti.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_QuickInit
 </UL>
 
-<P><STRONG><a name="[62]"></a>exti_init</STRONG> (Thumb, 178 bytes, Stack size 64 bytes, exti.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = exti_init &rArr; gpio_init &rArr; GPIO_Init
+<P><STRONG><a name="[6e]"></a>GPIO_Pin_to_EXTI_Line</STRONG> (Thumb, 182 bytes, Stack size 0 bytes, exti.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_QuickInit
+</UL>
+
+<P><STRONG><a name="[62]"></a>EXTI_QuickInit</STRONG> (Thumb, 172 bytes, Stack size 48 bytes, exti.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = EXTI_QuickInit &rArr; GPIO_QuickInit &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_EXTILineConfig
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_Init
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Pin_to_GPIO_PinSource
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_TypeDef_to_GPIO_PortSource
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Pin_to_EXTI_Line
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Line_to_IRQn
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pin_to_EXTI_Line
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_TypeDef_to_GPIO_PortSource
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Pin_to_GPIO_PinSource
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_init
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_QuickInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_init
 </UL>
@@ -488,7 +488,7 @@ Global Symbols
 <P><STRONG><a name="[74]"></a>NVIC_Init</STRONG> (Thumb, 102 bytes, Stack size 16 bytes, misc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = NVIC_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_init
+<BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_QuickInit
 </UL>
 
 <P><STRONG><a name="[ad]"></a>NVIC_SetVectorTable</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, misc.o(.text), UNUSED)
@@ -500,7 +500,7 @@ Global Symbols
 <P><STRONG><a name="[b0]"></a>EXTI_DeInit</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, stm32f10x_exti.o(.text), UNUSED)
 
 <P><STRONG><a name="[73]"></a>EXTI_Init</STRONG> (Thumb, 142 bytes, Stack size 0 bytes, stm32f10x_exti.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_init
+<BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_QuickInit
 </UL>
 
 <P><STRONG><a name="[b1]"></a>EXTI_StructInit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_exti.o(.text), UNUSED)
@@ -530,7 +530,7 @@ Global Symbols
 <P><STRONG><a name="[6c]"></a>GPIO_Init</STRONG> (Thumb, 274 bytes, Stack size 24 bytes, stm32f10x_gpio.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_init
+<BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_QuickInit
 </UL>
 
 <P><STRONG><a name="[b5]"></a>GPIO_StructInit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
@@ -562,7 +562,7 @@ Global Symbols
 <P><STRONG><a name="[72]"></a>GPIO_EXTILineConfig</STRONG> (Thumb, 66 bytes, Stack size 12 bytes, stm32f10x_gpio.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = GPIO_EXTILineConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_init
+<BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_QuickInit
 </UL>
 
 <P><STRONG><a name="[c2]"></a>GPIO_ETH_MediaInterfaceConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
@@ -616,8 +616,8 @@ Global Symbols
 <P><STRONG><a name="[d6]"></a>RCC_AHBPeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[6a]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_enable_clock
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_init
+<BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ClockEnable
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_QuickInit
 </UL>
 
 <P><STRONG><a name="[d7]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)

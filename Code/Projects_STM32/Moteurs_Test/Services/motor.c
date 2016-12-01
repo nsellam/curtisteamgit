@@ -9,9 +9,11 @@
 /********************************/
 #include "motor.h"
 
-#include <timer.h>
-#include <gpio2.h>
-#include <pwm.h>
+#include <stdint.h>
+
+#include "gpio.h"
+#include "timer.h"
+#include "pwm.h"
 
 
 /********************************/
@@ -72,24 +74,6 @@
 */
 #define PWM_DELTA_MAX (((PWM_MAX - PWM_ZERO) < (PWM_ZERO - PWM_MIN)) ? (PWM_MAX - PWM_ZERO) : (PWM_ZERO - PWM_MIN))
 
-/**
-* @def SPEED_DELTA
-* @brief Variation of the speed value between its maximum or minimum value and the zero
-*/
-#define SPEED_DELTA ((float)1.0)
-
-/**
-* @def SPEED_MIN
-* @brief Minimum speed value used to turn the motors backwards to their maximum
-*/
-#define SPEED_MIN (-SPEED_DELTA)
-
-/**
-* @def SPEED_MAX
-* @brief Maximum speed value used to turn the motors forwards to their maximum
-*/
-#define SPEED_MAX (SPEED_DELTA)
-
 
 
 /********************************/
@@ -103,17 +87,15 @@
 * @return void
 */
 void motors_init(void) {
-     PWM_Init(TIMx,CH,Frequence_Hz);
-     Active_Complementary_Output(TIMx,CH);
-	  PWM_Port_Init(TIMx,CH);
-     PWM_Set_Duty_Cycle(TIMx,CH,0.5);
+   PWM_Init(TIMx,CH,Frequence_Hz);
+   Active_Complementary_Output(TIMx, CH, 1);
+   PWM_Port_Init(TIMx, CH);
+   PWM_Set_Duty_Cycle(TIMx, CH, 0.5);
 
-     //Enable Pin
-     Port_IO_Clock_Enable(GPIOx);
-     Port_IO_Init_Output(GPIOx,ENABLE_PIN);
-     Port_IO_Reset(GPIOx,ENABLE_PIN);
-   
-     PWM_Enable(TIMx);
+   //Enable Pin
+   GPIO_QuickInit(GPIOx, ENABLE_PIN, GPIO_Mode_Out_PP);
+
+   PWM_Enable(TIMx);
 }
 
 /**
@@ -125,9 +107,9 @@ void motors_init(void) {
 void motor_set_speed(float speed){
    float duty_cycle;
 
-   if(speed > SPEED_MAX)      speed = SPEED_MAX;
-   else if(speed < SPEED_MIN) speed = SPEED_MIN;
-   
+        if(speed >  SPEED_MAX) speed =  SPEED_MAX;
+   else if(speed < -SPEED_MAX) speed = -SPEED_MAX;
+
    duty_cycle = (PWM_DELTA_MAX)/(SPEED_DELTA) * speed + PWM_ZERO;
    PWM_Set_Duty_Cycle(TIMx,CH,duty_cycle);
 }
@@ -139,7 +121,7 @@ void motor_set_speed(float speed){
 * @return void
 */
 void motors_start(void){
-     Port_IO_Set(GPIOx,ENABLE_PIN);
+   GPIO_SetBits(GPIOx, ENABLE_PIN);
 }
 
 /**
@@ -149,5 +131,5 @@ void motors_start(void){
 * @return void
 */
 void motors_stop(void){
-     Port_IO_Reset(GPIOx,ENABLE_PIN);
+   GPIO_ResetBits(GPIOx, ENABLE_PIN);
 }

@@ -5,7 +5,8 @@
 /********************************/
 #include <stdint.h>
 #include <stm32f10x.h>
-#include <gpio2.h>
+
+#include "gpio.h"
 
 
 /********************************/
@@ -231,7 +232,7 @@ uint16_t Timer_1234_Get_Counter_Val(TIM_TypeDef* Timer) {
   * @retval None
   */
 void RCC_timer_configuration(TIM_TypeDef *timer){
-  if (timer == TIM1)       RCC_APB1PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
+       if (timer == TIM1)  RCC_APB1PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
   else if (timer == TIM2)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
   else if (timer == TIM3)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
   else if (timer == TIM4)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);

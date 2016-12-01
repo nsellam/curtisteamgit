@@ -33,13 +33,10 @@
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
-
-extern const DMA_Channel_TypeDef * GET_DMA_CHANNEL[2][8];
-
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 
-void SPI_DMA_Callback(int dma, int channel, uint8_t flags);
+void SPI_DMA_Callback(DMA_Channel_TypeDef * channel, uint8_t flags);
 
 #endif /* __STM32F10x_IT_H */
 

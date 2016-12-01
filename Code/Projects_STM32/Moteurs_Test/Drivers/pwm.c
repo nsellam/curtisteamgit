@@ -2,22 +2,23 @@
 
 #include <stm32f10x.h>
 
-#include <system_stm32f10x.h>
-#include <timer.h>
-#include <gpio2.h>
+#include "timer.h"
+#include "gpio.h"
+
+#define PWM_GPIO_MODE GPIO_Mode_AF_PP
 
 //------- Private functions -----------
 
 
 //------- Public functions ------------
 
-float PWM_Init(TIM_TypeDef *Timer, int Channel, float Frequence_PWM_Hz) {
+float PWM_Init(TIM_TypeDef *Timer, int channel, float Frequence_PWM_Hz) {
    float duree_pwm_usec = US_PER_S/Frequence_PWM_Hz;  // duree_pwm en micro secondes
    float freq_pwm_vraie = 0.0;
 
    duree_pwm_usec = Timer_1234_Init(Timer, duree_pwm_usec);  //donne la duree véritable du pwm en micro sec
 
-   switch(Channel) {
+   switch(channel) {
       case 1 :
          //output compare: PWM Mode 1
          Timer->CCMR1 &= ~TIM_CCMR1_OC1M; //met à 0 tous les bits
@@ -80,16 +81,16 @@ float PWM_Init(TIM_TypeDef *Timer, int Channel, float Frequence_PWM_Hz) {
    return freq_pwm_vraie;    // retourne freq réelle du pwm
 }
 
-void PWM_Set_Duty_Cycle(TIM_TypeDef *Timer, int Channel, float duty_cycle) {
+void PWM_Set_Duty_Cycle(TIM_TypeDef *Timer, int channel, float duty_cycle) {
    uint16_t pulse_length_nbre = 0; // nbre entier non signé de 16 bits
    uint16_t resolution;
    resolution = Timer->ARR;
 
-   //Timer->CCER=Timer->CCER|(1<<((Channel-1)*4)); //enable le capture/compare de la voie sélectionnée
+   //Timer->CCER=Timer->CCER|(1<<((channel-1)*4)); //enable le capture/compare de la voie sélectionnée
 
    pulse_length_nbre = (int)((float)resolution*duty_cycle);  // duty entre 0.0 et 1.0
    
-   switch(Channel) {
+   switch(channel) {
       case 1 :
          Timer->CCR1 = pulse_length_nbre; //stockage de l'état haut
          break;
@@ -121,103 +122,41 @@ void PWM_Disable(TIM_TypeDef *Timer)
    Timer_1234_Disable(Timer);  //disable le timer
 }
 
-void PWM_Port_Init(TIM_TypeDef *Timer, int Channel)
-{
-
-   if (Timer == TIM1)
-   {
-      Port_IO_Clock_Enable(GPIOA);
-      switch (Channel)
-      {
-         case 1 :
-            Port_IO_Init_Output_AltFunct(GPIOA, 8);
-            break;
-         case 2 :
-            Port_IO_Init_Output_AltFunct(GPIOA, 9);
-            break;
-         case 3 :
-            Port_IO_Init_Output_AltFunct(GPIOA, 10);
-            break;
-         case 4 :
-            Port_IO_Init_Output_AltFunct(GPIOA, 11);
-            break;
-
-         default:
-            break;
+void PWM_Port_Init(TIM_TypeDef *Timer, int channel) {
+   if (Timer == TIM1) {
+      switch (channel) {
+         case 1: GPIO_QuickInit(GPIOA, GPIO_Pin_8 , PWM_GPIO_MODE); break;
+         case 2: GPIO_QuickInit(GPIOA, GPIO_Pin_9 , PWM_GPIO_MODE); break;
+         case 3: GPIO_QuickInit(GPIOA, GPIO_Pin_10, PWM_GPIO_MODE); break;
+         case 4: GPIO_QuickInit(GPIOA, GPIO_Pin_11, PWM_GPIO_MODE); break;
+         default: break;
       }
    }
-
-   else if (Timer == TIM2)
-   {
-      Port_IO_Clock_Enable(GPIOA);
-      switch (Channel)
-      {
-         case 1 :
-            Port_IO_Init_Output_AltFunct(GPIOA, 0);
-            break;
-         case 2 :
-            Port_IO_Init_Output_AltFunct(GPIOA, 1);
-            break;
-         case 3 :
-            Port_IO_Init_Output_AltFunct(GPIOA, 2);
-            break;
-         case 4 :
-            Port_IO_Init_Output_AltFunct(GPIOA, 3);
-            break;
-
-         default:
-            break;
+   else if (Timer == TIM2) {
+      switch (channel) {
+         case 1: GPIO_QuickInit(GPIOA, GPIO_Pin_0, PWM_GPIO_MODE); break;
+         case 2: GPIO_QuickInit(GPIOA, GPIO_Pin_1, PWM_GPIO_MODE); break;
+         case 3: GPIO_QuickInit(GPIOA, GPIO_Pin_2, PWM_GPIO_MODE); break;
+         case 4: GPIO_QuickInit(GPIOA, GPIO_Pin_3, PWM_GPIO_MODE); break;
+         default: break;
       }
    }
-
-
-   else if (Timer == TIM3)
-   {
-      switch (Channel)
-      {
-         case 1 :
-            Port_IO_Clock_Enable(GPIOA);
-            Port_IO_Init_Output_AltFunct(GPIOA, 6);
-            break;
-         case 2 :
-            Port_IO_Clock_Enable(GPIOA);
-            Port_IO_Init_Output_AltFunct(GPIOA, 7);
-            break;
-         case 3 :
-            Port_IO_Clock_Enable(GPIOB);
-            Port_IO_Init_Output_AltFunct(GPIOB, 0);
-            break;
-         case 4 :
-            Port_IO_Clock_Enable(GPIOB);
-            Port_IO_Init_Output_AltFunct(GPIOB, 1);
-            break;
-
-         default:
-            break;
+   else if (Timer == TIM3) {
+      switch (channel) {
+         case 1: GPIO_QuickInit(GPIOA, GPIO_Pin_6, PWM_GPIO_MODE); break;
+         case 2: GPIO_QuickInit(GPIOA, GPIO_Pin_7, PWM_GPIO_MODE); break;
+         case 3: GPIO_QuickInit(GPIOB, GPIO_Pin_0, PWM_GPIO_MODE); break;
+         case 4: GPIO_QuickInit(GPIOB, GPIO_Pin_1, PWM_GPIO_MODE); break;
+         default: break;
       }
    }
-
-
-   else if (Timer == TIM4)
-   {
-      Port_IO_Clock_Enable(GPIOB);
-      switch (Channel)
-      {
-         case 1 :
-            Port_IO_Init_Output_AltFunct(GPIOB, 6);
-            break;
-         case 2 :
-            Port_IO_Init_Output_AltFunct(GPIOB, 7);
-            break;
-         case 3 :
-            Port_IO_Init_Output_AltFunct(GPIOB, 8);
-            break;
-         case 4 :
-            Port_IO_Init_Output_AltFunct(GPIOB, 9);
-            break;
-
-         default:
-            break;
+   else if (Timer == TIM4) {
+      switch (channel) {
+         case 1: GPIO_QuickInit(GPIOB, GPIO_Pin_6, PWM_GPIO_MODE); break;
+         case 2: GPIO_QuickInit(GPIOB, GPIO_Pin_7, PWM_GPIO_MODE); break;
+         case 3: GPIO_QuickInit(GPIOB, GPIO_Pin_8, PWM_GPIO_MODE); break;
+         case 4: GPIO_QuickInit(GPIOB, GPIO_Pin_9, PWM_GPIO_MODE); break;
+         default: break;
       }
    }
 
@@ -227,46 +166,44 @@ void PWM_Port_Init(TIM_TypeDef *Timer, int Channel)
 
 
 //active la sortie complementaire à un PWM initialisé
-void Active_Complementary_Output(TIM_TypeDef *Timer, int Channel){
-   switch(Channel) {
-      case 1 :
-         //output compare channel enable
-         Timer->CCER |= TIM_CCER_CC1NE;    
-         break;
-
-      case 2 :
-         //output compare channel enable
-         Timer->CCER |= TIM_CCER_CC2NE;
-         break;
-
-      case 3 :
-         //output compare channel enable
-         Timer->CCER |= TIM_CCER_CC3NE;
-         break;
-
-      default:
-         break;
-   }
-
-   if (Timer == TIM1){
-      RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
-      Port_IO_Clock_Enable(GPIOA);
-      Port_IO_Clock_Enable(GPIOB);
-      GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, ENABLE);
-      switch (Channel)
-      {
+void Active_Complementary_Output(TIM_TypeDef *Timer, int channel, int remap){
+   if (Timer == TIM1) {
+      switch(channel) {
          case 1 :
-            Port_IO_Init_Output_AltFunct(GPIOA, 7);
+            //output compare channel enable
+            Timer->CCER |= TIM_CCER_CC1NE;    
             break;
+
          case 2 :
-            Port_IO_Init_Output_AltFunct(GPIOB, 14);
+            //output compare channel enable
+            Timer->CCER |= TIM_CCER_CC2NE;
             break;
+
          case 3 :
-            Port_IO_Init_Output_AltFunct(GPIOB, 15);
+            //output compare channel enable
+            Timer->CCER |= TIM_CCER_CC3NE;
             break;
 
          default:
             break;
+      }
+
+      if(remap) {
+         RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+         GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, ENABLE);
+         switch (channel) {
+            case 1: GPIO_QuickInit(GPIOA, GPIO_Pin_7, PWM_GPIO_MODE); break;
+            case 2: GPIO_QuickInit(GPIOB, GPIO_Pin_0, PWM_GPIO_MODE); break;
+            case 3: GPIO_QuickInit(GPIOB, GPIO_Pin_1, PWM_GPIO_MODE); break;
+            default: break;
+         }
+      } else {
+         switch (channel) {
+            case 1: GPIO_QuickInit(GPIOB, GPIO_Pin_13, PWM_GPIO_MODE); break;
+            case 2: GPIO_QuickInit(GPIOB, GPIO_Pin_14, PWM_GPIO_MODE); break;
+            case 3: GPIO_QuickInit(GPIOB, GPIO_Pin_15, PWM_GPIO_MODE); break;
+            default: break;
+         }
       }
    }
 
@@ -275,12 +212,12 @@ void Active_Complementary_Output(TIM_TypeDef *Timer, int Channel){
 
 
 
-void output_compare_init(TIM_TypeDef *Timer, int Channel, float period_us){
+void output_compare_init(TIM_TypeDef *Timer, int channel, float period_us){
    
    Timer_1234_Init(Timer, 2*period_us);
    Timer->CCR1 = (uint16_t) ((Timer->ARR)/2);      
    
-   switch(Channel) {
+   switch(channel) {
       case 1 :
          // active interrupt request
          Timer->DIER |= TIM_DIER_CC1IE;
@@ -322,8 +259,8 @@ void output_compare_start(TIM_TypeDef *Timer){
 }
 
 
-void capture_input_init(TIM_TypeDef *Timer, int Channel){
-   switch (Channel){
+void capture_input_init(TIM_TypeDef *Timer, int channel){
+   switch (channel){
       case 1:
          // select active input on TI1
          Timer->CCMR1 |= TIM_CCMR1_CC1S_0;
@@ -359,10 +296,10 @@ void capture_input_init(TIM_TypeDef *Timer, int Channel){
    }
 }
 
-/*void capture_GPIO_init(TIM_TypeDef *Timer, int Channel){
+/*void capture_GPIO_init(TIM_TypeDef *Timer, int channel){
    if(Timer == TIM1){
       GPIO_DeInit(GPIOA);
-      switch(Channel){
+      switch(channel){
          case 1:
             f
          break;
@@ -372,11 +309,11 @@ void capture_input_init(TIM_TypeDef *Timer, int Channel){
    }
    
 }*/
-/*void capture_start(TIM_TypeDef *Timer, int Channel){
+/*void capture_start(TIM_TypeDef *Timer, int channel){
    // enable capture interrupt
    Timer->DIER |= TIM_DIER_CC1IE;
 }*/
 
-/*uint16_t capture_get_high_state_periode(TIM_TypeDef *Timer, int Channel){
+/*uint16_t capture_get_high_state_periode(TIM_TypeDef *Timer, int channel){
       
 }*/

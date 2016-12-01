@@ -63,11 +63,11 @@ int main(void) {
 	while(1) {
 		position_sensor_compute();
 		jeanmichelposition = position_sensor_get(POSITION_CM);
-		pdata_STM->travelled_distance = jeanmichelposition;
+		pData_STM->travelled_distance = jeanmichelposition;
 		
 		speed_sensor_compute();
 		jeanmichelvitesse = speed_sensor_get(SPEED_CM_S);
-		pdata_STM->car_speed = jeanmichelvitesse;
+		pData_STM->car_speed = jeanmichelvitesse;
 	}
 
   return 0;

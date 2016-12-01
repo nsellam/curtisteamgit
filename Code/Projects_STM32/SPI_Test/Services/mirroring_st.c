@@ -21,8 +21,8 @@ uint8_t buffer_Tx[BUFFER_TX_SIZE];
 /********************************/
 
 void Mirroring_Init(void) {
-   pdata_PI  = (data_PI_t  *)buffer_Rx;
-   pdata_STM = (data_STM_t *)buffer_Tx;
+   pData_PI  = (Data_PI_t *)buffer_Rx;
+   pData_STM = (Data_STM_t *)buffer_Tx;
    SPIComm_Init((uint8_t *)buffer_Rx, (uint8_t *)buffer_Tx, BUFFER_RX_SIZE, BUFFER_TX_SIZE);
 }
 
