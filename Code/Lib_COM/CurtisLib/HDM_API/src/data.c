@@ -8,91 +8,55 @@
 
 #include <stddef.h>
 
-#define INITIAL_8B_VALUE      0x00
-#define INITIAL_FLOAT_VALUE   0.0
-
 /************************
  *      VARIABLES       *
  ************************/
+
 /**
- * @var volatile data_STM_t data_STM
- * @brief STM32 data
+ * @var volatile Data_PI_t *pData_PI
+ * @brief PI Data
  */
-volatile data_STM_t data_STM;
+volatile Data_PI_t *pData_PI = NULL;
+
 /**
- * @var volatile data_STM_t *pdata_STM
- * @brief STM32 data
+ * @var volatile Data_STM_t *pData_STM
+ * @brief STM Data
  */
-volatile data_STM_t *pdata_STM = &data_STM;
-/**
- * @var volatile data_PI_t data_PI
- * @brief PI data
- */
-volatile data_PI_t data_PI;
-/**
- * @var volatile data_PI_t *pdata_PI
- * @brief PI data
- */
-volatile data_PI_t *pdata_PI = &data_PI;
+volatile Data_STM_t *pData_STM = NULL;
 
 /************************
  *      FUNCTIONS       *
  ************************/
 
 /**
- * @fn init_data_PI
- * @brief initializes the data_PI structure with bytes of zeros
+ * @fn Data_Init_PI
+ * @brief initializes the Data_PI structure pointed by pData_PI with the default values
  * @return void
  */
-void init_data_PI(void);
-
-/**
- * @fn init_data_STM
- * @brief initializes the data_STM structure with bytes of zeros
- * @return void
- */
-void init_data_STM(void);
-
-
-/**
-* @fn init_data
-* @brief initializes the data_PI and data_STM structures
-* @return void
-*/
-
-void init_data(void) {
-   init_data_PI();
-   init_data_STM();
+void Data_Init_PI(void) {
+   pData_PI->motor_prop = 0;
+   pData_PI->motor_dir  = 0;
+   pData_PI->led        = 0;
+   pData_PI->errors_SPI = 0;
 }
 
 /**
- * @fn init_data_STM
- * @brief initializes the data_STM structure with bytes of zeros
+ * @fn Data_Init_STM
+ * @brief initializes the Data_STM structure pointed by pData_STM with the default values
  * @return void
  */
-void init_data_STM(void) {
+void Data_Init_STM(void) {
    int i;
 
    for(i = 0; i < DATA_STM_US_NUM; i++)
-      data_STM.ultrasonic_sensors[i] = INITIAL_8B_VALUE;
+      pData_STM->ultrasonic_sensors[i] = 0;
 
-   data_STM.wheel_position_sensor_R = INITIAL_8B_VALUE;
-   data_STM.wheel_position_sensor_L = INITIAL_8B_VALUE;
-   data_STM.steering_stop_sensor_R  = INITIAL_8B_VALUE;
-   data_STM.steering_stop_sensor_L  = INITIAL_8B_VALUE;
-   data_STM.errors_SPI              = INITIAL_8B_VALUE;
-	data_STM.car_speed					= INITIAL_FLOAT_VALUE;
-	data_STM.travelled_distance		= INITIAL_FLOAT_VALUE;
-}
+   pData_STM->wheel_position_sensor_R = 0;
+   pData_STM->wheel_position_sensor_L = 0;
+   pData_STM->steering_stop_sensor_R  = 0;
+   pData_STM->steering_stop_sensor_L  = 0;
+   pData_STM->errors_SPI              = 0;
 
-/**
- * @fn init_data_PI
- * @brief initializes the data_PI structure with bytes of zeros
- * @return void
- */
-void init_data_PI(void) {
-   data_PI.motor_prop = INITIAL_8B_VALUE;
-   data_PI.motor_dir  = INITIAL_8B_VALUE;
-   data_PI.led        = INITIAL_8B_VALUE;
-   data_PI.errors_SPI = INITIAL_8B_VALUE;
+	pData_STM->car_speed					  = 0.0;
+	pData_STM->travelled_distance		  = 0.0;
 }

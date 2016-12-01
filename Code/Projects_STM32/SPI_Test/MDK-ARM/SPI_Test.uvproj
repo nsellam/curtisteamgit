@@ -431,11 +431,6 @@
           <GroupName>Drivers</GroupName>
           <Files>
             <File>
-              <FileName>stm32f10x_conf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Drivers\stm32f10x_conf.h</FilePath>
-            </File>
-            <File>
               <FileName>stm32f10x_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers\stm32f10x_it.c</FilePath>
@@ -515,6 +510,11 @@
             </GroupArmAds>
           </GroupOption>
           <Files>
+            <File>
+              <FileName>stm32f10x_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Drivers\stm32f10x_conf.h</FilePath>
+            </File>
             <File>
               <FileName>misc.c</FileName>
               <FileType>1</FileType>

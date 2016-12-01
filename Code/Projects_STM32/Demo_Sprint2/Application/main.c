@@ -1,8 +1,8 @@
 #include <stdint.h>
 
-#include <motor.h>
 #include <data.h>
 
+#include "motor.h"
 #include "systick.h"
 #include "hall_sensor.h"
 #include "position_sensor.h"

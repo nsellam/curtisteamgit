@@ -38,4 +38,4 @@ void Mirroring_Start(void);
 
 void Mirroring_Stop(void);
 
-#endif // _MIRRORING_H_
+#endif // MIRRORING_H

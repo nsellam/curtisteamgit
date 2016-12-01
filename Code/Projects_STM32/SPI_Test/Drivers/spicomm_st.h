@@ -1,6 +1,11 @@
+/**
+ * @file spicomm.h
+ * @author Curtis Team
+ * @brief SPI communication module
+ */
 
-#ifndef _SPICOMM_H_
-#define _SPICOMM_H_
+#ifndef SPICOMM_H
+#define SPICOMM_H
 
 /********************************/
 /*       LIBRARIES              */
@@ -21,10 +26,10 @@
 /********************************/
 
 typedef enum {
-   TRANSFER_UNKNOWN  = -1,
-   TRANSFER_COMPLETE =  0,
-   TRANSFER_HALF     =  1,
-   TRANSFER_ERROR    =  2
+   SPICOMM_TRANSFER_UNKNOWN  = -1,
+   SPICOMM_TRANSFER_COMPLETE =  0,
+   SPICOMM_TRANSFER_HALF     =  1,
+   SPICOMM_TRANSFER_ERROR    =  2
 } SPIComm_TransferStatus;
 
 /********************************/
@@ -40,4 +45,4 @@ void SPIComm_Stop(void);
 void SPIComm_Rx_Callback(SPIComm_TransferStatus status);
 void SPIComm_Tx_Callback(SPIComm_TransferStatus status);
 
-#endif // _SPICOMM_H_
+#endif // SPICOMM_H

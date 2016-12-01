@@ -25,25 +25,13 @@
  * @def HALL_SENSOR_MODE
  * @brief Way to trigg interrupts for this sensor
 */
-#define HALL_SENSOR_TRIGG EXTI_Trigger_Rising 
-
-/**
- * @def HALL_SENSOR_MODE
- * @brief Mode of exti for this sensor
-*/
-#define HALL_SENSOR_MODE EXTI_Mode_Interrupt
+#define HALL_SENSOR_TRIGG EXTI_Trigger_Rising
 
 /**
  * @def HALL_SENSOR_PRIO
  * @brief EXTI preemption priority
 */
 #define HALL_SENSOR_PRIO 1
-
-/**
- * @def HALL_SENSOR_SUBPRIO
- * @brief EXTI subpriority
-*/
-#define HALL_SENSOR_SUBPRIO 0
 
 /**
  * @def HALL_SENSOR_MAX_SAVED_POP
