@@ -11,6 +11,18 @@
 #include "exti.h"
 
 /**
+ * @def FW_ADDER 
+ * @brief Value to be add to variables at each front when car go forward. 
+*/
+#define FW_ADDER 1 
+
+/**
+ * @def FW_ADDER 
+ * @brief Value to be add to variables at each front when car go backward. 
+*/
+#define BW_ADDER -1
+
+/**
  * @var hall_sensor_number_of_pop
  * @brief Number of the hall detection. Positive is counted on rising edges, negative if not.  
 */
@@ -53,6 +65,14 @@ int8_t hall_sensor_periode_ticks[HALL_SENSOR_NUMBER];
 */
 void hall_sensor_reset (uint8_t hall_identifier);
 
+/**
+ * @fn hall_sensor_update
+ * @brief Update the hall sensor definied variables according to adder given 
+ * @param hall_identifier -> uint8_t : hall sensor to consider
+ * @param adder -> int8_t (Increment to put on the variables. Must be FW_ADDER or BW_ADDER)
+*/
+void hall_sensor_update(uint8_t hall_identifier, int8_t adder);
+
 void hall_sensor_init(uint8_t hall_identifier, uint8_t direction) {
 	GPIO_TypeDef *GPIO;
 	uint16_t pin;
@@ -81,20 +101,35 @@ void hall_sensor_init(uint8_t hall_identifier, uint8_t direction) {
 	// Add all the other EXTI declarations
 }
 
-void hall_sensor_callback (uint8_t hall_identifier) {
-	
+void hall_sensor_update(uint8_t hall_identifier, int8_t adder) {
 	hall_sensor_last_pops[hall_sensor_number_of_pop[hall_identifier]][hall_identifier] = micros();
 	
 	hall_sensor_number_of_pop[hall_identifier] ++;
 	if (hall_sensor_number_of_pop[hall_identifier] >= HALL_SENSOR_MAX_SAVED_POP) hall_sensor_number_of_pop[hall_identifier] = 0; else {} 
 	
-	hall_sensor_sector[hall_identifier] ++;
-	if (hall_sensor_sector[hall_identifier] >= HALL_SENSOR_NUMBER_OF_SECTORS) {
+	hall_sensor_sector[hall_identifier] = hall_sensor_sector[hall_identifier] + adder;
+	
+	if (hall_sensor_sector[hall_identifier] == (uint16_t)(-1)) {
+		hall_sensor_sector[hall_identifier] = HALL_SENSOR_NUMBER_OF_SECTORS - 1; 
+		hall_sensor_lap[hall_identifier] --;
+	}
+	
+	else if (hall_sensor_sector[hall_identifier] >= HALL_SENSOR_NUMBER_OF_SECTORS) {
 		hall_sensor_sector[hall_identifier] = 0; 
 		hall_sensor_lap[hall_identifier] ++;
 	}
+	else {}
+	hall_sensor_current_periode_ticks[hall_identifier] = hall_sensor_current_periode_ticks[hall_identifier] + adder;
+}
+
+void hall_sensor_callback (uint8_t hall_identifier) {
 	
-	hall_sensor_current_periode_ticks[hall_identifier]++;
+	if (car_direction_get() == CAR_FW_DIRECTION) {
+		hall_sensor_update(hall_identifier, FW_ADDER);
+	}
+	else {
+		hall_sensor_update(hall_identifier, BW_ADDER);
+	}
 }
 
 /**

@@ -82,15 +82,23 @@ int main(void) {
 	j = j+k+l+m+n+o+p+q+r; // sinon ce boulet me met des warnings
 	
 	
+// void on_car_direction_changed (uint8_t direction) {
+//	car_direction_set(direction);
+//	hall_sensor_init(HALL_IDENTIFIER_L, direction);
+//	hall_sensor_init(HALL_IDENTIFIER_R, direction);
+//	}
+
+	car_direction_set(CAR_BW_DIRECTION);
 	hall_sensor_init(HALL_IDENTIFIER_L, CAR_FW_DIRECTION);
 	hall_sensor_init(HALL_IDENTIFIER_R, CAR_BW_DIRECTION);
-	
 	
 	position_sensor_init();
 	speed_sensor_init();
 	systick_init();
 	
 	while(1) {
+		
+		car_direction_set(CAR_BW_DIRECTION);
 		jeanmichelposition = position_sensor_get(POSITION_CM, 0);
 		//pData_STM->travelled_distance = jeanmichelposition;
 		
