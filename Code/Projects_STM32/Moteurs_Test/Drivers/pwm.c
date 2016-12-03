@@ -275,36 +275,37 @@
  
 #include "stm32f10x_tim.h"
 #include "timer.h"
-#include <gpio.h>
+#include "gpio.h"
 #include "misc.h"
  
 #define PWM_GPIO_MODE GPIO_Mode_AF_PP
   
-void pwm_init(TIM_TypeDef *timer, uint8_t channel, float period_us){ 
-   
+void pwm_init(TIM_TypeDef *timer, uint8_t channel, float frequence_PWM_Hz){  
+  float duree_pwm_usec = US_PER_S/frequence_PWM_Hz;
   TIM_OCInitTypeDef  TIM_OCInitStructure;
+   
+  timer_init(timer, duree_pwm_usec);
+  
   /* always initialise local variables before use */
   TIM_OCStructInit (&TIM_OCInitStructure);
- 
   /* Common settings for all channels */
   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
   TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
   TIM_OCInitStructure.TIM_Pulse = 0;
-   
   
-  timer_init(timer, period_us);
+  if(channel == 1)       TIM_OC1Init(timer, &TIM_OCInitStructure); 
+  else if(channel == 2)  TIM_OC2Init(timer, &TIM_OCInitStructure);
+  else if(channel == 3)  TIM_OC3Init(timer, &TIM_OCInitStructure);
+  else if(channel == 4)  TIM_OC4Init(timer, &TIM_OCInitStructure);
    
-  if(channel == 1)        TIM_OC1Init(timer, &TIM_OCInitStructure); 
-  else if(timer == TIM2)  TIM_OC2Init(timer, &TIM_OCInitStructure);
-  else if(timer == TIM3)  TIM_OC3Init(timer, &TIM_OCInitStructure);
-  else if(timer == TIM4)  TIM_OC4Init(timer, &TIM_OCInitStructure);
+  if(timer == TIM1)
+      timer->BDTR |= TIM_BDTR_MOE; 
 }
 
 void pwm_enable(TIM_TypeDef *timer)
 {
    timer_start(timer); 
-
 }
 
 
