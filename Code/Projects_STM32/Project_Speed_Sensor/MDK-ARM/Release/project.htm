@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Release\project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Release\project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Sat Dec 03 11:59:22 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Sat Dec 03 13:56:57 2016
 <BR><P>
-<H3>Maximum Stack Usage =        148 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        124 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; hall_sensor_init &rArr; EXTI_QuickInit &rArr; GPIO_QuickInit &rArr; GPIO_Init
 <P>
@@ -194,7 +194,7 @@ Global Symbols
 <P><STRONG><a name="[ad]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[45]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 148 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 124 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; hall_sensor_init &rArr; EXTI_QuickInit &rArr; GPIO_QuickInit &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -217,8 +217,8 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
 </UL>
 
-<P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 242 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = main &rArr; hall_sensor_init &rArr; EXTI_QuickInit &rArr; GPIO_QuickInit &rArr; GPIO_Init
+<P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 254 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = main &rArr; hall_sensor_init &rArr; EXTI_QuickInit &rArr; GPIO_QuickInit &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uncompress_speed
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_init
@@ -282,6 +282,7 @@ Global Symbols
 
 <P><STRONG><a name="[5f]"></a>position_sensor_compute</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, position_sensor.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
@@ -296,6 +297,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
@@ -311,8 +313,8 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;callbacks_services_reset_time_to_next_hall_period
 </UL>
 
-<P><STRONG><a name="[4e]"></a>hall_sensor_init</STRONG> (Thumb, 108 bytes, Stack size 40 bytes, hall_sensor.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = hall_sensor_init &rArr; EXTI_QuickInit &rArr; GPIO_QuickInit &rArr; GPIO_Init
+<P><STRONG><a name="[4e]"></a>hall_sensor_init</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, hall_sensor.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = hall_sensor_init &rArr; EXTI_QuickInit &rArr; GPIO_QuickInit &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;callbacks_services_reset_time_to_next_hall_period
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_QuickInit
@@ -1020,10 +1022,12 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[56]"></a>__aeabi_i2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt))
-<BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_compute
+<BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;position_sensor_compute
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_compute
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_time_based_method
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uncompress_speed
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_get
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;position_sensor_get
 </UL>
 
 <P><STRONG><a name="[f5]"></a>_fflt</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt), UNUSED)

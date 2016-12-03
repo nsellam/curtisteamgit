@@ -64,10 +64,16 @@
 #define HALL_SENSOR_R_GPIO GPIOC
 
 /**
- * @def HALL_SENSOR_MODE
- * @brief Way to trigg interrupts for this sensor
+ * @def HALL_SENSOR_TRIGG_FW
+ * @brief Way to trigg interrupts to detect forward movement
 */
-#define HALL_SENSOR_TRIGG EXTI_Trigger_Rising
+#define HALL_SENSOR_TRIGG_FW EXTI_Trigger_Rising
+
+/**
+ * @def HALL_SENSOR_TRIGG_BW
+ * @brief Way to trigg interrupts to detect backward movement
+*/
+#define HALL_SENSOR_TRIGG_BW EXTI_Trigger_Falling
 
 /**
  * @def HALL_SENSOR_PRIO
@@ -130,13 +136,15 @@ uint16_t hall_sensor_get_sector (uint8_t hall_identifier);
  * @brief Return the current lap for the hall sensor considered
  * @return uint16_t -> curent lap
 */
-uint32_t hall_sensor_get_lap(uint8_t hall_identifier);
+int32_t hall_sensor_get_lap(uint8_t hall_identifier);
 
 /**
  * @fn hall_sensor_init
+ * @param hall_identifier -> uint8_t (number of the hall sensor to consider. It's recommended to use identifier such HALL_IDENTIFIER_L or HALL_IDENTIFIER_R)
+ * @param direction -> uint8_t (car direction)
  * @brief Initialize hall sensor
 */
-void hall_sensor_init(void);
+void hall_sensor_init(uint8_t hall_identifier, uint8_t direction);
 
 /**
  * @fn hall_sensor_count_peridod_laps
@@ -150,6 +158,6 @@ void hall_sensor_count_peridod_ticks (void);
  * @brief Return the number of ticks detected during the last hall sensor period
  * @return uint8_t -> number of ticks during previous period for the hall sensor considered
 */
-uint8_t hall_sensor_get_number_ticks_in_period (uint8_t hall_identifier);
+int8_t hall_sensor_get_number_ticks_in_period (uint8_t hall_identifier);
 
 #endif //HALL_SENSOR_H

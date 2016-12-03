@@ -82,7 +82,10 @@ int main(void) {
 	j = j+k+l+m+n+o+p+q+r; // sinon ce boulet me met des warnings
 	
 	
-	hall_sensor_init();
+	hall_sensor_init(HALL_IDENTIFIER_L, CAR_FW_DIRECTION);
+	hall_sensor_init(HALL_IDENTIFIER_R, CAR_BW_DIRECTION);
+	
+	
 	position_sensor_init();
 	speed_sensor_init();
 	systick_init();

@@ -10,7 +10,7 @@
 #include "systick.h"
 
 /**
- * @var remaining_time_to_100_ms 
+ * @var remaining_time_to_hall_period 
  * @brief Number of systick iteruptions to wait until next hall sensor period
 */
 uint32_t remaining_time_to_hall_period = SPEED_SENSOR_TIME_BETWEEN_TWO_UPDATES; 

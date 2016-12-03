@@ -16,4 +16,7 @@
 #define PI 3.14159265359
 
 
+#define CAR_FW_DIRECTION 0 // forward
+#define CAR_BW_DIRECTION 1 // backward 
+
 #endif //CAR_H

@@ -6,14 +6,15 @@
 
 #include "hall_sensor.h"
 #include "callbacks_services.h"
+#include "car.h"
 #include "systick.h"
 #include "exti.h"
 
 /**
  * @var hall_sensor_number_of_pop
- * @brief Number of the hall detection 
+ * @brief Number of the hall detection. Positive is counted on rising edges, negative if not.  
 */
-uint32_t hall_sensor_number_of_pop[HALL_SENSOR_NUMBER];
+int32_t hall_sensor_number_of_pop[HALL_SENSOR_NUMBER];
 
 /**
  * @var hall_sensor_last_pops
@@ -29,21 +30,21 @@ uint16_t hall_sensor_sector[HALL_SENSOR_NUMBER];
 
 /**
  * @var hall_sensor_lap
- * @brief Number of laps count by each hall sensor
+ * @brief Number of laps count by each hall sensor. Positive is counted on rising edges, negative if not. 
 */
-uint32_t hall_sensor_lap[HALL_SENSOR_NUMBER];
+int32_t hall_sensor_lap[HALL_SENSOR_NUMBER];
 
 /**
  * @var hall_sensor_periode_ticks
  * @brief Number of ticks count during this periode
 */
-uint8_t hall_sensor_current_periode_ticks[HALL_SENSOR_NUMBER];
+int8_t hall_sensor_current_periode_ticks[HALL_SENSOR_NUMBER];
 
 /**
  * @var hall_sensor_periode_ticks
  * @brief Number of ticks count during the last periode
 */
-uint8_t hall_sensor_periode_ticks[HALL_SENSOR_NUMBER];
+int8_t hall_sensor_periode_ticks[HALL_SENSOR_NUMBER];
 
 /**
  * @fn hall_sensor_reset
@@ -52,12 +53,31 @@ uint8_t hall_sensor_periode_ticks[HALL_SENSOR_NUMBER];
 */
 void hall_sensor_reset (uint8_t hall_identifier);
 
-void hall_sensor_init(void) {
-	int i = 0; 
-	for (i=0; i<HALL_SENSOR_NUMBER; i++) hall_sensor_reset(i);
+void hall_sensor_init(uint8_t hall_identifier, uint8_t direction) {
+	GPIO_TypeDef *GPIO;
+	uint16_t pin;
+	EXTITrigger_TypeDef trigg;
 	
-	EXTI_QuickInit(HALL_SENSOR_L_GPIO, HALL_SENSOR_L_PIN, HALL_SENSOR_TRIGG, HALL_SENSOR_PRIO);
-	EXTI_QuickInit(HALL_SENSOR_R_GPIO, HALL_SENSOR_R_PIN, HALL_SENSOR_TRIGG, HALL_SENSOR_PRIO);
+	hall_sensor_reset(hall_identifier);
+	
+	if (hall_identifier == HALL_IDENTIFIER_L) {
+		GPIO = HALL_SENSOR_L_GPIO;
+		pin = HALL_SENSOR_L_PIN;
+	}
+	else if (hall_identifier == HALL_IDENTIFIER_R) {
+		GPIO = HALL_SENSOR_R_GPIO;
+		pin = HALL_SENSOR_R_PIN;
+	}
+	else {return;}	
+	
+	if (direction == CAR_FW_DIRECTION) {
+		trigg = HALL_SENSOR_TRIGG_FW;
+	}
+	else {
+		trigg = HALL_SENSOR_TRIGG_BW;
+	}
+	
+	EXTI_QuickInit(GPIO, pin, trigg, HALL_SENSOR_PRIO);
 	// Add all the other EXTI declarations
 }
 
@@ -99,7 +119,7 @@ uint16_t hall_sensor_get_sector (uint8_t hall_identifier){
 	return hall_sensor_sector[hall_identifier];
 }
 
-uint32_t hall_sensor_get_lap(uint8_t hall_identifier) {
+int32_t hall_sensor_get_lap(uint8_t hall_identifier) {
 	// no test can be done to validate lap number 
 	return hall_sensor_lap[hall_identifier];
 }
@@ -121,6 +141,6 @@ void hall_sensor_count_peridod_ticks (void) {
 	}
 }
 
-uint8_t hall_sensor_get_number_ticks_in_period (uint8_t hall_identifier) {
+int8_t hall_sensor_get_number_ticks_in_period (uint8_t hall_identifier) {
 	return hall_sensor_periode_ticks[hall_identifier];
 }
