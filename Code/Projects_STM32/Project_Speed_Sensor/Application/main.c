@@ -82,11 +82,11 @@ int main(void) {
 	j = j+k+l+m+n+o+p+q+r; // sinon ce boulet me met des warnings
 	
 	
-	systick_init();
 	hall_sensor_init();
 	position_sensor_init();
 	speed_sensor_init();
-
+	systick_init();
+	
 	while(1) {
 		jeanmichelposition = position_sensor_get(POSITION_CM, 0);
 		//pData_STM->travelled_distance = jeanmichelposition;

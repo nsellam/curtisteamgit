@@ -10,13 +10,13 @@
  * @def ERROR_LINE_UNREACHABLE
  * @brief Secified line is not valid (it is not allowed to specify various lines at one time) 
 */ 
-#define ERROR_LINE_UNREACHABLE   0xFFFFFFFF
+#define ERROR_LINE_UNREACHABLE   (uint16_t) -1
 
 /**
  * @def ERROR_COMPUTING_CHANNEL
  * @brief Parameter given to compute Channel is invalid
 */ 
-#define ERROR_COMPUTING_CHANNEL  0xFF
+#define ERROR_COMPUTING_CHANNEL  (uint8_t) -1
 
 /**
  * @def GPIO_MODE_EXTI
@@ -25,8 +25,8 @@
 #define GPIO_MODE_EXTI           GPIO_Mode_IPU
 
 
-#define ERROR_PORT_SOURCE 0xFF
-#define ERROR_PIN_SOURCE 0xFFFF
+#define ERROR_PORT_SOURCE 		(uint8_t) -1
+#define ERROR_PIN_SOURCE 			(uint16_t) -1
 
 uint32_t GPIO_Pin_to_EXTI_Line(uint16_t pin);
 uint8_t Line_to_IRQn(uint32_t Line);

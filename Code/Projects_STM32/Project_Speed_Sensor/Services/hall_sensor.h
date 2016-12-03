@@ -110,7 +110,7 @@ void hall_sensor_callback (uint8_t hall_identifier);
  * @fn get_hall_sensor_last_pop
  * @brief Return the date (in microseconds) of the last - n detection of the hall sensor. 
  * @param n -> uint8_t (number of the sample wanted)
- * @param 
+ * @param hall_identifier -> uint8_t (number of the hall sensor to consider. It's recommended to use identifier such HALL_IDENTIFIER_L or HALL_IDENTIFIER_R)
  * @return uint64_t time of the detection passed as parameter
  * @retval time if it is possible to found it, ERROR_VALUE_NOT_FOUND if not
 */
@@ -126,7 +126,8 @@ uint16_t hall_sensor_get_sector (uint8_t hall_identifier);
 
 /**
  * @fn hall_sensor_get_lap
- * @brief Return the current lap
+ * @param hall_identifier -> uint8_t (number of the hall sensor to consider. It's recommended to use identifier such HALL_IDENTIFIER_L or HALL_IDENTIFIER_R)
+ * @brief Return the current lap for the hall sensor considered
  * @return uint16_t -> curent lap
 */
 uint32_t hall_sensor_get_lap(uint8_t hall_identifier);
@@ -136,5 +137,19 @@ uint32_t hall_sensor_get_lap(uint8_t hall_identifier);
  * @brief Initialize hall sensor
 */
 void hall_sensor_init(void);
+
+/**
+ * @fn hall_sensor_count_peridod_laps
+ * @brief Count the number of ticks detected during one period
+*/
+void hall_sensor_count_peridod_ticks (void);
+
+/**
+ * @fn hall_sensor_get_lap
+ * @param hall_identifier -> uint8_t (number of the hall sensor to consider. It's recommended to use identifier such HALL_IDENTIFIER_L or HALL_IDENTIFIER_R)
+ * @brief Return the number of ticks detected during the last hall sensor period
+ * @return uint8_t -> number of ticks during previous period for the hall sensor considered
+*/
+uint8_t hall_sensor_get_number_ticks_in_period (uint8_t hall_identifier);
 
 #endif //HALL_SENSOR_H

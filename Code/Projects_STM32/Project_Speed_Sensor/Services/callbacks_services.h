@@ -16,4 +16,16 @@
 */
 void callbacks_services_exti(uint32_t EXTI_Line);
 
+/**
+ * @fn callbacks_services_speed_sensor
+ * @brief Produce a call of 
+ */
+void callbacks_services_hall_period (void);
+
+/**
+ * @fn callbacks_services_reset_time_to_next_hall_period
+ * @brief Reinit private variable indicating time remainng before the next hall sensor period
+ */
+void callbacks_services_reset_time_to_next_hall_period (void);
+
 #endif //CALLBACKS_SERVICES_H

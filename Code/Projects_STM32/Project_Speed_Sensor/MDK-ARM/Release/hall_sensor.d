@@ -10,6 +10,7 @@
 .\release\hall_sensor.o: ..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h
 .\release\hall_sensor.o: ..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h
 .\release\hall_sensor.o: ..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc\misc.h
+.\release\hall_sensor.o: ..\Services\callbacks_services.h
 .\release\hall_sensor.o: ..\Drivers\systick.h
 .\release\hall_sensor.o: ..\Drivers\exti.h
 .\release\hall_sensor.o: ..\Drivers\gpio.h

@@ -15,7 +15,7 @@ static uint64_t time_micros;
 void systick_init(void) {
   time_micros = 0;
 	while (SysTick_Config(SystemCoreClock / SYSTICK_FREQ - 1) != 0);
-	NVIC_SetPriority(SysTick_IRQn, 0);
+	NVIC_SetPriority(SysTick_IRQn, 1);
 }
 
 uint64_t micros(void) {

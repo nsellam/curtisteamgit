@@ -11,4 +11,6 @@
 .\release\callbacks_services.o: ..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h
 .\release\callbacks_services.o: ..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\release\callbacks_services.o: ..\Services\hall_sensor.h
+.\release\callbacks_services.o: ..\Application\speed_sensor.h
+.\release\callbacks_services.o: ..\Application\car.h
 .\release\callbacks_services.o: ..\Drivers\systick.h

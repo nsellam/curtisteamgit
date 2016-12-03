@@ -39,6 +39,12 @@ float speed[HALL_SENSOR_NUMBER]; // cm/s
 float speed_tick[HALL_SENSOR_NUMBER]; // cm/s
 
 /**
+ * @var speed_time 
+ * @brief Last computed speed by time based method (expressed in centimeters per second) for each speed sensor
+*/
+float speed_time[HALL_SENSOR_NUMBER]; // cm/s
+
+/**
  * @fn speed_sensor_compute
  * @param speed_identifier -> uint8_t : Number of the speed sensor to consider
  * @brief Computes speed and stores the result in a private variable 
@@ -48,9 +54,16 @@ void speed_sensor_compute(uint8_t hall_identifier);
 /**
  * @fn speed_sensor_tick_based_method
  * @param speed_identifier -> uint8_t : Number of the speed sensor to consider
- * @brief Computes speed with tick based method 
+ * @brief Computes speed with tick based method and stores the result in a private variable
 */
 void speed_sensor_tick_based_method (uint8_t speed_identifier);
+
+/**
+ * @fn speed_sensor_time_based_method
+  * @param speed_identifier -> uint8_t : Number of the speed sensor to consider
+ * @brief Computes speed with a time based method and stores the result in a private variable 
+*/
+void speed_sensor_time_based_method (uint8_t speed_identifier);
 
 void speed_sensor_init() {
 	int i = 0; 
@@ -66,7 +79,9 @@ void speed_sensor_init() {
 
 void speed_sensor_compute(uint8_t speed_identifier) {
 	speed_sensor_tick_based_method (speed_identifier);
-	speed[speed_identifier] = speed_tick[speed_identifier];
+	speed_sensor_time_based_method (speed_identifier);
+	//speed[speed_identifier] = speed_tick[speed_identifier];
+	speed[speed_identifier] = speed_time[speed_identifier];
 }
 
 void speed_sensor_tick_based_method (uint8_t speed_identifier) {
@@ -82,6 +97,11 @@ void speed_sensor_tick_based_method (uint8_t speed_identifier) {
 	else {
 		speed_tick[speed_identifier] = INFINITE; // Car browses instantly the distance
 	} 
+}
+
+void speed_sensor_time_based_method (uint8_t speed_identifier) {
+	int number_of_ticks = hall_sensor_get_number_ticks_in_period (speed_identifier);
+	speed_time[speed_identifier] = (float) (number_of_ticks / SPEED_SENSOR_TIME_BETWEEN_TWO_UPDATES);
 }
 
 float speed_sensor_get(float unit, uint8_t speed_identifier) {

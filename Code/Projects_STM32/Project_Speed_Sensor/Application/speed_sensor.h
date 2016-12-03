@@ -14,7 +14,13 @@
  * @def SPEED_SENSOR_SAMPLES_USED 
  * @brief Number of samples used to compute speed. It is recommended to keep a value under 5 to keep a good fidelity of the variable. Musn't be negative.  
 */
-#define SPEED_SENSOR_SAMPLES_USED 36
+#define SPEED_SENSOR_SAMPLES_USED 5
+
+/**
+ * @def SPEED_SENSOR_TIME_BETWEEN_TWO_UPDATES 
+ * @brief Time corresponding to a hall sensor period : meaning time between two changes of speed 
+*/
+#define SPEED_SENSOR_TIME_BETWEEN_TWO_UPDATES 100*1000 // µs
 
 /**
  * @def SPEED_xxxx 
@@ -22,7 +28,7 @@
  */
 #define SPEED_MM_S		10						// millimeters per second
 #define SPEED_CM_S 		1							// centimeters per second
-#define SPEED_M__S			0.01 					// meters per second
+#define SPEED_M__S		0.01 					// meters per second
 #define SPEED_KM_S		0.00001				// kilometers per second
 #define SPEED_KM_H		0.036					// kilometers per hour
 #define SPEED_FT_S		0.0328084			// feet per second

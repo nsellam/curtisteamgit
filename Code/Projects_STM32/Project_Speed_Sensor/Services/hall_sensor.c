@@ -5,6 +5,7 @@
  */
 
 #include "hall_sensor.h"
+#include "callbacks_services.h"
 #include "systick.h"
 #include "exti.h"
 
@@ -31,6 +32,12 @@ uint16_t hall_sensor_sector[HALL_SENSOR_NUMBER];
  * @brief Number of laps count by each hall sensor
 */
 uint32_t hall_sensor_lap[HALL_SENSOR_NUMBER];
+
+/**
+ * @var hall_sensor_periode_ticks
+ * @brief Number of ticks count during this periode
+*/
+uint8_t hall_sensor_current_periode_ticks[HALL_SENSOR_NUMBER];
 
 /**
  * @var hall_sensor_periode_ticks
@@ -67,7 +74,7 @@ void hall_sensor_callback (uint8_t hall_identifier) {
 		hall_sensor_lap[hall_identifier] ++;
 	}
 	
-	hall_sensor_periode_ticks[hall_identifier]++;
+	hall_sensor_current_periode_ticks[hall_identifier]++;
 }
 
 /**
@@ -83,6 +90,8 @@ void hall_sensor_reset (uint8_t hall_identifier) {
 		hall_sensor_last_pops[i][hall_identifier] = 0;
 	}
 	hall_sensor_periode_ticks[hall_identifier] = 0;
+	hall_sensor_current_periode_ticks[hall_identifier] = 0;
+	callbacks_services_reset_time_to_next_hall_period();
 }
 
 uint16_t hall_sensor_get_sector (uint8_t hall_identifier){
@@ -105,8 +114,13 @@ uint64_t hall_sensor_get_last_pop (uint8_t n, uint8_t hall_identifier) {
 	return hall_sensor_last_pops[position_to_read][hall_identifier];
 }
 
-uint8_t hall_sensor_get_periode_ticks(uint8_t hall_identifier) {
-	uint8_t R = hall_sensor_periode_ticks[hall_identifier];
-	hall_sensor_periode_ticks[hall_identifier] = 0;
-	return R;
+void hall_sensor_count_peridod_ticks (void) {
+	int i = 0; 
+	for (i=0; i<HALL_SENSOR_NUMBER; i++) {
+		hall_sensor_periode_ticks[i] = hall_sensor_current_periode_ticks[i];
+	}
+}
+
+uint8_t hall_sensor_get_number_ticks_in_period (uint8_t hall_identifier) {
+	return hall_sensor_periode_ticks[hall_identifier];
 }
