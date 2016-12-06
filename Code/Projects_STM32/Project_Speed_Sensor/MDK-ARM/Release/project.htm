@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Release\project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Release\project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Dec 06 08:45:11 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Dec 06 09:03:45 2016
 <BR><P>
 <H3>Maximum Stack Usage =         92 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -239,23 +239,25 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[57]"></a>speed_sensor_time_based_method</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, speed_sensor.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = speed_sensor_time_based_method
+<P><STRONG><a name="[57]"></a>speed_sensor_time_based_method</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, speed_sensor.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = speed_sensor_time_based_method &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_get_number_ticks_in_period
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_compute
 </UL>
 
-<P><STRONG><a name="[5a]"></a>speed_sensor_tick_based_method</STRONG> (Thumb, 110 bytes, Stack size 24 bytes, speed_sensor.o(.text))
+<P><STRONG><a name="[5c]"></a>speed_sensor_tick_based_method</STRONG> (Thumb, 110 bytes, Stack size 24 bytes, speed_sensor.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = speed_sensor_tick_based_method &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ul2f
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_get_last_pop
+<BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ul2f
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_get_last_pop
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;micros
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_compute
@@ -264,7 +266,7 @@ Global Symbols
 <P><STRONG><a name="[60]"></a>speed_sensor_compute</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, speed_sensor.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = speed_sensor_compute &rArr; speed_sensor_tick_based_method &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
+<BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_time_based_method
 </UL>
 <BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_get
@@ -273,7 +275,7 @@ Global Symbols
 <P><STRONG><a name="[55]"></a>speed_sensor_get</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, speed_sensor.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = speed_sensor_get &rArr; speed_sensor_compute &rArr; speed_sensor_tick_based_method &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_compute
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -286,9 +288,9 @@ Global Symbols
 <P><STRONG><a name="[61]"></a>position_sensor_compute</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, position_sensor.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = position_sensor_compute &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
+<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
@@ -302,7 +304,7 @@ Global Symbols
 <P><STRONG><a name="[54]"></a>position_sensor_get</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, position_sensor.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = position_sensor_get &rArr; position_sensor_compute &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;position_sensor_compute
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -362,8 +364,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;position_sensor_compute
 </UL>
 
-<P><STRONG><a name="[5b]"></a>hall_sensor_get_last_pop</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, hall_sensor.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
+<P><STRONG><a name="[5d]"></a>hall_sensor_get_last_pop</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, hall_sensor.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
 </UL>
 
 <P><STRONG><a name="[70]"></a>hall_sensor_count_peridod_ticks</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, hall_sensor.o(.text))
@@ -399,8 +401,8 @@ Global Symbols
 <P><STRONG><a name="[4c]"></a>compress_speed</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, compress.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = compress_speed &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
@@ -411,8 +413,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[73]"></a>compress_position</STRONG> (Thumb, 118 bytes, Stack size 8 bytes, compress.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<BR><BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
@@ -423,7 +425,7 @@ Global Symbols
 <P><STRONG><a name="[4d]"></a>uncompress_speed</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, uncompress.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = uncompress_speed &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -571,7 +573,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = micros
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_update
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
+<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1033,12 +1035,13 @@ Global Symbols
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub1
 </UL>
 
-<P><STRONG><a name="[5d]"></a>__aeabi_fdiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv))
+<P><STRONG><a name="[5b]"></a>__aeabi_fdiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fdiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compress_position
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;position_sensor_compute
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
+<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_time_based_method
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compress_speed
 </UL>
 
@@ -1055,8 +1058,8 @@ Global Symbols
 
 <P><STRONG><a name="[fb]"></a>_fflt</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt), UNUSED)
 
-<P><STRONG><a name="[5c]"></a>__aeabi_ul2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, ffltll_clz.o(x$fpl$ffltll))
-<BR><BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
+<P><STRONG><a name="[5e]"></a>__aeabi_ul2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, ffltll_clz.o(x$fpl$ffltll))
+<BR><BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
 </UL>
 
 <P><STRONG><a name="[fc]"></a>_ll_uto_f</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, ffltll_clz.o(x$fpl$ffltll), UNUSED)
@@ -1065,18 +1068,19 @@ Global Symbols
 
 <P><STRONG><a name="[fe]"></a>_ll_sto_f</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, ffltll_clz.o(x$fpl$ffltll), UNUSED)
 
-<P><STRONG><a name="[5e]"></a>__aeabi_ui2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$ffltu))
+<P><STRONG><a name="[5f]"></a>__aeabi_ui2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$ffltu))
 <BR><BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;position_sensor_compute
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
+<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
 </UL>
 
 <P><STRONG><a name="[ff]"></a>_ffltu</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$ffltu), UNUSED)
 
-<P><STRONG><a name="[5f]"></a>__aeabi_fmul</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul))
+<P><STRONG><a name="[5a]"></a>__aeabi_fmul</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compress_position
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
+<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_time_based_method
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uncompress_speed
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_get
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;position_sensor_get
