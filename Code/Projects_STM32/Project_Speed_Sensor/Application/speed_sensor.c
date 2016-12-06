@@ -7,6 +7,7 @@
 #include "speed_sensor.h"
 #include "hall_sensor.h"
 #include "systick.h"
+#include "math.h"
 
 /**
  * @def DELTA_DISTANCE 
@@ -78,10 +79,32 @@ void speed_sensor_init() {
 }
 
 void speed_sensor_compute(uint8_t speed_identifier) {
+	
+	float time_based = 0.0;
+	float tick_based = 0.0;
+	float coeff = 0.0;
+	
+	// Update speed variables
 	speed_sensor_tick_based_method (speed_identifier);
 	speed_sensor_time_based_method (speed_identifier);
-	//speed[speed_identifier] = speed_tick[speed_identifier];
-	speed[speed_identifier] = speed_time[speed_identifier];
+	
+	// Get values for each method
+	time_based = speed_time[speed_identifier];
+	tick_based = speed_tick[speed_identifier];
+	
+	// Compute coefficient 
+	if (time_based == 0.0) {
+		coeff = 0.0;
+	}
+	else {
+		coeff = (fabs(time_based-tick_based) / (CAR_MAX_SPEED));
+		if (coeff > 1.0) {coeff = 1.0;}
+		else if (coeff < 0.0) {coeff = 0.0;}
+		else {}
+	}
+
+	// Store value of speed
+	speed[speed_identifier] = coeff*(tick_based)+(1-coeff)*(time_based);
 }
 
 void speed_sensor_tick_based_method (uint8_t speed_identifier) {

@@ -13,3 +13,4 @@
 .\release\speed_sensor.o: ..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\release\speed_sensor.o: ..\Services\hall_sensor.h
 .\release\speed_sensor.o: ..\Drivers\systick.h
+.\release\speed_sensor.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
