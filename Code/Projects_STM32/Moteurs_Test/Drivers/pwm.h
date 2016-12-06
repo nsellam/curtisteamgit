@@ -21,30 +21,30 @@
 * @param void
 * @return void
 */
-void pwm_init(TIM_TypeDef *timer, uint8_t channel, float frequency_PWM_Hz);
-
-void pwm_set_duty_cycle(TIM_TypeDef *Timer, int channel, float duty_cycle);
+void pwm_init(TIM_TypeDef *timer, uint16_t channel, float frequency_PWM_Hz);
 
 //active le timer associé à la PWM
-void pwm_enable(TIM_TypeDef *Timer);
+void pwm_enable(TIM_TypeDef *timer);
 
 //désactive le timer associé à la PWM
-void pwm_disable(TIM_TypeDef *Timer);
+void pwm_disable(TIM_TypeDef *timer);
+
+void pwm_set_duty_cycle(TIM_TypeDef *Timer, uint16_t channel, float duty_cycle);
 
 //configure la bonne sortie au timer et à la voie choisis
-void pwm_port_init(TIM_TypeDef *Timer, int channel);
+void pwm_port_init(TIM_TypeDef *Timer, uint16_t channel);
 
 //active la sortie complementaire à un PWM initialisé
-void active_complementary_output(TIM_TypeDef *Timer, int channel, int remap);
+void active_complementary_output(TIM_TypeDef *timer, uint16_t channel, int remap);
 
-//active l'option one shoot du PWM
-void output_compare_init(TIM_TypeDef *Timer, int channel, float period_us);
+////active l'option one shoot du PWM
+//void output_compare_init(TIM_TypeDef *Timer, int channel, float period_us);
 
-//active le timer associé au one-pulse
-void output_compare_start(TIM_TypeDef *Timer);
+////active le timer associé au one-pulse
+//void output_compare_start(TIM_TypeDef *Timer);
 
-void capture_input_init(TIM_TypeDef *Timer, int channel);
-void capture_start(TIM_TypeDef *Timer, int channel);
-uint16_t capture_get_high_state_periode(void);
+//void capture_input_init(TIM_TypeDef *Timer, int channel);
+//void capture_start(TIM_TypeDef *Timer, int channel);
+//uint16_t capture_get_high_state_periode(void);
 
 #endif // PWM_H
