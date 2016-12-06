@@ -12,8 +12,8 @@
 
 ////------- Public functions ------------
 
-//float PWM_Init(TIM_TypeDef *Timer, int channel, float Frequence_PWM_Hz) {
-//   float duree_pwm_usec = US_PER_S/Frequence_PWM_Hz;  // duree_pwm en micro secondes
+//float PWM_Init(TIM_TypeDef *Timer, int channel, float frequency_PWM_Hz) {
+//   float duree_pwm_usec = US_PER_S/frequency_PWM_Hz;  // duree_pwm en micro secondes
 //   float freq_pwm_vraie = 0.0;
 
 //   duree_pwm_usec = Timer_1234_Init(Timer, duree_pwm_usec);  //donne la duree véritable du pwm en micro sec
@@ -280,8 +280,8 @@
  
 #define PWM_GPIO_MODE GPIO_Mode_AF_PP
   
-void pwm_init(TIM_TypeDef *timer, uint8_t channel, float frequence_PWM_Hz){  
-  float duree_pwm_usec = US_PER_S/frequence_PWM_Hz;
+void pwm_init(TIM_TypeDef *timer, uint16_t channel, float frequency_PWM_Hz){  
+  float duree_pwm_usec = US_PER_S/frequency_PWM_Hz;
   TIM_OCInitTypeDef  TIM_OCInitStructure;
    
   timer_init(timer, duree_pwm_usec);
@@ -384,27 +384,30 @@ void pwm_port_init(TIM_TypeDef *timer, int channel) {
 } 
 
  ////active la sortie complementaire à un PWM initialisé
-void active_complementary_output(TIM_TypeDef *Timer, int channel, int remap){
-   if (Timer == TIM1) {
-      switch(channel) {
-         case 1 :
-            //output compare channel enable
-            Timer->CCER |= TIM_CCER_CC1NE;    
-            break;
+void active_complementary_output(TIM_TypeDef *timer, uint16_t channel, int remap){
+   
+   TIM_CCxNCmd	(timer, channel, TIM_CCxN_Enable);
+   
+//   if (Timer == TIM1) {
+//      switch(channel) {
+//         case 1 :
+//            //output compare channel enable
+//            TIM_CCxNCmd	(Timer, channel,uint16_t TIM_CCxN_Enable);	   
+//            break;
 
-         case 2 :
-            //output compare channel enable
-            Timer->CCER |= TIM_CCER_CC2NE;
-            break;
+//         case 2 :
+//            //output compare channel enable
+//            Timer->CCER |= TIM_CCER_CC2NE;
+//            break;
 
-         case 3 :
-            //output compare channel enable
-            Timer->CCER |= TIM_CCER_CC3NE;
-            break;
+//         case 3 :
+//            //output compare channel enable
+//            Timer->CCER |= TIM_CCER_CC3NE;
+//            break;
 
-         default:
-            break;
-      }
+//         default:
+//            break;
+//      }
 
       if(remap) {
          RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
@@ -423,7 +426,7 @@ void active_complementary_output(TIM_TypeDef *Timer, int channel, int remap){
             default: break;
          }
       }
-   }
+   //}
 
 }
 

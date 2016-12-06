@@ -4,24 +4,27 @@
 
 int main (void) {
    volatile int aux = 0;
-   volatile float speed = 1;
+   volatile float speed = 0.5;
    
-   pwm_init(TIM1,1,20e3);
-   //active_complementary_output(TIM1, 1, 1);
-   pwm_port_init(TIM1, 1);
-   pwm_set_duty_cycle(TIM1, 1, 0.5);
-   pwm_enable(TIM1);
+   motors_init();
+   motor_set_speed(speed);
+   motors_start();
 
-//   motors_init();
-//   motors_start();
+  while (1) {
+     for(aux=0; aux<1e4; aux++){}
+      motor_set_speed(speed);
+  }
    
+//   pwm_init(TIM1,1,20e3);
+//   //active_complementary_output(TIM1, 1, 1);
+//   pwm_port_init(TIM1, 1);
+//   pwm_set_duty_cycle(TIM1, 1, 0.7);
+
+   //Enable Pin
+   //GPIO_QuickInit(GPIOx, ENABLE_PIN, GPIO_Mode_Out_PP);
+
+//   pwm_enable(TIM1);
    
-//  while (1) {
-//      motor_set_speed(speed);
-//  }
-//   motors_stop();
-//   motors_start();
-   while(1);
    
 	return 0;
 }
