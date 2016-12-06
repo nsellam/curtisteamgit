@@ -101,7 +101,7 @@ void speed_sensor_tick_based_method (uint8_t speed_identifier) {
 
 void speed_sensor_time_based_method (uint8_t speed_identifier) {
 	int number_of_ticks = hall_sensor_get_number_ticks_in_period (speed_identifier);
-	speed_time[speed_identifier] = (float) (number_of_ticks / SPEED_SENSOR_TIME_BETWEEN_TWO_UPDATES);
+	//speed_time[speed_identifier] = (float) (number_of_ticks / SPEED_SENSOR_TIME_BETWEEN_TWO_UPDATES);
 }
 
 float speed_sensor_get(float unit, uint8_t speed_identifier) {

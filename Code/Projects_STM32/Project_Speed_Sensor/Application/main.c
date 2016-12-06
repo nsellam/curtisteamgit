@@ -82,12 +82,40 @@ int main(void) {
 	j = j+k+l+m+n+o+p+q+r; // sinon ce boulet me met des warnings
 	
 	
-	hall_sensor_init();
+// void on_car_direction_changed (int8_t new_direction) {
+//	car_direction_set(new_direction);
+//	hall_sensor_start(HALL_IDENTIFIER_L, new_direction);
+//	hall_sensor_start(HALL_IDENTIFIER_R, new_direction);
+//	}
+	
 	position_sensor_init();
 	speed_sensor_init();
 	systick_init();
 	
-	while(1) {
+	// marche avant 
+		car_direction_set(CAR_FW_DIRECTION);
+		hall_sensor_start(HALL_IDENTIFIER_L, car_direction_get());
+		hall_sensor_start(HALL_IDENTIFIER_R, car_direction_get());
+		
+	while(micros() < 10000000) {
+		
+		jeanmichelposition = position_sensor_get(POSITION_CM, 0);
+		//pData_STM->travelled_distance = jeanmichelposition;
+		
+		jeanraymondposition = position_sensor_get(POSITION_CM, 1);
+		
+		jeanmichelvitesse = speed_sensor_get(SPEED_CM_S, 0);
+		//pData_STM->car_speed = jeanmichelvitesse;
+		
+		jeanraymondvitesse = speed_sensor_get(SPEED_CM_S, 1);
+	}
+	
+	// passage en marche arrière
+		car_direction_set(CAR_BW_DIRECTION);
+		hall_sensor_start(HALL_IDENTIFIER_L, car_direction_get());
+		hall_sensor_start(HALL_IDENTIFIER_R, car_direction_get());
+	while(1) 
+	{
 		jeanmichelposition = position_sensor_get(POSITION_CM, 0);
 		//pData_STM->travelled_distance = jeanmichelposition;
 		

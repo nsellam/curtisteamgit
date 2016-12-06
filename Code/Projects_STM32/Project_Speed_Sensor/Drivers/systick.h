@@ -14,7 +14,8 @@
  * @def SYSTICK_FREQ 
  * @brief Frequency to count systicks 
 */
-#define SYSTICK_FREQ  1000000 // Hz
+//#define SYSTICK_FREQ  1000000 // Hz
+#define SYSTICK_FREQ  1000 // Hz
 
 /**
  * @fn systick_init

@@ -2,6 +2,7 @@
 ".\release\main.o"
 ".\release\speed_sensor.o"
 ".\release\position_sensor.o"
+".\release\car.o"
 ".\release\hall_sensor.o"
 ".\release\callbacks_services.o"
 ".\release\compress.o"

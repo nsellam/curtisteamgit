@@ -3,11 +3,11 @@
 #include "pwm.h"
 
 int main (void) {
-  volatile int aux = 0;
+   volatile int aux = 0;
    volatile float speed = 1;
    
-   pwm_init(TIM1,1,50e3);
-   active_complementary_output(TIM1, 1, 1);
+   pwm_init(TIM1,1,20e3);
+   //active_complementary_output(TIM1, 1, 1);
    pwm_port_init(TIM1, 1);
    pwm_set_duty_cycle(TIM1, 1, 0.5);
    pwm_enable(TIM1);
