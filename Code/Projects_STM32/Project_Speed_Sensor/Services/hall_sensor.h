@@ -142,9 +142,17 @@ int32_t hall_sensor_get_lap(uint8_t hall_identifier);
  * @fn hall_sensor_init
  * @param hall_identifier -> uint8_t (number of the hall sensor to consider. It's recommended to use identifier such HALL_IDENTIFIER_L or HALL_IDENTIFIER_R)
  * @param direction -> uint8_t (car direction)
- * @brief Initialize hall sensor
+ * @brief Reset and start specified hall sensor 
 */
 void hall_sensor_init(uint8_t hall_identifier, uint8_t direction);
+
+/**
+ * @fn hall_sensor_start
+ * @param hall_identifier -> uint8_t (number of the hall sensor to consider. It's recommended to use identifier such HALL_IDENTIFIER_L or HALL_IDENTIFIER_R)
+ * @param direction -> uint8_t (car direction)
+ * @brief Only start specified hall sensor 
+*/
+void hall_sensor_start(uint8_t hall_identifier, uint8_t direction);
 
 /**
  * @fn hall_sensor_count_peridod_laps

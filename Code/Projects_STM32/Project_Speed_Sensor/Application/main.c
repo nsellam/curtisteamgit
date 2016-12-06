@@ -82,23 +82,40 @@ int main(void) {
 	j = j+k+l+m+n+o+p+q+r; // sinon ce boulet me met des warnings
 	
 	
-// void on_car_direction_changed (uint8_t direction) {
-//	car_direction_set(direction);
-//	hall_sensor_init(HALL_IDENTIFIER_L, direction);
-//	hall_sensor_init(HALL_IDENTIFIER_R, direction);
+// void on_car_direction_changed (int8_t new_direction) {
+//	car_direction_set(new_direction);
+//	hall_sensor_start(HALL_IDENTIFIER_L, new_direction);
+//	hall_sensor_start(HALL_IDENTIFIER_R, new_direction);
 //	}
-
-	car_direction_set(CAR_BW_DIRECTION);
-	hall_sensor_init(HALL_IDENTIFIER_L, CAR_FW_DIRECTION);
-	hall_sensor_init(HALL_IDENTIFIER_R, CAR_BW_DIRECTION);
 	
 	position_sensor_init();
 	speed_sensor_init();
 	systick_init();
 	
-	while(1) {
+	// marche avant 
+		car_direction_set(CAR_FW_DIRECTION);
+		hall_sensor_start(HALL_IDENTIFIER_L, car_direction_get());
+		hall_sensor_start(HALL_IDENTIFIER_R, car_direction_get());
 		
+	while(micros() < 10000000) {
+		
+		jeanmichelposition = position_sensor_get(POSITION_CM, 0);
+		//pData_STM->travelled_distance = jeanmichelposition;
+		
+		jeanraymondposition = position_sensor_get(POSITION_CM, 1);
+		
+		jeanmichelvitesse = speed_sensor_get(SPEED_CM_S, 0);
+		//pData_STM->car_speed = jeanmichelvitesse;
+		
+		jeanraymondvitesse = speed_sensor_get(SPEED_CM_S, 1);
+	}
+	
+	// passage en marche arrière
 		car_direction_set(CAR_BW_DIRECTION);
+		hall_sensor_start(HALL_IDENTIFIER_L, car_direction_get());
+		hall_sensor_start(HALL_IDENTIFIER_R, car_direction_get());
+	while(1) 
+	{
 		jeanmichelposition = position_sensor_get(POSITION_CM, 0);
 		//pData_STM->travelled_distance = jeanmichelposition;
 		

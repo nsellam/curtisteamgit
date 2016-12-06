@@ -20,7 +20,8 @@
  * @def SPEED_SENSOR_TIME_BETWEEN_TWO_UPDATES 
  * @brief Time corresponding to a hall sensor period : meaning time between two changes of speed 
 */
-#define SPEED_SENSOR_TIME_BETWEEN_TWO_UPDATES 100*1000 // µs
+//#define SPEED_SENSOR_TIME_BETWEEN_TWO_UPDATES 100*1000 // µs
+#define SPEED_SENSOR_TIME_BETWEEN_TWO_UPDATES 2000 // ms
 
 /**
  * @def SPEED_xxxx 

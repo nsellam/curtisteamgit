@@ -73,12 +73,10 @@ void hall_sensor_reset (uint8_t hall_identifier);
 */
 void hall_sensor_update(uint8_t hall_identifier, int8_t adder);
 
-void hall_sensor_init(uint8_t hall_identifier, uint8_t direction) {
+void hall_sensor_start(uint8_t hall_identifier, uint8_t direction) {
 	GPIO_TypeDef *GPIO;
 	uint16_t pin;
 	EXTITrigger_TypeDef trigg;
-	
-	hall_sensor_reset(hall_identifier);
 	
 	if (hall_identifier == HALL_IDENTIFIER_L) {
 		GPIO = HALL_SENSOR_L_GPIO;
@@ -98,7 +96,11 @@ void hall_sensor_init(uint8_t hall_identifier, uint8_t direction) {
 	}
 	
 	EXTI_QuickInit(GPIO, pin, trigg, HALL_SENSOR_PRIO);
-	// Add all the other EXTI declarations
+}
+
+void hall_sensor_init(uint8_t hall_identifier, uint8_t direction) {
+	hall_sensor_reset(hall_identifier);
+	hall_sensor_start(hall_identifier, direction);
 }
 
 void hall_sensor_update(uint8_t hall_identifier, int8_t adder) {
@@ -173,6 +175,7 @@ void hall_sensor_count_peridod_ticks (void) {
 	int i = 0; 
 	for (i=0; i<HALL_SENSOR_NUMBER; i++) {
 		hall_sensor_periode_ticks[i] = hall_sensor_current_periode_ticks[i];
+		hall_sensor_current_periode_ticks[i] = 0;
 	}
 }
 
