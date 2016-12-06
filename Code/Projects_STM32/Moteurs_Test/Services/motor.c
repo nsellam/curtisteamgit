@@ -32,17 +32,12 @@
 */
 #define CH 1
 
-/**
-* @def Frequence_Hz
-* @brief Frequency used to motors PWM generation in Hz
-*/
-#define MOTORS_FREQUENCY_Hz (float)(20e3) //in Hz
    
 /**
-* @def PWM_PERIOD
+* @def PWM_FREQUENCY
 * @brief Period used to motors PWM generation in Hz
 */
-#define PWM_PERIOD (float) 1/MOTORS_FREQUENCY_Hz //in Hz
+#define PWM_FREQUENCY (20e3) //in Hz
 
 /**
 * @def GPIOx
@@ -86,6 +81,11 @@
 */
 #define REMAP_PIN 0x1
 
+/**
+* @def PWM_NUL
+* @brief Set pwm duty cycle that keeps weels stopped
+*/
+#define PWM_NUL 0.5
 
 
 /********************************/
@@ -99,10 +99,11 @@
 * @return void
 */
 void motors_init(void) {
-   pwm_init(TIMx,CH,PWM_PERIOD);
+      
+   pwm_init(TIMx,CH,PWM_FREQUENCY);
    active_complementary_output(TIMx, CH, REMAP_PIN);
    pwm_port_init(TIMx, CH);
-   pwm_set_duty_cycle(TIMx, CH, 0.5);
+   pwm_set_duty_cycle(TIMx, CH, PWM_NUL);
 
    //Enable Pin
    //GPIO_QuickInit(GPIOx, ENABLE_PIN, GPIO_Mode_Out_PP);

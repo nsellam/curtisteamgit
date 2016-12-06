@@ -21,7 +21,7 @@
 * @param void
 * @return void
 */
-void pwm_init(TIM_TypeDef *timer, uint8_t channel, float Frequence_PWM_Hz);
+void pwm_init(TIM_TypeDef *timer, uint8_t channel, float frequency_PWM_Hz);
 
 void pwm_set_duty_cycle(TIM_TypeDef *Timer, int channel, float duty_cycle);
 
