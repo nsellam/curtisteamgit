@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Release\project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Release\project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Dec 06 10:06:04 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Dec 06 10:16:51 2016
 <BR><P>
 <H3>Maximum Stack Usage =         92 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -217,7 +217,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
 </UL>
 
-<P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 332 bytes, Stack size 0 bytes, main.o(.text))
+<P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 334 bytes, Stack size 0 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = main &rArr; hall_sensor_start &rArr; EXTI_QuickInit &rArr; GPIO_QuickInit &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uncompress_speed
@@ -226,7 +226,7 @@ Global Symbols
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_get
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;position_sensor_init
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;position_sensor_get
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;micros
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;millis
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_start
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;compress_speed
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_direction_set
@@ -258,7 +258,7 @@ Global Symbols
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_get_last_pop
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;micros
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;millis
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_compute
 </UL>
@@ -346,15 +346,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[6e]"></a>hall_sensor_update</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, hall_sensor.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = hall_sensor_update &rArr; micros
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = hall_sensor_update
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;micros
+<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;millis
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_callback
 </UL>
 
 <P><STRONG><a name="[6f]"></a>hall_sensor_callback</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, hall_sensor.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = hall_sensor_callback &rArr; hall_sensor_update &rArr; micros
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = hall_sensor_callback &rArr; hall_sensor_update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_update
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;car_direction_get
@@ -385,7 +385,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[70]"></a>callbacks_services_exti</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, callbacks_services.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update &rArr; micros
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_callback
 </UL>
@@ -488,7 +488,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[77]"></a>exti_callbacks</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update &rArr; micros
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_GetFlagStatus
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_ClearFlag
@@ -504,49 +504,49 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[13]"></a>EXTI0_IRQHandler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = EXTI0_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update &rArr; micros
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = EXTI0_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_callbacks
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[14]"></a>EXTI1_IRQHandler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = EXTI1_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update &rArr; micros
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = EXTI1_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_callbacks
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[15]"></a>EXTI2_IRQHandler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = EXTI2_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update &rArr; micros
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = EXTI2_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_callbacks
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[16]"></a>EXTI3_IRQHandler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = EXTI3_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update &rArr; micros
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = EXTI3_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_callbacks
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[17]"></a>EXTI4_IRQHandler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = EXTI4_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update &rArr; micros
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = EXTI4_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_callbacks
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[24]"></a>EXTI9_5_IRQHandler</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = EXTI9_5_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update &rArr; micros
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = EXTI9_5_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_callbacks
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[35]"></a>EXTI15_10_IRQHandler</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, stm32f10x_it.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = EXTI15_10_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update &rArr; micros
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = EXTI15_10_IRQHandler &rArr; exti_callbacks &rArr; callbacks_services_exti &rArr; hall_sensor_callback &rArr; hall_sensor_update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exti_callbacks
 </UL>
@@ -575,10 +575,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[56]"></a>micros</STRONG> (Thumb, 28 bytes, Stack size 12 bytes, systick.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = micros
-</UL>
-<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_update
+<P><STRONG><a name="[56]"></a>millis</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, systick.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hall_sensor_update
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;speed_sensor_tick_based_method
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>

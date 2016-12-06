@@ -108,7 +108,7 @@ void speed_sensor_compute(uint8_t speed_identifier) {
 }
 
 void speed_sensor_tick_based_method (uint8_t speed_identifier) {
-	uint64_t tf = micros();
+	uint64_t tf = millis();
 	uint64_t t0 = hall_sensor_get_last_pop(SAMPLE_TO_USE, speed_identifier);
 	
 	if (t0 == 0) {
