@@ -19,7 +19,7 @@ void systick_init(void) {
 }
 
 uint64_t micros(void) {
-  return time_micros*1000;
+  return time_micros;
 }
 
 void systick_inc(void) {
