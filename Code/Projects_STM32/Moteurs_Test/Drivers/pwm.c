@@ -21,8 +21,8 @@
 //   switch(channel) {
 //      case 1 :
 //         //output compare: PWM Mode 1
-//         Timer->CCMR1 &= ~TIM_CCMR1_OC1M; //met à 0 tous les bits
-//         Timer->CCMR1 |= (TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1);  // mode 1 pour upcounting (mettre 110 dans OCx), ici met le bit 1 et 2 sont à 1
+//         Timer->CCMR1 &= ~TIM_CCMR1_OC1M; //met ?0 tous les bits
+//         Timer->CCMR1 |= (TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1);  // mode 1 pour upcounting (mettre 110 dans OCx), ici met le bit 1 et 2 sont ?1
 
 //         //channel 1 en mode output compare
 //         Timer->CCMR1 &= ~TIM_CCMR1_CC1S;
@@ -33,8 +33,8 @@
 
 //      case 2 :
 //         //output compare: PWM Mode 1
-//         Timer->CCMR1 &= ~TIM_CCMR1_OC2M; //met à 0 tous les bits
-//         Timer->CCMR1 |= (TIM_CCMR1_OC2M_2 | TIM_CCMR1_OC2M_1);  // mode 1 pour upcounting (mettre 110 dans OCx), ici met le bit 1 et 2 sont à 1
+//         Timer->CCMR1 &= ~TIM_CCMR1_OC2M; //met ?0 tous les bits
+//         Timer->CCMR1 |= (TIM_CCMR1_OC2M_2 | TIM_CCMR1_OC2M_1);  // mode 1 pour upcounting (mettre 110 dans OCx), ici met le bit 1 et 2 sont ?1
 
 //         //channel 2 en mode output compare
 //         Timer->CCMR1 &= ~TIM_CCMR1_CC2S;
@@ -45,8 +45,8 @@
 
 //      case 3 :
 //         //output compare: PWM Mode 1
-//         Timer->CCMR2 &= ~TIM_CCMR2_OC3M; //met à 0 tous les bits
-//         Timer->CCMR2 |= (TIM_CCMR2_OC3M_2 | TIM_CCMR2_OC3M_1);  // mode 1 pour upcounting (mettre 110 dans OCx), ici met le bit 1 et 2 sont à 1
+//         Timer->CCMR2 &= ~TIM_CCMR2_OC3M; //met ?0 tous les bits
+//         Timer->CCMR2 |= (TIM_CCMR2_OC3M_2 | TIM_CCMR2_OC3M_1);  // mode 1 pour upcounting (mettre 110 dans OCx), ici met le bit 1 et 2 sont ?1
 
 //         //channel 3 en mode output compare
 //         Timer->CCMR2 &= ~TIM_CCMR2_CC3S;
@@ -57,8 +57,8 @@
 
 //      case 4 :
 //         //output compare: PWM Mode 1
-//         Timer->CCMR2 &= ~TIM_CCMR2_OC4M; //met à 0 tous les bits
-//         Timer->CCMR2 |= (TIM_CCMR2_OC4M_2 | TIM_CCMR2_OC4M_1);  // mode 1 pour upcounting (mettre 110 dans OCx), ici met le bit 1 et 2 sont à 1
+//         Timer->CCMR2 &= ~TIM_CCMR2_OC4M; //met ?0 tous les bits
+//         Timer->CCMR2 |= (TIM_CCMR2_OC4M_2 | TIM_CCMR2_OC4M_1);  // mode 1 pour upcounting (mettre 110 dans OCx), ici met le bit 1 et 2 sont ?1
 
 //         //channel 4 en mode output compare
 //         Timer->CCMR2 &= ~TIM_CCMR2_CC4S;
@@ -82,7 +82,7 @@
 //}
 
 //void PWM_Set_Duty_Cycle(TIM_TypeDef *Timer, int channel, float duty_cycle) {
-//   uint16_t pulse_length_nbre = 0; // nbre entier non signé de 16 bits
+//   uint16_t pulse_length_nbre = 0; // nbre entier non sign?de 16 bits
 //   uint16_t resolution;
 //   resolution = Timer->ARR;
 
@@ -117,7 +117,7 @@
 
 
 
-////active la sortie complementaire à un PWM initialisé
+////active la sortie complementaire ?un PWM initialis?
 //void Active_Complementary_Output(TIM_TypeDef *Timer, int channel, int remap){
 //   if (Timer == TIM1) {
 //      switch(channel) {
@@ -316,7 +316,7 @@ void pwm_Disable(TIM_TypeDef *timer)
 
 
 void pwm_set_duty_cycle(TIM_TypeDef *timer, int channel, float duty_cycle) {
-   uint16_t pulse_length_nbre = 0; // nbre entier non signé de 16 bits
+   uint16_t pulse_length_nbre = 0; // nbre entier non sign?de 16 bits
    uint16_t resolution;
    resolution = timer->ARR;
 
@@ -383,7 +383,7 @@ void pwm_port_init(TIM_TypeDef *timer, int channel) {
 
 } 
 
- ////active la sortie complementaire à un PWM initialisé
+ ////active la sortie complementaire ?un PWM initialis?
 void active_complementary_output(TIM_TypeDef *timer, uint16_t channel, int remap){
    
    TIM_CCxNCmd	(timer, channel, TIM_CCxN_Enable);

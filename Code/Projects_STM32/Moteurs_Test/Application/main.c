@@ -4,7 +4,7 @@
 
 int main (void) {
    volatile int aux = 0;
-   volatile float speed = 0.5;
+   volatile float speed = 1;
    
    motors_init();
    motor_set_speed(speed);

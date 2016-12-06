@@ -114,7 +114,7 @@ void hall_sensor_callback (uint8_t hall_identifier);
 
 /**
  * @fn get_hall_sensor_last_pop
- * @brief Return the date (in microseconds) of the last - n detection of the hall sensor. 
+ * @brief Return the date (in milliseconds) of the last - n detection of the hall sensor. 
  * @param n -> uint8_t (number of the sample wanted)
  * @param hall_identifier -> uint8_t (number of the hall sensor to consider. It's recommended to use identifier such HALL_IDENTIFIER_L or HALL_IDENTIFIER_R)
  * @return uint64_t time of the detection passed as parameter

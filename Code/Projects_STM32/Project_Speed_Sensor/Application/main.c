@@ -97,7 +97,7 @@ int main(void) {
 		hall_sensor_start(HALL_IDENTIFIER_L, car_direction_get());
 		hall_sensor_start(HALL_IDENTIFIER_R, car_direction_get());
 		
-	while(micros() < 10000000) {
+	while(millis() < 10000) {
 		
 		jeanmichelposition = position_sensor_get(POSITION_CM, 0);
 		//pData_STM->travelled_distance = jeanmichelposition;

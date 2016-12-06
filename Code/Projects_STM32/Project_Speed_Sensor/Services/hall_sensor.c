@@ -104,7 +104,7 @@ void hall_sensor_init(uint8_t hall_identifier, uint8_t direction) {
 }
 
 void hall_sensor_update(uint8_t hall_identifier, int8_t adder) {
-	hall_sensor_last_pops[hall_sensor_number_of_pop[hall_identifier]][hall_identifier] = micros();
+	hall_sensor_last_pops[hall_sensor_number_of_pop[hall_identifier]][hall_identifier] = millis();
 	
 	hall_sensor_number_of_pop[hall_identifier] ++;
 	if (hall_sensor_number_of_pop[hall_identifier] >= HALL_SENSOR_MAX_SAVED_POP) hall_sensor_number_of_pop[hall_identifier] = 0; else {} 
