@@ -14,8 +14,8 @@
  * @def SYSTICK_FREQ 
  * @brief Frequency to count systicks 
 */
-#define SYSTICK_FREQ  1000000 // Hz
-//#define SYSTICK_FREQ  1000 // Hz
+//#define SYSTICK_FREQ  1000000 // Hz
+#define SYSTICK_FREQ  1000 // Hz
 
 /**
  * @fn systick_init
@@ -24,11 +24,11 @@
 void systick_init(void);
 
 /**
- * @fn micros
+ * @fn millis
  * @brief Returns the current STM32 time
- * @return uint64_t (time elapsed since systick initialization expressed in microseconds) 
+ * @return uint64_t (time elapsed since systick initialization expressed in milliseconds) 
 */
-uint64_t micros(void);
+uint64_t millis(void);
 
 /**
  * @fn systick_inc
