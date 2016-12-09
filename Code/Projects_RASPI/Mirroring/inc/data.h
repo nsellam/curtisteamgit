@@ -1,9 +1,3 @@
-/**
- * @file data.h
- * @author Curtis Team
- * @brief header of data.c
- */
-
 #ifndef DATA_H
 #define DATA_H
 
@@ -101,6 +95,9 @@ typedef struct {
 
    uint8_t steering_stop_sensor_R;				/*!< Steering position data */
    uint8_t steering_stop_sensor_L;				/*!< Steering position data */
+
+   uint16_t motor_current_R;	         			/*!< Right motor current data */
+   uint16_t motor_current_L;	         			/*!<  Left motor current data */
 
    uint8_t errors_SPI;							/*!< Errors of communication data */
 } data_STM_t;
