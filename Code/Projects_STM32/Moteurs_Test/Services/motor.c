@@ -99,7 +99,7 @@
 * @return void
 */
 void motors_init(void) {
-      
+   //PWM   
    pwm_init(TIMx,CH,PWM_FREQUENCY);
    active_complementary_output(TIMx, CH, REMAP_PIN);
    pwm_port_init(TIMx, CH);
@@ -107,7 +107,7 @@ void motors_init(void) {
 
    //Enable Pin
    GPIO_QuickInit(GPIOx, ENABLE_PIN, GPIO_Mode_Out_PP);
-
+   
    pwm_enable(TIMx);
 }
 

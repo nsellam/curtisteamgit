@@ -115,8 +115,29 @@ void pwm_port_init(TIM_TypeDef *timer, uint16_t channel) {
  ////active la sortie complementaire à un PWM initialisé
 void active_complementary_output(TIM_TypeDef *timer, uint16_t channel, int remap){
    
-   TIM_CCxNCmd	(timer, channel, TIM_CCxN_Enable);
- 
+      if (timer == TIM1) {
+      switch(channel) {
+         case 1 :
+            //output compare channel enable
+            TIM_CCxNCmd	(timer, channel,uint16_t TIM_CCxN_Enable);
+            
+            //timer->CCER |= TIM_CCER_CC1NE;
+            break;
+
+         case 2 :
+            //output compare channel enable
+            timer->CCER |= TIM_CCER_CC2NE;
+            break;
+
+         case 3 :
+            //output compare channel enable
+            timer->CCER |= TIM_CCER_CC3NE;
+            break;
+
+         default:
+            break;
+      }
+      }
    if(remap) {
       RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
       GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, ENABLE);
