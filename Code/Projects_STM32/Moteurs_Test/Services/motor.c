@@ -15,6 +15,7 @@
 #include "timer.h"
 #include "pwm.h"
 
+#include <stm32f10x_tim.h>
 
 /********************************/
 /*         CONSTANTS            */
@@ -30,7 +31,7 @@
 * @def CH
 * @brief Channel used to motors PWM generation
 */
-#define CH 1
+#define CH TIM_Channel_1
 
    
 /**
@@ -49,7 +50,7 @@
 * @def ENABLE_PIN
 * @brief Pin used to enable the motors
 */
-#define ENABLE_PIN 6
+#define ENABLE_PIN GPIO_Pin_13
 
 /**
 * @def PWM_MIN
@@ -101,8 +102,8 @@
 void motors_init(void) {
    //PWM   
    pwm_init(TIMx,CH,PWM_FREQUENCY);
-   active_complementary_output(TIMx, CH, REMAP_PIN);
    pwm_port_init(TIMx, CH);
+   active_complementary_output(TIMx, CH, REMAP_PIN);
    pwm_set_duty_cycle(TIMx, CH, PWM_NUL);
 
    //Enable Pin
