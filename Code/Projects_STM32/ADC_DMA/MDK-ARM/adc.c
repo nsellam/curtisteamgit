@@ -158,12 +158,34 @@ void Init_ADC (GPIO_TypeDef* GPIO1, uint16_t GPIO_Pin1,GPIO_TypeDef* GPIO2, uint
 		ADC_SoftwareStartConvCmd(ADC1, ENABLE);
 }
 
+/**
+* @fn Get_ADC_Mot_G
+* @brief get the ADC value from left motor
+* @param void
+* @return uint16_t; digital value of current
+*/
 uint16_t Get_ADC_Mot_G(){
 	return ADC_values[0];
-	
 }
+
+/**
+* @fn Get_ADC_Mot_D
+* @brief get the ADC value from right motor
+* @param void
+* @return uint16_t; digital value of current
+*/
 uint16_t Get_ADC_Mot_D(){
 	return ADC_values[1];
+}
+
+/**
+* @fn ADC_current_data_update
+* @brief update ADC current data of motor in the STM's data structure
+* @param void
+* @return void
+*/
+void ADC_current_data_update(void){
+	
 }
 
 /**
