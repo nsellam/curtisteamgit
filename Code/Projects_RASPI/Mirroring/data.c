@@ -4,13 +4,14 @@
  * @brief functions for initialization of sensors and actuators
  */
 
-
 #include "data.h"
 
 #include <stddef.h>
 
 #define INITIAL_8B_VALUE      0x00
+#define INITIAL_16B_VALUE      0x0000
 #define INITIAL_FLOAT_VALUE   0.0
+#define INITIAL_MOTOR_VALUE   127
 
 /************************
  *      VARIABLES       *
@@ -81,8 +82,11 @@ void init_data_STM(void) {
    data_STM.wheel_position_sensor_L = INITIAL_8B_VALUE;
    data_STM.steering_stop_sensor_R  = INITIAL_8B_VALUE;
    data_STM.steering_stop_sensor_L  = INITIAL_8B_VALUE;
+   data_STM.motor_current_R         = INITIAL_16B_VALUE;
+   data_STM.motor_current_L         = INITIAL_16B_VALUE;
    data_STM.errors_SPI              = INITIAL_8B_VALUE;
-	data_STM.car_speed					= INITIAL_FLOAT_VALUE;
+
+	data_STM.car_speed					= INITIAL_MOTOR_VALUE;
 	data_STM.travelled_distance		= INITIAL_FLOAT_VALUE;
 }
 

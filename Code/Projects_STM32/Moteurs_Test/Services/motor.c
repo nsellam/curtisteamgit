@@ -15,6 +15,7 @@
 #include "timer.h"
 #include "pwm.h"
 
+#include <stm32f10x_tim.h>
 
 /********************************/
 /*         CONSTANTS            */
@@ -30,13 +31,14 @@
 * @def CH
 * @brief Channel used to motors PWM generation
 */
-#define CH 1
+#define CH TIM_Channel_1
 
+   
 /**
-* @def Frequence_Hz
-* @brief Frequency used to motors PWM generation in Hz
+* @def PWM_FREQUENCY
+* @brief Period used to motors PWM generation in Hz
 */
-#define Frequence_Hz (float)(20e3) //in Hz
+#define PWM_FREQUENCY (20e3) //in Hz
 
 /**
 * @def GPIOx
@@ -48,7 +50,7 @@
 * @def ENABLE_PIN
 * @brief Pin used to enable the motors
 */
-#define ENABLE_PIN 6
+#define ENABLE_PIN GPIO_Pin_13
 
 /**
 * @def PWM_MIN
@@ -74,6 +76,17 @@
 */
 #define PWM_DELTA_MAX (((PWM_MAX - PWM_ZERO) < (PWM_ZERO - PWM_MIN)) ? (PWM_MAX - PWM_ZERO) : (PWM_ZERO - PWM_MIN))
 
+/**
+* @def REMAP_PIN
+* @brief Enables pin remap
+*/
+#define REMAP_PIN 0x1
+
+/**
+* @def PWM_NUL
+* @brief Set pwm duty cycle that keeps weels stopped
+*/
+#define PWM_NUL 0.5
 
 
 /********************************/
@@ -87,15 +100,16 @@
 * @return void
 */
 void motors_init(void) {
-   PWM_Init(TIMx,CH,Frequence_Hz);
-   Active_Complementary_Output(TIMx, CH, 1);
-   PWM_Port_Init(TIMx, CH);
-   PWM_Set_Duty_Cycle(TIMx, CH, 0.5);
+   //PWM   
+   pwm_init(TIMx,CH,PWM_FREQUENCY);
+   pwm_port_init(TIMx, CH);
+   active_complementary_output(TIMx, CH, REMAP_PIN);
+   pwm_set_duty_cycle(TIMx, CH, PWM_NUL);
 
    //Enable Pin
    GPIO_QuickInit(GPIOx, ENABLE_PIN, GPIO_Mode_Out_PP);
-
-   PWM_Enable(TIMx);
+   
+   pwm_enable(TIMx);
 }
 
 /**
@@ -111,7 +125,7 @@ void motor_set_speed(float speed){
    else if(speed < -SPEED_MAX) speed = -SPEED_MAX;
 
    duty_cycle = (PWM_DELTA_MAX)/(SPEED_DELTA) * speed + PWM_ZERO;
-   PWM_Set_Duty_Cycle(TIMx,CH,duty_cycle);
+   pwm_set_duty_cycle(TIMx,CH,duty_cycle);
 }
 
 /**

@@ -1,21 +1,19 @@
 
 #include "motor.h"
-
+#include "pwm.h"
 
 int main (void) {
-	volatile float vitesse = 0.5;
+   volatile int aux = 0;
+   volatile float speed = 1;
+   
    motors_init();
+   motor_set_speed(speed);
+   motors_start();
 
+  while (1) {
+     for(aux=0; aux<1e4; aux++){}
+      motor_set_speed(speed);
+  }  
    
-   motors_start();
-   
-   
-   //	while (1) {
-      motor_set_speed(vitesse);
-      //for(i = 0; i < 1e5; i++);
-   //}
-   motors_stop();
-   motors_start();
-   while(1);
 	return 0;
 }

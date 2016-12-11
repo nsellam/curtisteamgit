@@ -1,3 +1,9 @@
+/**
+ * @file gpio.h
+ * @author Curtis Team
+ * @brief Headers of functions to handle GPIO  
+ */
+
 #ifndef GPIO_H
 #define GPIO_H
 

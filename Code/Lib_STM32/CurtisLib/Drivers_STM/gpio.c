@@ -29,3 +29,5 @@ void GPIO_ClockEnable(GPIO_TypeDef *GPIOx) {
    else if (GPIOx == GPIOG) RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOG, ENABLE);
    else {}
 }
+
+

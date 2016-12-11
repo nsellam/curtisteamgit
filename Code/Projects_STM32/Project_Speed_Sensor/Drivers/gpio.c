@@ -1,3 +1,9 @@
+/**
+ * @file gpio.c
+ * @author Curtis Team
+ * @brief Functions to handle GPIO  
+ */
+ 
 #include "gpio.h"
 
 /**

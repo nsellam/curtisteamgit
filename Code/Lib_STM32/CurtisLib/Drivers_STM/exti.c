@@ -2,7 +2,7 @@
 
 /**
  * @def ERROR_LINE_UNREACHABLE
- * @brief Secified line is not valid (it is not allowed to specify various lines at one time) 
+ * @brief Specified line is not valid (it is not allowed to specify various lines at one time) 
 */ 
 #define ERROR_LINE_UNREACHABLE   0xFFFFFFFF
 
