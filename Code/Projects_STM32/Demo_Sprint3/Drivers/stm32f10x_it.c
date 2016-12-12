@@ -133,7 +133,6 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
 	systick_inc();
-	callbacks_services_hall_period();
 }
 
 /******************************************************************************/
@@ -252,4 +251,144 @@ int exti_callbacks(uint32_t EXTI_Line) {
 	} 
 	return R;
 }
+
+
+
+
+
+/* Private typedef -----------------------------------------------------------*/
+/* Private define ------------------------------------------------------------*/
+/* Private macro -------------------------------------------------------------*/
+
+#define DMA_IRQ_HANDLER(dma, channel) \
+   DMA_Callbacks(dma, channel, ((uint8_t)DMA_GetFlagStatus(DMA##dma##_FLAG_TE##channel) << 3) +\
+                               ((uint8_t)DMA_GetFlagStatus(DMA##dma##_FLAG_HT##channel) << 2) +\
+                               ((uint8_t)DMA_GetFlagStatus(DMA##dma##_FLAG_TC##channel) << 1) +\
+                               ((uint8_t)DMA_GetFlagStatus(DMA##dma##_FLAG_GL##channel) << 0));\
+   DMA_ClearITPendingBit(DMA##dma##_IT_GL##channel);
+
+/* Private variables ---------------------------------------------------------*/
+
+const DMA_Channel_TypeDef * GET_DMA_CHANNEL[2][8] = {
+   {0            , DMA1_Channel1, DMA1_Channel2, DMA1_Channel3, DMA1_Channel4, DMA1_Channel5, DMA1_Channel6, DMA1_Channel7},
+   {0            , DMA2_Channel1, DMA2_Channel2, DMA2_Channel3, DMA2_Channel4, DMA2_Channel5, 0            , 0            }
+};
+
+/* Private function prototypes -----------------------------------------------*/
+
+void DMA_Callbacks(int dma, int channel, uint8_t flags);
+
+/* Private functions ---------------------------------------------------------*/
+
+
+
+/********************************/
+/*       Public Functions       */
+/********************************/
+
+
+/**
+ * @brief  Handles the DMA interrupts for SPIComm.
+ * @param  dma     DMA number
+ * @param  channel Channel number
+ * @param  flags   Interrupts flags
+ * @retval None
+ */
+__weak void SPIComm_DMA_Callback(int dma, int channel, uint8_t flags){}
+
+   
+
+/********************************/
+/*      Private Functions       */
+/********************************/
+
+
+/******************************************************************************/
+/*                         IT Callbacks                                       */
+/******************************************************************************/
+
+void DMA_Callbacks(int dma, int channel, uint8_t flags) {
+   SPIComm_DMA_Callback(dma, channel, flags);
+}
+
+/******************************************************************************/
+/*                 STM32F10x Peripherals Interrupt Handlers                   */
+/*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */
+/*  available peripheral interrupt handler's name please refer to the startup */
+/*  file (startup_stm32f10x_xx.s).                                            */
+/******************************************************************************/
+
+/**
+  * @brief  This function handles PPP interrupt request.
+  * @param  None
+  * @retval None
+  */
+/*void PPP_IRQHandler(void)
+{
+}*/
+
+/**
+  * @brief  This function handles DMA1_Channel1 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel1_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 1)
+}
+
+/**
+  * @brief  This function handles DMA1_Channel2 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel2_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 2)
+}
+
+/**
+  * @brief  This function handles DMA1_Channel3 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel3_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 3)
+}
+
+/**
+  * @brief  This function handles DMA1_Channel4 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel4_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 4)
+}
+
+/**
+  * @brief  This function handles DMA1_Channel5 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel5_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 5)
+}
+
+/**
+  * @brief  This function handles DMA1_Channel6 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel6_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 6)
+}
+
+/**
+  * @brief  This function handles DMA1_Channel7 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void DMA1_Channel7_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 7)
+   
+}
+
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

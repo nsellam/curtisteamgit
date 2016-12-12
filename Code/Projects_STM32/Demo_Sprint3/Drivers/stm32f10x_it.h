@@ -26,6 +26,11 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x.h"
 
+#define DMA_FLAG_TE 0x08
+#define DMA_FLAG_HT 0x04
+#define DMA_FLAG_TC 0x02
+#define DMA_FLAG_GL 0x01
+
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
@@ -40,7 +45,18 @@ void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
-					 
+
+                
+/* Exported types ------------------------------------------------------------*/
+/* Exported constants --------------------------------------------------------*/
+
+extern const DMA_Channel_TypeDef * GET_DMA_CHANNEL[2][8];
+
+/* Exported macro ------------------------------------------------------------*/
+/* Exported functions ------------------------------------------------------- */
+
+void SPI_DMA_Callback(int dma, int channel, uint8_t flags);
+                
 #endif /* __STM32F10x_IT_H */
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

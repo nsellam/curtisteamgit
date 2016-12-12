@@ -1,9 +1,3 @@
-/**
- * @file systick.h
- * @author Curtis Team
- * @brief Headers of functions to handle systick (STM internal time)  
- */
-
 #ifndef SYSTICK_H
 #define SYSTICK_H
 
@@ -14,8 +8,7 @@
  * @def SYSTICK_FREQ 
  * @brief Frequency to count systicks 
 */
-//#define SYSTICK_FREQ  1000000 // Hz
-#define SYSTICK_FREQ  1000 // Hz
+#define SYSTICK_FREQ  1000000 // Hz
 
 /**
  * @fn systick_init
@@ -24,11 +17,11 @@
 void systick_init(void);
 
 /**
- * @fn millis
+ * @fn micros
  * @brief Returns the current STM32 time
- * @return uint64_t (time elapsed since systick initialization expressed in milliseconds) 
+ * @return uint64_t (time elapsed since systick initialization expressed in microseconds) 
 */
-uint64_t millis(void);
+uint64_t micros(void);
 
 /**
  * @fn systick_inc

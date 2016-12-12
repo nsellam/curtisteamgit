@@ -1,9 +1,3 @@
-/**
- * @file compress.h
- * @author Curtis Team
- * @brief Headers of functions to compress data for sending 
- */
- 
 #ifndef COMPRESS_H
 #define COMPRESS_H
 
@@ -29,22 +23,22 @@
 #define COMPRESSED_POSITION_ZERO	(uint8_t) (((COMPRESSED_POSITION_MAX + COMPRESSED_POSITION_MIN) / 2) + 1)
 
 /**
- * @def COMPRESSED_SPEED_MAX	
+ * @def COMPRESSED_SPEED_MAX
  * @brief Max value possible after speed compression
 */
-#define COMPRESSED_SPEED_MAX			INT16_MAX	
+#define COMPRESSED_SPEED_MAX			((0x01 << CAR_MESSAGE_LENGTH) - 1)
 
 /**
  * @def COMPRESSED_SPEED_MIN
  * @brief Min value possible after speed compression
 */
-#define COMPRESSED_SPEED_MIN 			INT16_MIN	
+#define COMPRESSED_SPEED_MIN			0x00
 
 /**
  * @def COMPRESSED_SPEED_ZERO
  * @brief Value in compressed result for speed equal to zero
 */
-#define COMPRESSED_SPEED_ZERO			0
+#define COMPRESSED_SPEED_ZERO			(uint8_t) (((COMPRESSED_POSITION_MAX + COMPRESSED_POSITION_MIN) / 2) + 1)
 
 /**
  * @fn compress_speed
@@ -53,7 +47,7 @@
  * @param unit -> float (unit of speed parameter)
  * @return uint8_t (compressed speed)
 */
-int16_t compress_speed (float speed, float unit);
+uint8_t compress_speed (float speed, float unit);
 
 /**
  * @fn compress_position
