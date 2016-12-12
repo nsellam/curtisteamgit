@@ -4,10 +4,6 @@
  * @brief Service library for ADC that allows to convert output current of motors to digital values 
  */
 
-/**
-* @def _ADC_H_
-* @brief to memorize if "adc.h" file has already been included
-*/
 #ifndef _ADC_H_
 #define _ADC_H_
 
@@ -21,6 +17,12 @@
 /********************************/
 /*       FUNCTIONS              */
 /********************************/
+
+/**
+* @def UPDATE_MOTOR_CURRENT_PERIOD
+* @brief Update motor's current data period in the data.h
+*/
+#define UPDATE_MOTOR_CURRENT_PERIOD 1 // ms
 
 /**
 * @fn DMA_Clock_Enable
@@ -71,5 +73,13 @@ uint16_t Get_ADC_Mot_G(void);
 * @return uint16_t; digital value of current
 */
 uint16_t Get_ADC_Mot_D(void);
+
+/**
+* @fn ADC_current_data_update
+* @brief update ADC current data of motor in the STM's data structure
+* @param void
+* @return void
+*/
+void ADC_current_data_update(void);
 
 #endif // _ADC_H_

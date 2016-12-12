@@ -12,8 +12,7 @@ int i =0;
 	uint16_t tableau_ADC_moteur_G[100];
 	
 int main(void) {
-	// volatile int aux = 0;
-   volatile float speed = 0.8;
+  volatile float speed = 0.6;
    
    motors_init();
 	//Init ADC1 with channel_0 => PA0 and channel_1 => PA1
@@ -22,8 +21,8 @@ int main(void) {
 	 systick_init();
 	
 	// Start motor
-	 motor_set_speed(speed);
-   motors_start();
+  motor_set_speed(speed);
+  motors_start();
 
 	do{
 		if(micros() - t > t_exp){
