@@ -106,7 +106,7 @@ void motors_init(void) {
    pwm_set_duty_cycle(TIMx, CH, PWM_NUL);
 
    //Enable Pin
-   //GPIO_QuickInit(GPIOx, ENABLE_PIN, GPIO_Mode_Out_PP);
+   GPIO_QuickInit(GPIOx, ENABLE_PIN, GPIO_Mode_Out_PP);
 
    pwm_enable(TIMx);
 }
