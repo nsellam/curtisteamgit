@@ -52,7 +52,7 @@ void timer_init (TIM_TypeDef *timer, float period_us);
 * @param IT_function run in interruption handling 
 * @return void
 */
-void timer_ITEnable(TIM_TypeDef *Timer, uint8_t priority, void (*IT_function)(void));
+void timer_ITEnable(TIM_TypeDef *Timer, uint8_t priority);
 
 /**
 * @fn Timer_1234_Enable
