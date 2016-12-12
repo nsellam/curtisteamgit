@@ -71,6 +71,7 @@ void Init_ADC (GPIO_TypeDef* GPIO1, uint16_t GPIO_Pin1,GPIO_TypeDef* GPIO2, uint
 	  Port_GPIO_Clock_Enable(GPIO1);
 	  Port_GPIO_Clock_Enable(GPIO2);
     ADC_Clock_Enable(ADCx);
+	  RCC_ADCCLKConfig(RCC_PCLK2_Div6);
 	//enable DMA1 clock
     DMA_Clock_Enable(DMAy_Channelx);
 	
