@@ -1,0 +1,76 @@
+\hypertarget{exti_8h}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/exti.h File Reference}
+\label{exti_8h}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/exti.\+h@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/exti.\+h}}
+
+
+Headers of functions to handle external interrupts (E\+X\+TI)  
+
+
+{\ttfamily \#include $<$stm32f10x.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}nvic.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{exti_8h_a2294d5797552e995bed96f8343cc2a1e}{}\label{exti_8h_a2294d5797552e995bed96f8343cc2a1e} 
+\#define \hyperlink{exti_8h_a2294d5797552e995bed96f8343cc2a1e}{E\+X\+T\+I\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}~0
+\begin{DoxyCompactList}\small\item\em Given pin was succesfully initialize as external interruption. \end{DoxyCompactList}\item 
+\hypertarget{exti_8h_aadf92e4e0654663511035697636edca7}{}\label{exti_8h_aadf92e4e0654663511035697636edca7} 
+\#define \hyperlink{exti_8h_aadf92e4e0654663511035697636edca7}{E\+X\+T\+I\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+L\+I\+NE}~-\/1
+\begin{DoxyCompactList}\small\item\em Given pin couldn\textquotesingle{}t be initialize as external interruption due to a non valid line. \end{DoxyCompactList}\item 
+\hypertarget{exti_8h_a69d3ee1b38dd6cb6565c61852669a17c}{}\label{exti_8h_a69d3ee1b38dd6cb6565c61852669a17c} 
+\#define \hyperlink{exti_8h_a69d3ee1b38dd6cb6565c61852669a17c}{E\+X\+T\+I\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+C\+H\+A\+N\+N\+EL}~-\/2
+\begin{DoxyCompactList}\small\item\em Given pin couldn\textquotesingle{}t be initialize as external interruption due to a problem while computing channel. \end{DoxyCompactList}\item 
+\hypertarget{exti_8h_a18b1749e409f9bba4ce53da4f8504d45}{}\label{exti_8h_a18b1749e409f9bba4ce53da4f8504d45} 
+\#define \hyperlink{exti_8h_a18b1749e409f9bba4ce53da4f8504d45}{E\+X\+T\+I\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+P\+O\+R\+T\+\_\+\+S\+O\+U\+R\+CE}~-\/3
+\begin{DoxyCompactList}\small\item\em Given port couldn\textquotesingle{}t be found. \end{DoxyCompactList}\item 
+\hypertarget{exti_8h_aceb91ca8c99be08378080db8dbda8208}{}\label{exti_8h_aceb91ca8c99be08378080db8dbda8208} 
+\#define \hyperlink{exti_8h_aceb91ca8c99be08378080db8dbda8208}{E\+X\+T\+I\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+P\+I\+N\+\_\+\+S\+O\+U\+R\+CE}~-\/4
+\begin{DoxyCompactList}\small\item\em Given pin couldn\textquotesingle{}t be found. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{exti_8h_a2eee151d004e2c6970b2e96f8f9ed82d}{E\+X\+T\+I\+\_\+\+Quick\+Init} (G\+P\+I\+O\+\_\+\+Type\+Def $\ast$G\+P\+I\+Ox, uint16\+\_\+t pin, E\+X\+T\+I\+Trigger\+\_\+\+Type\+Def trigger, uint8\+\_\+t priority)
+\begin{DoxyCompactList}\small\item\em Makes the initialization of the given external interrupt (E\+X\+TI) with the parameters specified. \end{DoxyCompactList}\item 
+\hypertarget{exti_8h_a4b25d1a6e62163785adc10d8510b031f}{}\label{exti_8h_a4b25d1a6e62163785adc10d8510b031f} 
+void \hyperlink{exti_8h_a4b25d1a6e62163785adc10d8510b031f}{E\+X\+T\+I\+\_\+\+Callback} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
+\begin{DoxyCompactList}\small\item\em Callback associated to external interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Headers of functions to handle external interrupts (E\+X\+TI) 
+
+\begin{DoxyAuthor}{Author}
+Curtis Team 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{exti_8h_a2eee151d004e2c6970b2e96f8f9ed82d}{}\label{exti_8h_a2eee151d004e2c6970b2e96f8f9ed82d} 
+\index{exti.\+h@{exti.\+h}!E\+X\+T\+I\+\_\+\+Quick\+Init@{E\+X\+T\+I\+\_\+\+Quick\+Init}}
+\index{E\+X\+T\+I\+\_\+\+Quick\+Init@{E\+X\+T\+I\+\_\+\+Quick\+Init}!exti.\+h@{exti.\+h}}
+\subsubsection{\texorpdfstring{E\+X\+T\+I\+\_\+\+Quick\+Init()}{EXTI\_QuickInit()}}
+{\footnotesize\ttfamily int E\+X\+T\+I\+\_\+\+Quick\+Init (\begin{DoxyParamCaption}\item[{G\+P\+I\+O\+\_\+\+Type\+Def $\ast$}]{G\+P\+I\+Ox,  }\item[{uint16\+\_\+t}]{pin,  }\item[{E\+X\+T\+I\+Trigger\+\_\+\+Type\+Def}]{trigger,  }\item[{uint8\+\_\+t}]{priority }\end{DoxyParamCaption})}
+
+
+
+Makes the initialization of the given external interrupt (E\+X\+TI) with the parameters specified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G\+P\+I\+Ox} & G\+P\+I\+O\+\_\+\+Type\+Def (port of the E\+X\+TI) \\
+\hline
+{\em pin} & uint16\+\_\+t (\# of the pin of the E\+X\+TI) \\
+\hline
+{\em trigger} & E\+X\+T\+I\+Trigger\+\_\+\+Type\+Def (way to trigg this E\+X\+TI) \\
+\hline
+{\em priority} & uint8\+\_\+t (priority of the exti to initialize) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & (error detected while computing initialization) \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyReturn}{Returns}
+If everything went right E\+X\+T\+I\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR, if not E\+X\+T\+I\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+L\+I\+NE, E\+X\+T\+I\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+C\+H\+A\+N\+N\+EL, E\+X\+T\+I\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+P\+O\+R\+T\+\_\+\+S\+O\+U\+R\+CE or E\+X\+T\+I\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+P\+I\+N\+\_\+\+S\+O\+U\+R\+CE. 
+\end{DoxyReturn}

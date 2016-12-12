@@ -1,0 +1,53 @@
+\hypertarget{systick_8h}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/systick.h File Reference}
+\label{systick_8h}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/systick.\+h@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/systick.\+h}}
+
+
+Headers of functions to handle systick (S\+TM internal time)  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stm32f10x.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{systick_8h_a259bee748117476f5bf763c71a2f66a8}{}\label{systick_8h_a259bee748117476f5bf763c71a2f66a8} 
+\#define \hyperlink{systick_8h_a259bee748117476f5bf763c71a2f66a8}{S\+Y\+S\+T\+I\+C\+K\+\_\+\+F\+R\+EQ}~1000
+\begin{DoxyCompactList}\small\item\em Frequency to count systicks. \end{DoxyCompactList}\item 
+\hypertarget{systick_8h_a7d1fc1e3a90f1efaf0b9e3047e9b4e0e}{}\label{systick_8h_a7d1fc1e3a90f1efaf0b9e3047e9b4e0e} 
+\#define \hyperlink{systick_8h_a7d1fc1e3a90f1efaf0b9e3047e9b4e0e}{S\+Y\+S\+T\+I\+C\+K\+\_\+\+U\+N\+IT}~1/1000
+\begin{DoxyCompactList}\small\item\em Unit used by the system to count time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{systick_8h_a5a32ca87bb53e0c027409c0d875ce323}{}\label{systick_8h_a5a32ca87bb53e0c027409c0d875ce323} 
+void \hyperlink{systick_8h_a5a32ca87bb53e0c027409c0d875ce323}{Sys\+Tick\+\_\+\+Quick\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Makes the initialization of the systick system. \end{DoxyCompactList}\item 
+uint64\+\_\+t \hyperlink{systick_8h_ac4da2262c9e029e8213116c8482099b9}{millis} (void)
+\begin{DoxyCompactList}\small\item\em Returns the current S\+T\+M32 time. \end{DoxyCompactList}\item 
+\hypertarget{systick_8h_a1776ae73b563f2f9fc51d6cd626f1a62}{}\label{systick_8h_a1776ae73b563f2f9fc51d6cd626f1a62} 
+void \hyperlink{systick_8h_a1776ae73b563f2f9fc51d6cd626f1a62}{Sys\+Tick\+\_\+\+Callback} (void)
+\begin{DoxyCompactList}\small\item\em Callback associated to Sys\+Tick. Increments current time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Headers of functions to handle systick (S\+TM internal time) 
+
+\begin{DoxyAuthor}{Author}
+Curtis Team 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{systick_8h_ac4da2262c9e029e8213116c8482099b9}{}\label{systick_8h_ac4da2262c9e029e8213116c8482099b9} 
+\index{systick.\+h@{systick.\+h}!millis@{millis}}
+\index{millis@{millis}!systick.\+h@{systick.\+h}}
+\subsubsection{\texorpdfstring{millis()}{millis()}}
+{\footnotesize\ttfamily uint64\+\_\+t millis (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current S\+T\+M32 time. 
+
+\begin{DoxyReturn}{Returns}
+uint64\+\_\+t (time elapsed since systick initialization expressed in milliseconds) 
+\end{DoxyReturn}
