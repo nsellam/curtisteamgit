@@ -48,5 +48,6 @@
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 int EXTI_QuickInit(GPIO_TypeDef *GPIOx, uint16_t pin, EXTITrigger_TypeDef trigger, uint8_t priority);
+void EXTI_Callback(uint32_t EXTI_Line);
 
 #endif // _EXTI_H
