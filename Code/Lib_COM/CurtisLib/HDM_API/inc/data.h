@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 #include <stddef.h>
-#include <pthread.h>
+//#include <pthread.h>
 
 /************************
  *     DEFINES          *
@@ -135,13 +135,13 @@ extern volatile data_PI_t *pdata_PI;
  * @var m_data_PI
  * @brief PI data mutex
  */
-extern pthread_mutex_t m_data_PI;
+//extern pthread_mutex_t m_data_PI;
 
 /**
  * @var m_data_STM
  * @brief STM data mutex
  */
-extern pthread_mutex_t m_data_STM;
+//extern pthread_mutex_t m_data_STM;
 
 
 /************************

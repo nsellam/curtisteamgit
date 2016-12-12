@@ -33,6 +33,12 @@
 */
 #define CH TIM_Channel_1
 
+/**
+* @def CH_FRONT
+* @brief Channel used to front motor PWM generation
+*/
+#define CH_FRONT TIM_Channel_3
+
    
 /**
 * @def PWM_FREQUENCY
@@ -47,10 +53,22 @@
 #define GPIOx GPIOC
 
 /**
+* @def GPIOx
+* @brief GPIO used to enable the motors
+*/
+#define GPIOx_FRONT GPIOB
+
+/**
 * @def ENABLE_PIN
 * @brief Pin used to enable the motors
 */
 #define ENABLE_PIN GPIO_Pin_13
+
+/**
+* @def ENABLE_PIN_FRONT
+* @brief Pin used to enable the motors
+*/
+#define ENABLE_PIN_FRONT GPIO_Pin_2
 
 /**
 * @def PWM_MIN
@@ -111,6 +129,23 @@ void motors_init(void) {
    
    pwm_enable(TIMx);
 }
+/**
+* @fn fron_motors_init
+* @brief Initializes motors drivers 
+* @param void
+* @return void
+*/
+void front_motor_init(void) {
+   //PWM   
+   pwm_init(TIMx,CH_FRONT,PWM_FREQUENCY);
+   pwm_port_init(TIMx, CH_FRONT);
+   active_complementary_output(TIMx, CH_FRONT, REMAP_PIN);
+   pwm_set_duty_cycle(TIMx, CH_FRONT, PWM_NUL);
+
+   //Enable Pin
+   GPIO_QuickInit(GPIOx_FRONT, ENABLE_PIN_FRONT, GPIO_Mode_Out_PP);
+   pwm_enable(TIMx);
+}
 
 /**
 * @fn motor_set_speed
@@ -128,6 +163,22 @@ void motor_set_speed(float speed){
    pwm_set_duty_cycle(TIMx,CH,duty_cycle);
 }
 
+
+/**
+* @fn front_motor_set_speed
+* @brief Sets motors speed 
+* @param float speed 
+* @return void
+*/
+void front_motor_set_speed(float speed){
+   float duty_cycle;
+
+        if(speed >  SPEED_MAX) speed =  SPEED_MAX;
+   else if(speed < -SPEED_MAX) speed = -SPEED_MAX;
+
+   duty_cycle = (PWM_DELTA_MAX)/(SPEED_DELTA) * speed + PWM_ZERO;
+   pwm_set_duty_cycle(TIMx,CH_FRONT,duty_cycle);
+}
 /**
 * @fn motors_start
 * @brief Allows car departure with previously selected speed 
@@ -139,6 +190,16 @@ void motors_start(void){
 }
 
 /**
+* @fn front_motor_start
+* @brief Allows car departure with previously selected speed 
+* @param void
+* @return void
+*/
+void front_motor_start(void){
+   GPIO_SetBits(GPIOx_FRONT, ENABLE_PIN_FRONT);
+}
+
+/**
 * @fn motors_stop
 * @brief Stops the car 
 * @param void
@@ -146,4 +207,14 @@ void motors_start(void){
 */
 void motors_stop(void){
    GPIO_ResetBits(GPIOx, ENABLE_PIN);
+}
+
+/**
+* @fn front_motor_stop
+* @brief Stops the front motor 
+* @param void
+* @return void
+*/
+void front_motor_stop(void){
+   GPIO_ResetBits(GPIOx_FRONT, ENABLE_PIN_FRONT);
 }

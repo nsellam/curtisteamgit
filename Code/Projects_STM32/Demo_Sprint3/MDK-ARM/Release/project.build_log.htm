@@ -3,105 +3,30 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\Clément\Documents\Cours\ProjetCurtis\curtisteamgit\Code\Projects_STM32\Demo_Sprint3\MDK-ARM\Demo_Sprint3.uvproj
-Project File Date:  12/06/2016
+C:\Users\user\Desktop\Curtis\curtisteamgit\Code\Projects_STM32\Demo_Sprint3\MDK-ARM\Demo_Sprint2.uvproj
+Project File Date:  12/12/2016
 
 <h2>Output:</h2>
-Build target 'NUCLEO-F103RB'
+Rebuild target 'NUCLEO-F103RB'
 compiling main.c...
 compiling position_sensor.c...
 compiling speed_sensor.c...
-compiling callbacks_services.c...
-compiling hall_sensor.c...
+compiling car.c...
 compiling uncompress.c...
-compiling compress.c...
 compiling data.c...
 compiling mirroring_st.c...
 compiling motor.c...
+compiling callbacks_services.c...
+compiling hall_sensor.c...
+compiling compress.c...
 compiling stm32f10x_it.c...
-compiling exti.c...
-compiling systick.c...
-compiling gpio.c...
 compiling spicomm_st.c...
-..\Drivers\spicomm_st.c(124): warning:  #223-D: function "SPI_Cmd" declared implicitly
-     SPI_Cmd(SPIx, ENABLE);
-..\Drivers\spicomm_st.c(135): warning:  #223-D: function "SPI_I2S_GetFlagStatus" declared implicitly
-     while(SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_TXE) != SET);
-..\Drivers\spicomm_st.c(135): error:  #20: identifier "SPI_I2S_FLAG_TXE" is undefined
-     while(SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_TXE) != SET);
-..\Drivers\spicomm_st.c(137): error:  #20: identifier "SPI_I2S_FLAG_BSY" is undefined
-     while(SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_BSY) != RESET);
-..\Drivers\spicomm_st.c(139): warning:  #223-D: function "SPI_Cmd" declared implicitly
-     SPI_Cmd(SPIx, DISABLE);
-..\Drivers\spicomm_st.c(171): error:  #20: identifier "DMA_FLAG_TE" is undefined
-     SPIComm_TransferStatus status = DMA_FLAGS2STATUS(flags);
-..\Drivers\spicomm_st.c(171): error:  #20: identifier "DMA_FLAG_HT" is undefined
-     SPIComm_TransferStatus status = DMA_FLAGS2STATUS(flags);
-..\Drivers\spicomm_st.c(171): error:  #20: identifier "DMA_FLAG_TC" is undefined
-     SPIComm_TransferStatus status = DMA_FLAGS2STATUS(flags);
-..\Drivers\spicomm_st.c(271): error:  #20: identifier "SPI_InitTypeDef" is undefined
-     SPI_InitTypeDef SPI_InitStructure;
-..\Drivers\spicomm_st.c(272): error:  #20: identifier "DMA_InitTypeDef" is undefined
-     DMA_InitTypeDef DMA_InitStructure;
-..\Drivers\spicomm_st.c(277): error:  #20: identifier "DMA_DIR_PeripheralSRC" is undefined
-     DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
-..\Drivers\spicomm_st.c(279): error:  #20: identifier "DMA_PeripheralInc_Disable" is undefined
-     DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
-..\Drivers\spicomm_st.c(280): error:  #20: identifier "DMA_MemoryInc_Enable" is undefined
-     DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
-..\Drivers\spicomm_st.c(281): error:  #20: identifier "DMA_PeripheralDataSize_Byte" is undefined
-     DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
-..\Drivers\spicomm_st.c(282): error:  #20: identifier "DMA_MemoryDataSize_Byte" is undefined
-     DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
-..\Drivers\spicomm_st.c(283): error:  #20: identifier "DMA_Mode_Circular" is undefined
-     DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;
-..\Drivers\spicomm_st.c(284): error:  #20: identifier "DMA_Priority_VeryHigh" is undefined
-     DMA_InitStructure.DMA_Priority = DMA_Priority_VeryHigh;
-..\Drivers\spicomm_st.c(285): error:  #20: identifier "DMA_M2M_Disable" is undefined
-     DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
-..\Drivers\spicomm_st.c(286): warning:  #223-D: function "DMA_Init" declared implicitly
-     DMA_Init(SPIx_DMA_Rx_Channel, &DMA_InitStructure);
-..\Drivers\spicomm_st.c(291): error:  #20: identifier "DMA_DIR_PeripheralDST" is undefined
-     DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
-..\Drivers\spicomm_st.c(303): error:  #20: identifier "SPI_Direction_2Lines_FullDuplex" is undefined
-     SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
-..\Drivers\spicomm_st.c(304): error:  #20: identifier "SPI_Mode_Slave" is undefined
-     SPI_InitStructure.SPI_Mode = SPI_Mode_Slave;
-..\Drivers\spicomm_st.c(305): error:  #20: identifier "SPI_DataSize_8b" is undefined
-     SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
-..\Drivers\spicomm_st.c(306): error:  #20: identifier "SPI_CPOL_Low" is undefined
-     SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
-..\Drivers\spicomm_st.c(307): error:  #20: identifier "SPI_CPHA_1Edge" is undefined
-     SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
-..\Drivers\spicomm_st.c(308): error:  #20: identifier "SPI_NSS_Soft" is undefined
-     SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
-..\Drivers\spicomm_st.c(309): error:  #20: identifier "SPI_BaudRatePrescaler_64" is undefined
-     SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_64;
-..\Drivers\spicomm_st.c(310): error:  #20: identifier "SPI_FirstBit_MSB" is undefined
-     SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
-..\Drivers\spicomm_st.c(312): warning:  #223-D: function "SPI_Init" declared implicitly
-     SPI_Init(SPI2, &SPI_InitStructure);
-..\Drivers\spicomm_st.c(315): warning:  #223-D: function "SPI_I2S_DMACmd" declared implicitly
-     SPI_I2S_DMACmd(SPIx, SPI_I2S_DMAReq_Rx | SPI_I2S_DMAReq_Tx, ENABLE);
-..\Drivers\spicomm_st.c(315): error:  #20: identifier "SPI_I2S_DMAReq_Rx" is undefined
-     SPI_I2S_DMACmd(SPIx, SPI_I2S_DMAReq_Rx | SPI_I2S_DMAReq_Tx, ENABLE);
-..\Drivers\spicomm_st.c(315): error:  #20: identifier "SPI_I2S_DMAReq_Tx" is undefined
-     SPI_I2S_DMACmd(SPIx, SPI_I2S_DMAReq_Rx | SPI_I2S_DMAReq_Tx, ENABLE);
-..\Drivers\spicomm_st.c(318): warning:  #223-D: function "DMA_ITConfig" declared implicitly
-     DMA_ITConfig(SPIx_DMA_Rx_Channel, DMA_IT_HT | DMA_IT_TC | DMA_IT_TE, ENABLE);
-..\Drivers\spicomm_st.c(318): error:  #20: identifier "DMA_IT_HT" is undefined
-     DMA_ITConfig(SPIx_DMA_Rx_Channel, DMA_IT_HT | DMA_IT_TC | DMA_IT_TE, ENABLE);
-..\Drivers\spicomm_st.c(318): error:  #20: identifier "DMA_IT_TC" is undefined
-     DMA_ITConfig(SPIx_DMA_Rx_Channel, DMA_IT_HT | DMA_IT_TC | DMA_IT_TE, ENABLE);
-..\Drivers\spicomm_st.c(318): error:  #20: identifier "DMA_IT_TE" is undefined
-     DMA_ITConfig(SPIx_DMA_Rx_Channel, DMA_IT_HT | DMA_IT_TC | DMA_IT_TE, ENABLE);
-..\Drivers\spicomm_st.c(322): warning:  #223-D: function "DMA_Cmd" declared implicitly
-     DMA_Cmd(SPIx_DMA_Rx_Channel, ENABLE);
-..\Drivers\spicomm_st.c: 8 warnings, 29 errors
 compiling framecheck.c...
-compiling gpio2.c...
 compiling pwm.c...
 compiling timer.c...
+compiling exti.c...
+compiling gpio.c...
+compiling systick.c...
 compiling misc.c...
 compiling stm32f10x_adc.c...
 compiling stm32f10x_dma.c...
@@ -113,8 +38,17 @@ compiling stm32f10x_tim.c...
 compiling core_cm3.c...
 compiling system_stm32f10x.c...
 assembling startup_stm32f10x_md.s...
-".\Release\project.axf" - 29 Error(s), 8 Warning(s).
+linking...
+.\Release\project.axf: Error: L6218E: Undefined symbol Get_ADC_Mot_D (referred from main.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol Get_ADC_Mot_G (referred from main.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 2 error messages.
+".\Release\project.axf" - 2 Error(s), 0 Warning(s).
 Target not created
 </pre>
 </body>
 </html>
+ktop\\Curtis\\curtisteamgit\\Code\\Projects_STM32\\Demo_Sprint3\\MDK-ARM\\Release\\project.axf" 
+_____^
+*** error 56: cannot open file
+Error: Flash Download failed  -  Could not load file 'C:\Users\user\Desktop\Curtis\curtisteamgit\Code\Projects_STM32\Demo_Sprint3\MDK-ARM\Release\project.axf'

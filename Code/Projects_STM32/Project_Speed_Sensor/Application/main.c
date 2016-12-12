@@ -17,7 +17,9 @@ float jeanmichelvitesse;
 float jeanraymondposition; 
 float jeanraymondvitesse;
 
-
+	
+ float table[100];
+	int inc = 0;
 
 int main(void) {
 //	
@@ -80,7 +82,7 @@ int main(void) {
 	r = uncompress_speed (-32766, SPEED_KM_H);
 	 
 	j = j+k+l+m+n+o+p+q+r; // sinon ce boulet me met des warnings
-	
+
 	
 // void on_car_direction_changed (int8_t new_direction) {
 //	car_direction_set(new_direction);
@@ -114,17 +116,21 @@ int main(void) {
 		car_direction_set(CAR_BW_DIRECTION);
 		hall_sensor_start(HALL_IDENTIFIER_L, car_direction_get());
 		hall_sensor_start(HALL_IDENTIFIER_R, car_direction_get());
+	
+
 	while(1) 
 	{
-		jeanmichelposition = position_sensor_get(POSITION_CM, 0);
+		//jeanmichelposition = position_sensor_get(POSITION_CM, 0);
 		//pData_STM->travelled_distance = jeanmichelposition;
 		
-		jeanraymondposition = position_sensor_get(POSITION_CM, 1);
+		//jeanraymondposition = position_sensor_get(POSITION_CM, 1);
 		
-		jeanmichelvitesse = speed_sensor_get(SPEED_CM_S, 0);
+		//jeanmichelvitesse = speed_sensor_get(SPEED_CM_S, 0);
 		//pData_STM->car_speed = jeanmichelvitesse;
 		
 		jeanraymondvitesse = speed_sensor_get(SPEED_CM_S, 1);
+		table[i] = jeanraymondvitesse;
+		inc++;
 	}
 
   return 0;

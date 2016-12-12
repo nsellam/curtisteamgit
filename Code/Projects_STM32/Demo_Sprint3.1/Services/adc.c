@@ -10,6 +10,7 @@
 #include "adc.h"
 #include "stm32f10x_conf.h"
 #include "stm32f10x_it.h"
+#include "data.h"
 
 /********************************/
 /*         CONSTANTS            */
@@ -178,15 +179,7 @@ uint16_t Get_ADC_Mot_D(){
 	return ADC_values[1];
 }
 
-/**
-* @fn ADC_current_data_update
-* @brief update ADC current data of motor in the STM's data structure
-* @param void
-* @return void
-*/
-void ADC_current_data_update(void){
-	
-}
+
 
 /**
 * @fn Port_GPIO_Clock_Enable

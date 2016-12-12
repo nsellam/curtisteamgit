@@ -67,4 +67,10 @@ void motors_start(void);
 void motors_stop(void);
 
 
+void front_motor_init(void);
+void front_motor_set_speed(float speed);
+void front_motor_start(void);
+void front_motor_stop(void);
+
 #endif // _MOTOR_H_
+

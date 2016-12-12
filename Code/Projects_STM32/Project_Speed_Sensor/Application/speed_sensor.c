@@ -86,25 +86,28 @@ void speed_sensor_compute(uint8_t speed_identifier) {
 	
 	// Update speed variables
 	speed_sensor_tick_based_method (speed_identifier);
-	speed_sensor_time_based_method (speed_identifier);
+	//speed_sensor_time_based_method (speed_identifier);
 	
 	// Get values for each method
-	time_based = speed_time[speed_identifier];
+	//time_based = speed_time[speed_identifier];
 	tick_based = speed_tick[speed_identifier];
 	
 	// Compute coefficient 
-	if (time_based == 0.0) {
-		coeff = 0.0;
-	}
-	else {
-		coeff = (fabs(time_based-tick_based) / (CAR_MAX_SPEED));
-		if (coeff > 1.0) {coeff = 1.0;}
-		else if (coeff < 0.0) {coeff = 0.0;}
-		else {}
-	}
+//	if (time_based == 0.0) {
+//		coeff = 0.0;
+//	}
+//	else {
+//		coeff = (fabs(time_based-tick_based) / (CAR_MAX_SPEED));
+//		if (coeff > 1.0) {coeff = 1.0;}
+//		else if (coeff < 0.0) {coeff = 0.0;}
+//		else {}
+//	}
 
 	// Store value of speed
+	//speed[speed_identifier] = coeff*(tick_based)+(1-coeff)*(time_based);
+	coeff = 1.0;
 	speed[speed_identifier] = coeff*(tick_based)+(1-coeff)*(time_based);
+
 }
 
 void speed_sensor_tick_based_method (uint8_t speed_identifier) {

@@ -461,12 +461,12 @@
             <File>
               <FileName>adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\adc.c</FilePath>
+              <FilePath>..\Services\adc.c</FilePath>
             </File>
             <File>
               <FileName>callbacks_services.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\callbacks_services.c</FilePath>
+              <FilePath>..\Services\callbacks_services.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -74,12 +74,6 @@ uint16_t Get_ADC_Mot_G(void);
 */
 uint16_t Get_ADC_Mot_D(void);
 
-/**
-* @fn ADC_current_data_update
-* @brief update ADC current data of motor in the STM's data structure
-* @param void
-* @return void
-*/
-void ADC_current_data_update(void);
+
 
 #endif // _ADC_H_
