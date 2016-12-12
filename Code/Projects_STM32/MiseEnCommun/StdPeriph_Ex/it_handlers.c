@@ -19,6 +19,7 @@
 __INLINE void EXTIx_IRQHandler(uint32_t EXTI_Line);
 
 __weak void EXTI_Callback(uint32_t EXTI_Line) {}
+__weak void SysTick_Callback(void) {}
 
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */
@@ -188,4 +189,6 @@ void PendSV_Handler(void) {}
   * @param  None
   * @retval None
   */
-void SysTick_Handler(void) {}
+void SysTick_Handler(void) {
+	SysTick_Callback();
+}

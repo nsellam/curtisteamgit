@@ -89,6 +89,13 @@ int EXTI_QuickInit(GPIO_TypeDef *GPIOx, uint16_t pin, EXTITrigger_TypeDef trigge
 	return EXTI_NO_ERROR; 
 }
 
+/**
+ * @brief Callback associated to external interrupts 
+*/
+void EXTI_Callback(uint32_t EXTI_Line) {
+	// A VOIR CE QU'ON MET ICI...
+}
+
 /* Private functions ---------------------------------------------------------*/
 /**
  * @brief 	Returns EXTI_Line associated to Pin number passed in argument
