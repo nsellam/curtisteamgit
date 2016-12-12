@@ -1,26 +1,25 @@
 /**
- * @file 		tim.h
+ * @file 		dma.h
  * @author 	Curtis Team
- * @brief 	Headers of functions to handle Timers  
+ * @brief 	Headers of functions to handle DMA  
  */
  
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef _TIM_H
-#define _TIM_H
+#ifndef _DMA_H
+#define _DMA_H
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x.h"
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
-/**
-* @brief Number of microseconds per second
-*/
-#define US_PER_S  (1.0e+06)
-
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-float TIM_QuickInit(TIM_TypeDef *Timer, float period_us);
-void TIM_Callback(void);
+void DMA_QuickInit(void);
+void DMA_Callback(void);
 
-#endif // _TIM_H
+void DMA_InitBuffer2Periph(void);
+void DMA_Periph2InitBuffer(void);
+
+
+#endif // _DMA_H

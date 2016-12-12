@@ -1,11 +1,11 @@
 /**
- * @file 		tim.c
+ * @file 		dma.c
  * @author 	Curtis Team
- * @brief 	Functions to handle Timers  
+ * @brief 	Functions to handle DMA  
  */
  
 /* Includes ------------------------------------------------------------------*/
-#include "adc.h"
+#include "dma.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -15,19 +15,23 @@
 /* Private function prototypes -----------------------------------------------*/
 /* Public functions ----------------------------------------------------------*/
 /**
- * @brief Makes the initialization of the given Analog to Digital Converter (ADC) with the parameters specified
+ * @brief Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified
 */
-float TIM_QuickInit(TIM_TypeDef *Timer, float period_us) {
+void DMA_InitBuffer2Periph(void) {
+	// A VOIR CE QU'ON MET ICI...
+
+}
+
+void DMA_Periph2InitBuffer(void) {
 	// A VOIR CE QU'ON MET ICI...
 
 }
 
 /**
- * @brief Callback associated to ADC interrupts 
+ * @brief Callback associated to DMA interrupts 
 */
-void TIM_Callback(void) {
+void DMA_Callback(void) {
 	// A VOIR CE QU'ON MET ICI...
 }
 
 /* Private functions ---------------------------------------------------------*/
-
