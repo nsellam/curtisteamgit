@@ -20,7 +20,10 @@
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-float TIM_QuickInit(TIM_TypeDef *Timer, float period_us);
+void TIM_QuickInit(TIM_TypeDef *Timer, float period_us);
 void TIM_Callback(void);
+void TIM_start (TIM_TypeDef *timer);
+void TIM_disable (TIM_TypeDef *timer);
+
 
 #endif // _TIM_H
