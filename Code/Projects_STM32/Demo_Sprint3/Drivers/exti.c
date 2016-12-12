@@ -2,93 +2,99 @@
 
 /**
  * @def ERROR_LINE_UNREACHABLE
- * @brief Secified line is not valid (it is not allowed to specify various lines at one time) 
+ * @brief Specified line is not valid (it is not allowed to specify various lines at one time) 
 */ 
-#define ERROR_LINE_UNREACHABLE		0xFFFFFFFF
+#define ERROR_LINE_UNREACHABLE   0xFFFFFFFF
 
 /**
  * @def ERROR_COMPUTING_CHANNEL
  * @brief Parameter given to compute Channel is invalid
 */ 
-#define ERROR_COMPUTING_CHANNEL		0xFF
-
-/**
- * @def GPIO_SPEED_EXTI
- * @brief GPIOSpeed_TypeDef recommended to initialize GPIO for EXTI
-*/ 
-#define GPIO_SPEED_EXTI 					GPIO_Speed_50MHz
+#define ERROR_COMPUTING_CHANNEL  0xFF
 
 /**
  * @def GPIO_MODE_EXTI
  * @brief GPIOMode_TypeDef recommended to initialize GPIO for EXTI
 */ 
-#define GPIO_MODE_EXTI						GPIO_Mode_IPU
+#define GPIO_MODE_EXTI           GPIO_Mode_IPU
+
+
+#define ERROR_PORT_SOURCE 0xFF
+#define ERROR_PIN_SOURCE 0xFFFF
+
+uint32_t GPIO_Pin_to_EXTI_Line(uint16_t pin);
+uint8_t Line_to_IRQn(uint32_t Line);
+uint8_t GPIO_TypeDef_to_GPIO_PortSource (GPIO_TypeDef *GPIO);
+uint16_t GPIO_Pin_to_GPIO_PinSource (uint16_t GPIO_Pin);
+
+int EXTI_QuickInit(GPIO_TypeDef *GPIOx, uint16_t pin, EXTITrigger_TypeDef trigger, uint8_t priority) {
+
+	EXTI_InitTypeDef EXTI_InitStruct;
+	NVIC_InitTypeDef NVIC_InitStruct;
+
+	uint32_t Line_Number = GPIO_Pin_to_EXTI_Line(pin); 
+	uint8_t IRQChannel = Line_to_IRQn(Line_Number);
+	uint8_t GPIO_PortSource = GPIO_TypeDef_to_GPIO_PortSource(GPIOx);
+	uint16_t GPIO_PinSource = GPIO_Pin_to_GPIO_PinSource(pin);
+	
+	if (Line_Number == ERROR_LINE_UNREACHABLE) return EXTI_ERROR_INVALID_LINE; else {}
+	if (IRQChannel == ERROR_COMPUTING_CHANNEL) return EXTI_ERROR_INVALID_CHANNEL; else {}
+	if (GPIO_PortSource == ERROR_PORT_SOURCE) return EXTI_ERROR_INVALID_PORT_SOURCE; else {}	
+	if (GPIO_PinSource == ERROR_PIN_SOURCE) return EXTI_ERROR_INVALID_PIN_SOURCE; else {}	
+	
+	// Enable AFIO clock (required for EXTI)
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO , ENABLE);
+		
+	// Configure GPIO pin as recommended	
+	GPIO_QuickInit(GPIOx, pin, GPIO_MODE_EXTI);	
+		
+	// Associate port to exti
+	GPIO_EXTILineConfig(GPIO_PortSource, GPIO_PinSource);
+	
+	// Configure the particular EXTI 
+	EXTI_InitStruct.EXTI_Line = Line_Number;
+	EXTI_InitStruct.EXTI_Mode = EXTI_Mode_Interrupt;
+	EXTI_InitStruct.EXTI_Trigger = trigger;
+	EXTI_InitStruct.EXTI_LineCmd = ENABLE;
+	EXTI_Init(&EXTI_InitStruct);
+
+	// Add IRQ Vector to NVIC
+	NVIC_InitStruct.NVIC_IRQChannel = IRQChannel; 
+	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = priority; 
+	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0; 
+	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE; 
+	NVIC_Init(&NVIC_InitStruct);
+	
+	return EXTI_NO_ERROR; 
+}
 
 /**
- * @fn Pin_to_EXTI_Line
+ * @fn GPIO_Pin_to_EXTI_Line
  * @brief Return EXTI_Line associated to Pin number passed in argument
  * @param Pin -> uint16_t (Pin number with numerotation given by GPIO_Pin_X)
  * @return uint32_t (EXTI_Line corresponding to Pin passed as argument)
  * @retval EXTI_Line0 to EXTI_Line15 if Pin is valid, ERROR_LINE_UNREACHABLE if not
 */
-uint32_t Pin_to_EXTI_Line (uint16_t Pin) {
-	uint32_t Line = ERROR_LINE_UNREACHABLE; 
-	
-	switch (Pin) {
-		case (GPIO_Pin_0) : 
-			Line = EXTI_Line0;
-			break;
-		case (GPIO_Pin_1) : 
-			Line = EXTI_Line1;
-			break;
-		case (GPIO_Pin_2) : 
-			Line = EXTI_Line2;
-			break;
-		case (GPIO_Pin_3) : 
-			Line = EXTI_Line3;
-			break;
-		case (GPIO_Pin_4) : 
-			Line = EXTI_Line4;
-			break;
-		case (GPIO_Pin_5) : 
-			Line = EXTI_Line5;
-			break;
-		case (GPIO_Pin_6) : 
-			Line = EXTI_Line6;
-			break;
-		case (GPIO_Pin_7) : 
-			Line = EXTI_Line7;
-			break;
-		case (GPIO_Pin_8) : 
-			Line = EXTI_Line8;
-			break;
-		case (GPIO_Pin_9) : 
-			Line = EXTI_Line9;
-			break;
-		case (GPIO_Pin_10) : 
-			Line = EXTI_Line10;
-			break;
-		case (GPIO_Pin_11) : 
-			Line = EXTI_Line11;
-			break;
-		case (GPIO_Pin_12) : 
-			Line = EXTI_Line12;
-			break;
-		case (GPIO_Pin_13) : 
-			Line = EXTI_Line13;
-			break;
-		case (GPIO_Pin_14) : 
-			Line = EXTI_Line14;
-			break;	
-		case (GPIO_Pin_15) : 
-			Line = EXTI_Line15;
-			break;
-		default :
-			Line = ERROR_LINE_UNREACHABLE;
-			break;
+uint32_t GPIO_Pin_to_EXTI_Line(uint16_t pin) {
+	switch (pin) {
+		case GPIO_Pin_0 : return EXTI_Line0;  break;
+		case GPIO_Pin_1 : return EXTI_Line1;  break;
+		case GPIO_Pin_2 : return EXTI_Line2;  break;
+		case GPIO_Pin_3 : return EXTI_Line3;  break;
+		case GPIO_Pin_4 : return EXTI_Line4;  break;
+		case GPIO_Pin_5 : return EXTI_Line5;  break;
+		case GPIO_Pin_6 : return EXTI_Line6;  break;
+		case GPIO_Pin_7 : return EXTI_Line7;  break;
+		case GPIO_Pin_8 : return EXTI_Line8;  break;
+		case GPIO_Pin_9 : return EXTI_Line9;  break;
+		case GPIO_Pin_10: return EXTI_Line10; break;
+		case GPIO_Pin_11: return EXTI_Line11; break;
+		case GPIO_Pin_12: return EXTI_Line12; break;
+		case GPIO_Pin_13: return EXTI_Line13; break;
+		case GPIO_Pin_14: return EXTI_Line14; break;	
+		case GPIO_Pin_15: return EXTI_Line15; break;
+		default: return ERROR_LINE_UNREACHABLE; break;
 	}
-	
-	return Line;
 }
 
 /**
@@ -98,7 +104,7 @@ uint32_t Pin_to_EXTI_Line (uint16_t Pin) {
  * @return uint8_t (IRQn corresponding to Line passed as argument)
  * @retval EXTI0_IRQn to EXTI15_10_IRQn if Line is valid, ERROR_COMPUTING_CHANNEL if not
 */
-uint8_t Line_to_IRQn (uint32_t Line) {
+uint8_t Line_to_IRQn(uint32_t Line) {
 	uint8_t IRQn = ERROR_COMPUTING_CHANNEL;
 	if (Line == EXTI_Line0) {
 		IRQn = EXTI0_IRQn;
@@ -154,8 +160,8 @@ uint8_t Line_to_IRQn (uint32_t Line) {
 		
 	return IRQn;
 }
-#define ERROR_PORT_SOURCE 0xFF
-uint8_t GPIO_TypeDef_to_GPIO_PortSource (GPIO_TypeDef *GPIO) {
+
+uint8_t GPIO_TypeDef_to_GPIO_PortSource(GPIO_TypeDef *GPIO) {
 	uint8_t PortSource = ERROR_PORT_SOURCE;
 	if (GPIO == GPIOA) {
 		PortSource = GPIO_PortSourceGPIOA;
@@ -184,7 +190,6 @@ uint8_t GPIO_TypeDef_to_GPIO_PortSource (GPIO_TypeDef *GPIO) {
 	return PortSource;
 }
 
-#define ERROR_PIN_SOURCE 0xFFFF
 uint16_t GPIO_Pin_to_GPIO_PinSource (uint16_t GPIO_Pin) {
 	uint16_t GPIO_PinSource = ERROR_PIN_SOURCE;
 	
@@ -244,44 +249,4 @@ uint16_t GPIO_Pin_to_GPIO_PinSource (uint16_t GPIO_Pin) {
 	}
 	
 	return GPIO_PinSource;
-}
-
-int exti_init (GPIO_TypeDef *GPIO, uint16_t Pin , EXTIMode_TypeDef EXTI_Mode, EXTITrigger_TypeDef EXTITrigger, uint8_t Priority, uint8_t SubPriority) {
-
-	EXTI_InitTypeDef EXTI_InitStruct;
-	NVIC_InitTypeDef NVIC_InitStruct;
-	uint32_t Line_Number = Pin_to_EXTI_Line(Pin); 
-	uint8_t IRQChannel = Line_to_IRQn(Line_Number);
-	uint8_t GPIO_PortSource = GPIO_TypeDef_to_GPIO_PortSource(GPIO);
-	uint16_t GPIO_PinSource = GPIO_Pin_to_GPIO_PinSource(Pin);
-	
-	if (Line_Number == ERROR_LINE_UNREACHABLE) return EXTI_ERROR_INVALID_LINE; else {}
-	if (IRQChannel == ERROR_COMPUTING_CHANNEL) return EXTI_ERROR_INVALID_CHANNEL; else {}
-	if (GPIO_PortSource == ERROR_PORT_SOURCE) return EXTI_ERROR_INVALID_PORT_SOURCE; else {}	
-	if (GPIO_PinSource == ERROR_PIN_SOURCE) return EXTI_ERROR_INVALID_PIN_SOURCE; else {}	
-	
-	// Enable AFIO clock (required for EXTI)
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO , ENABLE);
-		
-	// Configure Port Pin as recommended	
-	gpio_init(GPIO, Pin, GPIO_SPEED_EXTI, GPIO_MODE_EXTI);	
-		
-	// Associate port to exti
-	GPIO_EXTILineConfig(GPIO_PortSource, GPIO_PinSource);
-	
-	// Configure the particular EXTI 
-	EXTI_InitStruct.EXTI_Line = Line_Number;
-	EXTI_InitStruct.EXTI_Mode = EXTI_Mode;
-	EXTI_InitStruct.EXTI_Trigger = EXTITrigger;
-	EXTI_InitStruct.EXTI_LineCmd = ENABLE;
-	EXTI_Init(&EXTI_InitStruct);
-
-	// Add IRQ Vector to NVIC
-	NVIC_InitStruct.NVIC_IRQChannel = IRQChannel; 
-	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = Priority; 
-	NVIC_InitStruct.NVIC_IRQChannelSubPriority = SubPriority; 
-	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE; 
-	NVIC_Init(&NVIC_InitStruct);
-	
-	return EXTI_NO_ERROR; 
 }

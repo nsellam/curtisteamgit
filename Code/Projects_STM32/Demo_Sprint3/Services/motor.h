@@ -4,6 +4,7 @@
  * @brief Service library that allows to manipulate motors
  */
 
+#include <stdint.h>
 
 /**
 * @def _MOTOR_H_
@@ -12,12 +13,21 @@
 #ifndef _MOTOR_H_
 #define _MOTOR_H_
 
+/**
+* @def SPEED_DELTA
+* @brief Variation of the speed value between its maximum or minimum value and the zero
+*/
+#define SPEED_DELTA ((float)1.0)
+
+/**
+* @def SPEED_MAX
+* @brief Maximum speed value used to turn the motors forwards(+) or backwards(-) to their maximum
+*/
+#define SPEED_MAX (SPEED_DELTA)
+
 /********************************/
 /*       LIBRARIES              */
 /********************************/
-#include <timer.h>
-#include <gpio2.h>
-#include <pwm.h>
 
 
 /********************************/

@@ -133,6 +133,7 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
 	systick_inc();
+        callbacks_services_hall_period();
 }
 
 /******************************************************************************/
