@@ -5,27 +5,14 @@
  */
  
 /* Includes ------------------------------------------------------------------*/
-#include <stm32f10x.h>
-#include <stdint.h>
 #include "tim.h"
-#include "gpio.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /**
-* @brief 	Min Value of Prescaler register in STM32
-*/
-#define PSC_VALUE_MIN ((uint16_t)0)     // CK_CNT = 72MHz
-
-/**
 * @brief 	Max Value of Prescaler register in STM32
 */
 #define PSC_VALUE_MAX ((uint16_t)UINT16_MAX) // CK_CNT ~ 1.1kHz
-
-/**
-* @brief 	Min Value of Autoreload register in STM32
-*/
-#define ARR_VALUE_MIN ((uint16_t)0)
 
 /**
 * @brief 	Max Value of Autoreload register in STM32
@@ -46,73 +33,80 @@
 /* Public variables ----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
-static void RCC_Config(TIM_TypeDef *Timer);
+void RCC_timer_configuration(TIM_TypeDef *timer);
 
 /* Public functions ----------------------------------------------------------*/
 /**
  * @brief 	Makes the initialization of the given Analog to Digital Converter (ADC) with the parameters specified
- * @param 	Timer Timer to be used
- * @param 	period_us Timer period in microseconds  
- * @return 	Period in microseconds obtained
 */
-float TIM_QuickInit(TIM_TypeDef *Timer, float period_us) {
+void TIM_QuickInit(TIM_TypeDef *timer, float period_us) {
    volatile const float fclock = (float)SystemCoreClock;
    const float frequency_ratio = SYSTEM_CORE_CLOCK * period_us / US_PER_S;
-   float    PSC_Val_f, ARR_Val_f;
-   uint16_t PSC_Val  , ARR_Val  ;
+   float    PSC_val_f, ARR_val_f;
+   uint16_t PSC_val  , ARR_val;
+   volatile float aux;
    
-   // Active the clock
-   RCC_Config(Timer);
+   TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
+   
+   // Active la clock
+   RCC_timer_configuration(timer);
 
    // PSC conf
-   PSC_Val_f = frequency_ratio / ((float)ARR_VALUE_MAX + 1.0) - 1.0;
-   PSC_Val = (uint16_t)PSC_Val_f;                                    // floor
-   if((PSC_Val_f - (float)PSC_Val) > PSC_CEILING_LIMIT) PSC_Val++;   // ceiling
-   if(PSC_Val_f > PSC_VALUE_MAX) PSC_Val = PSC_VALUE_MAX;            // saturation
-   Timer->PSC = PSC_Val;
-
+   PSC_val_f = frequency_ratio / ((float)ARR_VALUE_MAX + 1.0) - 1.0;
+   PSC_val = (uint16_t)PSC_val_f;                                    // floor
+   if((PSC_val_f - (float)PSC_val) > PSC_CEILING_LIMIT) PSC_val++;   // ceiling
+   if(PSC_val_f > PSC_VALUE_MAX) PSC_val = PSC_VALUE_MAX;            // saturation
+  
    // ARR conf
-   ARR_Val_f = frequency_ratio / ((float)PSC_Val + 1.0) - 1.0;
-   ARR_Val = (uint16_t)ARR_Val_f;                           // floor
-   if(ARR_Val_f > ARR_VALUE_MAX) ARR_Val = ARR_VALUE_MAX;   // saturation
-   Timer->ARR = ARR_Val;
-
-   return ((float)PSC_Val + 1.0) * ((float)ARR_Val + 1.0) * US_PER_S / SYSTEM_CORE_CLOCK;
+   ARR_val_f = frequency_ratio / ((float)PSC_val + 1.0) - 1.0;
+   ARR_val = (uint16_t)ARR_val_f;                           // floor
+   if(ARR_val_f > ARR_VALUE_MAX) ARR_val = ARR_VALUE_MAX;   // saturation
+   
+  /* set everything back to default values */
+  TIM_TimeBaseStructInit (&TIM_TimeBaseStructure);
+  /* only changes from the defaults are needed */
+  TIM_TimeBaseStructure.TIM_Period = ARR_val;
+  TIM_TimeBaseStructure.TIM_Prescaler = PSC_val;
+  TIM_TimeBaseInit (timer, &TIM_TimeBaseStructure);
 }
 
 /**
- * @brief 		Enables specified timer
- * @param 		Timer Timer to be used  
- * @return 	none
-*/
-void Timer_1234_Enable(TIM_TypeDef *Timer) {
-   Timer->CR1 |= TIM_CR1_CEN;
-}
-
-/**
-* @brief 		Disables specified timer
+* @brief 		Enables timers 1, 2, 3 or 4
 * @param 		Timer Timer to be used  
-* @return 	none
+* @return 	void
 */
-void Timer_1234_Disable(TIM_TypeDef *Timer) {
-   Timer->CR1 &= ~TIM_CR1_CEN;
+void TIM_start (TIM_TypeDef *timer){
+  TIM_Cmd (timer, ENABLE);
+}
+ 
+/**
+* @brief 		Disables timers 1, 2, 3 or 4
+* @param 		Timer Timer to be used  
+* @return 	void
+*/
+void TIM_disable (TIM_TypeDef *timer){
+  TIM_Cmd (timer, DISABLE);
 }
 
+
+
 /**
- * @brief 	Callback associated to TIM interrupts 
+ * @brief Callback associated to ADC interrupts 
 */
 void TIM_Callback(void) {
 	// A VOIR CE QU'ON MET ICI...
 }
 
 /* Private functions ---------------------------------------------------------*/
-void RCC_Config(TIM_TypeDef *Timer) {
-   if (Timer == TIM1)
-      RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
-   else if (Timer == TIM2)
-      RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
-   else if (Timer == TIM3)
-      RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
-   else if (Timer == TIM4)
-      RCC->APB1ENR |= RCC_APB1ENR_TIM4EN;
+/**
+  * @brief  Configures the different system clocks.
+  * @param  None
+  * @retval None
+  */
+void RCC_timer_configuration(TIM_TypeDef *timer) {
+       if (timer == TIM1)  RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
+  else if (timer == TIM2)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+  else if (timer == TIM3)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+  else if (timer == TIM4)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
+   
 }

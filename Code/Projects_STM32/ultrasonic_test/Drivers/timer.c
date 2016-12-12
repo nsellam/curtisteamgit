@@ -64,10 +64,11 @@
 //------- Private prototypes ----------
 
 // IRQ Handlers
-void (*TIM1_IT_Function)(void);
-void (*TIM2_IT_Function)(void);
-void (*TIM3_IT_Function)(void);
-void (*TIM4_IT_Function)(void);
+__weak void TIM1_IT_Callback(uint16_t channel) {}
+__weak void TIM2_IT_Callback(uint16_t channel) {}
+__weak void TIM3_IT_Callback(uint16_t channel) {}
+__weak void TIM4_IT_Callback(uint16_t channel) {}
+   
 
 
 //------- Handlers functions -----------
@@ -75,39 +76,38 @@ void (*TIM4_IT_Function)(void);
 void TIM1_UP_IRQHandler(void) {
    if(TIM_GetITStatus(TIM1,TIM_IT_Update) != RESET){
          TIM_ClearITPendingBit(TIM1,TIM_IT_Update);
-         TIM1_IT_Function();
+         TIM1_IT_Callback(0);
    } else if(TIM_GetITStatus(TIM1,TIM_IT_CC1) != RESET){
          TIM_ClearITPendingBit(TIM1,TIM_IT_CC1);
-         TIM1_IT_Function();
+         TIM1_IT_Callback(TIM_Channel_1);
    } else if(TIM_GetITStatus(TIM1,TIM_IT_CC2) != RESET){
          TIM_ClearITPendingBit(TIM1,TIM_IT_CC2);
-         TIM1_IT_Function();
+         TIM1_IT_Callback(TIM_Channel_2);
    } else if(TIM_GetITStatus(TIM1,TIM_IT_CC3) != RESET){
          TIM_ClearITPendingBit(TIM1,TIM_IT_CC3);
-         TIM1_IT_Function();
+         TIM1_IT_Callback(TIM_Channel_3);
    } else if(TIM_GetITStatus(TIM1,TIM_IT_CC4) != RESET){
          TIM_ClearITPendingBit(TIM1,TIM_IT_CC4);
-         TIM1_IT_Function();
+         TIM1_IT_Callback(TIM_Channel_4);
    }
 }
-
 
 void TIM2_IRQHandler(void) {
    if(TIM_GetITStatus(TIM2,TIM_IT_Update) != RESET){
          TIM_ClearITPendingBit(TIM2,TIM_IT_Update);
-         TIM2_IT_Function();
+         TIM2_IT_Callback(0);
    } else if(TIM_GetITStatus(TIM2,TIM_IT_CC1) != RESET){
-            TIM_ClearITPendingBit(TIM2,TIM_IT_CC1);
-            TIM2_IT_Function();
+         TIM_ClearITPendingBit(TIM2,TIM_IT_CC1);
+         TIM2_IT_Callback(TIM_Channel_1);
    } else if(TIM_GetITStatus(TIM2,TIM_IT_CC2) != RESET){
-            TIM_ClearITPendingBit(TIM2,TIM_IT_CC2);
-            TIM2_IT_Function();
+         TIM_ClearITPendingBit(TIM2,TIM_IT_CC2);
+         TIM2_IT_Callback(TIM_Channel_2);
    } else if(TIM_GetITStatus(TIM2,TIM_IT_CC3) != RESET){
-            TIM_ClearITPendingBit(TIM2,TIM_IT_CC3);
-            TIM2_IT_Function();
+         TIM_ClearITPendingBit(TIM2,TIM_IT_CC3);
+         TIM2_IT_Callback(TIM_Channel_3);
    } else if(TIM_GetITStatus(TIM2,TIM_IT_CC4) != RESET){
-            TIM_ClearITPendingBit(TIM2,TIM_IT_CC4);
-            TIM2_IT_Function();
+         TIM_ClearITPendingBit(TIM2,TIM_IT_CC4);
+         TIM2_IT_Callback(TIM_Channel_4);
    }
 }
 
@@ -115,19 +115,19 @@ void TIM2_IRQHandler(void) {
 void TIM3_IRQHandler(void) {
    if(TIM_GetITStatus(TIM3,TIM_IT_Update) != RESET){
          TIM_ClearITPendingBit(TIM3,TIM_IT_Update);
-         TIM3_IT_Function();
+         TIM3_IT_Callback(0);
    } else if(TIM_GetITStatus(TIM3,TIM_IT_CC1) != RESET){
          TIM_ClearITPendingBit(TIM3,TIM_IT_CC1);
-         TIM3_IT_Function();
+         TIM3_IT_Callback(TIM_IT_CC1);
    } else if(TIM_GetITStatus(TIM3,TIM_IT_CC2) != RESET){
          TIM_ClearITPendingBit(TIM3,TIM_IT_CC2);
-         TIM3_IT_Function();
+         TIM3_IT_Callback(TIM_IT_CC2);
    } else if(TIM_GetITStatus(TIM3,TIM_IT_CC3) != RESET){
          TIM_ClearITPendingBit(TIM3,TIM_IT_CC3);
-         TIM3_IT_Function();
+         TIM3_IT_Callback(TIM_IT_CC3);
    } else if(TIM_GetITStatus(TIM3,TIM_IT_CC4) != RESET){
          TIM_ClearITPendingBit(TIM3,TIM_IT_CC4);
-         TIM3_IT_Function();
+         TIM3_IT_Callback(TIM_IT_CC4);
    }
 }
 
@@ -135,19 +135,19 @@ void TIM3_IRQHandler(void) {
 void TIM4_IRQHandler(void) {
    if(TIM_GetITStatus(TIM4,TIM_IT_Update) != RESET){
          TIM_ClearITPendingBit(TIM4,TIM_IT_Update);
-         TIM4_IT_Function();
+         TIM4_IT_Callback(0);
    } else if(TIM_GetITStatus(TIM4,TIM_IT_CC1) != RESET){
          TIM_ClearITPendingBit(TIM4,TIM_IT_CC1);
-         TIM4_IT_Function();
+         TIM4_IT_Callback(TIM_IT_CC1);
    } else if(TIM_GetITStatus(TIM4,TIM_IT_CC2) != RESET){
          TIM_ClearITPendingBit(TIM4,TIM_IT_CC2);
-         TIM4_IT_Function();
+         TIM4_IT_Callback(TIM_IT_CC2);
    } else if(TIM_GetITStatus(TIM4,TIM_IT_CC3) != RESET){
          TIM_ClearITPendingBit(TIM4,TIM_IT_CC3);
-         TIM4_IT_Function();
+         TIM4_IT_Callback(TIM_IT_CC3);
    } else if(TIM_GetITStatus(TIM4,TIM_IT_CC4) != RESET){
          TIM_ClearITPendingBit(TIM4,TIM_IT_CC4);
-         TIM4_IT_Function();
+         TIM4_IT_Callback(TIM_IT_CC4);
    }
 }
 
@@ -213,25 +213,21 @@ void timer_disable (TIM_TypeDef *timer){
 * @param IT_function run in interruption handling 
 * @return void
 */
-void timer_ITEnable(TIM_TypeDef *Timer, uint8_t priority, void (*IT_function)(void)) {
+void timer_ITEnable(TIM_TypeDef *Timer, uint8_t priority) {
    NVIC_InitTypeDef NVIC_InitStructure;
    IRQn_Type Timer_IRQn;
    
    if (Timer == TIM1) {
       Timer_IRQn = TIM1_UP_IRQn;
-      TIM1_IT_Function = IT_function;
    }
    else if (Timer == TIM2) {
       Timer_IRQn = TIM2_IRQn;
-      TIM2_IT_Function = IT_function;
    }
    else if (Timer == TIM3) {
       Timer_IRQn = TIM3_IRQn;
-      TIM3_IT_Function = IT_function;
    }
    else if (Timer == TIM4) {
       Timer_IRQn = TIM4_IRQn;
-      TIM4_IT_Function = IT_function;
    }
    else return;
   
@@ -258,40 +254,3 @@ void RCC_timer_configuration(TIM_TypeDef *timer){
 }
 
 
-void Capture_ITEnable(TIM_TypeDef *timer, uint16_t channel, uint8_t priority, void (*IT_function)(void)) {
-   NVIC_InitTypeDef NVIC_InitStructure;
-   IRQn_Type timer_IRQn;
-   
-   // Enables the TIMx global Interrupt
-   if (timer == TIM1) {
-      timer_IRQn = TIM1_UP_IRQn;
-      TIM1_IT_Function = IT_function;
-   }
-   else if (timer == TIM2) {
-      timer_IRQn = TIM2_IRQn;
-      TIM2_IT_Function = IT_function;
-   }
-   else if (timer == TIM3) {
-      timer_IRQn = TIM3_IRQn;
-      TIM3_IT_Function = IT_function;
-   }
-   else if (timer == TIM4) {
-      timer_IRQn = TIM4_IRQn;
-      TIM4_IT_Function = IT_function;
-   }
-   else return;
-
-   /* Enable the TIMx global Interrupt */
-   NVIC_InitStructure.NVIC_IRQChannel = timer_IRQn;
-   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = priority;
-   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-   NVIC_Init(&NVIC_InitStructure);
-   switch(channel){
-      case TIM_Channel_1:    TIM_ITConfig(timer, TIM_IT_CC1, ENABLE);    break;
-      case TIM_Channel_2:    TIM_ITConfig(timer, TIM_IT_CC2, ENABLE);    break;
-      case TIM_Channel_3:    TIM_ITConfig(timer, TIM_IT_CC3, ENABLE);    break;
-      case TIM_Channel_4:    TIM_ITConfig(timer, TIM_IT_CC4, ENABLE);    break;
-      default : break;
-   }
-}

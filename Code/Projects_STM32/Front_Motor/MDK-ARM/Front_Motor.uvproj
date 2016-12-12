@@ -119,7 +119,7 @@
             <Oh166RecLen>16</Oh166RecLen>
           </OPTHX>
           <Simulator>
-            <UseSimulator>1</UseSimulator>
+            <UseSimulator>0</UseSimulator>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -131,7 +131,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
-            <UseTarget>0</UseTarget>
+            <UseTarget>1</UseTarget>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -144,7 +144,7 @@
             <UsePdscDebugDescription>0</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>8</TargetSelection>
+          <TargetSelection>11</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -362,7 +362,7 @@
               <MiscControls>--diag_suppress=111</MiscControls>
               <Define>STM32F10X_MD, USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\Lib_STM32\CMSIS\CM3\CoreSupport;..\..\..\Lib_STM32\CMSIS\CM3\DeviceSupport\ST\STM32F10x;..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc;..\StdPeriph_Ex;..\Drivers_Car;..\Services;..\Application</IncludePath>
+              <IncludePath>..\..\..\Lib_STM32\CMSIS\CM3\CoreSupport;..\..\..\Lib_STM32\CMSIS\CM3\DeviceSupport\ST\STM32F10x;..\..\..\Lib_STM32\STM32F10x_StdPeriph_Driver\inc;..\..\..\Lib_STM32\CurtisLib\Drivers_STM;..\..\..\Lib_STM32\CurtisLib\Drivers_Car;..\..\..\Lib_STM32\CurtisLib\Services;..\..\..\Lib_COM\CurtisLib\HDM_API\inc;..\..\..\Lib_COM\CurtisLib\XPS_API\inc;..\Drivers;..\Services;..\Application;..\..\Moteurs_Test\Drivers;..\..\Moteurs_Test\Services</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -416,55 +416,47 @@
           <GroupName>Services</GroupName>
         </Group>
         <Group>
-          <GroupName>Drivers_Car</GroupName>
-        </Group>
-        <Group>
-          <GroupName>StdPeriph_Ex</GroupName>
+          <GroupName>Drivers</GroupName>
           <Files>
             <File>
-              <FileName>gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\gpio.c</FilePath>
+              <FileName>stm32f10x_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Drivers\stm32f10x_conf.h</FilePath>
             </File>
             <File>
-              <FileName>it_handlers.c</FileName>
+              <FileName>stm32f10x_it.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\it_handlers.c</FilePath>
+              <FilePath>..\Drivers\stm32f10x_it.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Moteurs_Test\Services\motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Moteurs_Test\Drivers\timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Moteurs_Test\Drivers\pwm.c</FilePath>
             </File>
             <File>
               <FileName>exti.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\exti.c</FilePath>
+              <FilePath>..\..\..\Lib_STM32\CurtisLib\Drivers_STM\exti.c</FilePath>
             </File>
             <File>
-              <FileName>nvic.c</FileName>
+              <FileName>gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\nvic.c</FilePath>
+              <FilePath>..\..\..\Lib_STM32\CurtisLib\Drivers_STM\gpio.c</FilePath>
             </File>
             <File>
-              <FileName>systick.c</FileName>
+              <FileName>front_motor.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\systick.c</FilePath>
-            </File>
-            <File>
-              <FileName>tim.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\tim.c</FilePath>
-            </File>
-            <File>
-              <FileName>adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\adc.c</FilePath>
-            </File>
-            <File>
-              <FileName>dma.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\dma.c</FilePath>
-            </File>
-            <File>
-              <FileName>spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\spi.c</FilePath>
+              <FilePath>.\front_motor.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -15,5 +15,5 @@ void Capture_Disable(TIM_TypeDef *timer);
 
 void Capture_PortInit(TIM_TypeDef *timer, uint16_t channel);
 
-void Capture_ITEnable(TIM_TypeDef *timer, uint16_t channel, uint8_t priority, void (*IT_function)(void));
+void Capture_ITEnable(TIM_TypeDef *timer, uint16_t channel, uint8_t priority);
 

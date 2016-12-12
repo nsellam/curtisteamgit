@@ -1,6 +1,17 @@
 #include "capture.h"
 #include "timer.h"
 
+__weak void Ultrasonic_ITHandling(uint16_t channel) {}
+
+void TIM2_IT_Callback(uint16_t channel) {
+   switch (channel){
+      case TIM_Channel_1:  Ultrasonic_ITHandling(TIM_Channel_1);   break;
+      case TIM_Channel_2:  Ultrasonic_ITHandling(TIM_Channel_1);   break;
+      case TIM_Channel_3:  Ultrasonic_ITHandling(TIM_Channel_1);   break;
+      case TIM_Channel_4:  Ultrasonic_ITHandling(TIM_Channel_1);   break;
+      default: break;
+   }
+}
 
 void Capture_Init(TIM_TypeDef *timer, uint16_t channel, float frequency_compare_Hz){  
    float duree_compare_usec = US_PER_S/frequency_compare_Hz;
@@ -65,6 +76,40 @@ void Capture_PortInit(TIM_TypeDef *timer, uint16_t channel) {
       }
    }
 
+}
+
+void Capture_ITEnable(TIM_TypeDef *timer, uint16_t channel, uint8_t priority) {
+   NVIC_InitTypeDef NVIC_InitStructure;
+   IRQn_Type timer_IRQn;
+   
+   // Enables the TIMx global Interrupt
+   if (timer == TIM1) {
+      timer_IRQn = TIM1_UP_IRQn;
+   }
+   else if (timer == TIM2) {
+      timer_IRQn = TIM2_IRQn;
+   }
+   else if (timer == TIM3) {
+      timer_IRQn = TIM3_IRQn;
+   }
+   else if (timer == TIM4) {
+      timer_IRQn = TIM4_IRQn;
+   }
+   else return;
+
+   /* Enable the TIMx global Interrupt */
+   NVIC_InitStructure.NVIC_IRQChannel = timer_IRQn;
+   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = priority;
+   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+   NVIC_Init(&NVIC_InitStructure);
+   switch(channel){
+      case TIM_Channel_1:    TIM_ITConfig(timer, TIM_IT_CC1, ENABLE);    break;
+      case TIM_Channel_2:    TIM_ITConfig(timer, TIM_IT_CC2, ENABLE);    break;
+      case TIM_Channel_3:    TIM_ITConfig(timer, TIM_IT_CC3, ENABLE);    break;
+      case TIM_Channel_4:    TIM_ITConfig(timer, TIM_IT_CC4, ENABLE);    break;
+      default : break;
+   }
 }
 
 
