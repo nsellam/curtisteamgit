@@ -14,11 +14,9 @@
 
 #include <stdint.h>
 
-
-
-
-
-
+#ifdef __cplusplus
+extern "C" {
+#endif //_C++
 
 /********************************/
 /*       VARIABLES              */
@@ -99,6 +97,9 @@ int get_steering_stop_data(int id);
 
 void set_motor_speed_data(uint8_t speed);
 
+#ifdef __cplusplus
+}
+#endif //_C++
 
 
-#endif
+#endif //HDMAPI_H
