@@ -18,8 +18,8 @@
 void DMA_QuickInit(void);
 void DMA_Callback(void);
 
-void DMA_InitBuffer2Periph(void);
-void DMA_Periph2InitBuffer(void);
+void DMA_InitBuffer2Periph(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t Periph_DR_Base, uint32_t Memory_DR_Base, uint32_t data_buffer_size);
+void DMA_InitPeriph2Buffer(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t Periph_DR_Base, uint32_t Memory_DR_Base, uint32_t data_buffer_size);
 
 
 #endif // _DMA_H

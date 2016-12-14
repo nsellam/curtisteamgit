@@ -1,0 +1,105 @@
+\hypertarget{tim_8c}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/tim.c File Reference}
+\label{tim_8c}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/tim.\+c@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/tim.\+c}}
+
+
+Functions to handle Timers.  
+
+
+{\ttfamily \#include \char`\"{}tim.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{tim_8c_a10bd385fc7a0426650a7d27210528e5e}{}\label{tim_8c_a10bd385fc7a0426650a7d27210528e5e} 
+\#define \hyperlink{tim_8c_a10bd385fc7a0426650a7d27210528e5e}{P\+S\+C\+\_\+\+V\+A\+L\+U\+E\+\_\+\+M\+AX}~((uint16\+\_\+t)U\+I\+N\+T16\+\_\+\+M\+AX)
+\begin{DoxyCompactList}\small\item\em Max Value of Prescaler register in S\+T\+M32. \end{DoxyCompactList}\item 
+\hypertarget{tim_8c_a8fb148bd93db41bed33d3f0072f51426}{}\label{tim_8c_a8fb148bd93db41bed33d3f0072f51426} 
+\#define \hyperlink{tim_8c_a8fb148bd93db41bed33d3f0072f51426}{A\+R\+R\+\_\+\+V\+A\+L\+U\+E\+\_\+\+M\+AX}~((uint16\+\_\+t)U\+I\+N\+T16\+\_\+\+M\+AX)
+\begin{DoxyCompactList}\small\item\em Max Value of Autoreload register in S\+T\+M32. \end{DoxyCompactList}\item 
+\hypertarget{tim_8c_a203e46be358e8b2504b821df08d80c76}{}\label{tim_8c_a203e46be358e8b2504b821df08d80c76} 
+\#define \hyperlink{tim_8c_a203e46be358e8b2504b821df08d80c76}{S\+Y\+S\+T\+E\+M\+\_\+\+C\+O\+R\+E\+\_\+\+C\+L\+O\+CK}~72.\+0e6
+\begin{DoxyCompactList}\small\item\em Clock value in S\+T\+M32. \end{DoxyCompactList}\item 
+\hypertarget{tim_8c_a77c94e0506265308031d1a32bcd0a08e}{}\label{tim_8c_a77c94e0506265308031d1a32bcd0a08e} 
+\#define \hyperlink{tim_8c_a77c94e0506265308031d1a32bcd0a08e}{P\+S\+C\+\_\+\+C\+E\+I\+L\+I\+N\+G\+\_\+\+L\+I\+M\+IT}~1.\+0e-\/6
+\begin{DoxyCompactList}\small\item\em Prescaler ceiling limit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{tim_8c_a49772a0ada157e4f61055018cdc0156f}{R\+C\+C\+\_\+timer\+\_\+configuration} (T\+I\+M\+\_\+\+Type\+Def $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Configures the different system clocks. \end{DoxyCompactList}\item 
+\hypertarget{tim_8c_a75940933828604c7b67a5044ef08df5b}{}\label{tim_8c_a75940933828604c7b67a5044ef08df5b} 
+void \hyperlink{tim_8c_a75940933828604c7b67a5044ef08df5b}{T\+I\+M\+\_\+\+Quick\+Init} (T\+I\+M\+\_\+\+Type\+Def $\ast$timer, float period\+\_\+us)
+\begin{DoxyCompactList}\small\item\em Makes the initialization of the given Analog to Digital Converter (A\+DC) with the parameters specified. \end{DoxyCompactList}\item 
+void \hyperlink{tim_8c_a9b6f0a5e93c83ec4f40e02ddfe6f3b20}{T\+I\+M\+\_\+start} (T\+I\+M\+\_\+\+Type\+Def $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Enables timers 1, 2, 3 or 4. \end{DoxyCompactList}\item 
+void \hyperlink{tim_8c_ac009c40d77249b2e79e0ae8135d67308}{T\+I\+M\+\_\+disable} (T\+I\+M\+\_\+\+Type\+Def $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Disables timers 1, 2, 3 or 4. \end{DoxyCompactList}\item 
+\hypertarget{tim_8c_a9755f14207db8c59d56d5e4510b6a370}{}\label{tim_8c_a9755f14207db8c59d56d5e4510b6a370} 
+void \hyperlink{tim_8c_a9755f14207db8c59d56d5e4510b6a370}{T\+I\+M\+\_\+\+Callback} (void)
+\begin{DoxyCompactList}\small\item\em Callback associated to A\+DC interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions to handle Timers. 
+
+\begin{DoxyAuthor}{Author}
+Curtis Team 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{tim_8c_a49772a0ada157e4f61055018cdc0156f}{}\label{tim_8c_a49772a0ada157e4f61055018cdc0156f} 
+\index{tim.\+c@{tim.\+c}!R\+C\+C\+\_\+timer\+\_\+configuration@{R\+C\+C\+\_\+timer\+\_\+configuration}}
+\index{R\+C\+C\+\_\+timer\+\_\+configuration@{R\+C\+C\+\_\+timer\+\_\+configuration}!tim.\+c@{tim.\+c}}
+\subsubsection{\texorpdfstring{R\+C\+C\+\_\+timer\+\_\+configuration()}{RCC\_timer\_configuration()}}
+{\footnotesize\ttfamily void R\+C\+C\+\_\+timer\+\_\+configuration (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Type\+Def $\ast$}]{timer }\end{DoxyParamCaption})}
+
+
+
+Configures the different system clocks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{tim_8c_ac009c40d77249b2e79e0ae8135d67308}{}\label{tim_8c_ac009c40d77249b2e79e0ae8135d67308} 
+\index{tim.\+c@{tim.\+c}!T\+I\+M\+\_\+disable@{T\+I\+M\+\_\+disable}}
+\index{T\+I\+M\+\_\+disable@{T\+I\+M\+\_\+disable}!tim.\+c@{tim.\+c}}
+\subsubsection{\texorpdfstring{T\+I\+M\+\_\+disable()}{TIM\_disable()}}
+{\footnotesize\ttfamily void T\+I\+M\+\_\+disable (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Type\+Def $\ast$}]{timer }\end{DoxyParamCaption})}
+
+
+
+Disables timers 1, 2, 3 or 4. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Timer} & Timer to be used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{tim_8c_a9b6f0a5e93c83ec4f40e02ddfe6f3b20}{}\label{tim_8c_a9b6f0a5e93c83ec4f40e02ddfe6f3b20} 
+\index{tim.\+c@{tim.\+c}!T\+I\+M\+\_\+start@{T\+I\+M\+\_\+start}}
+\index{T\+I\+M\+\_\+start@{T\+I\+M\+\_\+start}!tim.\+c@{tim.\+c}}
+\subsubsection{\texorpdfstring{T\+I\+M\+\_\+start()}{TIM\_start()}}
+{\footnotesize\ttfamily void T\+I\+M\+\_\+start (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Type\+Def $\ast$}]{timer }\end{DoxyParamCaption})}
+
+
+
+Enables timers 1, 2, 3 or 4. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Timer} & Timer to be used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

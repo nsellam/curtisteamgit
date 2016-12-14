@@ -1,0 +1,74 @@
+\hypertarget{tim_8h}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/tim.h File Reference}
+\label{tim_8h}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/tim.\+h@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/tim.\+h}}
+
+
+Headers of functions to handle Timers.  
+
+
+{\ttfamily \#include \char`\"{}stm32f10x.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{tim_8h_ac135ed37ba33122189847fff976c0783}{}\label{tim_8h_ac135ed37ba33122189847fff976c0783} 
+\#define \hyperlink{tim_8h_ac135ed37ba33122189847fff976c0783}{U\+S\+\_\+\+P\+E\+R\+\_\+S}~(1.\+0e+06)
+\begin{DoxyCompactList}\small\item\em Number of microseconds per second. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{tim_8h_a6e3be1da33a63ac4084d4071b7482c20}{}\label{tim_8h_a6e3be1da33a63ac4084d4071b7482c20} 
+void \hyperlink{tim_8h_a6e3be1da33a63ac4084d4071b7482c20}{T\+I\+M\+\_\+\+Quick\+Init} (T\+I\+M\+\_\+\+Type\+Def $\ast$Timer, float period\+\_\+us)
+\begin{DoxyCompactList}\small\item\em Makes the initialization of the given Analog to Digital Converter (A\+DC) with the parameters specified. \end{DoxyCompactList}\item 
+\hypertarget{tim_8h_a9755f14207db8c59d56d5e4510b6a370}{}\label{tim_8h_a9755f14207db8c59d56d5e4510b6a370} 
+void \hyperlink{tim_8h_a9755f14207db8c59d56d5e4510b6a370}{T\+I\+M\+\_\+\+Callback} (void)
+\begin{DoxyCompactList}\small\item\em Callback associated to A\+DC interrupts. \end{DoxyCompactList}\item 
+void \hyperlink{tim_8h_a9b6f0a5e93c83ec4f40e02ddfe6f3b20}{T\+I\+M\+\_\+start} (T\+I\+M\+\_\+\+Type\+Def $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Enables timers 1, 2, 3 or 4. \end{DoxyCompactList}\item 
+void \hyperlink{tim_8h_ac009c40d77249b2e79e0ae8135d67308}{T\+I\+M\+\_\+disable} (T\+I\+M\+\_\+\+Type\+Def $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Disables timers 1, 2, 3 or 4. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Headers of functions to handle Timers. 
+
+\begin{DoxyAuthor}{Author}
+Curtis Team 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{tim_8h_ac009c40d77249b2e79e0ae8135d67308}{}\label{tim_8h_ac009c40d77249b2e79e0ae8135d67308} 
+\index{tim.\+h@{tim.\+h}!T\+I\+M\+\_\+disable@{T\+I\+M\+\_\+disable}}
+\index{T\+I\+M\+\_\+disable@{T\+I\+M\+\_\+disable}!tim.\+h@{tim.\+h}}
+\subsubsection{\texorpdfstring{T\+I\+M\+\_\+disable()}{TIM\_disable()}}
+{\footnotesize\ttfamily void T\+I\+M\+\_\+disable (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Type\+Def $\ast$}]{timer }\end{DoxyParamCaption})}
+
+
+
+Disables timers 1, 2, 3 or 4. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Timer} & Timer to be used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{tim_8h_a9b6f0a5e93c83ec4f40e02ddfe6f3b20}{}\label{tim_8h_a9b6f0a5e93c83ec4f40e02ddfe6f3b20} 
+\index{tim.\+h@{tim.\+h}!T\+I\+M\+\_\+start@{T\+I\+M\+\_\+start}}
+\index{T\+I\+M\+\_\+start@{T\+I\+M\+\_\+start}!tim.\+h@{tim.\+h}}
+\subsubsection{\texorpdfstring{T\+I\+M\+\_\+start()}{TIM\_start()}}
+{\footnotesize\ttfamily void T\+I\+M\+\_\+start (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Type\+Def $\ast$}]{timer }\end{DoxyParamCaption})}
+
+
+
+Enables timers 1, 2, 3 or 4. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Timer} & Timer to be used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

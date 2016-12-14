@@ -1,5 +1,5 @@
 /**
- * @file 		gpio.h
+ * @file 		nvic.h
  * @author 	Curtis Team
  * @brief 	Headers of functions to handle NVIC  
  */

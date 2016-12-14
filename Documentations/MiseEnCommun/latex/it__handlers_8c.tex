@@ -1,5 +1,5 @@
-\hypertarget{it__handlers_8c}{}\section{Std\+Periph\+\_\+\+Ex/it\+\_\+handlers.c File Reference}
-\label{it__handlers_8c}\index{Std\+Periph\+\_\+\+Ex/it\+\_\+handlers.\+c@{Std\+Periph\+\_\+\+Ex/it\+\_\+handlers.\+c}}
+\hypertarget{it__handlers_8c}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/it\+\_\+handlers.c File Reference}
+\label{it__handlers_8c}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/it\+\_\+handlers.\+c@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/it\+\_\+handlers.\+c}}
 
 
 Main Interrupt Service Routines.  
@@ -9,44 +9,46 @@ Main Interrupt Service Routines.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{it__handlers_8c_aab4ead34f11ccc9948b48ba6731e43df}{}\label{it__handlers_8c_aab4ead34f11ccc9948b48ba6731e43df} 
-\+\_\+\+\_\+\+I\+N\+L\+I\+NE void {\bfseries E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
-\item 
+\+\_\+\+\_\+\+I\+N\+L\+I\+NE void \hyperlink{it__handlers_8c_aab4ead34f11ccc9948b48ba6731e43df}{E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
+\begin{DoxyCompactList}\small\item\em Manage. \end{DoxyCompactList}\item 
 \hypertarget{it__handlers_8c_a10bc4f225d29232bed6ec346eb227cd4}{}\label{it__handlers_8c_a10bc4f225d29232bed6ec346eb227cd4} 
-\+\_\+\+\_\+weak void {\bfseries E\+X\+T\+I\+\_\+\+Callback} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
+\+\_\+\+\_\+weak void \hyperlink{it__handlers_8c_a10bc4f225d29232bed6ec346eb227cd4}{E\+X\+T\+I\+\_\+\+Callback} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
+\begin{DoxyCompactList}\small\item\em Callback associated to external interrupts. \end{DoxyCompactList}\item 
+\hypertarget{it__handlers_8c_acab88d32995a14a6120f9f2bcc24de5c}{}\label{it__handlers_8c_acab88d32995a14a6120f9f2bcc24de5c} 
+\+\_\+\+\_\+weak void {\bfseries Sys\+Tick\+\_\+\+Callback} (void)
 \item 
 void \hyperlink{it__handlers_8c_a17e9789a29a87d2df54f12b94dd1a0b6}{E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a49cfdd46eb8d0ef3e1987514aa9343dc}{E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_ab5a1d9e9c8ef50e0cb9ddb5745a20a14}{E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a30c045de96d18ec9c67a7b9e4350920f}{E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a290cb997018c8d85d4b965b4a242842f}{E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a7b2096b8b2643286dc3a7e5110e5ae85}{E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9}{E\+X\+T\+I15\+\_\+10\+\_\+\+I\+R\+Q\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a6ad7a5e3ee69cb6db6a6b9111ba898bc}{N\+M\+I\+\_\+\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles N\+MI exception. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles N\+MI exception. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a2bffc10d5bd4106753b7c30e86903bea}{Hard\+Fault\+\_\+\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles Hard Fault exception. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles Hard Fault exception. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a3150f74512510287a942624aa9b44cc5}{Mem\+Manage\+\_\+\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles Memory Manage exception. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles Memory Manage exception. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a850cefb17a977292ae5eb4cafa9976c3}{Bus\+Fault\+\_\+\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles Bus Fault exception. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles Bus Fault exception. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a1d98923de2ed6b7309b66f9ba2971647}{Usage\+Fault\+\_\+\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles Usage Fault exception. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles Usage Fault exception. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a3e5ddb3df0d62f2dc357e64a3f04a6ce}{S\+V\+C\+\_\+\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles S\+V\+Call exception. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles S\+V\+Call exception. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_adbdfb05858cc36fc520974df37ec3cb0}{Debug\+Mon\+\_\+\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles Debug Monitor exception. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles Debug Monitor exception. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a6303e1f258cbdc1f970ce579cc015623}{Pend\+S\+V\+\_\+\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles Pend\+S\+V\+\_\+\+Handler exception. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles Pend\+S\+V\+\_\+\+Handler exception. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_ab5e09814056d617c521549e542639b7e}{Sys\+Tick\+\_\+\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles Sys\+Tick Handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Handles Sys\+Tick Handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -66,7 +68,7 @@ Curtis Team
 
 
 
-This function handles Bus Fault exception. 
+Handles Bus Fault exception. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -86,7 +88,7 @@ This function handles Bus Fault exception.
 
 
 
-This function handles Debug Monitor exception. 
+Handles Debug Monitor exception. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -106,7 +108,7 @@ This function handles Debug Monitor exception.
 
 
 
-This function handles E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+Handles E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler interrupt request. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -126,7 +128,7 @@ This function handles E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler interrupt request.
 
 
 
-This function handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+Handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -146,7 +148,7 @@ This function handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt reque
 
 
 
-This function handles E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+Handles E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler interrupt request. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -166,7 +168,7 @@ This function handles E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler interrupt request.
 
 
 
-This function handles E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+Handles E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler interrupt request. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -186,7 +188,7 @@ This function handles E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler interrupt request.
 
 
 
-This function handles E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+Handles E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler interrupt request. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -206,7 +208,7 @@ This function handles E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler interrupt request.
 
 
 
-This function handles E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+Handles E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler interrupt request. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -226,7 +228,27 @@ This function handles E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler interrupt request.
 
 
 
-This function handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+Handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{it__handlers_8c_aab4ead34f11ccc9948b48ba6731e43df}{}\label{it__handlers_8c_aab4ead34f11ccc9948b48ba6731e43df} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler()}{EXTIx\_IRQHandler()}}
+{\footnotesize\ttfamily void E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{E\+X\+T\+I\+\_\+\+Line }\end{DoxyParamCaption})}
+
+
+
+Manage. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -246,7 +268,7 @@ This function handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt reque
 
 
 
-This function handles Hard Fault exception. 
+Handles Hard Fault exception. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -266,7 +288,7 @@ This function handles Hard Fault exception.
 
 
 
-This function handles Memory Manage exception. 
+Handles Memory Manage exception. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -286,7 +308,7 @@ This function handles Memory Manage exception.
 
 
 
-This function handles N\+MI exception. 
+Handles N\+MI exception. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -306,7 +328,7 @@ This function handles N\+MI exception.
 
 
 
-This function handles Pend\+S\+V\+\_\+\+Handler exception. 
+Handles Pend\+S\+V\+\_\+\+Handler exception. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -326,7 +348,7 @@ This function handles Pend\+S\+V\+\_\+\+Handler exception.
 
 
 
-This function handles S\+V\+Call exception. 
+Handles S\+V\+Call exception. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -346,7 +368,7 @@ This function handles S\+V\+Call exception.
 
 
 
-This function handles Sys\+Tick Handler. 
+Handles Sys\+Tick Handler. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -366,7 +388,7 @@ This function handles Sys\+Tick Handler.
 
 
 
-This function handles Usage Fault exception. 
+Handles Usage Fault exception. 
 
 
 \begin{DoxyParams}{Parameters}

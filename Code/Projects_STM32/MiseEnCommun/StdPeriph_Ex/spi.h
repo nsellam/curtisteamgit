@@ -9,13 +9,17 @@
 #define _SPI_H
 
 /* Includes ------------------------------------------------------------------*/
+#include <stdint.h>
+#include <stddef.h>
 #include "stm32f10x.h"
 
 /* Exported types ------------------------------------------------------------*/
+
+
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void SPI_QuickInit(void);
+void SPI_QuickInit(uint16_t SPI_Mode);
 void SPI_Callback(void);
 
 #endif // _SPI_H
