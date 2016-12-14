@@ -300,10 +300,10 @@
       <Window>
         <RegID>1936</RegID>
         <PaneID>1936</PaneID>
-        <IsVisible>0</IsVisible>
+        <IsVisible>1</IsVisible>
         <IsFloating>0</IsFloating>
         <IsTabbed>0</IsTabbed>
-        <IsActivated>0</IsActivated>
+        <IsActivated>1</IsActivated>
         <MRUWidth>32767</MRUWidth>
         <PinState>0</PinState>
         <RecentFrameAlignment>4096</RecentFrameAlignment>
