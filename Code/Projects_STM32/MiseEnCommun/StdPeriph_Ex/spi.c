@@ -1,5 +1,5 @@
 /**
- * @file 		spi.c
+ * @file 	spi.c
  * @author 	Curtis Team
  * @brief 	Functions to handle SPI  
  */
@@ -36,8 +36,14 @@ void SPI_QuickInit(uint16_t SPI_Mode) {
 /**
  * @brief Callback associated to SPI interrupts 
 */
-void SPI_Callback(void) {
+void SPI_Callback(SPI_TypeDef SPIx) {
 	// A VOIR CE QU'ON MET ICI...
 }
 
 /* Private functions ---------------------------------------------------------*/
+/**
+ * @brief   Handler associated to SPI
+*/
+void SPI_ITHandler(SPI_TypeDef SPIx) {
+    SPI_Callback(SPIx);
+}

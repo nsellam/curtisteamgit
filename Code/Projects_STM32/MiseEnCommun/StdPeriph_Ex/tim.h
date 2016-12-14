@@ -1,8 +1,8 @@
 /**
- * @file 		tim.h
+ * @file 	tim.h
  * @author 	Curtis Team
  * @brief 	Headers of functions to handle Timers  
- */
+*/
  
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef _TIM_H
@@ -21,9 +21,10 @@
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 void TIM_QuickInit(TIM_TypeDef *Timer, float period_us);
-void TIM_Callback(void);
+
 void TIM_start (TIM_TypeDef *timer);
 void TIM_disable (TIM_TypeDef *timer);
 
+void TIM_Callback(TIM_TypeDef TIMx);
 
 #endif // _TIM_H

@@ -1,5 +1,5 @@
 /**
- * @file 		exti.c
+ * @file 	exti.c
  * @author 	Curtis Team
  * @brief 	Functions to handle external interrupts (EXTI)  
  */
@@ -89,12 +89,7 @@ int EXTI_QuickInit(GPIO_TypeDef *GPIOx, uint16_t pin, EXTITrigger_TypeDef trigge
 	return EXTI_NO_ERROR; 
 }
 
-/**
- * @brief Callback associated to external interrupts 
-*/
-void EXTI_Callback(uint32_t EXTI_Line) {
-	// A VOIR CE QU'ON MET ICI...
-}
+__weak void EXTI_Callback(uint32_t EXTI_Line) {}
 
 /* Private functions ---------------------------------------------------------*/
 /**
@@ -287,4 +282,11 @@ uint16_t GPIO_Pin_to_GPIO_PinSource (uint16_t GPIO_Pin) {
 	}
 	
 	return GPIO_PinSource;
+}
+
+/**
+ * @brief   Handler associated to external interrupts 
+*/
+void EXTI_ITHandler(uint32_t EXTI_Line) {
+    EXTI_Callback(EXTI_Line);
 }

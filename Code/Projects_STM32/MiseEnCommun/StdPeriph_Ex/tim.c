@@ -1,5 +1,5 @@
 /**
- * @file 		tim.c
+ * @file 	tim.c
  * @author 	Curtis Team
  * @brief 	Functions to handle Timers  
  */
@@ -20,12 +20,7 @@
 #define ARR_VALUE_MAX ((uint16_t)UINT16_MAX)
 
 /**
-* @brief 	Clock value in STM32
-*/
-#define SYSTEM_CORE_CLOCK 72.0e6
-
-/**
-* @brief 	Prescaler ceiling limit
+* @brief    Prescaler ceiling limit
 */
 #define PSC_CEILING_LIMIT 1.0e-6
 
@@ -41,7 +36,7 @@ void RCC_timer_configuration(TIM_TypeDef *timer);
 */
 void TIM_QuickInit(TIM_TypeDef *timer, float period_us) {
    volatile const float fclock = (float)SystemCoreClock;
-   const float frequency_ratio = SYSTEM_CORE_CLOCK * period_us / US_PER_S;
+   const float frequency_ratio = fclock * period_us / US_PER_S;
    float    PSC_val_f, ARR_val_f;
    uint16_t PSC_val  , ARR_val;
    volatile float aux;
@@ -71,42 +66,38 @@ void TIM_QuickInit(TIM_TypeDef *timer, float period_us) {
 }
 
 /**
-* @brief 		Enables timers 1, 2, 3 or 4
-* @param 		Timer Timer to be used  
-* @return 	void
+ * @brief   Enables timers 1, 2, 3 or 4
+ * @param   Timer Timer to be used  
+ * @return  void
 */
 void TIM_start (TIM_TypeDef *timer){
   TIM_Cmd (timer, ENABLE);
 }
  
 /**
-* @brief 		Disables timers 1, 2, 3 or 4
-* @param 		Timer Timer to be used  
-* @return 	void
+ * @brief   Disables timers 1, 2, 3 or 4
+ * @param   Timer Timer to be used  
+ * @retval  None
 */
 void TIM_disable (TIM_TypeDef *timer){
   TIM_Cmd (timer, DISABLE);
 }
 
-
-
-/**
- * @brief Callback associated to ADC interrupts 
-*/
-void TIM_Callback(void) {
-	// A VOIR CE QU'ON MET ICI...
-}
+__weak void TIM_Callback(TIM_TypeDef TIMx) {}
 
 /* Private functions ---------------------------------------------------------*/
 /**
-  * @brief  Configures the different system clocks.
-  * @param  None
-  * @retval None
-  */
+ * @brief   Configures the different system clocks.
+ * @param   None
+ * @retval  None
+*/
 void RCC_timer_configuration(TIM_TypeDef *timer) {
        if (timer == TIM1)  RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
   else if (timer == TIM2)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
   else if (timer == TIM3)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
   else if (timer == TIM4)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
-   
+}
+
+void TIM_ITHandler(TIM_TypeDef TIMx) {
+    TIM_Callback(TIMx);
 }

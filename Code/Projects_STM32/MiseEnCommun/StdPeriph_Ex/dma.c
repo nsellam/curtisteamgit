@@ -1,5 +1,5 @@
 /**
- * @file 		dma.c
+ * @file 	dma.c
  * @author 	Curtis Team
  * @brief 	Functions to handle DMA  
  */
@@ -13,6 +13,8 @@
 /* Public variables ----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
+void DMA_ClockEnable(DMA_Channel_TypeDef* DMAy_Channelx);
+
 /* Public functions ----------------------------------------------------------*/
 /**
  * @brief 	Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified
@@ -28,6 +30,8 @@ void DMA_InitPeriph2Buffer(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t Periph_D
 	
 	DMA_InitTypeDef DMA_InitStructure;
 	
+    DMA_ClockEnable (DMAy_Channelx);
+    
 	DMA_InitStructure.DMA_PeripheralBaseAddr = Periph_DR_Base;
 	DMA_InitStructure.DMA_MemoryBaseAddr = Memory_DR_Base;
 	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
@@ -54,6 +58,8 @@ void DMA_InitPeriph2Buffer(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t Periph_D
 void DMA_InitBuffer2Periph(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t Periph_DR_Base, uint32_t Memory_DR_Base, uint32_t data_buffer_size) {
 	DMA_InitTypeDef DMA_InitStructure;
 	
+    DMA_ClockEnable (DMAy_Channelx);
+	
 	DMA_InitStructure.DMA_PeripheralBaseAddr = Periph_DR_Base;
 	DMA_InitStructure.DMA_MemoryBaseAddr = Memory_DR_Base;
 	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
@@ -68,11 +74,36 @@ void DMA_InitBuffer2Periph(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t Periph_D
 	DMA_Init(DMAy_Channelx, &DMA_InitStructure);
 }
 
-/**
- * @brief Callback associated to DMA interrupts 
-*/
-void DMA_Callback(void) {
-	// A VOIR CE QU'ON MET ICI...
-}
+__weak void DMA_Callback(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {}
 
 /* Private functions ---------------------------------------------------------*/
+/**
+ * @brief 	Enables clock on the adequate DMA
+ * @param 	DMAy_Channelx DMA_Channel_TypeDef* (DMA to switch on the clock)
+ * @retval 	None
+*/
+void DMA_ClockEnable(DMA_Channel_TypeDef* DMAy_Channelx) {
+	if (			(DMAy_Channelx == DMA1_Channel1) || 
+						(DMAy_Channelx == DMA1_Channel2) || 
+						(DMAy_Channelx == DMA1_Channel3) || 
+						(DMAy_Channelx == DMA1_Channel4) || 
+						(DMAy_Channelx == DMA1_Channel5) || 
+						(DMAy_Channelx == DMA1_Channel6) || 
+						(DMAy_Channelx == DMA1_Channel7)) {
+		RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
+	}
+	else if (	(DMAy_Channelx == DMA2_Channel1) || 
+						(DMAy_Channelx == DMA2_Channel2) || 
+						(DMAy_Channelx == DMA2_Channel3) || 
+						(DMAy_Channelx == DMA2_Channel4) || 
+						(DMAy_Channelx == DMA2_Channel5)) {
+		RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA2, ENABLE);
+	}
+}
+
+/**
+ * @brief   Handler associated to DMA
+*/
+void DMA_ITHandler(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {
+    DMA_Callback(DMAy_Channelx, flags);
+}

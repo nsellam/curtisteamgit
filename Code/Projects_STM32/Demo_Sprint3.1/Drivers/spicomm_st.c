@@ -167,7 +167,7 @@ __weak void SPIComm_Tx_Callback(SPIComm_TransferStatus status){}
  * @param  flags   Interrupts flags
  * @retval None
  */
-void SPIComm_DMA_Callback(int dma, int channel, uint8_t flags) {
+void SPIComm_DMA_Callback(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {
    SPIComm_TransferStatus status = DMA_FLAGS2STATUS(flags);
    if (/*GET_DMA_CHANNEL[dma][channel] == SPIx_DMA_Rx_Channel*/channel == 4) {
       if(status == TRANSFER_COMPLETE) handle_data_Rx(status);
@@ -269,8 +269,18 @@ void GPIO_Configuration(void) {
   */
 void SPI_Configuration(void) {
    SPI_InitTypeDef SPI_InitStructure;
-   DMA_InitTypeDef DMA_InitStructure;
-
+   DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SPIx_DR_Base;
+   DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)frame_buffer_Tx;
+   DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
+   DMA_InitStructure.DMA_BufferSize = data_buffer_Tx_size + FRAME_CHECK_SIZE;
+   DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+   DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+   DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
+   DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
+   DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;
+   DMA_InitStructure.DMA_Priority = DMA_Priority_VeryHigh;
+   DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
+   DMA_Init(SPIx_DMA_Tx_Channel, &DMA_InitStructure);
    // SPIx_Rx_DMA_Channel configuration
    DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)SPIx_DR_Base;
    DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)frame_buffer_Rx;

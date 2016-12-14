@@ -15,7 +15,7 @@
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void ADC_QuickInit(void);
+void ADC_QuickInit(ADC_TypeDef* ADCx, uint8_t channelx, uint8_t SampleTime, uint8_t Rank);
 void ADC_Callback(void);
 
 #endif // _ADC_H
