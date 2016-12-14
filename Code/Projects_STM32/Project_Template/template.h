@@ -1,8 +1,8 @@
 /**
- * @file 		template.h
+ * @file 	template.h
  * @author 	Curtis Team
  * @brief 	Header template for all the files of the project  
- */
+*/
  
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef _TEMPLATE_H

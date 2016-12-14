@@ -4,36 +4,30 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 C:\Users\Clément\Documents\Cours\ProjetCurtis\curtisteamgit\Code\Projects_STM32\MiseEnCommun\MDK-ARM\MiseEnCommun.uvproj
-Project File Date:  12/12/2016
+Project File Date:  12/14/2016
 
 <h2>Output:</h2>
 Build target 'NUCLEO-F103RB'
-compiling adc.c...
+compiling tim.c...
+compiling pwm.c...
 linking...
-Program Size: Code=18348 RO-data=268 RW-data=48 ZI-data=1632  
+Program Size: Code=18952 RO-data=268 RW-data=52 ZI-data=1636  
 ".\Release\project.axf" - 0 Error(s), 0 Warning(s).
-h_Ex\adc.c: 1 warning, 0 errors
-linking...
-Program Size: Code=18348 RO-data=268 RW-data=48 ZI-data=1632  
-".\Release\project.axf" - 0 Error(s), 1 Warning(s).
-ithout a newline
-  }
-..\StdPeriph_Ex\spi.c: 1 warning, 0 errors
-linking...
-Program Size: Code=16692 RO-data=268 RW-data=48 ZI-data=1632  
-".\Release\project.axf" - 0 Error(s), 2 Warning(s).
-tly
-     DMA_IRQ_HANDLER(1, 4)
-..\StdPeriph_Ex\it_handlers.c(160): warning:  #223-D: function "DMA_Callbacks" declared implicitly
-     DMA_IRQ_HANDLER(1, 5)
-..\StdPeriph_Ex\it_handlers.c(169): warning:  #223-D: function "DMA_Callbacks" declared implicitly
-     DMA_IRQ_HANDLER(1, 6)
-..\StdPeriph_Ex\it_handlers.c(178): warning:  #223-D: function "DMA_Callbacks" declared implicitly
-     DMA_IRQ_HANDLER(1, 7)
-..\StdPeriph_Ex\it_handlers.c: 7 warnings, 0 errors
-linking...
-.\Release\project.axf: Error: L6218E: Undefined symbol DMA_Callbacks (referred from it_handlers.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-".\Release\project.axf" - 1 Error(s), 7 Warning(s).
+</pre>
+</body>
+</html>
+iph_Ex\pwm.c(52): error:  #20: identifier "channel" is undefined
+     TIM_CCxNCmd (timer, channel,TIM_CCxN_Enable);
+..\StdPeriph_Ex\pwm.c(54): error:  #20: identifier "remap" is undefined
+     if(remap) {
+..\StdPeriph_Ex\pwm.c(58): warning:  #223-D: function "GPIO_QuickInit" declared implicitly
+           case TIM_Channel_1: GPIO_QuickInit(GPIOA, GPIO_Pin_7, PWM_GPIO_MODE); break;
+..\StdPeriph_Ex\pwm.c(58): error:  #20: identifier "PWM_GPIO_MODE" is undefined
+           case TIM_Channel_1: GPIO_QuickInit(GPIOA, GPIO_Pin_7, PWM_GPIO_MODE); break;
+..\StdPeriph_Ex\pwm.c(65): warning:  #223-D: function "GPIO_QuickInit" declared implicitly
+           case TIM_Channel_1: GPIO_QuickInit(GPIOB, GPIO_Pin_13, PWM_GPIO_MODE); break;
+..\StdPeriph_Ex\pwm.c(65): error:  #20: identifier "PWM_GPIO_MODE" is undefined
+           case TIM_Channel_1: GPIO_QuickInit(GPIOB, GPIO_Pin_13, PWM_GPIO_MODE); break;
+..\StdPeriph_Ex\pwm.c: 2 warnings, 5 errors
+".\Release\project.axf" - 5 Error(s), 2 Warning(s).
 Target not created

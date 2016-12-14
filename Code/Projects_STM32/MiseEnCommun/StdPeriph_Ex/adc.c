@@ -12,7 +12,7 @@
 /* Private macro -------------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-uint8_t NbrOfChannelDeclared = 1;
+uint8_t NbrOfChannelDeclared = 0;
 
 /* Private function prototypes -----------------------------------------------*/
 void ADC_Clock_Enable(ADC_TypeDef* ADCx); 
@@ -29,6 +29,7 @@ void ADC_QuickInit(ADC_TypeDef* ADCx, uint8_t channelx, uint8_t SampleTime, uint
     ADC_Clock_Enable(ADCx);
     RCC_ADCCLKConfig(RCC_PCLK2_Div6);
 
+    NbrOfChannelDeclared ++;
 
     ADC_InitStruct.ADC_Mode = ADC_Mode_Independent ;
     ADC_InitStruct.ADC_ScanConvMode = DISABLE ;
@@ -36,8 +37,6 @@ void ADC_QuickInit(ADC_TypeDef* ADCx, uint8_t channelx, uint8_t SampleTime, uint
     ADC_InitStruct.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None ;
     ADC_InitStruct.ADC_DataAlign = ADC_DataAlign_Right ;
     ADC_InitStruct.ADC_NbrOfChannel = NbrOfChannelDeclared;
-    
-    NbrOfChannelDeclared ++;
     
     //Set ADC Conversion's sample time(channel, rank, sample time)
     ADC_RegularChannelConfig(ADCx, channelx, Rank, SampleTime);

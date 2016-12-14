@@ -5,16 +5,17 @@
 Headers of functions to handle S\+PI.  
 
 
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}stm32f10x.\+h\char`\"{}}\newline
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{spi_8h_a3d871aa600542630de70086b87dc5329}{}\label{spi_8h_a3d871aa600542630de70086b87dc5329} 
-void \hyperlink{spi_8h_a3d871aa600542630de70086b87dc5329}{S\+P\+I\+\_\+\+Quick\+Init} (void)
+void \hyperlink{spi_8h_a4f55c76c66800b153b5cd03520a96e42}{S\+P\+I\+\_\+\+Quick\+Init} (S\+P\+I\+\_\+\+Type\+Def S\+P\+Ix, uint16\+\_\+t S\+P\+I\+\_\+\+Mode)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the S\+PI with the parameters specified. \end{DoxyCompactList}\item 
-\hypertarget{spi_8h_a3a822a081331cd01e971c4cd5720b6c7}{}\label{spi_8h_a3a822a081331cd01e971c4cd5720b6c7} 
-void \hyperlink{spi_8h_a3a822a081331cd01e971c4cd5720b6c7}{S\+P\+I\+\_\+\+Callback} (void)
-\begin{DoxyCompactList}\small\item\em Callback associated to S\+PI interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hypertarget{spi_8h_ad5e6cbe9550ded627146ad22ca55c89c}{}\label{spi_8h_ad5e6cbe9550ded627146ad22ca55c89c} 
+void {\bfseries S\+P\+I\+\_\+\+Callback} (S\+P\+I\+\_\+\+Type\+Def S\+P\+Ix)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -23,3 +24,21 @@ Headers of functions to handle S\+PI.
 \begin{DoxyAuthor}{Author}
 Curtis Team 
 \end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{spi_8h_a4f55c76c66800b153b5cd03520a96e42}{}\label{spi_8h_a4f55c76c66800b153b5cd03520a96e42} 
+\index{spi.\+h@{spi.\+h}!S\+P\+I\+\_\+\+Quick\+Init@{S\+P\+I\+\_\+\+Quick\+Init}}
+\index{S\+P\+I\+\_\+\+Quick\+Init@{S\+P\+I\+\_\+\+Quick\+Init}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{S\+P\+I\+\_\+\+Quick\+Init()}{SPI\_QuickInit()}}
+{\footnotesize\ttfamily void S\+P\+I\+\_\+\+Quick\+Init (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Type\+Def}]{S\+P\+Ix,  }\item[{uint16\+\_\+t}]{S\+P\+I\+\_\+\+Mode }\end{DoxyParamCaption})}
+
+
+
+Makes the initialization of the S\+PI with the parameters specified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em S\+P\+I\+\_\+\+Mode} & uint16\+\_\+t Mode (master or slave) chosen for S\+T\+M32 (usage \+: S\+P\+I\+\_\+\+Mode\+\_\+\+Master or S\+P\+I\+\_\+\+Mode\+\_\+\+Slave) \\
+\hline
+\end{DoxyParams}
