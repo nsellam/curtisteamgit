@@ -1,5 +1,5 @@
 /**
- * @file 		exti.c
+ * @file 	exti.c
  * @author 	Curtis Team
  * @brief 	Functions to handle external interrupts (EXTI)  
  */
@@ -46,10 +46,10 @@ uint16_t GPIO_Pin_to_GPIO_PinSource (uint16_t GPIO_Pin);
 /* Public functions ----------------------------------------------------------*/
 /**
  * @brief 	Makes the initialization of the given external interrupt (EXTI) with the parameters specified
- * @param 	GPIOx GPIO_TypeDef (port of the EXTI)
- * @param 	pin uint16_t (# of the pin of the EXTI)
- * @param 	trigger EXTITrigger_TypeDef (way to trigg this EXTI)
- * @param 	priority uint8_t (priority of the exti to initialize)
+ * @param 	GPIOx Port of the EXTI
+ * @param 	pin Number of the pin of the EXTI
+ * @param 	trigger Way to trigg this EXTI
+ * @param 	priority Priority of the exti to initialize
  * @retval 	int (error detected while computing initialization)
  * @return 	If everything went right EXTI_NO_ERROR, if not EXTI_ERROR_INVALID_LINE, EXTI_ERROR_INVALID_CHANNEL, EXTI_ERROR_INVALID_PORT_SOURCE or EXTI_ERROR_INVALID_PIN_SOURCE.
  */
@@ -89,12 +89,7 @@ int EXTI_QuickInit(GPIO_TypeDef *GPIOx, uint16_t pin, EXTITrigger_TypeDef trigge
 	return EXTI_NO_ERROR; 
 }
 
-/**
- * @brief Callback associated to external interrupts 
-*/
-void EXTI_Callback(uint32_t EXTI_Line) {
-	// A VOIR CE QU'ON MET ICI...
-}
+__weak void EXTI_Callback(uint32_t EXTI_Line) {}
 
 /* Private functions ---------------------------------------------------------*/
 /**
@@ -287,4 +282,11 @@ uint16_t GPIO_Pin_to_GPIO_PinSource (uint16_t GPIO_Pin) {
 	}
 	
 	return GPIO_PinSource;
+}
+
+/**
+ * @brief   Handler associated to external interrupts 
+*/
+void EXTI_ITHandler(uint32_t EXTI_Line) {
+    EXTI_Callback(EXTI_Line);
 }

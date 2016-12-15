@@ -1,5 +1,5 @@
 /**
- * @file 		spi.h
+ * @file 	spi.h
  * @author 	Curtis Team
  * @brief 	Headers of functions to handle SPI
  */
@@ -19,7 +19,8 @@
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void SPI_QuickInit(uint16_t SPI_Mode);
-void SPI_Callback(void);
+void SPI_QuickInit(SPI_TypeDef SPIx, uint16_t SPI_Mode);
+
+void SPI_Callback(SPI_TypeDef SPIx);
 
 #endif // _SPI_H

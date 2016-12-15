@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['system_5fcore_5fclock',['SYSTEM_CORE_CLOCK',['../tim_8c.html#a203e46be358e8b2504b821df08d80c76',1,'tim.c']]],
-  ['systick_5ffreq',['SYSTICK_FREQ',['../systick_8h.html#a259bee748117476f5bf763c71a2f66a8',1,'systick.h']]],
-  ['systick_5funit',['SYSTICK_UNIT',['../systick_8h.html#a7d1fc1e3a90f1efaf0b9e3047e9b4e0e',1,'systick.h']]]
+  ['psc_5fceiling_5flimit',['PSC_CEILING_LIMIT',['../tim_8c.html#a77c94e0506265308031d1a32bcd0a08e',1,'tim.c']]],
+  ['psc_5fvalue_5fmax',['PSC_VALUE_MAX',['../tim_8c.html#a10bd385fc7a0426650a7d27210528e5e',1,'tim.c']]],
+  ['pwm_5fgpio_5fmode',['PWM_GPIO_MODE',['../pwm_8c.html#a5b29fe2662baeb05999d891bfc5e2b08',1,'pwm.c']]]
 ];

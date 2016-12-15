@@ -37,9 +37,12 @@ uint16\+\_\+t \hyperlink{exti_8c_a22079ee910ea1744e2e511dd103a9286}{G\+P\+I\+O\+
 \begin{DoxyCompactList}\small\item\em Returns G\+P\+I\+O\+\_\+\+Pin associated to G\+P\+I\+O\+\_\+\+Pin\+Source number passed in argument. \end{DoxyCompactList}\item 
 int \hyperlink{exti_8c_a2eee151d004e2c6970b2e96f8f9ed82d}{E\+X\+T\+I\+\_\+\+Quick\+Init} (G\+P\+I\+O\+\_\+\+Type\+Def $\ast$G\+P\+I\+Ox, uint16\+\_\+t pin, E\+X\+T\+I\+Trigger\+\_\+\+Type\+Def trigger, uint8\+\_\+t priority)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given external interrupt (E\+X\+TI) with the parameters specified. \end{DoxyCompactList}\item 
-\hypertarget{exti_8c_a4b25d1a6e62163785adc10d8510b031f}{}\label{exti_8c_a4b25d1a6e62163785adc10d8510b031f} 
-void \hyperlink{exti_8c_a4b25d1a6e62163785adc10d8510b031f}{E\+X\+T\+I\+\_\+\+Callback} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
-\begin{DoxyCompactList}\small\item\em Callback associated to external interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hypertarget{exti_8c_a10bc4f225d29232bed6ec346eb227cd4}{}\label{exti_8c_a10bc4f225d29232bed6ec346eb227cd4} 
+\+\_\+\+\_\+weak void {\bfseries E\+X\+T\+I\+\_\+\+Callback} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
+\item 
+\hypertarget{exti_8c_aa82e0dedc4077cc5a2e0c81a47797894}{}\label{exti_8c_aa82e0dedc4077cc5a2e0c81a47797894} 
+void \hyperlink{exti_8c_aa82e0dedc4077cc5a2e0c81a47797894}{E\+X\+T\+I\+\_\+\+I\+T\+Handler} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
+\begin{DoxyCompactList}\small\item\em Handler associated to external interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -63,13 +66,13 @@ Makes the initialization of the given external interrupt (E\+X\+TI) with the par
 
 
 \begin{DoxyParams}{Parameters}
-{\em G\+P\+I\+Ox} & G\+P\+I\+O\+\_\+\+Type\+Def (port of the E\+X\+TI) \\
+{\em G\+P\+I\+Ox} & Port of the E\+X\+TI \\
 \hline
-{\em pin} & uint16\+\_\+t (\# of the pin of the E\+X\+TI) \\
+{\em pin} & Number of the pin of the E\+X\+TI \\
 \hline
-{\em trigger} & E\+X\+T\+I\+Trigger\+\_\+\+Type\+Def (way to trigg this E\+X\+TI) \\
+{\em trigger} & Way to trigg this E\+X\+TI \\
 \hline
-{\em priority} & uint8\+\_\+t (priority of the exti to initialize) \\
+{\em priority} & Priority of the exti to initialize \\
 \hline
 \end{DoxyParams}
 
