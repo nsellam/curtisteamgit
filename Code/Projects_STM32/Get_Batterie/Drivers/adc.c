@@ -21,6 +21,10 @@
 */
 #define NbrOfChannel ((uint8_t) 0x02)
 
+/**
+* @def NbrOfChannel_One 
+* @brief One channels of ADC will be used for left and right motors
+*/
 #define NbrOfChannel_One ((uint8_t) 0x01)
 
 
