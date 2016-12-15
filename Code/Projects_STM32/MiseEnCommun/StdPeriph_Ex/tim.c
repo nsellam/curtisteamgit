@@ -44,11 +44,13 @@ void RCC_timer_configuration(TIM_TypeDef *timer);
 
 /* Public functions ----------------------------------------------------------*/
 /**
- * @brief 	Makes the initialization of the given Analog to Digital Converter (ADC) with the parameters specified
+ * @brief 	Makes the initialization of the given Timer with the parameter specified
+ * @param   TIMx Timer to use
+ * @param   PeriodUs Period (in µs) expected for the Timer
 */
-void TIM_QuickInit(TIM_TypeDef *TIMx, float period_us) {
+void TIM_QuickInit(TIM_TypeDef *TIMx, float PeriodUs) {
    volatile const float fclock = (float)SystemCoreClock;
-   const float frequency_ratio = fclock * period_us / US_PER_S;
+   const float frequency_ratio = fclock * PeriodUs / US_PER_S;
    float    PSC_val_f, ARR_val_f;
    uint16_t PSC_val  , ARR_val;
    volatile float aux;
@@ -84,7 +86,7 @@ void TIM_QuickInit(TIM_TypeDef *TIMx, float period_us) {
 }
 
 /**
- * @brief   Enables timers 1, 2, 3 or 4
+ * @brief   Enables specified timer
  * @param   TIMx Timer to be used  
  * @return  void
 */
@@ -93,7 +95,7 @@ void TIM_Start(TIM_TypeDef *TIMx){
 }
  
 /**
- * @brief   Disables timers 1, 2, 3 or 4
+ * @brief   Disables specified timer
  * @param   TIMx Timer to be used  
  * @retval  None
 */
@@ -150,11 +152,11 @@ int TIM_Remap(TIM_TypeDef TIMx, TIM_remap_TypeDef RemapType) {
  * @param   TIMx Timer to examine 
  * @retval  Remap status of the Timer given as parameter
 */
-TIM_remap_TypeDef TIM_RemapStatus(TIM_TypeDef TIMx) {
-            if (&TIMx == TIM1) return RemapTimersStatus[0];
-    else    if (&TIMx == TIM2) return RemapTimersStatus[1];
-    else    if (&TIMx == TIM3) return RemapTimersStatus[2];
-    else    if (&TIMx == TIM4) return RemapTimersStatus[3];
+TIM_remap_TypeDef TIM_RemapStatus(TIM_TypeDef *TIMx) {
+            if (TIMx == TIM1) return RemapTimersStatus[0];
+    else    if (TIMx == TIM2) return RemapTimersStatus[1];
+    else    if (TIMx == TIM3) return RemapTimersStatus[2];
+    else    if (TIMx == TIM4) return RemapTimersStatus[3];
     else return ErrorRemap;
 }
 
@@ -166,11 +168,11 @@ __weak void TIM_Callback(TIM_TypeDef TIMx) {}
  * @param   None
  * @retval  None
 */
-void RCC_timer_configuration(TIM_TypeDef *timer) {
-       if (timer == TIM1)  RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
-  else if (timer == TIM2)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
-  else if (timer == TIM3)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
-  else if (timer == TIM4)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
+void RCC_timer_configuration(TIM_TypeDef *TIMx) {
+       if (TIMx == TIM1)  RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
+  else if (TIMx == TIM2)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+  else if (TIMx == TIM3)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+  else if (TIMx == TIM4)  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
 }
 
 void TIM_ITHandler(TIM_TypeDef TIMx) {
