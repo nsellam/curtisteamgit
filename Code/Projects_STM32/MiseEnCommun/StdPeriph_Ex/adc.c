@@ -1,7 +1,7 @@
 /**
- * @file	adc.c
- * @author	Curtis Team
- * @brief	Functions to handle ADCs  
+ * @file    adc.c
+ * @author  Curtis Team
+ * @brief   Functions to handle ADCs  
  */
  
 /* Includes ------------------------------------------------------------------*/
@@ -24,7 +24,7 @@ void ADC_Clock_Enable(ADC_TypeDef* ADCx);
 void ADC_QuickInit(ADC_TypeDef* ADCx, uint8_t channelx, uint8_t SampleTime, uint8_t Rank) { 
     ADC_InitTypeDef ADC_InitStruct;
 
-    ADC_DeInit(ADCx);	
+    ADC_DeInit(ADCx);    
    
     ADC_Clock_Enable(ADCx);
     RCC_ADCCLKConfig(RCC_PCLK2_Div6);
@@ -76,8 +76,8 @@ void ADC_Callback(void) {
 void ADC_Clock_Enable(ADC_TypeDef* ADCx) {
     if (ADCx == ADC1)
         RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1,ENABLE);
-		else if (ADCx == ADC2)//ATTENTION: ADC2 cannot use DMA
-			  RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC2 ,ENABLE);
+        else if (ADCx == ADC2)//ATTENTION: ADC2 cannot use DMA
+              RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC2 ,ENABLE);
     else if (ADCx == ADC3)
         RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC3,ENABLE);
 }

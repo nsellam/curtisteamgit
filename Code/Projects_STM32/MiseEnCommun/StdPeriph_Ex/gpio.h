@@ -1,9 +1,9 @@
 /**
- * @file	gpio.h
- * @author	Curtis Team
- * @brief	Headers of functions to handle GPIO  
+ * @file    gpio.h
+ * @author  Curtis Team
+ * @brief   Headers of functions to handle GPIO
  */
- 
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef _GPIO_H
 #define _GPIO_H
@@ -16,6 +16,6 @@
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void GPIO_QuickInit(GPIO_TypeDef *GPIOx, uint16_t pin, GPIOMode_TypeDef mode);
+void GPIO_QuickInit(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIOMode_TypeDef GPIO_Mode);
 
 #endif // _GPIO_H

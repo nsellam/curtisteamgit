@@ -1,7 +1,7 @@
 /**
- * @file	it_handlers.h
- * @author	Curtis Team
- * @brief	Header of Main Interrupt Service Routines  
+ * @file    it_handlers.h
+ * @author  Curtis Team
+ * @brief   Header of Main Interrupt Service Routines  
  */
  
 /* Define to prevent recursive inclusion -------------------------------------*/

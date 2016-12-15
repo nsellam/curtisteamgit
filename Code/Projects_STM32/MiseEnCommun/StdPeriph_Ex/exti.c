@@ -1,7 +1,7 @@
 /**
- * @file 	exti.c
- * @author 	Curtis Team
- * @brief 	Functions to handle external interrupts (EXTI)  
+ * @file    exti.c
+ * @author  Curtis Team
+ * @brief   Functions to handle external interrupts (EXTI)  
  */
 
 /* Includes ------------------------------------------------------------------*/
@@ -45,13 +45,13 @@ uint16_t GPIO_Pin_to_GPIO_PinSource (uint16_t GPIO_Pin);
 
 /* Public functions ----------------------------------------------------------*/
 /**
- * @brief 	Makes the initialization of the given external interrupt (EXTI) with the parameters specified
- * @param 	GPIOx Port of the EXTI
- * @param 	pin Number of the pin of the EXTI
- * @param 	trigger Way to trigg this EXTI
- * @param 	priority Priority of the exti to initialize
- * @retval 	int (error detected while computing initialization)
- * @return 	If everything went right EXTI_NO_ERROR, if not EXTI_ERROR_INVALID_LINE, EXTI_ERROR_INVALID_CHANNEL, EXTI_ERROR_INVALID_PORT_SOURCE or EXTI_ERROR_INVALID_PIN_SOURCE.
+ * @brief     Makes the initialization of the given external interrupt (EXTI) with the parameters specified
+ * @param     GPIOx Port of the EXTI
+ * @param     pin Number of the pin of the EXTI
+ * @param     trigger Way to trigg this EXTI
+ * @param     priority Priority of the exti to initialize
+ * @retval     int (error detected while computing initialization)
+ * @return     If everything went right EXTI_NO_ERROR, if not EXTI_ERROR_INVALID_LINE, EXTI_ERROR_INVALID_CHANNEL, EXTI_ERROR_INVALID_PORT_SOURCE or EXTI_ERROR_INVALID_PIN_SOURCE.
  */
 int EXTI_QuickInit(GPIO_TypeDef *GPIOx, uint16_t pin, EXTITrigger_TypeDef trigger, uint8_t priority) {
 

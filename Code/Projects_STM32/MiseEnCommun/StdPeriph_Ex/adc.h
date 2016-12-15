@@ -1,7 +1,7 @@
 /**
- * @file	adc.h
- * @author	Curtis Team
- * @brief	Headers of functions to handle ADCs  
+ * @file    adc.h
+ * @author  Curtis Team
+ * @brief   Headers of functions to handle ADCs  
  */
  
 /* Define to prevent recursive inclusion -------------------------------------*/

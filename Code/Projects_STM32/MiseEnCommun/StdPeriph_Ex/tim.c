@@ -1,7 +1,7 @@
 /**
- * @file	tim.c
- * @author	Curtis Team
- * @brief	Functions to handle Timers  
+ * @file    tim.c
+ * @author  Curtis Team
+ * @brief   Functions to handle Timers  
 */
  
 /* Includes ------------------------------------------------------------------*/
@@ -12,12 +12,12 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /**
- * @brief 	Max Value of Prescaler register in STM32
+ * @brief     Max Value of Prescaler register in STM32
 */
 #define PSC_VALUE_MAX ((uint16_t)UINT16_MAX) // CK_CNT ~ 1.1kHz
 
 /**
- * @brief 	Max Value of Autoreload register in STM32
+ * @brief     Max Value of Autoreload register in STM32
 */
 #define ARR_VALUE_MAX ((uint16_t)UINT16_MAX)
 
@@ -44,7 +44,7 @@ void RCC_timer_configuration(TIM_TypeDef *timer);
 
 /* Public functions ----------------------------------------------------------*/
 /**
- * @brief 	Makes the initialization of the given Timer with the parameter specified
+ * @brief     Makes the initialization of the given Timer with the parameter specified
  * @param   TIMx Timer to use
  * @param   PeriodUs Period (in µs) expected for the Timer
 */

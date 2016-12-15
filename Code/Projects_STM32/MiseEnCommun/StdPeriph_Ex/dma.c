@@ -1,7 +1,7 @@
 /**
- * @file	dma.c
- * @author	Curtis Team
- * @brief	Functions to handle DMA
+ * @file    dma.c
+ * @author  Curtis Team
+ * @brief   Functions to handle DMA
  */
 
 /* Includes ------------------------------------------------------------------*/
@@ -79,27 +79,27 @@ __weak void DMA_Callback(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {}
 
 /* Private functions ---------------------------------------------------------*/
 /**
- * @brief 	Enables clock on the adequate DMA
- * @param 	DMAy_Channelx DMA_Channel_TypeDef* (DMA to switch on the clock)
- * @retval 	None
+ * @brief     Enables clock on the adequate DMA
+ * @param     DMAy_Channelx DMA_Channel_TypeDef* (DMA to switch on the clock)
+ * @retval     None
 */
 void DMA_ClockEnable(DMA_Channel_TypeDef* DMAy_Channelx) {
-	if (			(DMAy_Channelx == DMA1_Channel1) || 
-						(DMAy_Channelx == DMA1_Channel2) || 
-						(DMAy_Channelx == DMA1_Channel3) || 
-						(DMAy_Channelx == DMA1_Channel4) || 
-						(DMAy_Channelx == DMA1_Channel5) || 
-						(DMAy_Channelx == DMA1_Channel6) || 
-						(DMAy_Channelx == DMA1_Channel7)) {
-		RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
-	}
-	else if (	(DMAy_Channelx == DMA2_Channel1) || 
-						(DMAy_Channelx == DMA2_Channel2) || 
-						(DMAy_Channelx == DMA2_Channel3) || 
-						(DMAy_Channelx == DMA2_Channel4) || 
-						(DMAy_Channelx == DMA2_Channel5)) {
-		RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA2, ENABLE);
-	}
+    if (            (DMAy_Channelx == DMA1_Channel1) || 
+                        (DMAy_Channelx == DMA1_Channel2) || 
+                        (DMAy_Channelx == DMA1_Channel3) || 
+                        (DMAy_Channelx == DMA1_Channel4) || 
+                        (DMAy_Channelx == DMA1_Channel5) || 
+                        (DMAy_Channelx == DMA1_Channel6) || 
+                        (DMAy_Channelx == DMA1_Channel7)) {
+        RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
+    }
+    else if (    (DMAy_Channelx == DMA2_Channel1) || 
+                        (DMAy_Channelx == DMA2_Channel2) || 
+                        (DMAy_Channelx == DMA2_Channel3) || 
+                        (DMAy_Channelx == DMA2_Channel4) || 
+                        (DMAy_Channelx == DMA2_Channel5)) {
+        RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA2, ENABLE);
+    }
 }
 
 /**
