@@ -64,6 +64,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">it_handlers.c File Reference</div>  </div>
@@ -74,18 +75,36 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="it__handlers_8h_source.html">it_handlers.h</a>&quot;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:add510eb8656d57d7b166b0cf0925eff2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>DMA_IRQ_HANDLER</b>(dma,  channel)</td></tr>
+<tr class="separator:add510eb8656d57d7b166b0cf0925eff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42b8a092b6a411920c8e2970aa74a804"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>ADC_IRQ_HANDLER</b>(adc)</td></tr>
+<tr class="separator:a42b8a092b6a411920c8e2970aa74a804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aab4ead34f11ccc9948b48ba6731e43df"><td class="memItemLeft" align="right" valign="top">__INLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#aab4ead34f11ccc9948b48ba6731e43df">EXTIx_IRQHandler</a> (uint32_t EXTI_Line)</td></tr>
-<tr class="memdesc:aab4ead34f11ccc9948b48ba6731e43df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manage.  <a href="#aab4ead34f11ccc9948b48ba6731e43df">More...</a><br /></td></tr>
+<tr class="memdesc:aab4ead34f11ccc9948b48ba6731e43df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages externa interrupts.  <a href="#aab4ead34f11ccc9948b48ba6731e43df">More...</a><br /></td></tr>
 <tr class="separator:aab4ead34f11ccc9948b48ba6731e43df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10bc4f225d29232bed6ec346eb227cd4"><td class="memItemLeft" align="right" valign="top"><a id="a10bc4f225d29232bed6ec346eb227cd4"></a>
-__weak void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a10bc4f225d29232bed6ec346eb227cd4">EXTI_Callback</a> (uint32_t EXTI_Line)</td></tr>
-<tr class="memdesc:a10bc4f225d29232bed6ec346eb227cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback associated to external interrupts. <br /></td></tr>
-<tr class="separator:a10bc4f225d29232bed6ec346eb227cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a563c57a4447176b663c3026d3537a1"><td class="memItemLeft" align="right" valign="top"><a id="a7a563c57a4447176b663c3026d3537a1"></a>
+__weak void&#160;</td><td class="memItemRight" valign="bottom"><b>EXTI_ITHandler</b> (uint32_t EXTI_Line)</td></tr>
+<tr class="separator:a7a563c57a4447176b663c3026d3537a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acab88d32995a14a6120f9f2bcc24de5c"><td class="memItemLeft" align="right" valign="top"><a id="acab88d32995a14a6120f9f2bcc24de5c"></a>
 __weak void&#160;</td><td class="memItemRight" valign="bottom"><b>SysTick_Callback</b> (void)</td></tr>
 <tr class="separator:acab88d32995a14a6120f9f2bcc24de5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03a8748b703ea6d28520628143071e09"><td class="memItemLeft" align="right" valign="top"><a id="a03a8748b703ea6d28520628143071e09"></a>
+__weak void&#160;</td><td class="memItemRight" valign="bottom"><b>DMA_ITHandler</b> (DMA_Channel_TypeDef *DMAy_Channelx, uint8_t flags)</td></tr>
+<tr class="separator:a03a8748b703ea6d28520628143071e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad925476cdeece6d78998d350bf065f5f"><td class="memItemLeft" align="right" valign="top"><a id="ad925476cdeece6d78998d350bf065f5f"></a>
+__weak void&#160;</td><td class="memItemRight" valign="bottom"><b>ADC_ITHandler</b> (ADC_TypeDef ADCx, uint8_t flags)</td></tr>
+<tr class="separator:ad925476cdeece6d78998d350bf065f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7cd3cd95d189a665b29a80f2779f8b4"><td class="memItemLeft" align="right" valign="top"><a id="ac7cd3cd95d189a665b29a80f2779f8b4"></a>
+__weak void&#160;</td><td class="memItemRight" valign="bottom"><b>TIM_ITHandler</b> (TIM_TypeDef TIMx)</td></tr>
+<tr class="separator:ac7cd3cd95d189a665b29a80f2779f8b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f68bf0760d12b236c45c1ef4cccb8e0"><td class="memItemLeft" align="right" valign="top"><a id="a1f68bf0760d12b236c45c1ef4cccb8e0"></a>
+__weak void&#160;</td><td class="memItemRight" valign="bottom"><b>SPI_ITHandler</b> (SPI_TypeDef SPIx)</td></tr>
+<tr class="separator:a1f68bf0760d12b236c45c1ef4cccb8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17e9789a29a87d2df54f12b94dd1a0b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a17e9789a29a87d2df54f12b94dd1a0b6">EXTI0_IRQHandler</a> (void)</td></tr>
 <tr class="memdesc:a17e9789a29a87d2df54f12b94dd1a0b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles EXTI0_IRQHandler interrupt request.  <a href="#a17e9789a29a87d2df54f12b94dd1a0b6">More...</a><br /></td></tr>
 <tr class="separator:a17e9789a29a87d2df54f12b94dd1a0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,6 +126,48 @@ __weak void&#160;</td><td class="memItemRight" valign="bottom"><b>SysTick_Callba
 <tr class="memitem:a738473a5b43f6c92b80ce1d3d6f77ed9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a738473a5b43f6c92b80ce1d3d6f77ed9">EXTI15_10_IRQHandler</a> (void)</td></tr>
 <tr class="memdesc:a738473a5b43f6c92b80ce1d3d6f77ed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles EXTI9_5_IRQHandler interrupt request.  <a href="#a738473a5b43f6c92b80ce1d3d6f77ed9">More...</a><br /></td></tr>
 <tr class="separator:a738473a5b43f6c92b80ce1d3d6f77ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e8fca6e2f18e433a9fbc3d2dcc0b411"><td class="memItemLeft" align="right" valign="top"><a id="a3e8fca6e2f18e433a9fbc3d2dcc0b411"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ADC1_2_IRQHandler</b> (void)</td></tr>
+<tr class="separator:a3e8fca6e2f18e433a9fbc3d2dcc0b411"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b6fac3d670a4860ebec8a961d5c4a73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a7b6fac3d670a4860ebec8a961d5c4a73">DMA1_Channel1_IRQHandler</a> (void)</td></tr>
+<tr class="memdesc:a7b6fac3d670a4860ebec8a961d5c4a73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles DMA1_Channel1 interrupt request.  <a href="#a7b6fac3d670a4860ebec8a961d5c4a73">More...</a><br /></td></tr>
+<tr class="separator:a7b6fac3d670a4860ebec8a961d5c4a73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c3390d4dc5cfceccbeda71aa672d99d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a0c3390d4dc5cfceccbeda71aa672d99d">DMA1_Channel2_IRQHandler</a> (void)</td></tr>
+<tr class="memdesc:a0c3390d4dc5cfceccbeda71aa672d99d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles DMA1_Channel2 interrupt request.  <a href="#a0c3390d4dc5cfceccbeda71aa672d99d">More...</a><br /></td></tr>
+<tr class="separator:a0c3390d4dc5cfceccbeda71aa672d99d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadb8937353693c94b0d8e32fc6f18fc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#aadb8937353693c94b0d8e32fc6f18fc2">DMA1_Channel3_IRQHandler</a> (void)</td></tr>
+<tr class="memdesc:aadb8937353693c94b0d8e32fc6f18fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles DMA1_Channel3 interrupt request.  <a href="#aadb8937353693c94b0d8e32fc6f18fc2">More...</a><br /></td></tr>
+<tr class="separator:aadb8937353693c94b0d8e32fc6f18fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b75ef44037d7ed50a1078c024ae853a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a9b75ef44037d7ed50a1078c024ae853a">DMA1_Channel4_IRQHandler</a> (void)</td></tr>
+<tr class="memdesc:a9b75ef44037d7ed50a1078c024ae853a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles DMA1_Channel4 interrupt request.  <a href="#a9b75ef44037d7ed50a1078c024ae853a">More...</a><br /></td></tr>
+<tr class="separator:a9b75ef44037d7ed50a1078c024ae853a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd16b3391557c4a3a8020d675e2c452f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#abd16b3391557c4a3a8020d675e2c452f">DMA1_Channel5_IRQHandler</a> (void)</td></tr>
+<tr class="memdesc:abd16b3391557c4a3a8020d675e2c452f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles DMA1_Channel5 interrupt request.  <a href="#abd16b3391557c4a3a8020d675e2c452f">More...</a><br /></td></tr>
+<tr class="separator:abd16b3391557c4a3a8020d675e2c452f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab74311855aee10304ffc57c319c91ed3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#ab74311855aee10304ffc57c319c91ed3">DMA1_Channel6_IRQHandler</a> (void)</td></tr>
+<tr class="memdesc:ab74311855aee10304ffc57c319c91ed3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles DMA1_Channel6 interrupt request.  <a href="#ab74311855aee10304ffc57c319c91ed3">More...</a><br /></td></tr>
+<tr class="separator:ab74311855aee10304ffc57c319c91ed3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a964205d5b1ce4b9c69ae6a105145ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a7a964205d5b1ce4b9c69ae6a105145ca">DMA1_Channel7_IRQHandler</a> (void)</td></tr>
+<tr class="memdesc:a7a964205d5b1ce4b9c69ae6a105145ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles DMA1_Channel7 interrupt request.  <a href="#a7a964205d5b1ce4b9c69ae6a105145ca">More...</a><br /></td></tr>
+<tr class="separator:a7a964205d5b1ce4b9c69ae6a105145ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51741dbf9b0de1b8b56b5a6f1ef2e694"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a51741dbf9b0de1b8b56b5a6f1ef2e694">TIM1_UP_IRQHandler</a> (void)</td></tr>
+<tr class="memdesc:a51741dbf9b0de1b8b56b5a6f1ef2e694"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles TIM1 up interrupt request.  <a href="#a51741dbf9b0de1b8b56b5a6f1ef2e694">More...</a><br /></td></tr>
+<tr class="separator:a51741dbf9b0de1b8b56b5a6f1ef2e694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38ad4725462bdc5e86c4ead4f04b9fc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a38ad4725462bdc5e86c4ead4f04b9fc2">TIM2_IRQHandler</a> (void)</td></tr>
+<tr class="memdesc:a38ad4725462bdc5e86c4ead4f04b9fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles TIM2 interrupt request.  <a href="#a38ad4725462bdc5e86c4ead4f04b9fc2">More...</a><br /></td></tr>
+<tr class="separator:a38ad4725462bdc5e86c4ead4f04b9fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8e51d2183b5230cbd5481f8867adce9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#ac8e51d2183b5230cbd5481f8867adce9">TIM3_IRQHandler</a> (void)</td></tr>
+<tr class="memdesc:ac8e51d2183b5230cbd5481f8867adce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles TIM3 interrupt request.  <a href="#ac8e51d2183b5230cbd5481f8867adce9">More...</a><br /></td></tr>
+<tr class="separator:ac8e51d2183b5230cbd5481f8867adce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7133f3f78767503641d307386e68bd28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a7133f3f78767503641d307386e68bd28">TIM4_IRQHandler</a> (void)</td></tr>
+<tr class="memdesc:a7133f3f78767503641d307386e68bd28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles TIM4 interrupt request.  <a href="#a7133f3f78767503641d307386e68bd28">More...</a><br /></td></tr>
+<tr class="separator:a7133f3f78767503641d307386e68bd28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bbd8c17ce4f49adcca47d11f482aab6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a9bbd8c17ce4f49adcca47d11f482aab6">SPI1_IRQHandler</a> (void)</td></tr>
+<tr class="memdesc:a9bbd8c17ce4f49adcca47d11f482aab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles SPI1 interrupt request.  <a href="#a9bbd8c17ce4f49adcca47d11f482aab6">More...</a><br /></td></tr>
+<tr class="separator:a9bbd8c17ce4f49adcca47d11f482aab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68d8880cd80cb17a2501487c3d649ea1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a68d8880cd80cb17a2501487c3d649ea1">SPI2_IRQHandler</a> (void)</td></tr>
+<tr class="memdesc:a68d8880cd80cb17a2501487c3d649ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles SPI2 interrupt request.  <a href="#a68d8880cd80cb17a2501487c3d649ea1">More...</a><br /></td></tr>
+<tr class="separator:a68d8880cd80cb17a2501487c3d649ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ad7a5e3ee69cb6db6a6b9111ba898bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a6ad7a5e3ee69cb6db6a6b9111ba898bc">NMI_Handler</a> (void)</td></tr>
 <tr class="memdesc:a6ad7a5e3ee69cb6db6a6b9111ba898bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles NMI exception.  <a href="#a6ad7a5e3ee69cb6db6a6b9111ba898bc">More...</a><br /></td></tr>
 <tr class="separator:a6ad7a5e3ee69cb6db6a6b9111ba898bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,7 +199,55 @@ __weak void&#160;</td><td class="memItemRight" valign="bottom"><b>SysTick_Callba
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main Interrupt Service Routines. </p>
 <dl class="section author"><dt>Author</dt><dd>Curtis Team </dd></dl>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a42b8a092b6a411920c8e2970aa74a804"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42b8a092b6a411920c8e2970aa74a804">&sect;&nbsp;</a></span>ADC_IRQ_HANDLER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_IRQ_HANDLER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">adc</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">flags =  ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_FLAG_AWD)   &lt;&lt; 4) + \</div><div class="line">            ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_FLAG_EOC)   &lt;&lt; 3) + \</div><div class="line">            ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_FLAG_JEOC)  &lt;&lt; 2) + \</div><div class="line">            ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_FLAG_JSTRT) &lt;&lt; 1) + \</div><div class="line">            ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_FLAG_STRT)  &lt;&lt; 0); \</div><div class="line">   if (flags != 0) { \</div><div class="line">       ADC_ITHandler(*ADC##adc, flags); \</div><div class="line">       ADC_ClearITPendingBit(ADC##adc, ADC_FLAG_AWD); \</div><div class="line">       ADC_ClearITPendingBit(ADC##adc, ADC_FLAG_EOC); \</div><div class="line">       ADC_ClearITPendingBit(ADC##adc, ADC_FLAG_JEOC); \</div><div class="line">   } \</div></div><!-- fragment -->
+</div>
+</div>
+<a id="add510eb8656d57d7b166b0cf0925eff2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add510eb8656d57d7b166b0cf0925eff2">&sect;&nbsp;</a></span>DMA_IRQ_HANDLER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DMA_IRQ_HANDLER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dma, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">channel&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="dma_8c.html#aac23c67b210acba646f913ddb26d225c">DMA_ITHandler</a>(DMA##dma##_Channel##channel,   ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_TE##channel) &lt;&lt; 3) +\</div><div class="line">                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_HT##channel) &lt;&lt; 2) +\</div><div class="line">                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_TC##channel) &lt;&lt; 1) +\</div><div class="line">                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_GL##channel) &lt;&lt; 0));\</div><div class="line">   DMA_ClearITPendingBit(DMA##dma##_IT_GL##channel);</div><div class="ttc" id="dma_8c_html_aac23c67b210acba646f913ddb26d225c"><div class="ttname"><a href="dma_8c.html#aac23c67b210acba646f913ddb26d225c">DMA_ITHandler</a></div><div class="ttdeci">void DMA_ITHandler(DMA_Channel_TypeDef *DMAy_Channelx, uint8_t flags)</div><div class="ttdoc">Handler associated to DMA. </div><div class="ttdef"><b>Definition:</b> dma.c:107</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a850cefb17a977292ae5eb4cafa9976c3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a850cefb17a977292ae5eb4cafa9976c3">&sect;&nbsp;</a></span>BusFault_Handler()</h2>
 
@@ -188,6 +297,230 @@ __weak void&#160;</td><td class="memItemRight" valign="bottom"><b>SysTick_Callba
 </div><div class="memdoc">
 
 <p>Handles Debug Monitor exception. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7b6fac3d670a4860ebec8a961d5c4a73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b6fac3d670a4860ebec8a961d5c4a73">&sect;&nbsp;</a></span>DMA1_Channel1_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMA1_Channel1_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles DMA1_Channel1 interrupt request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0c3390d4dc5cfceccbeda71aa672d99d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c3390d4dc5cfceccbeda71aa672d99d">&sect;&nbsp;</a></span>DMA1_Channel2_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMA1_Channel2_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles DMA1_Channel2 interrupt request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aadb8937353693c94b0d8e32fc6f18fc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadb8937353693c94b0d8e32fc6f18fc2">&sect;&nbsp;</a></span>DMA1_Channel3_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMA1_Channel3_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles DMA1_Channel3 interrupt request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9b75ef44037d7ed50a1078c024ae853a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b75ef44037d7ed50a1078c024ae853a">&sect;&nbsp;</a></span>DMA1_Channel4_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMA1_Channel4_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles DMA1_Channel4 interrupt request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abd16b3391557c4a3a8020d675e2c452f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd16b3391557c4a3a8020d675e2c452f">&sect;&nbsp;</a></span>DMA1_Channel5_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMA1_Channel5_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles DMA1_Channel5 interrupt request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab74311855aee10304ffc57c319c91ed3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab74311855aee10304ffc57c319c91ed3">&sect;&nbsp;</a></span>DMA1_Channel6_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMA1_Channel6_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles DMA1_Channel6 interrupt request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7a964205d5b1ce4b9c69ae6a105145ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a964205d5b1ce4b9c69ae6a105145ca">&sect;&nbsp;</a></span>DMA1_Channel7_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMA1_Channel7_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles DMA1_Channel7 interrupt request. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -443,7 +776,7 @@ __weak void&#160;</td><td class="memItemRight" valign="bottom"><b>SysTick_Callba
       </table>
 </div><div class="memdoc">
 
-<p>Manage. </p>
+<p>Manages externa interrupts. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -587,6 +920,70 @@ __weak void&#160;</td><td class="memItemRight" valign="bottom"><b>SysTick_Callba
 
 </div>
 </div>
+<a id="a9bbd8c17ce4f49adcca47d11f482aab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bbd8c17ce4f49adcca47d11f482aab6">&sect;&nbsp;</a></span>SPI1_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SPI1_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles SPI1 interrupt request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a68d8880cd80cb17a2501487c3d649ea1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68d8880cd80cb17a2501487c3d649ea1">&sect;&nbsp;</a></span>SPI2_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SPI2_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles SPI2 interrupt request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a3e5ddb3df0d62f2dc357e64a3f04a6ce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3e5ddb3df0d62f2dc357e64a3f04a6ce">&sect;&nbsp;</a></span>SVC_Handler()</h2>
 
@@ -636,6 +1033,134 @@ __weak void&#160;</td><td class="memItemRight" valign="bottom"><b>SysTick_Callba
 </div><div class="memdoc">
 
 <p>Handles SysTick Handler. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a51741dbf9b0de1b8b56b5a6f1ef2e694"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51741dbf9b0de1b8b56b5a6f1ef2e694">&sect;&nbsp;</a></span>TIM1_UP_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TIM1_UP_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles TIM1 up interrupt request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a38ad4725462bdc5e86c4ead4f04b9fc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38ad4725462bdc5e86c4ead4f04b9fc2">&sect;&nbsp;</a></span>TIM2_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TIM2_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles TIM2 interrupt request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac8e51d2183b5230cbd5481f8867adce9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8e51d2183b5230cbd5481f8867adce9">&sect;&nbsp;</a></span>TIM3_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TIM3_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles TIM3 interrupt request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7133f3f78767503641d307386e68bd28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7133f3f78767503641d307386e68bd28">&sect;&nbsp;</a></span>TIM4_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TIM4_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles TIM4 interrupt request. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>

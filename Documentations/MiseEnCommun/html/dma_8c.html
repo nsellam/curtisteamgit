@@ -76,22 +76,163 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad61ee7b85baa2f43f8dcab103ba03bc1"><td class="memItemLeft" align="right" valign="top"><a id="ad61ee7b85baa2f43f8dcab103ba03bc1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8c.html#ad61ee7b85baa2f43f8dcab103ba03bc1">DMA_InitBuffer2Periph</a> (void)</td></tr>
-<tr class="memdesc:ad61ee7b85baa2f43f8dcab103ba03bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified. <br /></td></tr>
-<tr class="separator:ad61ee7b85baa2f43f8dcab103ba03bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7d11d2005c77d0b287907c28f33810b"><td class="memItemLeft" align="right" valign="top"><a id="ac7d11d2005c77d0b287907c28f33810b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DMA_Periph2InitBuffer</b> (void)</td></tr>
-<tr class="separator:ac7d11d2005c77d0b287907c28f33810b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3664da4cb209454a6f82d65c7fada1e"><td class="memItemLeft" align="right" valign="top"><a id="af3664da4cb209454a6f82d65c7fada1e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8c.html#af3664da4cb209454a6f82d65c7fada1e">DMA_Callback</a> (void)</td></tr>
-<tr class="memdesc:af3664da4cb209454a6f82d65c7fada1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback associated to DMA interrupts. <br /></td></tr>
-<tr class="separator:af3664da4cb209454a6f82d65c7fada1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cc3ea5b240eb073b75a4d8b2313a3d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8c.html#a4cc3ea5b240eb073b75a4d8b2313a3d0">DMA_ClockEnable</a> (DMA_Channel_TypeDef *DMAy_Channelx)</td></tr>
+<tr class="memdesc:a4cc3ea5b240eb073b75a4d8b2313a3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables clock on the adequate DMA.  <a href="#a4cc3ea5b240eb073b75a4d8b2313a3d0">More...</a><br /></td></tr>
+<tr class="separator:a4cc3ea5b240eb073b75a4d8b2313a3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98253e7f0effc4f593066a307bf413d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8c.html#a98253e7f0effc4f593066a307bf413d5">DMA_InitPeriph2Buffer</a> (DMA_Channel_TypeDef *DMAy_Channelx, uint32_t Periph_DR_Base, uint32_t Memory_DR_Base, uint32_t data_buffer_size)</td></tr>
+<tr class="memdesc:a98253e7f0effc4f593066a307bf413d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified.  <a href="#a98253e7f0effc4f593066a307bf413d5">More...</a><br /></td></tr>
+<tr class="separator:a98253e7f0effc4f593066a307bf413d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5918bde73dd195eb629c56fec8de055"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8c.html#af5918bde73dd195eb629c56fec8de055">DMA_InitBuffer2Periph</a> (DMA_Channel_TypeDef *DMAy_Channelx, uint32_t Periph_DR_Base, uint32_t Memory_DR_Base, uint32_t data_buffer_size)</td></tr>
+<tr class="memdesc:af5918bde73dd195eb629c56fec8de055"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified.  <a href="#af5918bde73dd195eb629c56fec8de055">More...</a><br /></td></tr>
+<tr class="separator:af5918bde73dd195eb629c56fec8de055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae88da9c90e6b562b30d5177c38441da4"><td class="memItemLeft" align="right" valign="top"><a id="ae88da9c90e6b562b30d5177c38441da4"></a>
+__weak void&#160;</td><td class="memItemRight" valign="bottom"><b>DMA_Callback</b> (DMA_Channel_TypeDef *DMAy_Channelx, uint8_t flags)</td></tr>
+<tr class="separator:ae88da9c90e6b562b30d5177c38441da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac23c67b210acba646f913ddb26d225c"><td class="memItemLeft" align="right" valign="top"><a id="aac23c67b210acba646f913ddb26d225c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8c.html#aac23c67b210acba646f913ddb26d225c">DMA_ITHandler</a> (DMA_Channel_TypeDef *DMAy_Channelx, uint8_t flags)</td></tr>
+<tr class="memdesc:aac23c67b210acba646f913ddb26d225c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler associated to DMA. <br /></td></tr>
+<tr class="separator:aac23c67b210acba646f913ddb26d225c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functions to handle DMA. </p>
 <dl class="section author"><dt>Author</dt><dd>Curtis Team </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a4cc3ea5b240eb073b75a4d8b2313a3d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cc3ea5b240eb073b75a4d8b2313a3d0">&sect;&nbsp;</a></span>DMA_ClockEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMA_ClockEnable </td>
+          <td>(</td>
+          <td class="paramtype">DMA_Channel_TypeDef *&#160;</td>
+          <td class="paramname"><em>DMAy_Channelx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enables clock on the adequate DMA. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DMAy_Channelx</td><td>DMA_Channel_TypeDef* (DMA to switch on the clock) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af5918bde73dd195eb629c56fec8de055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5918bde73dd195eb629c56fec8de055">&sect;&nbsp;</a></span>DMA_InitBuffer2Periph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMA_InitBuffer2Periph </td>
+          <td>(</td>
+          <td class="paramtype">DMA_Channel_TypeDef *&#160;</td>
+          <td class="paramname"><em>DMAy_Channelx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>Periph_DR_Base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>Memory_DR_Base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>data_buffer_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DMAy_Channelx</td><td>DMA_Channel_TypeDef* Number of the DMA and of the channel used </td></tr>
+    <tr><td class="paramname">Periph_DR_Base</td><td>uint32_t Base adress of the peripheral </td></tr>
+    <tr><td class="paramname">Memory_DR_Base</td><td>uint32_t Base adress of the memory to use </td></tr>
+    <tr><td class="paramname">data_buffer_size</td><td>uint32_t size of the buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a98253e7f0effc4f593066a307bf413d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98253e7f0effc4f593066a307bf413d5">&sect;&nbsp;</a></span>DMA_InitPeriph2Buffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMA_InitPeriph2Buffer </td>
+          <td>(</td>
+          <td class="paramtype">DMA_Channel_TypeDef *&#160;</td>
+          <td class="paramname"><em>DMAy_Channelx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>Periph_DR_Base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>Memory_DR_Base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>data_buffer_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DMAy_Channelx</td><td>DMA_Channel_TypeDef* Number of the DMA and of the channel used </td></tr>
+    <tr><td class="paramname">Periph_DR_Base</td><td>uint32_t Base adress of the peripheral </td></tr>
+    <tr><td class="paramname">Memory_DR_Base</td><td>uint32_t Base adress of the memory to use </td></tr>
+    <tr><td class="paramname">data_buffer_size</td><td>uint32_t size of the buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>VERIFIER SI ON A BIEN MIS LE TRUC DANS LE BON SENS ERREUR POSSIBLE ENTRE Buffer2Periph ET Periph2Buffer </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

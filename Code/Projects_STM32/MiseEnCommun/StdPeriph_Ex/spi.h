@@ -19,7 +19,8 @@
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void SPI_QuickInit(uint16_t SPI_Mode);
-void SPI_Callback(void);
+void SPI_QuickInit(SPI_TypeDef SPIx, uint16_t SPI_Mode);
+
+void SPI_Callback(SPI_TypeDef SPIx);
 
 #endif // _SPI_H

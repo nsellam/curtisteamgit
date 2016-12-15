@@ -22,7 +22,7 @@
  * @param     priority Priority of the interruption initialized
  * @retval     None
 */
-void NVIC_QuickInit(uint8_t IRQChannel, uint8_t priority) { 
+void NVIC_QuickInit(int8_t IRQChannel, uint8_t priority) { 
     NVIC_InitTypeDef NVIC_InitStruct;
     NVIC_InitStruct.NVIC_IRQChannel = IRQChannel; 
     NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = priority; 

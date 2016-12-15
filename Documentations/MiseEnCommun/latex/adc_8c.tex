@@ -9,12 +9,20 @@ Functions to handle A\+D\+Cs.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{adc_8c_af703ed595a71ca84e08fd43e46059069}{}\label{adc_8c_af703ed595a71ca84e08fd43e46059069} 
-void \hyperlink{adc_8c_af703ed595a71ca84e08fd43e46059069}{A\+D\+C\+\_\+\+Quick\+Init} (void)
+void \hyperlink{adc_8c_a3eeed6ce49f7b81ad12809e53461062e}{A\+D\+C\+\_\+\+Clock\+\_\+\+Enable} (A\+D\+C\+\_\+\+Type\+Def $\ast$A\+D\+Cx)
+\begin{DoxyCompactList}\small\item\em Starts the A\+DC Clock. \end{DoxyCompactList}\item 
+\hypertarget{adc_8c_acd3cc2c34b033aed1eda43df0bc9ae88}{}\label{adc_8c_acd3cc2c34b033aed1eda43df0bc9ae88} 
+void \hyperlink{adc_8c_acd3cc2c34b033aed1eda43df0bc9ae88}{A\+D\+C\+\_\+\+Quick\+Init} (A\+D\+C\+\_\+\+Type\+Def $\ast$A\+D\+Cx, uint8\+\_\+t channelx, uint8\+\_\+t Sample\+Time, uint8\+\_\+t Rank)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given Analog to Digital Converter (A\+DC) with the parameters specified. \end{DoxyCompactList}\item 
 \hypertarget{adc_8c_a7defbc5079df7e920454289e8b819a2b}{}\label{adc_8c_a7defbc5079df7e920454289e8b819a2b} 
 void \hyperlink{adc_8c_a7defbc5079df7e920454289e8b819a2b}{A\+D\+C\+\_\+\+Callback} (void)
 \begin{DoxyCompactList}\small\item\em Callback associated to A\+DC interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{adc_8c_ac498c11b1345045d82f5fc02a60ac1f2}{}\label{adc_8c_ac498c11b1345045d82f5fc02a60ac1f2} 
+uint8\+\_\+t {\bfseries Nbr\+Of\+Channel\+Declared} = 0
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -23,3 +31,26 @@ Functions to handle A\+D\+Cs.
 \begin{DoxyAuthor}{Author}
 Curtis Team 
 \end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{adc_8c_a3eeed6ce49f7b81ad12809e53461062e}{}\label{adc_8c_a3eeed6ce49f7b81ad12809e53461062e} 
+\index{adc.\+c@{adc.\+c}!A\+D\+C\+\_\+\+Clock\+\_\+\+Enable@{A\+D\+C\+\_\+\+Clock\+\_\+\+Enable}}
+\index{A\+D\+C\+\_\+\+Clock\+\_\+\+Enable@{A\+D\+C\+\_\+\+Clock\+\_\+\+Enable}!adc.\+c@{adc.\+c}}
+\subsubsection{\texorpdfstring{A\+D\+C\+\_\+\+Clock\+\_\+\+Enable()}{ADC\_Clock\_Enable()}}
+{\footnotesize\ttfamily void A\+D\+C\+\_\+\+Clock\+\_\+\+Enable (\begin{DoxyParamCaption}\item[{A\+D\+C\+\_\+\+Type\+Def $\ast$}]{A\+D\+Cx }\end{DoxyParamCaption})}
+
+
+
+Starts the A\+DC Clock. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A\+D\+C\+\_\+\+Type\+Def} & A\+D\+Cx defines an A\+DC among A\+D\+C1, A\+D\+C2, and A\+D\+C3 that will be used later \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}

@@ -75,7 +75,7 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stm32f10x.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="gpio_8h_source.html">gpio.h</a>&quot;</code><br />
-<code>#include &quot;nvic.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="nvic_8h_source.html">nvic.h</a>&quot;</code><br />
 </div>
 <p><a href="exti_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -108,8 +108,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a2eee151d004e2c6970b2e96f8f9ed82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given external interrupt (EXTI) with the parameters specified.  <a href="#a2eee151d004e2c6970b2e96f8f9ed82d">More...</a><br /></td></tr>
 <tr class="separator:a2eee151d004e2c6970b2e96f8f9ed82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b25d1a6e62163785adc10d8510b031f"><td class="memItemLeft" align="right" valign="top"><a id="a4b25d1a6e62163785adc10d8510b031f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exti_8h.html#a4b25d1a6e62163785adc10d8510b031f">EXTI_Callback</a> (uint32_t EXTI_Line)</td></tr>
-<tr class="memdesc:a4b25d1a6e62163785adc10d8510b031f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback associated to external interrupts. <br /></td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>EXTI_Callback</b> (uint32_t EXTI_Line)</td></tr>
 <tr class="separator:a4b25d1a6e62163785adc10d8510b031f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -157,10 +156,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exti
 <p>Makes the initialization of the given external interrupt (EXTI) with the parameters specified. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">GPIOx</td><td>GPIO_TypeDef (port of the EXTI) </td></tr>
-    <tr><td class="paramname">pin</td><td>uint16_t (# of the pin of the EXTI) </td></tr>
-    <tr><td class="paramname">trigger</td><td>EXTITrigger_TypeDef (way to trigg this EXTI) </td></tr>
-    <tr><td class="paramname">priority</td><td>uint8_t (priority of the exti to initialize) </td></tr>
+    <tr><td class="paramname">GPIOx</td><td>Port of the EXTI </td></tr>
+    <tr><td class="paramname">pin</td><td>Number of the pin of the EXTI </td></tr>
+    <tr><td class="paramname">trigger</td><td>Way to trigg this EXTI </td></tr>
+    <tr><td class="paramname">priority</td><td>Priority of the exti to initialize </td></tr>
   </table>
   </dd>
 </dl>

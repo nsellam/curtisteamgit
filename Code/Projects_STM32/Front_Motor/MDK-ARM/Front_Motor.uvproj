@@ -414,6 +414,18 @@
         </Group>
         <Group>
           <GroupName>Services</GroupName>
+          <Files>
+            <File>
+              <FileName>front_motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Services\front_motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Moteurs_Test\Services\motor.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Drivers</GroupName>
@@ -427,11 +439,6 @@
               <FileName>stm32f10x_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers\stm32f10x_it.c</FilePath>
-            </File>
-            <File>
-              <FileName>motor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Moteurs_Test\Services\motor.c</FilePath>
             </File>
             <File>
               <FileName>timer.c</FileName>
@@ -452,11 +459,6 @@
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\Lib_STM32\CurtisLib\Drivers_STM\gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>front_motor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\front_motor.c</FilePath>
             </File>
           </Files>
         </Group>

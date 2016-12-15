@@ -41,6 +41,10 @@ int main(void) {
    Mirroring_Init();
    Mirroring_Start();
    pdata_PI->motor_prop = 127;
+	 
+	 Init_ADC(GPIOA,GPIO_Pin_4,GPIOA,GPIO_Pin_4,ADC1,ADC_Channel_4,ADC_Channel_5,ADC_SampleTime_1Cycles5,DMA1_Channel1); 
+
+
 
    while(1) {
 		  // Update motor speed

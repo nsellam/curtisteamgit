@@ -1,7 +1,7 @@
 /**
- * @file         dma.h
- * @author     Curtis Team
- * @brief     Headers of functions to handle DMA  
+ * @file    dma.h
+ * @author  Curtis Team
+ * @brief   Headers of functions to handle DMA  
  */
  
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -15,11 +15,9 @@
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void DMA_QuickInit(void);
-void DMA_Callback(void);
-
 void DMA_InitBuffer2Periph(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t Periph_DR_Base, uint32_t Memory_DR_Base, uint32_t data_buffer_size);
 void DMA_InitPeriph2Buffer(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t Periph_DR_Base, uint32_t Memory_DR_Base, uint32_t data_buffer_size);
 
+void DMA_Callback(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags);
 
 #endif // _DMA_H

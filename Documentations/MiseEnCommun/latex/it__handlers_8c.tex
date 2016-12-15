@@ -6,16 +6,35 @@ Main Interrupt Service Routines.
 
 
 {\ttfamily \#include \char`\"{}it\+\_\+handlers.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries D\+M\+A\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}(dma,  channel)
+\item 
+\#define {\bfseries A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}(adc)
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \+\_\+\+\_\+\+I\+N\+L\+I\+NE void \hyperlink{it__handlers_8c_aab4ead34f11ccc9948b48ba6731e43df}{E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
-\begin{DoxyCompactList}\small\item\em Manage. \end{DoxyCompactList}\item 
-\hypertarget{it__handlers_8c_a10bc4f225d29232bed6ec346eb227cd4}{}\label{it__handlers_8c_a10bc4f225d29232bed6ec346eb227cd4} 
-\+\_\+\+\_\+weak void \hyperlink{it__handlers_8c_a10bc4f225d29232bed6ec346eb227cd4}{E\+X\+T\+I\+\_\+\+Callback} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
-\begin{DoxyCompactList}\small\item\em Callback associated to external interrupts. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Manages externa interrupts. \end{DoxyCompactList}\item 
+\hypertarget{it__handlers_8c_a7a563c57a4447176b663c3026d3537a1}{}\label{it__handlers_8c_a7a563c57a4447176b663c3026d3537a1} 
+\+\_\+\+\_\+weak void {\bfseries E\+X\+T\+I\+\_\+\+I\+T\+Handler} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
+\item 
 \hypertarget{it__handlers_8c_acab88d32995a14a6120f9f2bcc24de5c}{}\label{it__handlers_8c_acab88d32995a14a6120f9f2bcc24de5c} 
 \+\_\+\+\_\+weak void {\bfseries Sys\+Tick\+\_\+\+Callback} (void)
+\item 
+\hypertarget{it__handlers_8c_a03a8748b703ea6d28520628143071e09}{}\label{it__handlers_8c_a03a8748b703ea6d28520628143071e09} 
+\+\_\+\+\_\+weak void {\bfseries D\+M\+A\+\_\+\+I\+T\+Handler} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint8\+\_\+t flags)
+\item 
+\hypertarget{it__handlers_8c_ad925476cdeece6d78998d350bf065f5f}{}\label{it__handlers_8c_ad925476cdeece6d78998d350bf065f5f} 
+\+\_\+\+\_\+weak void {\bfseries A\+D\+C\+\_\+\+I\+T\+Handler} (A\+D\+C\+\_\+\+Type\+Def A\+D\+Cx, uint8\+\_\+t flags)
+\item 
+\hypertarget{it__handlers_8c_ac7cd3cd95d189a665b29a80f2779f8b4}{}\label{it__handlers_8c_ac7cd3cd95d189a665b29a80f2779f8b4} 
+\+\_\+\+\_\+weak void {\bfseries T\+I\+M\+\_\+\+I\+T\+Handler} (T\+I\+M\+\_\+\+Type\+Def T\+I\+Mx)
+\item 
+\hypertarget{it__handlers_8c_a1f68bf0760d12b236c45c1ef4cccb8e0}{}\label{it__handlers_8c_a1f68bf0760d12b236c45c1ef4cccb8e0} 
+\+\_\+\+\_\+weak void {\bfseries S\+P\+I\+\_\+\+I\+T\+Handler} (S\+P\+I\+\_\+\+Type\+Def S\+P\+Ix)
 \item 
 void \hyperlink{it__handlers_8c_a17e9789a29a87d2df54f12b94dd1a0b6}{E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler} (void)
 \begin{DoxyCompactList}\small\item\em Handles E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
@@ -31,6 +50,35 @@ void \hyperlink{it__handlers_8c_a7b2096b8b2643286dc3a7e5110e5ae85}{E\+X\+T\+I9\+
 \begin{DoxyCompactList}\small\item\em Handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a738473a5b43f6c92b80ce1d3d6f77ed9}{E\+X\+T\+I15\+\_\+10\+\_\+\+I\+R\+Q\+Handler} (void)
 \begin{DoxyCompactList}\small\item\em Handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+\hypertarget{it__handlers_8c_a3e8fca6e2f18e433a9fbc3d2dcc0b411}{}\label{it__handlers_8c_a3e8fca6e2f18e433a9fbc3d2dcc0b411} 
+void {\bfseries A\+D\+C1\+\_\+2\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \hyperlink{it__handlers_8c_a7b6fac3d670a4860ebec8a961d5c4a73}{D\+M\+A1\+\_\+\+Channel1\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles D\+M\+A1\+\_\+\+Channel1 interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{it__handlers_8c_a0c3390d4dc5cfceccbeda71aa672d99d}{D\+M\+A1\+\_\+\+Channel2\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles D\+M\+A1\+\_\+\+Channel2 interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{it__handlers_8c_aadb8937353693c94b0d8e32fc6f18fc2}{D\+M\+A1\+\_\+\+Channel3\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles D\+M\+A1\+\_\+\+Channel3 interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{it__handlers_8c_a9b75ef44037d7ed50a1078c024ae853a}{D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles D\+M\+A1\+\_\+\+Channel4 interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{it__handlers_8c_abd16b3391557c4a3a8020d675e2c452f}{D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles D\+M\+A1\+\_\+\+Channel5 interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{it__handlers_8c_ab74311855aee10304ffc57c319c91ed3}{D\+M\+A1\+\_\+\+Channel6\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles D\+M\+A1\+\_\+\+Channel6 interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{it__handlers_8c_a7a964205d5b1ce4b9c69ae6a105145ca}{D\+M\+A1\+\_\+\+Channel7\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles D\+M\+A1\+\_\+\+Channel7 interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{it__handlers_8c_a51741dbf9b0de1b8b56b5a6f1ef2e694}{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles T\+I\+M1 up interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{it__handlers_8c_a38ad4725462bdc5e86c4ead4f04b9fc2}{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles T\+I\+M2 interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{it__handlers_8c_ac8e51d2183b5230cbd5481f8867adce9}{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles T\+I\+M3 interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{it__handlers_8c_a7133f3f78767503641d307386e68bd28}{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles T\+I\+M4 interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{it__handlers_8c_a9bbd8c17ce4f49adcca47d11f482aab6}{S\+P\+I1\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles S\+P\+I1 interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{it__handlers_8c_a68d8880cd80cb17a2501487c3d649ea1}{S\+P\+I2\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles S\+P\+I2 interrupt request. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a6ad7a5e3ee69cb6db6a6b9111ba898bc}{N\+M\+I\+\_\+\+Handler} (void)
 \begin{DoxyCompactList}\small\item\em Handles N\+MI exception. \end{DoxyCompactList}\item 
 void \hyperlink{it__handlers_8c_a2bffc10d5bd4106753b7c30e86903bea}{Hard\+Fault\+\_\+\+Handler} (void)
@@ -57,6 +105,47 @@ Main Interrupt Service Routines.
 \begin{DoxyAuthor}{Author}
 Curtis Team 
 \end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{it__handlers_8c_a42b8a092b6a411920c8e2970aa74a804}{}\label{it__handlers_8c_a42b8a092b6a411920c8e2970aa74a804} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER@{A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}}
+\index{A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER@{A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}{ADC\_IRQ\_HANDLER}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER(\begin{DoxyParamCaption}\item[{}]{adc }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+flags =  ((uint8\_t) ADC\_GetITStatus(ADC##adc, ADC\_FLAG\_AWD)   << 4) + \(\backslash\)
+            ((uint8\_t) ADC\_GetITStatus(ADC##adc, ADC\_FLAG\_EOC)   << 3) + \(\backslash\)
+            ((uint8\_t) ADC\_GetITStatus(ADC##adc, ADC\_FLAG\_JEOC)  << 2) + \(\backslash\)
+            ((uint8\_t) ADC\_GetITStatus(ADC##adc, ADC\_FLAG\_JSTRT) << 1) + \(\backslash\)
+            ((uint8\_t) ADC\_GetITStatus(ADC##adc, ADC\_FLAG\_STRT)  << 0); \(\backslash\)
+   if (flags != 0) \{ \(\backslash\)
+       ADC\_ITHandler(*ADC##adc, flags); \(\backslash\)
+       ADC\_ClearITPendingBit(ADC##adc, ADC\_FLAG\_AWD); \(\backslash\)
+       ADC\_ClearITPendingBit(ADC##adc, ADC\_FLAG\_EOC); \(\backslash\)
+       ADC\_ClearITPendingBit(ADC##adc, ADC\_FLAG\_JEOC); \(\backslash\)
+   \} \(\backslash\)
+\end{DoxyCode}
+\hypertarget{it__handlers_8c_add510eb8656d57d7b166b0cf0925eff2}{}\label{it__handlers_8c_add510eb8656d57d7b166b0cf0925eff2} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!D\+M\+A\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER@{D\+M\+A\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}}
+\index{D\+M\+A\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER@{D\+M\+A\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{D\+M\+A\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}{DMA\_IRQ\_HANDLER}}
+{\footnotesize\ttfamily \#define D\+M\+A\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER(\begin{DoxyParamCaption}\item[{}]{dma,  }\item[{}]{channel }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{dma_8c_aac23c67b210acba646f913ddb26d225c}{DMA\_ITHandler}(DMA##dma##\_Channel##channel,   ((uint8\_t)DMA\_GetITStatus(DMA##dma##\_FLAG\_TE##
+      channel) << 3) +\(\backslash\)
+                                                ((uint8\_t)DMA\_GetITStatus(DMA##dma##\_FLAG\_HT##channel) << 2
+      ) +\(\backslash\)
+                                                ((uint8\_t)DMA\_GetITStatus(DMA##dma##\_FLAG\_TC##channel) << 1
+      ) +\(\backslash\)
+                                                ((uint8\_t)DMA\_GetITStatus(DMA##dma##\_FLAG\_GL##channel) << 0
+      ));\(\backslash\)
+   DMA\_ClearITPendingBit(DMA##dma##\_IT\_GL##channel);
+\end{DoxyCode}
 
 
 \subsection{Function Documentation}
@@ -89,6 +178,146 @@ Handles Bus Fault exception.
 
 
 Handles Debug Monitor exception. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{it__handlers_8c_a7b6fac3d670a4860ebec8a961d5c4a73}{}\label{it__handlers_8c_a7b6fac3d670a4860ebec8a961d5c4a73} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!D\+M\+A1\+\_\+\+Channel1\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel1\+\_\+\+I\+R\+Q\+Handler}}
+\index{D\+M\+A1\+\_\+\+Channel1\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel1\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{D\+M\+A1\+\_\+\+Channel1\+\_\+\+I\+R\+Q\+Handler()}{DMA1\_Channel1\_IRQHandler()}}
+{\footnotesize\ttfamily void D\+M\+A1\+\_\+\+Channel1\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handles D\+M\+A1\+\_\+\+Channel1 interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{it__handlers_8c_a0c3390d4dc5cfceccbeda71aa672d99d}{}\label{it__handlers_8c_a0c3390d4dc5cfceccbeda71aa672d99d} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!D\+M\+A1\+\_\+\+Channel2\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel2\+\_\+\+I\+R\+Q\+Handler}}
+\index{D\+M\+A1\+\_\+\+Channel2\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel2\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{D\+M\+A1\+\_\+\+Channel2\+\_\+\+I\+R\+Q\+Handler()}{DMA1\_Channel2\_IRQHandler()}}
+{\footnotesize\ttfamily void D\+M\+A1\+\_\+\+Channel2\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handles D\+M\+A1\+\_\+\+Channel2 interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{it__handlers_8c_aadb8937353693c94b0d8e32fc6f18fc2}{}\label{it__handlers_8c_aadb8937353693c94b0d8e32fc6f18fc2} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!D\+M\+A1\+\_\+\+Channel3\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel3\+\_\+\+I\+R\+Q\+Handler}}
+\index{D\+M\+A1\+\_\+\+Channel3\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel3\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{D\+M\+A1\+\_\+\+Channel3\+\_\+\+I\+R\+Q\+Handler()}{DMA1\_Channel3\_IRQHandler()}}
+{\footnotesize\ttfamily void D\+M\+A1\+\_\+\+Channel3\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handles D\+M\+A1\+\_\+\+Channel3 interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{it__handlers_8c_a9b75ef44037d7ed50a1078c024ae853a}{}\label{it__handlers_8c_a9b75ef44037d7ed50a1078c024ae853a} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler}}
+\index{D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler()}{DMA1\_Channel4\_IRQHandler()}}
+{\footnotesize\ttfamily void D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handles D\+M\+A1\+\_\+\+Channel4 interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{it__handlers_8c_abd16b3391557c4a3a8020d675e2c452f}{}\label{it__handlers_8c_abd16b3391557c4a3a8020d675e2c452f} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler}}
+\index{D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler()}{DMA1\_Channel5\_IRQHandler()}}
+{\footnotesize\ttfamily void D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handles D\+M\+A1\+\_\+\+Channel5 interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{it__handlers_8c_ab74311855aee10304ffc57c319c91ed3}{}\label{it__handlers_8c_ab74311855aee10304ffc57c319c91ed3} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!D\+M\+A1\+\_\+\+Channel6\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel6\+\_\+\+I\+R\+Q\+Handler}}
+\index{D\+M\+A1\+\_\+\+Channel6\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel6\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{D\+M\+A1\+\_\+\+Channel6\+\_\+\+I\+R\+Q\+Handler()}{DMA1\_Channel6\_IRQHandler()}}
+{\footnotesize\ttfamily void D\+M\+A1\+\_\+\+Channel6\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handles D\+M\+A1\+\_\+\+Channel6 interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{it__handlers_8c_a7a964205d5b1ce4b9c69ae6a105145ca}{}\label{it__handlers_8c_a7a964205d5b1ce4b9c69ae6a105145ca} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!D\+M\+A1\+\_\+\+Channel7\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel7\+\_\+\+I\+R\+Q\+Handler}}
+\index{D\+M\+A1\+\_\+\+Channel7\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel7\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{D\+M\+A1\+\_\+\+Channel7\+\_\+\+I\+R\+Q\+Handler()}{DMA1\_Channel7\_IRQHandler()}}
+{\footnotesize\ttfamily void D\+M\+A1\+\_\+\+Channel7\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handles D\+M\+A1\+\_\+\+Channel7 interrupt request. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -248,7 +477,7 @@ Handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request.
 
 
 
-Manage. 
+Manages externa interrupts. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -340,6 +569,46 @@ Handles Pend\+S\+V\+\_\+\+Handler exception.
 {\em None} & \\
 \hline
 \end{DoxyRetVals}
+\hypertarget{it__handlers_8c_a9bbd8c17ce4f49adcca47d11f482aab6}{}\label{it__handlers_8c_a9bbd8c17ce4f49adcca47d11f482aab6} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!S\+P\+I1\+\_\+\+I\+R\+Q\+Handler@{S\+P\+I1\+\_\+\+I\+R\+Q\+Handler}}
+\index{S\+P\+I1\+\_\+\+I\+R\+Q\+Handler@{S\+P\+I1\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{S\+P\+I1\+\_\+\+I\+R\+Q\+Handler()}{SPI1\_IRQHandler()}}
+{\footnotesize\ttfamily void S\+P\+I1\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handles S\+P\+I1 interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{it__handlers_8c_a68d8880cd80cb17a2501487c3d649ea1}{}\label{it__handlers_8c_a68d8880cd80cb17a2501487c3d649ea1} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!S\+P\+I2\+\_\+\+I\+R\+Q\+Handler@{S\+P\+I2\+\_\+\+I\+R\+Q\+Handler}}
+\index{S\+P\+I2\+\_\+\+I\+R\+Q\+Handler@{S\+P\+I2\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{S\+P\+I2\+\_\+\+I\+R\+Q\+Handler()}{SPI2\_IRQHandler()}}
+{\footnotesize\ttfamily void S\+P\+I2\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handles S\+P\+I2 interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
 \hypertarget{it__handlers_8c_a3e5ddb3df0d62f2dc357e64a3f04a6ce}{}\label{it__handlers_8c_a3e5ddb3df0d62f2dc357e64a3f04a6ce} 
 \index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!S\+V\+C\+\_\+\+Handler@{S\+V\+C\+\_\+\+Handler}}
 \index{S\+V\+C\+\_\+\+Handler@{S\+V\+C\+\_\+\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
@@ -369,6 +638,86 @@ Handles S\+V\+Call exception.
 
 
 Handles Sys\+Tick Handler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{it__handlers_8c_a51741dbf9b0de1b8b56b5a6f1ef2e694}{}\label{it__handlers_8c_a51741dbf9b0de1b8b56b5a6f1ef2e694} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler()}{TIM1\_UP\_IRQHandler()}}
+{\footnotesize\ttfamily void T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handles T\+I\+M1 up interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{it__handlers_8c_a38ad4725462bdc5e86c4ead4f04b9fc2}{}\label{it__handlers_8c_a38ad4725462bdc5e86c4ead4f04b9fc2} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!T\+I\+M2\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler()}{TIM2\_IRQHandler()}}
+{\footnotesize\ttfamily void T\+I\+M2\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handles T\+I\+M2 interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{it__handlers_8c_ac8e51d2183b5230cbd5481f8867adce9}{}\label{it__handlers_8c_ac8e51d2183b5230cbd5481f8867adce9} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!T\+I\+M3\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler()}{TIM3\_IRQHandler()}}
+{\footnotesize\ttfamily void T\+I\+M3\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handles T\+I\+M3 interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{it__handlers_8c_a7133f3f78767503641d307386e68bd28}{}\label{it__handlers_8c_a7133f3f78767503641d307386e68bd28} 
+\index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!T\+I\+M4\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
+\subsubsection{\texorpdfstring{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler()}{TIM4\_IRQHandler()}}
+{\footnotesize\ttfamily void T\+I\+M4\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handles T\+I\+M4 interrupt request. 
 
 
 \begin{DoxyParams}{Parameters}

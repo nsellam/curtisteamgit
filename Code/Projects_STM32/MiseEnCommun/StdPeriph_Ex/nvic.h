@@ -16,6 +16,6 @@
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void NVIC_QuickInit(uint8_t IRQChannel, uint8_t priority);
+void NVIC_QuickInit(int8_t IRQChannel, uint8_t priority);
 
 #endif // _NVIC_H
