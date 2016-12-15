@@ -1,7 +1,7 @@
 /**
- * @file 		gpio.h
- * @author 	Curtis Team
- * @brief 	Headers of functions to handle GPIO  
+ * @file	gpio.h
+ * @author	Curtis Team
+ * @brief	Headers of functions to handle GPIO  
  */
  
 /* Define to prevent recursive inclusion -------------------------------------*/

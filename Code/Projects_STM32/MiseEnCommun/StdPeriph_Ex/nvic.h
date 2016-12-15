@@ -1,7 +1,7 @@
 /**
- * @file 		nvic.h
- * @author 	Curtis Team
- * @brief 	Headers of functions to handle NVIC  
+ * @file	nvic.h
+ * @author	Curtis Team
+ * @brief	Headers of functions to handle NVIC  
  */
  
 /* Define to prevent recursive inclusion -------------------------------------*/

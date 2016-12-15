@@ -1,7 +1,7 @@
 /**
- * @file exti.h
- * @author Curtis Team
- * @brief Headers of functions to handle external interrupts (EXTI)  
+ * @file	exti.h
+ * @author	Curtis Team
+ * @brief	Headers of functions to handle external interrupts (EXTI)  
  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/

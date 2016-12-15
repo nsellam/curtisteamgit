@@ -1,7 +1,7 @@
 /**
- * @file 		adc.c
- * @author 	Curtis Team
- * @brief 	Functions to handle ADCs  
+ * @file	adc.c
+ * @author	Curtis Team
+ * @brief	Functions to handle ADCs  
  */
  
 /* Includes ------------------------------------------------------------------*/
@@ -18,7 +18,7 @@
  * @brief Makes the initialization of the given Analog to Digital Converter (ADC) with the parameters specified
 */
 void ADC_QuickInit(void) {
-	// A VOIR CE QU'ON MET ICI...
+    // A VOIR CE QU'ON MET ICI...
 
 }
 
@@ -26,7 +26,7 @@ void ADC_QuickInit(void) {
  * @brief Callback associated to ADC interrupts 
 */
 void ADC_Callback(void) {
-	// A VOIR CE QU'ON MET ICI...
+    // A VOIR CE QU'ON MET ICI...
 }
 
 /* Private functions ---------------------------------------------------------*/

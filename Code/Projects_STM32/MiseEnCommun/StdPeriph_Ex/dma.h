@@ -1,7 +1,7 @@
 /**
- * @file 		dma.h
- * @author 	Curtis Team
- * @brief 	Headers of functions to handle DMA  
+ * @file         dma.h
+ * @author     Curtis Team
+ * @brief     Headers of functions to handle DMA  
  */
  
 /* Define to prevent recursive inclusion -------------------------------------*/

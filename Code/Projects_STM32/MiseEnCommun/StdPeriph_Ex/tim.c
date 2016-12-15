@@ -1,7 +1,7 @@
 /**
- * @file 		tim.c
- * @author 	Curtis Team
- * @brief 	Functions to handle Timers  
+ * @file	tim.c
+ * @author	Curtis Team
+ * @brief	Functions to handle Timers  
  */
  
 /* Includes ------------------------------------------------------------------*/
@@ -10,22 +10,22 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /**
-* @brief 	Max Value of Prescaler register in STM32
+* @brief     Max Value of Prescaler register in STM32
 */
 #define PSC_VALUE_MAX ((uint16_t)UINT16_MAX) // CK_CNT ~ 1.1kHz
 
 /**
-* @brief 	Max Value of Autoreload register in STM32
+* @brief     Max Value of Autoreload register in STM32
 */
 #define ARR_VALUE_MAX ((uint16_t)UINT16_MAX)
 
 /**
-* @brief 	Clock value in STM32
+* @brief     Clock value in STM32
 */
 #define SYSTEM_CORE_CLOCK 72.0e6
 
 /**
-* @brief 	Prescaler ceiling limit
+* @brief     Prescaler ceiling limit
 */
 #define PSC_CEILING_LIMIT 1.0e-6
 
@@ -37,7 +37,7 @@ void RCC_timer_configuration(TIM_TypeDef *timer);
 
 /* Public functions ----------------------------------------------------------*/
 /**
- * @brief 	Makes the initialization of the given Analog to Digital Converter (ADC) with the parameters specified
+ * @brief     Makes the initialization of the given Analog to Digital Converter (ADC) with the parameters specified
 */
 void TIM_QuickInit(TIM_TypeDef *timer, float period_us) {
    volatile const float fclock = (float)SystemCoreClock;
@@ -62,27 +62,27 @@ void TIM_QuickInit(TIM_TypeDef *timer, float period_us) {
    ARR_val = (uint16_t)ARR_val_f;                           // floor
    if(ARR_val_f > ARR_VALUE_MAX) ARR_val = ARR_VALUE_MAX;   // saturation
    
-  /* set everything back to default values */
+  // set everything back to default values
   TIM_TimeBaseStructInit (&TIM_TimeBaseStructure);
-  /* only changes from the defaults are needed */
+  // only changes from the defaults are needed
   TIM_TimeBaseStructure.TIM_Period = ARR_val;
   TIM_TimeBaseStructure.TIM_Prescaler = PSC_val;
   TIM_TimeBaseInit (timer, &TIM_TimeBaseStructure);
 }
 
 /**
-* @brief 		Enables timers 1, 2, 3 or 4
-* @param 		Timer Timer to be used  
-* @return 	void
+* @brief         Enables timers 1, 2, 3 or 4
+* @param         Timer Timer to be used  
+* @return     void
 */
 void TIM_start (TIM_TypeDef *timer){
   TIM_Cmd (timer, ENABLE);
 }
  
 /**
-* @brief 		Disables timers 1, 2, 3 or 4
-* @param 		Timer Timer to be used  
-* @return 	void
+* @brief         Disables timers 1, 2, 3 or 4
+* @param         Timer Timer to be used  
+* @return     void
 */
 void TIM_disable (TIM_TypeDef *timer){
   TIM_Cmd (timer, DISABLE);
@@ -94,7 +94,7 @@ void TIM_disable (TIM_TypeDef *timer){
  * @brief Callback associated to ADC interrupts 
 */
 void TIM_Callback(void) {
-	// A VOIR CE QU'ON MET ICI...
+    // A VOIR CE QU'ON MET ICI...
 }
 
 /* Private functions ---------------------------------------------------------*/

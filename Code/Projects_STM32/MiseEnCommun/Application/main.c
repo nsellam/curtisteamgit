@@ -7,10 +7,10 @@
 uint64_t a;
 
 int main(void) {
-	SysTick_QuickInit();
-	
-	while (1) {
+    SysTick_QuickInit();
+    
+    while (1) {
 
-	}
-   return 0;
+    }
+    return 0;
 }

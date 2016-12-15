@@ -1,9 +1,9 @@
 /**
- * @file 		template.h
- * @author 	Curtis Team
- * @brief 	Header template for all the files of the project  
+ * @file	template.h
+ * @author	Curtis Team
+ * @brief	Header template for all the files of the project  
  */
- 
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef _TEMPLATE_H
 #define _TEMPLATE_H
@@ -23,5 +23,5 @@
 /* Exported functions ------------------------------------------------------- */
 
 void Template_Example_Public(void);
-			 
+
 #endif // _TEMPLATE_H

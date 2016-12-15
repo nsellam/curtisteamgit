@@ -1,7 +1,7 @@
 /**
- * @file 		tim.h
- * @author 	Curtis Team
- * @brief 	Headers of functions to handle Timers  
+ * @file	tim.h
+ * @author	Curtis Team
+ * @brief	Headers of functions to handle Timers  
  */
  
 /* Define to prevent recursive inclusion -------------------------------------*/

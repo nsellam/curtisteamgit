@@ -1,7 +1,7 @@
 /**
- * @file 		systick.h
- * @author 	Curtis Team
- * @brief 	Headers of functions to handle systick (STM internal time)  
+ * @file	systick.h
+ * @author	Curtis Team
+ * @brief	Headers of functions to handle systick (STM internal time)  
  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/

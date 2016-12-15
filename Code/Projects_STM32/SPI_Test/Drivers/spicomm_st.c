@@ -193,11 +193,11 @@ void handle_data_Rx(SPIComm_TransferStatus status) {
    crc = frame_buffer_Rx[FRAME_CRC_POS(data_buffer_Rx_size)];
 
    // check canary
-   error_canary = (Frame_Canary_Check(canary) != 0);
+   error_canary = (frame_canary_check(canary) != 0);
    error_canary_count += error_canary;
 
    // check crc
-   error_crc = (Frame_CRC_Check(frame_buffer_Rx, data_buffer_Rx_size + FRAME_CANARY_SIZE, crc) != 0);
+   error_crc = (frame_CRC_check(frame_buffer_Rx, data_buffer_Rx_size + FRAME_CANARY_SIZE, crc) != 0);
    error_crc_count += error_crc;
 
    // copy frame to data if no error
@@ -213,9 +213,9 @@ void handle_data_Tx(SPIComm_TransferStatus status) {
    // copy data to frame
    memcpy(frame_buffer_Tx, data_buffer_Tx, data_buffer_Tx_size);
    // add canary
-   frame_buffer_Tx[FRAME_CANARY_POS(data_buffer_Tx_size)] = Frame_Canary_Compute();
+   frame_buffer_Tx[FRAME_CANARY_POS(data_buffer_Tx_size)] = frame_canary_compute();
    // add crc
-   frame_buffer_Tx[FRAME_CRC_POS(data_buffer_Tx_size)] = Frame_CRC_Compute(frame_buffer_Tx, data_buffer_Tx_size + FRAME_CANARY_SIZE);
+   frame_buffer_Tx[FRAME_CRC_POS(data_buffer_Tx_size)] = frame_CRC_compute(frame_buffer_Tx, data_buffer_Tx_size + FRAME_CANARY_SIZE);
 }
 
 
