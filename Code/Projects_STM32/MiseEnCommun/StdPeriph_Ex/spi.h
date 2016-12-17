@@ -1,7 +1,7 @@
 /**
- * @file 	spi.h
- * @author 	Curtis Team
- * @brief 	Headers of functions to handle SPI
+ * @file    spi.h
+ * @author  Curtis Team
+ * @brief   Headers of functions to handle SPI
  */
  
 /* Define to prevent recursive inclusion -------------------------------------*/

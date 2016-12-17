@@ -1,7 +1,7 @@
 /**
- * @file 	it_handlers.c
- * @author 	Curtis Team
- * @brief 	Main Interrupt Service Routines 
+ * @file    it_handlers.c
+ * @author  Curtis Team
+ * @brief   Main Interrupt Service Routines 
 */
 
 /* Includes ------------------------------------------------------------------*/
@@ -60,7 +60,7 @@ __weak void SPI_ITHandler(SPI_TypeDef SPIx) {}
  * @retval None
 */
 void EXTI0_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line0);
+    EXTIx_IRQHandler(EXTI_Line0);
 }
 
 /**
@@ -69,7 +69,7 @@ void EXTI0_IRQHandler(void) {
  * @retval None
 */
 void EXTI1_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line1);
+    EXTIx_IRQHandler(EXTI_Line1);
 }
 
 /**
@@ -78,7 +78,7 @@ void EXTI1_IRQHandler(void) {
  * @retval None
 */
 void EXTI2_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line2);
+    EXTIx_IRQHandler(EXTI_Line2);
 }
 
 /**
@@ -87,7 +87,7 @@ void EXTI2_IRQHandler(void) {
  * @retval None
 */
 void EXTI3_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line3);
+    EXTIx_IRQHandler(EXTI_Line3);
 }
 
 /**
@@ -96,7 +96,7 @@ void EXTI3_IRQHandler(void) {
  * @retval None
 */
 void EXTI4_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line4);
+    EXTIx_IRQHandler(EXTI_Line4);
 }
 
 /**
@@ -105,11 +105,11 @@ void EXTI4_IRQHandler(void) {
  * @retval None
 */
 void EXTI9_5_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line5);
-	EXTIx_IRQHandler(EXTI_Line6);
-	EXTIx_IRQHandler(EXTI_Line7);
-	EXTIx_IRQHandler(EXTI_Line8);
-	EXTIx_IRQHandler(EXTI_Line9);
+    EXTIx_IRQHandler(EXTI_Line5);
+    EXTIx_IRQHandler(EXTI_Line6);
+    EXTIx_IRQHandler(EXTI_Line7);
+    EXTIx_IRQHandler(EXTI_Line8);
+    EXTIx_IRQHandler(EXTI_Line9);
 }
 
 /**
@@ -118,24 +118,24 @@ void EXTI9_5_IRQHandler(void) {
  * @retval None
 */
 void EXTI15_10_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line10);
-	EXTIx_IRQHandler(EXTI_Line11);
-	EXTIx_IRQHandler(EXTI_Line12);
-	EXTIx_IRQHandler(EXTI_Line13);
-	EXTIx_IRQHandler(EXTI_Line14);
-	EXTIx_IRQHandler(EXTI_Line15);
+    EXTIx_IRQHandler(EXTI_Line10);
+    EXTIx_IRQHandler(EXTI_Line11);
+    EXTIx_IRQHandler(EXTI_Line12);
+    EXTIx_IRQHandler(EXTI_Line13);
+    EXTIx_IRQHandler(EXTI_Line14);
+    EXTIx_IRQHandler(EXTI_Line15);
 }
 
 /**
- * @brief  Manages externa interrupts 
- * @param  None
- * @retval None
-*/
-void EXTIx_IRQHandler(uint32_t EXTI_Line) { 
-	if (EXTI_GetFlagStatus(EXTI_Line)) {
-		EXTI_ITHandler(EXTI_Line);
-		EXTI_ClearFlag(EXTI_Line);
-	}
+  * @brief  Handles all EXTI interrupt requests.
+  * @param  None
+  * @retval None
+  */
+__INLINE void EXTIx_IRQHandler(uint32_t EXTI_Line) { 
+    if (EXTI_GetFlagStatus(EXTI_Line) == SET) {
+        EXTI_Callback(EXTI_Line);
+        EXTI_ClearFlag(EXTI_Line);
+    }
 }
 
 void ADC1_2_IRQHandler (void) {
@@ -278,10 +278,9 @@ void NMI_Handler(void) {}
   * @param  None
   * @retval None
   */
-void HardFault_Handler(void)
-{
-  /* Go to infinite loop when Hard Fault exception occurs */
-  while (1) {}
+void HardFault_Handler(void) {
+  // Go to infinite loop when Hard Fault exception occurs
+  while(1) {}
 }
 
 /**
@@ -289,10 +288,9 @@ void HardFault_Handler(void)
   * @param  None
   * @retval None
   */
-void MemManage_Handler(void)
-{
-  /* Go to infinite loop when Memory Manage exception occurs */
-  while (1) {}
+void MemManage_Handler(void) {
+  // Go to infinite loop when Memory Manage exception occurs
+  while(1) {}
 }
 
 /**
@@ -300,10 +298,9 @@ void MemManage_Handler(void)
   * @param  None
   * @retval None
   */
-void BusFault_Handler(void)
-{
-  /* Go to infinite loop when Bus Fault exception occurs */
-  while (1) {}
+void BusFault_Handler(void) {
+  // Go to infinite loop when Bus Fault exception occurs
+  while(1) {}
 }
 
 /**
@@ -311,10 +308,9 @@ void BusFault_Handler(void)
   * @param  None
   * @retval None
   */
-void UsageFault_Handler(void)
-{
-  /* Go to infinite loop when Usage Fault exception occurs */
-  while (1) {}
+void UsageFault_Handler(void) {
+  // Go to infinite loop when Usage Fault exception occurs
+  while(1) {}
 }
 
 /**
@@ -344,5 +340,5 @@ void PendSV_Handler(void) {}
   * @retval None
   */
 void SysTick_Handler(void) {
-	SysTick_Callback();
+    SysTick_Callback();
 }
