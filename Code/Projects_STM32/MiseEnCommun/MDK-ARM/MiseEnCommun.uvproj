@@ -422,34 +422,9 @@
           <GroupName>StdPeriph_Ex</GroupName>
           <Files>
             <File>
-              <FileName>gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\gpio.c</FilePath>
-            </File>
-            <File>
               <FileName>it_handlers.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\StdPeriph_Ex\it_handlers.c</FilePath>
-            </File>
-            <File>
-              <FileName>exti.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\exti.c</FilePath>
-            </File>
-            <File>
-              <FileName>nvic.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\nvic.c</FilePath>
-            </File>
-            <File>
-              <FileName>systick.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\systick.c</FilePath>
-            </File>
-            <File>
-              <FileName>tim.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\tim.c</FilePath>
             </File>
             <File>
               <FileName>adc.c</FileName>
@@ -462,9 +437,34 @@
               <FilePath>..\StdPeriph_Ex\dma.c</FilePath>
             </File>
             <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\StdPeriph_Ex\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\StdPeriph_Ex\exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>nvic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\StdPeriph_Ex\nvic.c</FilePath>
+            </File>
+            <File>
               <FileName>spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\StdPeriph_Ex\spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>systick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\StdPeriph_Ex\systick.c</FilePath>
+            </File>
+            <File>
+              <FileName>tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\StdPeriph_Ex\tim.c</FilePath>
             </File>
             <File>
               <FileName>pwm.c</FileName>

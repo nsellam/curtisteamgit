@@ -10,7 +10,7 @@
 void PWM_Example(void);
 void ADC_Example(void);
 
-int main (void) {
+int main(void) {
 //    SysTick_QuickInit();
     
 //    PWM_Example();
