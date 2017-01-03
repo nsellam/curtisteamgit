@@ -43,6 +43,8 @@ __weak void EXTI_ITHandler(uint32_t EXTI_Line) {}
 
 __weak void SysTick_Callback(void) {}
     
+//__weak void EXTI_Callback(uint32_t EXTI_Line) {}
+    
 __weak void DMA_ITHandler(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {}
     
 __weak void ADC_ITHandler(ADC_TypeDef ADCx, uint8_t flags) {}
