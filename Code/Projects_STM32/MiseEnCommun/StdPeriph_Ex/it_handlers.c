@@ -1,7 +1,7 @@
 /**
  * @file    it_handlers.c
  * @author  Curtis Team
- * @brief   Main Interrupt Service Routines 
+ * @brief   Main Interrupt Service Routines
 */
 
 /* Includes ------------------------------------------------------------------*/
@@ -10,26 +10,37 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
-#define DMA_IRQ_HANDLER(dma, channel) \
-   DMA_ITHandler(DMA##dma##_Channel##channel,   ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_TE##channel) << 3) +\
-                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_HT##channel) << 2) +\
-                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_TC##channel) << 1) +\
-                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_GL##channel) << 0));\
-   DMA_ClearITPendingBit(DMA##dma##_IT_GL##channel);
 
 #define ADC_IRQ_HANDLER(adc) \
-   flags =  ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_FLAG_AWD)   << 4) + \
-            ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_FLAG_EOC)   << 3) + \
-            ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_FLAG_JEOC)  << 2) + \
-            ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_FLAG_JSTRT) << 1) + \
-            ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_FLAG_STRT)  << 0); \
+   flags =  ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_IT_AWD)   << 0) + \
+            ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_IT_EOC)   << 1) + \
+            ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_IT_JEOC)  << 2) ; \
    if (flags != 0) { \
-       ADC_ITHandler(*ADC##adc, flags); \
-       ADC_ClearITPendingBit(ADC##adc, ADC_FLAG_AWD); \
-       ADC_ClearITPendingBit(ADC##adc, ADC_FLAG_EOC); \
-       ADC_ClearITPendingBit(ADC##adc, ADC_FLAG_JEOC); \
-   } \
+       ADC_ITHandler(ADC##adc, flags); \
+       ADC_ClearITPendingBit(ADC##adc, ADC_IT_AWD | ADC_IT_EOC | ADC_IT_JEOC); \
+   }
 
+#define TIM_IRQ_HANDLER(tim) \
+   TIM_ITHandler(TIM##tim,  ((uint8_t) TIM_GetITStatus(TIM##tim, TIM_IT_Update)  << 0) + \
+                            ((uint8_t) TIM_GetITStatus(TIM##tim, TIM_IT_CC1)     << 1) + \
+                            ((uint8_t) TIM_GetITStatus(TIM##tim, TIM_IT_CC2)     << 2) + \
+                            ((uint8_t) TIM_GetITStatus(TIM##tim, TIM_IT_CC3)     << 3) + \
+                            ((uint8_t) TIM_GetITStatus(TIM##tim, TIM_IT_CC4)     << 4) + \
+                            ((uint8_t) TIM_GetITStatus(TIM##tim, TIM_IT_Trigger) << 6)); \
+   TIM_ClearITPendingBit(TIM##tim, TIM_IT_Update | TIM_IT_CC1 | TIM_IT_CC2 | TIM_IT_CC3 | TIM_IT_CC4 | TIM_IT_Trigger); \
+
+#define DMA_IRQ_HANDLER(dma, channel) \
+   DMA_ITHandler(DMA##dma##_Channel##channel,   ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_GL##channel) << 0) + \
+                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_TC##channel) << 1) + \
+                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_HT##channel) << 2) + \
+                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_TE##channel) << 3)); \
+   DMA_ClearITPendingBit(DMA##dma##_IT_GL##channel);
+
+#define EXTI_IRQ_HANDLER(exti) \
+    if (EXTI_GetITStatus(EXTI_Line##exti) == SET) { \
+        EXTI_ITHandler(EXTI_Line##exti); \
+        EXTI_ClearITPendingBit(EXTI_Line##exti); \
+    }
 
 /* Public variables ----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -37,19 +48,12 @@
 /* Public functions ----------------------------------------------------------*/
 
 /* Private functions ---------------------------------------------------------*/
-__INLINE void EXTIx_IRQHandler(uint32_t EXTI_Line);
-
 __weak void EXTI_ITHandler(uint32_t EXTI_Line) {}
-
-__weak void SysTick_ITHandler(void) {}
-        
 __weak void DMA_ITHandler(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {}
-    
-__weak void ADC_ITHandler(ADC_TypeDef ADCx, uint8_t flags) {}
-    
-__weak void TIM_ITHandler(TIM_TypeDef TIMx) {}
-    
-__weak void SPI_ITHandler(SPI_TypeDef SPIx) {}
+__weak void ADC_ITHandler(ADC_TypeDef* ADCx, uint8_t flags) {}
+__weak void TIM_ITHandler(TIM_TypeDef* TIMx) {}
+__weak void SPI_ITHandler(SPI_TypeDef* SPIx) {}
+__weak void SysTick_ITHandler(void) {}
 
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */
@@ -60,7 +64,7 @@ __weak void SPI_ITHandler(SPI_TypeDef SPIx) {}
  * @retval None
 */
 void EXTI0_IRQHandler(void) {
-    EXTIx_IRQHandler(EXTI_Line0);
+    EXTI_IRQ_HANDLER(0);
 }
 
 /**
@@ -69,7 +73,7 @@ void EXTI0_IRQHandler(void) {
  * @retval None
 */
 void EXTI1_IRQHandler(void) {
-    EXTIx_IRQHandler(EXTI_Line1);
+    EXTI_IRQ_HANDLER(1);
 }
 
 /**
@@ -78,7 +82,7 @@ void EXTI1_IRQHandler(void) {
  * @retval None
 */
 void EXTI2_IRQHandler(void) {
-    EXTIx_IRQHandler(EXTI_Line2);
+    EXTI_IRQ_HANDLER(2);
 }
 
 /**
@@ -87,7 +91,7 @@ void EXTI2_IRQHandler(void) {
  * @retval None
 */
 void EXTI3_IRQHandler(void) {
-    EXTIx_IRQHandler(EXTI_Line3);
+    EXTI_IRQ_HANDLER(3);
 }
 
 /**
@@ -96,7 +100,7 @@ void EXTI3_IRQHandler(void) {
  * @retval None
 */
 void EXTI4_IRQHandler(void) {
-    EXTIx_IRQHandler(EXTI_Line4);
+    EXTI_IRQ_HANDLER(4);
 }
 
 /**
@@ -105,11 +109,11 @@ void EXTI4_IRQHandler(void) {
  * @retval None
 */
 void EXTI9_5_IRQHandler(void) {
-    EXTIx_IRQHandler(EXTI_Line5);
-    EXTIx_IRQHandler(EXTI_Line6);
-    EXTIx_IRQHandler(EXTI_Line7);
-    EXTIx_IRQHandler(EXTI_Line8);
-    EXTIx_IRQHandler(EXTI_Line9);
+    EXTI_IRQ_HANDLER(5);
+    EXTI_IRQ_HANDLER(6);
+    EXTI_IRQ_HANDLER(7);
+    EXTI_IRQ_HANDLER(8);
+    EXTI_IRQ_HANDLER(9);
 }
 
 /**
@@ -118,28 +122,22 @@ void EXTI9_5_IRQHandler(void) {
  * @retval None
 */
 void EXTI15_10_IRQHandler(void) {
-    EXTIx_IRQHandler(EXTI_Line10);
-    EXTIx_IRQHandler(EXTI_Line11);
-    EXTIx_IRQHandler(EXTI_Line12);
-    EXTIx_IRQHandler(EXTI_Line13);
-    EXTIx_IRQHandler(EXTI_Line14);
-    EXTIx_IRQHandler(EXTI_Line15);
+    EXTI_IRQ_HANDLER(10);
+    EXTI_IRQ_HANDLER(11);
+    EXTI_IRQ_HANDLER(12);
+    EXTI_IRQ_HANDLER(13);
+    EXTI_IRQ_HANDLER(14);
+    EXTI_IRQ_HANDLER(15);
 }
+
 
 /**
-  * @brief  Handles all EXTI interrupt requests.
-  * @param  None
-  * @retval None
-  */
-__INLINE void EXTIx_IRQHandler(uint32_t EXTI_Line) { 
-    if (EXTI_GetFlagStatus(EXTI_Line) == SET) {
-        EXTI_ITHandler(EXTI_Line);
-        EXTI_ClearFlag(EXTI_Line);
-    }
-}
-
-void ADC1_2_IRQHandler (void) {
-    uint8_t flags = 0; 
+ * @brief  Handles ADC1_2_IRQHandler interrupt request.
+ * @param  None
+ * @retval None
+*/
+void ADC1_2_IRQHandler(void) {
+    uint8_t flags = 0;
     ADC_IRQ_HANDLER(1)
     ADC_IRQ_HANDLER(2)
 }
@@ -214,7 +212,7 @@ void DMA1_Channel7_IRQHandler(void) {
  * @retval None
 */
 void TIM1_UP_IRQHandler(void) {
-    TIM_ITHandler(*TIM1);
+    TIM_ITHandler(TIM1);
 }
 
 /**
@@ -223,7 +221,7 @@ void TIM1_UP_IRQHandler(void) {
  * @retval None
 */
 void TIM2_IRQHandler(void) {
-    TIM_ITHandler(*TIM2);
+    TIM_ITHandler(TIM2);
 }
 
 /**
@@ -232,7 +230,7 @@ void TIM2_IRQHandler(void) {
  * @retval None
 */
 void TIM3_IRQHandler(void) {
-    TIM_ITHandler(*TIM3);
+    TIM_ITHandler(TIM3);
 }
 
 /**
@@ -241,7 +239,7 @@ void TIM3_IRQHandler(void) {
  * @retval None
 */
 void TIM4_IRQHandler(void) {
-    TIM_ITHandler(*TIM4);
+    TIM_ITHandler(TIM4);
 }
 
 /**
@@ -250,7 +248,7 @@ void TIM4_IRQHandler(void) {
  * @retval None
 */
 void SPI1_IRQHandler(void) {
-    SPI_ITHandler(*SPI1);
+    SPI_ITHandler(SPI1);
 }
 
 /**
@@ -259,7 +257,7 @@ void SPI1_IRQHandler(void) {
  * @retval None
 */
 void SPI2_IRQHandler(void) {
-    SPI_ITHandler(*SPI2);
+    SPI_ITHandler(SPI2);
 }
 
 /******************************************************************************/
