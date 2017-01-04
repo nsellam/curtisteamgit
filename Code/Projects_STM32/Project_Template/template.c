@@ -1,7 +1,7 @@
 /**
-  * @file 	template.c
-  * @author Curtis Team
-  * @brief 	Template for all the files of the project  
+ * @file	template.c
+ * @author	Curtis Team
+ * @brief	Template for all the files of the project  
  */
 
 /* Includes ------------------------------------------------------------------*/
@@ -14,7 +14,7 @@
 /**
   * @brief  This is a private variable
   */
-int my_private_variable; 	
+int my_private_variable;     
 
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/

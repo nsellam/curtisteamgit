@@ -1,7 +1,7 @@
 /**
- * @file 	tim.h
- * @author 	Curtis Team
- * @brief 	Headers of functions to handle Timers  
+ * @file    tim.h
+ * @author  Curtis Team
+ * @brief   Headers of functions to handle Timers  
 */
  
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -32,14 +32,14 @@ typedef enum
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void TIM_QuickInit(TIM_TypeDef *Timer, float period_us);
+void TIM_QuickInit(TIM_TypeDef *TIMx, float period_us);
 
-void TIM_Start(TIM_TypeDef *timer);
-void TIM_Stop(TIM_TypeDef *timer);
+void TIM_Start(TIM_TypeDef *TIMx);
+void TIM_Stop(TIM_TypeDef *TIMx);
 
 void TIM_Callback(TIM_TypeDef TIMx);
 
 int TIM_Remap(TIM_TypeDef TIMx, TIM_remap_TypeDef RemapType);
-TIM_remap_TypeDef TIM_RemapStatus(TIM_TypeDef TIMx);
+TIM_remap_TypeDef TIM_RemapStatus(TIM_TypeDef *TIMx);
 
 #endif // _TIM_H
