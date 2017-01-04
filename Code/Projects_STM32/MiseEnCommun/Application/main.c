@@ -38,5 +38,5 @@ void PWM_Example(void) {
  * @retval 	None
 */
 void ADC_Example(void) {
-    ADC_QuickInit(ADC1, GPIOA, GPIO_Pin_0, ADC_SampleTime_71Cycles5, 0);
+    ADC_QuickInit(ADC1, GPIOA, GPIO_Pin_0, 0, ADC_SampleTime_71Cycles5);
 }

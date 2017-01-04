@@ -5,6 +5,8 @@
 */
 
 /* Includes ------------------------------------------------------------------*/
+#include <stdint.h>
+#include <stm32f10x.h>
 #include "it_handlers.h"
 
 /* Private typedef -----------------------------------------------------------*/
@@ -12,26 +14,20 @@
 /* Private macro -------------------------------------------------------------*/
 
 #define ADC_IRQ_HANDLER(adc) \
-   flags =  ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_IT_AWD)   << 0) + \
-            ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_IT_EOC)   << 1) + \
-            ((uint8_t) ADC_GetITStatus(ADC##adc, ADC_IT_JEOC)  << 2) ; \
-   if (flags != 0) { \
-       ADC_ITHandler(ADC##adc, flags); \
+   if ( (ADC_GetITStatus(ADC##adc, ADC_IT_AWD ) == SET) || \
+        (ADC_GetITStatus(ADC##adc, ADC_IT_EOC ) == SET) || \
+        (ADC_GetITStatus(ADC##adc, ADC_IT_JEOC) == SET) ) \
+   { \
+       ADC_ITHandler(ADC##adc); \
        ADC_ClearITPendingBit(ADC##adc, ADC_IT_AWD | ADC_IT_EOC | ADC_IT_JEOC); \
    }
 
 #define TIM_IRQ_HANDLER(tim) \
-   TIM_ITHandler(TIM##tim,  ((uint8_t) TIM_GetITStatus(TIM##tim, TIM_IT_Update)  << 0) + \
-                            ((uint8_t) TIM_GetITStatus(TIM##tim, TIM_IT_CC1)     << 1) + \
-                            ((uint8_t) TIM_GetITStatus(TIM##tim, TIM_IT_CC2)     << 2) + \
-                            ((uint8_t) TIM_GetITStatus(TIM##tim, TIM_IT_CC3)     << 3) + \
-                            ((uint8_t) TIM_GetITStatus(TIM##tim, TIM_IT_CC4)     << 4) + \
-                            ((uint8_t) TIM_GetITStatus(TIM##tim, TIM_IT_Trigger) << 6)); \
-   TIM_ClearITPendingBit(TIM##tim, TIM_IT_Update | TIM_IT_CC1 | TIM_IT_CC2 | TIM_IT_CC3 | TIM_IT_CC4 | TIM_IT_Trigger); \
+   TIM_ITHandler(TIM##tim); \
+   TIM_ClearITPendingBit(TIM##tim, TIM_IT_Update | TIM_IT_CC1 | TIM_IT_CC2 | TIM_IT_CC3 | TIM_IT_CC4 | TIM_IT_COM | TIM_IT_Trigger | TIM_IT_Break); \
 
 #define DMA_IRQ_HANDLER(dma, channel) \
-   DMA_ITHandler(DMA##dma##_Channel##channel,   ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_GL##channel) << 0) + \
-                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_TC##channel) << 1) + \
+   DMA_ITHandler(DMA##dma##_Channel##channel,   ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_TC##channel) << 1) + \
                                                 ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_HT##channel) << 2) + \
                                                 ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_TE##channel) << 3)); \
    DMA_ClearITPendingBit(DMA##dma##_IT_GL##channel);
@@ -48,9 +44,10 @@
 /* Public functions ----------------------------------------------------------*/
 
 /* Private functions ---------------------------------------------------------*/
+
 __weak void EXTI_ITHandler(uint32_t EXTI_Line) {}
 __weak void DMA_ITHandler(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {}
-__weak void ADC_ITHandler(ADC_TypeDef* ADCx, uint8_t flags) {}
+__weak void ADC_ITHandler(ADC_TypeDef* ADCx) {}
 __weak void TIM_ITHandler(TIM_TypeDef* TIMx) {}
 __weak void SPI_ITHandler(SPI_TypeDef* SPIx) {}
 __weak void SysTick_ITHandler(void) {}

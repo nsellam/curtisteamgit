@@ -5,6 +5,8 @@
  */
 
 /* Includes ------------------------------------------------------------------*/
+#include <stdint.h>
+#include <stm32f10x.h>
 #include "gpio.h"
 
 /* Private typedef -----------------------------------------------------------*/
@@ -31,7 +33,7 @@ void GPIO_ClockEnable(GPIO_TypeDef *GPIOx);
  *      @arg GPIO_Mode_AF_PP
  * @retval  None
  */
-void GPIO_QuickInit(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIOMode_TypeDef GPIO_Mode) {
+void GPIO_QuickInit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, GPIOMode_TypeDef GPIO_Mode) {
     GPIO_InitTypeDef GPIO_InitStruct;
 
     GPIO_ClockEnable(GPIOx);
@@ -49,7 +51,7 @@ void GPIO_QuickInit(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIOMode_TypeDef GPI
  * @param   GPIOx: where x can be (A..G) to select the GPIO peripheral.
  * @retval  None
  */
-void GPIO_ClockEnable(GPIO_TypeDef *GPIOx) {
+void GPIO_ClockEnable(GPIO_TypeDef* GPIOx) {
         if (GPIOx == GPIOA) RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
    else if (GPIOx == GPIOB) RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
    else if (GPIOx == GPIOC) RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
