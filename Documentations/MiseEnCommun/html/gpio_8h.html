@@ -78,16 +78,16 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab8204830ab410ab60648b5ec73f288cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8h.html#ab8204830ab410ab60648b5ec73f288cf">GPIO_QuickInit</a> (GPIO_TypeDef *GPIOx, uint16_t pin, GPIOMode_TypeDef mode)</td></tr>
-<tr class="memdesc:ab8204830ab410ab60648b5ec73f288cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Pin with the parameters specified.  <a href="#ab8204830ab410ab60648b5ec73f288cf">More...</a><br /></td></tr>
-<tr class="separator:ab8204830ab410ab60648b5ec73f288cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99a12b48b7b8c21c7864af515fbfccd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8h.html#a99a12b48b7b8c21c7864af515fbfccd3">GPIO_QuickInit</a> (GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIOMode_TypeDef GPIO_Mode)</td></tr>
+<tr class="memdesc:a99a12b48b7b8c21c7864af515fbfccd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Pin with the parameters specified.  <a href="#a99a12b48b7b8c21c7864af515fbfccd3">More...</a><br /></td></tr>
+<tr class="separator:a99a12b48b7b8c21c7864af515fbfccd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Headers of functions to handle GPIO. </p>
 <dl class="section author"><dt>Author</dt><dd>Curtis Team </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ab8204830ab410ab60648b5ec73f288cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8204830ab410ab60648b5ec73f288cf">&sect;&nbsp;</a></span>GPIO_QuickInit()</h2>
+<a id="a99a12b48b7b8c21c7864af515fbfccd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99a12b48b7b8c21c7864af515fbfccd3">&sect;&nbsp;</a></span>GPIO_QuickInit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -102,13 +102,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>pin</em>, </td>
+          <td class="paramname"><em>GPIO_Pin</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">GPIOMode_TypeDef&#160;</td>
-          <td class="paramname"><em>mode</em>&#160;</td>
+          <td class="paramname"><em>GPIO_Mode</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -121,9 +121,19 @@ Functions</h2></td></tr>
 <p>Makes the initialization of the given Pin with the parameters specified. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">GPIOx</td><td>GPIO_TypeDef (port of the pin to init) </td></tr>
-    <tr><td class="paramname">pin</td><td>uint16_t (# of the pin to init) </td></tr>
-    <tr><td class="paramname">mode</td><td>GPIOMode_TypeDef (mode of GPIO =&gt; GPIO_Mode_AIN, GPIO_Mode_IN_FLOATING, GPIO_Mode_IPD, GPIO_Mode_IPU, GPIO_Mode_Out_OD, GPIO_Mode_Out_PP, GPIO_Mode_AF_OD, GPIO_Mode_AF_PP8) </td></tr>
+    <tr><td class="paramname">GPIOx</td><td>where x can be (A..G) to select the GPIO peripheral. </td></tr>
+    <tr><td class="paramname">GPIO_Pin</td><td>specifies the port bit to read. This parameter can be GPIO_Pin_x where x can be (0..15). </td></tr>
+    <tr><td class="paramname">GPIO_Mode</td><td>mode of GPIO <ul>
+<li>GPIO_Mode_AIN </li>
+<li>GPIO_Mode_IN_FLOATING </li>
+<li>GPIO_Mode_IPD </li>
+<li>GPIO_Mode_IPU </li>
+<li>GPIO_Mode_Out_OD </li>
+<li>GPIO_Mode_Out_PP </li>
+<li>GPIO_Mode_AF_OD </li>
+<li>GPIO_Mode_AF_PP </li>
+</ul>
+</td></tr>
   </table>
   </dd>
 </dl>

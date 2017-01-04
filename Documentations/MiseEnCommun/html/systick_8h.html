@@ -100,7 +100,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syst
 <tr class="separator:ac4da2262c9e029e8213116c8482099b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1776ae73b563f2f9fc51d6cd626f1a62"><td class="memItemLeft" align="right" valign="top"><a id="a1776ae73b563f2f9fc51d6cd626f1a62"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="systick_8h.html#a1776ae73b563f2f9fc51d6cd626f1a62">SysTick_Callback</a> (void)</td></tr>
-<tr class="memdesc:a1776ae73b563f2f9fc51d6cd626f1a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback associated to SysTick. Increments current time. <br /></td></tr>
+<tr class="memdesc:a1776ae73b563f2f9fc51d6cd626f1a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback associated to SysTick. Please add here your periodic functions. <br /></td></tr>
 <tr class="separator:a1776ae73b563f2f9fc51d6cd626f1a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -124,7 +124,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syst
 </div><div class="memdoc">
 
 <p>Returns the current STM32 time. </p>
-<dl class="section return"><dt>Returns</dt><dd>uint64_t (time elapsed since systick initialization expressed in milliseconds) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>uint64_t Time elapsed since initialization </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Result</td><td>is expressed in ms </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

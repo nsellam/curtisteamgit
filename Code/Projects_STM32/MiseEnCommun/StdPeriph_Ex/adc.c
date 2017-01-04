@@ -106,7 +106,7 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
  * @brief Callback associated to ADC interrupts 
 */
 void ADC_Callback(void) {
-    // A VOIR CE QU'ON MET ICI...
+    // UNUSED
 }
 
 /* Private functions ---------------------------------------------------------*/

@@ -93,10 +93,10 @@ __weak void EXTI_Callback(uint32_t EXTI_Line) {}
 
 /* Private functions ---------------------------------------------------------*/
 /**
- * @brief     Returns EXTI_Line associated to Pin number passed in argument
- * @param     pin uint16_t (Pin number with numerotation given by GPIO_Pin_X)
- * @return     uint32_t (EXTI_Line corresponding to Pin passed as argument)
- * @retval     EXTI_Line0 to EXTI_Line15 if Pin is valid, ERROR_LINE_UNREACHABLE if not
+ * @brief       Returns EXTI_Line associated to Pin number passed in argument
+ * @param       pin uint16_t (Pin number with numerotation given by GPIO_Pin_X)
+ * @return      uint32_t (EXTI_Line corresponding to Pin passed as argument)
+ * @retval      EXTI_Line0 to EXTI_Line15 if Pin is valid, ERROR_LINE_UNREACHABLE if not
 */
 uint32_t GPIO_Pin_to_EXTI_Line(uint16_t pin) {
     switch (pin) {

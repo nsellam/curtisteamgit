@@ -84,15 +84,15 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aab4ead34f11ccc9948b48ba6731e43df"><td class="memItemLeft" align="right" valign="top">__INLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#aab4ead34f11ccc9948b48ba6731e43df">EXTIx_IRQHandler</a> (uint32_t EXTI_Line)</td></tr>
-<tr class="memdesc:aab4ead34f11ccc9948b48ba6731e43df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages externa interrupts.  <a href="#aab4ead34f11ccc9948b48ba6731e43df">More...</a><br /></td></tr>
-<tr class="separator:aab4ead34f11ccc9948b48ba6731e43df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a265be0e992f52eb2652fc83baa754d26"><td class="memItemLeft" align="right" valign="top">__INLINE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8c.html#a265be0e992f52eb2652fc83baa754d26">EXTIx_IRQHandler</a> (uint32_t EXTI_Line)</td></tr>
+<tr class="memdesc:a265be0e992f52eb2652fc83baa754d26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles all EXTI interrupt requests.  <a href="#a265be0e992f52eb2652fc83baa754d26">More...</a><br /></td></tr>
+<tr class="separator:a265be0e992f52eb2652fc83baa754d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a563c57a4447176b663c3026d3537a1"><td class="memItemLeft" align="right" valign="top"><a id="a7a563c57a4447176b663c3026d3537a1"></a>
 __weak void&#160;</td><td class="memItemRight" valign="bottom"><b>EXTI_ITHandler</b> (uint32_t EXTI_Line)</td></tr>
 <tr class="separator:a7a563c57a4447176b663c3026d3537a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acab88d32995a14a6120f9f2bcc24de5c"><td class="memItemLeft" align="right" valign="top"><a id="acab88d32995a14a6120f9f2bcc24de5c"></a>
-__weak void&#160;</td><td class="memItemRight" valign="bottom"><b>SysTick_Callback</b> (void)</td></tr>
-<tr class="separator:acab88d32995a14a6120f9f2bcc24de5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a746868e4a254cd5e9900099b6e286691"><td class="memItemLeft" align="right" valign="top"><a id="a746868e4a254cd5e9900099b6e286691"></a>
+__weak void&#160;</td><td class="memItemRight" valign="bottom"><b>SysTick_ITHandler</b> (void)</td></tr>
+<tr class="separator:a746868e4a254cd5e9900099b6e286691"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03a8748b703ea6d28520628143071e09"><td class="memItemLeft" align="right" valign="top"><a id="a03a8748b703ea6d28520628143071e09"></a>
 __weak void&#160;</td><td class="memItemRight" valign="bottom"><b>DMA_ITHandler</b> (DMA_Channel_TypeDef *DMAy_Channelx, uint8_t flags)</td></tr>
 <tr class="separator:a03a8748b703ea6d28520628143071e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -243,7 +243,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ADC1_2_IRQHandler</b>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="dma_8c.html#aac23c67b210acba646f913ddb26d225c">DMA_ITHandler</a>(DMA##dma##_Channel##channel,   ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_TE##channel) &lt;&lt; 3) +\</div><div class="line">                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_HT##channel) &lt;&lt; 2) +\</div><div class="line">                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_TC##channel) &lt;&lt; 1) +\</div><div class="line">                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_GL##channel) &lt;&lt; 0));\</div><div class="line">   DMA_ClearITPendingBit(DMA##dma##_IT_GL##channel);</div><div class="ttc" id="dma_8c_html_aac23c67b210acba646f913ddb26d225c"><div class="ttname"><a href="dma_8c.html#aac23c67b210acba646f913ddb26d225c">DMA_ITHandler</a></div><div class="ttdeci">void DMA_ITHandler(DMA_Channel_TypeDef *DMAy_Channelx, uint8_t flags)</div><div class="ttdoc">Handler associated to DMA. </div><div class="ttdef"><b>Definition:</b> dma.c:107</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="dma_8c.html#aac23c67b210acba646f913ddb26d225c">DMA_ITHandler</a>(DMA##dma##_Channel##channel,   ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_TE##channel) &lt;&lt; 3) +\</div><div class="line">                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_HT##channel) &lt;&lt; 2) +\</div><div class="line">                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_TC##channel) &lt;&lt; 1) +\</div><div class="line">                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_FLAG_GL##channel) &lt;&lt; 0));\</div><div class="line">   DMA_ClearITPendingBit(DMA##dma##_IT_GL##channel);</div><div class="ttc" id="dma_8c_html_aac23c67b210acba646f913ddb26d225c"><div class="ttname"><a href="dma_8c.html#aac23c67b210acba646f913ddb26d225c">DMA_ITHandler</a></div><div class="ttdeci">void DMA_ITHandler(DMA_Channel_TypeDef *DMAy_Channelx, uint8_t flags)</div><div class="ttdoc">Handler associated to DMA. </div><div class="ttdef"><b>Definition:</b> dma.c:108</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -760,14 +760,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ADC1_2_IRQHandler</b>
 
 </div>
 </div>
-<a id="aab4ead34f11ccc9948b48ba6731e43df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab4ead34f11ccc9948b48ba6731e43df">&sect;&nbsp;</a></span>EXTIx_IRQHandler()</h2>
+<a id="a265be0e992f52eb2652fc83baa754d26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a265be0e992f52eb2652fc83baa754d26">&sect;&nbsp;</a></span>EXTIx_IRQHandler()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void EXTIx_IRQHandler </td>
+          <td class="memname">__INLINE void EXTIx_IRQHandler </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>EXTI_Line</em></td><td>)</td>
@@ -776,7 +776,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ADC1_2_IRQHandler</b>
       </table>
 </div><div class="memdoc">
 
-<p>Manages externa interrupts. </p>
+<p>Handles all EXTI interrupt requests. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>

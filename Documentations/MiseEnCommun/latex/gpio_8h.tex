@@ -9,7 +9,7 @@ Headers of functions to handle G\+P\+IO.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{gpio_8h_ab8204830ab410ab60648b5ec73f288cf}{G\+P\+I\+O\+\_\+\+Quick\+Init} (G\+P\+I\+O\+\_\+\+Type\+Def $\ast$G\+P\+I\+Ox, uint16\+\_\+t pin, G\+P\+I\+O\+Mode\+\_\+\+Type\+Def mode)
+void \hyperlink{gpio_8h_a99a12b48b7b8c21c7864af515fbfccd3}{G\+P\+I\+O\+\_\+\+Quick\+Init} (G\+P\+I\+O\+\_\+\+Type\+Def $\ast$G\+P\+I\+Ox, uint16\+\_\+t G\+P\+I\+O\+\_\+\+Pin, G\+P\+I\+O\+Mode\+\_\+\+Type\+Def G\+P\+I\+O\+\_\+\+Mode)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given Pin with the parameters specified. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -22,11 +22,11 @@ Curtis Team
 
 
 \subsection{Function Documentation}
-\hypertarget{gpio_8h_ab8204830ab410ab60648b5ec73f288cf}{}\label{gpio_8h_ab8204830ab410ab60648b5ec73f288cf} 
+\hypertarget{gpio_8h_a99a12b48b7b8c21c7864af515fbfccd3}{}\label{gpio_8h_a99a12b48b7b8c21c7864af515fbfccd3} 
 \index{gpio.\+h@{gpio.\+h}!G\+P\+I\+O\+\_\+\+Quick\+Init@{G\+P\+I\+O\+\_\+\+Quick\+Init}}
 \index{G\+P\+I\+O\+\_\+\+Quick\+Init@{G\+P\+I\+O\+\_\+\+Quick\+Init}!gpio.\+h@{gpio.\+h}}
 \subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Quick\+Init()}{GPIO\_QuickInit()}}
-{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+\+Quick\+Init (\begin{DoxyParamCaption}\item[{G\+P\+I\+O\+\_\+\+Type\+Def $\ast$}]{G\+P\+I\+Ox,  }\item[{uint16\+\_\+t}]{pin,  }\item[{G\+P\+I\+O\+Mode\+\_\+\+Type\+Def}]{mode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+\+Quick\+Init (\begin{DoxyParamCaption}\item[{G\+P\+I\+O\+\_\+\+Type\+Def $\ast$}]{G\+P\+I\+Ox,  }\item[{uint16\+\_\+t}]{G\+P\+I\+O\+\_\+\+Pin,  }\item[{G\+P\+I\+O\+Mode\+\_\+\+Type\+Def}]{G\+P\+I\+O\+\_\+\+Mode }\end{DoxyParamCaption})}
 
 
 
@@ -34,11 +34,13 @@ Makes the initialization of the given Pin with the parameters specified.
 
 
 \begin{DoxyParams}{Parameters}
-{\em G\+P\+I\+Ox} & G\+P\+I\+O\+\_\+\+Type\+Def (port of the pin to init) \\
+{\em G\+P\+I\+Ox} & where x can be (A..G) to select the G\+P\+IO peripheral. \\
 \hline
-{\em pin} & uint16\+\_\+t (\# of the pin to init) \\
+{\em G\+P\+I\+O\+\_\+\+Pin} & specifies the port bit to read. This parameter can be G\+P\+I\+O\+\_\+\+Pin\+\_\+x where x can be (0..15). \\
 \hline
-{\em mode} & G\+P\+I\+O\+Mode\+\_\+\+Type\+Def (mode of G\+P\+IO =$>$ G\+P\+I\+O\+\_\+\+Mode\+\_\+\+A\+IN, G\+P\+I\+O\+\_\+\+Mode\+\_\+\+I\+N\+\_\+\+F\+L\+O\+A\+T\+I\+NG, G\+P\+I\+O\+\_\+\+Mode\+\_\+\+I\+PD, G\+P\+I\+O\+\_\+\+Mode\+\_\+\+I\+PU, G\+P\+I\+O\+\_\+\+Mode\+\_\+\+Out\+\_\+\+OD, G\+P\+I\+O\+\_\+\+Mode\+\_\+\+Out\+\_\+\+PP, G\+P\+I\+O\+\_\+\+Mode\+\_\+\+A\+F\+\_\+\+OD, G\+P\+I\+O\+\_\+\+Mode\+\_\+\+A\+F\+\_\+\+P\+P8) \\
+{\em G\+P\+I\+O\+\_\+\+Mode} & mode of G\+P\+IO \begin{DoxyItemize}
+\item G\+P\+I\+O\+\_\+\+Mode\+\_\+\+A\+IN \item G\+P\+I\+O\+\_\+\+Mode\+\_\+\+I\+N\+\_\+\+F\+L\+O\+A\+T\+I\+NG \item G\+P\+I\+O\+\_\+\+Mode\+\_\+\+I\+PD \item G\+P\+I\+O\+\_\+\+Mode\+\_\+\+I\+PU \item G\+P\+I\+O\+\_\+\+Mode\+\_\+\+Out\+\_\+\+OD \item G\+P\+I\+O\+\_\+\+Mode\+\_\+\+Out\+\_\+\+PP \item G\+P\+I\+O\+\_\+\+Mode\+\_\+\+A\+F\+\_\+\+OD \item G\+P\+I\+O\+\_\+\+Mode\+\_\+\+A\+F\+\_\+\+PP \end{DoxyItemize}
+\\
 \hline
 \end{DoxyParams}
 

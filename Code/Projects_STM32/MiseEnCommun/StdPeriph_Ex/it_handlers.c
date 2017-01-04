@@ -41,7 +41,7 @@ __INLINE void EXTIx_IRQHandler(uint32_t EXTI_Line);
 
 __weak void EXTI_ITHandler(uint32_t EXTI_Line) {}
 
-__weak void SysTick_Callback(void) {}
+__weak void SysTick_ITHandler(void) {}
         
 __weak void DMA_ITHandler(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {}
     
@@ -340,5 +340,5 @@ void PendSV_Handler(void) {}
   * @retval None
   */
 void SysTick_Handler(void) {
-    SysTick_Callback();
+    SysTick_ITHandler();
 }

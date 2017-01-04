@@ -16,13 +16,13 @@ Main Interrupt Service Routines.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\+\_\+\+\_\+\+I\+N\+L\+I\+NE void \hyperlink{it__handlers_8c_aab4ead34f11ccc9948b48ba6731e43df}{E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
-\begin{DoxyCompactList}\small\item\em Manages externa interrupts. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+\+I\+N\+L\+I\+NE void \hyperlink{it__handlers_8c_a265be0e992f52eb2652fc83baa754d26}{E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
+\begin{DoxyCompactList}\small\item\em Handles all E\+X\+TI interrupt requests. \end{DoxyCompactList}\item 
 \hypertarget{it__handlers_8c_a7a563c57a4447176b663c3026d3537a1}{}\label{it__handlers_8c_a7a563c57a4447176b663c3026d3537a1} 
 \+\_\+\+\_\+weak void {\bfseries E\+X\+T\+I\+\_\+\+I\+T\+Handler} (uint32\+\_\+t E\+X\+T\+I\+\_\+\+Line)
 \item 
-\hypertarget{it__handlers_8c_acab88d32995a14a6120f9f2bcc24de5c}{}\label{it__handlers_8c_acab88d32995a14a6120f9f2bcc24de5c} 
-\+\_\+\+\_\+weak void {\bfseries Sys\+Tick\+\_\+\+Callback} (void)
+\hypertarget{it__handlers_8c_a746868e4a254cd5e9900099b6e286691}{}\label{it__handlers_8c_a746868e4a254cd5e9900099b6e286691} 
+\+\_\+\+\_\+weak void {\bfseries Sys\+Tick\+\_\+\+I\+T\+Handler} (void)
 \item 
 \hypertarget{it__handlers_8c_a03a8748b703ea6d28520628143071e09}{}\label{it__handlers_8c_a03a8748b703ea6d28520628143071e09} 
 \+\_\+\+\_\+weak void {\bfseries D\+M\+A\+\_\+\+I\+T\+Handler} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint8\+\_\+t flags)
@@ -469,15 +469,15 @@ Handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request.
 {\em None} & \\
 \hline
 \end{DoxyRetVals}
-\hypertarget{it__handlers_8c_aab4ead34f11ccc9948b48ba6731e43df}{}\label{it__handlers_8c_aab4ead34f11ccc9948b48ba6731e43df} 
+\hypertarget{it__handlers_8c_a265be0e992f52eb2652fc83baa754d26}{}\label{it__handlers_8c_a265be0e992f52eb2652fc83baa754d26} 
 \index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler}}
 \index{E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
 \subsubsection{\texorpdfstring{E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler()}{EXTIx\_IRQHandler()}}
-{\footnotesize\ttfamily void E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{E\+X\+T\+I\+\_\+\+Line }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+I\+N\+L\+I\+NE void E\+X\+T\+Ix\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{E\+X\+T\+I\+\_\+\+Line }\end{DoxyParamCaption})}
 
 
 
-Manages externa interrupts. 
+Handles all E\+X\+TI interrupt requests. 
 
 
 \begin{DoxyParams}{Parameters}

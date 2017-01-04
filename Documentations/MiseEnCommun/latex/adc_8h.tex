@@ -6,11 +6,22 @@ Headers of functions to handle A\+D\+Cs.
 
 
 {\ttfamily \#include \char`\"{}stm32f10x.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{adc_8h_a0f7cda37635b155238cafee84040dea6}{}\label{adc_8h_a0f7cda37635b155238cafee84040dea6} 
+\#define \hyperlink{adc_8h_a0f7cda37635b155238cafee84040dea6}{A\+D\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}~0
+\begin{DoxyCompactList}\small\item\em Given pin was succesfully initialize as analogic input. \end{DoxyCompactList}\item 
+\hypertarget{adc_8h_a6e26ec74ab495237e852f1ce42b8f13c}{}\label{adc_8h_a6e26ec74ab495237e852f1ce42b8f13c} 
+\#define \hyperlink{adc_8h_a6e26ec74ab495237e852f1ce42b8f13c}{A\+D\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+O\+RT}~-\/1
+\begin{DoxyCompactList}\small\item\em Given pin couldn\textquotesingle{}t be initialize \+: port is unreachable. \end{DoxyCompactList}\item 
+\hypertarget{adc_8h_a0b870445558a3d9a59773dc14e617a98}{}\label{adc_8h_a0b870445558a3d9a59773dc14e617a98} 
+\#define \hyperlink{adc_8h_a0b870445558a3d9a59773dc14e617a98}{A\+D\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+IN}~-\/2
+\begin{DoxyCompactList}\small\item\em Given pin couldn\textquotesingle{}t be initialize \+: pin is unreachable. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{adc_8h_acd3cc2c34b033aed1eda43df0bc9ae88}{}\label{adc_8h_acd3cc2c34b033aed1eda43df0bc9ae88} 
-void \hyperlink{adc_8h_acd3cc2c34b033aed1eda43df0bc9ae88}{A\+D\+C\+\_\+\+Quick\+Init} (A\+D\+C\+\_\+\+Type\+Def $\ast$A\+D\+Cx, uint8\+\_\+t channelx, uint8\+\_\+t Sample\+Time, uint8\+\_\+t Rank)
+int \hyperlink{adc_8h_a012b21920b206b47f78b01644a24a7aa}{A\+D\+C\+\_\+\+Quick\+Init} (A\+D\+C\+\_\+\+Type\+Def $\ast$A\+D\+Cx, G\+P\+I\+O\+\_\+\+Type\+Def $\ast$G\+P\+I\+Ox, uint16\+\_\+t G\+P\+I\+O\+\_\+\+Pin\+\_\+x, uint8\+\_\+t Sample\+Time, uint8\+\_\+t Rank)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given Analog to Digital Converter (A\+DC) with the parameters specified. \end{DoxyCompactList}\item 
 \hypertarget{adc_8h_a7defbc5079df7e920454289e8b819a2b}{}\label{adc_8h_a7defbc5079df7e920454289e8b819a2b} 
 void \hyperlink{adc_8h_a7defbc5079df7e920454289e8b819a2b}{A\+D\+C\+\_\+\+Callback} (void)
@@ -23,3 +34,39 @@ Headers of functions to handle A\+D\+Cs.
 \begin{DoxyAuthor}{Author}
 Curtis Team 
 \end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{adc_8h_a012b21920b206b47f78b01644a24a7aa}{}\label{adc_8h_a012b21920b206b47f78b01644a24a7aa} 
+\index{adc.\+h@{adc.\+h}!A\+D\+C\+\_\+\+Quick\+Init@{A\+D\+C\+\_\+\+Quick\+Init}}
+\index{A\+D\+C\+\_\+\+Quick\+Init@{A\+D\+C\+\_\+\+Quick\+Init}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{A\+D\+C\+\_\+\+Quick\+Init()}{ADC\_QuickInit()}}
+{\footnotesize\ttfamily int A\+D\+C\+\_\+\+Quick\+Init (\begin{DoxyParamCaption}\item[{A\+D\+C\+\_\+\+Type\+Def $\ast$}]{A\+D\+Cx,  }\item[{G\+P\+I\+O\+\_\+\+Type\+Def $\ast$}]{G\+P\+I\+Ox,  }\item[{uint16\+\_\+t}]{G\+P\+I\+O\+\_\+\+Pin\+\_\+x,  }\item[{uint8\+\_\+t}]{Sample\+Time,  }\item[{uint8\+\_\+t}]{Rank }\end{DoxyParamCaption})}
+
+
+
+Makes the initialization of the given Analog to Digital Converter (A\+DC) with the parameters specified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A\+D\+Cx} & A\+DC unit to use to perform analog to digital conversions \\
+\hline
+{\em G\+P\+I\+Ox} & Port of the input to consider \\
+\hline
+{\em G\+P\+I\+O\+\_\+\+Pin\+\_\+x} & Number of the pin to consider \\
+\hline
+{\em Sample\+Time} & Averaging time (in number of cycles) This parameter can be one of the following values\+: \begin{DoxyItemize}
+\item A\+D\+C\+\_\+\+Sample\+Time\+\_\+1\+Cycles5\+: Sample time equal to 1.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+7\+Cycles5\+: Sample time equal to 7.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+13\+Cycles5\+: Sample time equal to 13.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+28\+Cycles5\+: Sample time equal to 28.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+41\+Cycles5\+: Sample time equal to 41.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+55\+Cycles5\+: Sample time equal to 55.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+71\+Cycles5\+: Sample time equal to 71.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+239\+Cycles5\+: Sample time equal to 239.\+5 cycles \end{DoxyItemize}
+\\
+\hline
+{\em Rank} & Place of this conversion in the conversions sequence \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & (error detected while computing initialization) \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyReturn}{Returns}
+If everything went right A\+D\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR, if not A\+D\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+IN or A\+D\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+O\+RT 
+\end{DoxyReturn}
