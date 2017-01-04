@@ -42,9 +42,7 @@ __INLINE void EXTIx_IRQHandler(uint32_t EXTI_Line);
 __weak void EXTI_ITHandler(uint32_t EXTI_Line) {}
 
 __weak void SysTick_Callback(void) {}
-    
-//__weak void EXTI_Callback(uint32_t EXTI_Line) {}
-    
+        
 __weak void DMA_ITHandler(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {}
     
 __weak void ADC_ITHandler(ADC_TypeDef ADCx, uint8_t flags) {}
@@ -135,7 +133,7 @@ void EXTI15_10_IRQHandler(void) {
   */
 __INLINE void EXTIx_IRQHandler(uint32_t EXTI_Line) { 
     if (EXTI_GetFlagStatus(EXTI_Line) == SET) {
-        EXTI_Callback(EXTI_Line);
+        EXTI_ITHandler(EXTI_Line);
         EXTI_ClearFlag(EXTI_Line);
     }
 }
