@@ -151,14 +151,11 @@ void SysTick_Handler(void)
 {
 }
 
-int exti_callbacks(uint32_t EXTI_Line) {
-	int R = -1; 
+void exti_callbacks(uint32_t EXTI_Line) {
 	if (EXTI_GetFlagStatus(EXTI_Line)) {
 		callbacks_services_exti_front_motor(EXTI_Line);
 		EXTI_ClearFlag(EXTI_Line);
-		R = 1; 
 	} 
-	return R;
 }
 void EXTI10_IRQHandler(void) {
 	exti_callbacks(EXTI_Line10);

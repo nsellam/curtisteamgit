@@ -42,7 +42,7 @@ void PendSV_Handler(void);
 void SysTick_Handler(void);
 void EXTI11_IRQHandler(void);
 void EXTI10_IRQHandler(void);
-int exti_callbacks(uint32_t EXTI_Line);
+void exti_callbacks(uint32_t EXTI_Line);
 					 
 #endif /* __STM32F10x_IT_H */
 
