@@ -28,12 +28,12 @@
 /**
  * @brief Number of the hall detection. Positive is counted on rising edges, negative if not.  
 */
-int32_t HallSensor_number_of_pop[HALL_SENSOR_NUMBER];
+int32_t HallSensor_numberOfPop[HALL_SENSOR_NUMBER];
 
 /**
  * @brief Date of the last dectections of each hall sensor
 */
-uint64_t HallSensor_last_pops[HALL_SENSOR_MAX_SAVED_POP][HALL_SENSOR_NUMBER];
+uint64_t HallSensor_lastPops[HALL_SENSOR_MAX_SAVED_POP][HALL_SENSOR_NUMBER];
 
 /**
  * @brief Number of the sector currently seen by each hall sensor
@@ -48,21 +48,28 @@ int32_t HallSensor_lap[HALL_SENSOR_NUMBER];
 /**
  * @brief Number of ticks count during this periode
 */
-int8_t HallSensor_current_periode_ticks[HALL_SENSOR_NUMBER];
+int8_t HallSensor_currentPeriodeTicks[HALL_SENSOR_NUMBER];
 
 /**
  * @brief Number of ticks count during the last periode
 */
-int8_t HallSensor_periode_ticks[HALL_SENSOR_NUMBER];
+int8_t HallSensor_periodeTicks[HALL_SENSOR_NUMBER];
 
 /**
  * @brief Increment per front
 */
 int8_t adder = COUNT_ADDER;
 
+/**
+ * @brief Number of systick iteruptions to wait until next hall sensor period
+*/
+uint32_t HallSensor_remainingTimeInHallPeriod = HALL_SENSOR_TIME_BETWEEN_TWO_UPDATES; 
+
 /* Private function prototypes -----------------------------------------------*/
 void HallSensor_reset (uint8_t hall_identifier);
 void HallSensor_newFront(uint8_t hall_identifier);
+void HallSensor_resetTimeToNextHallPeriod(void);
+void HallSensor_countPeridodTicks(void);
 
 /* Public functions ----------------------------------------------------------*/
 /**
@@ -126,7 +133,7 @@ void HallSensor_decount(uint8_t hall_identifier) {
  * @brief       Called function on external interrupt (EXTI). Must not be call by user. 
  * @param       hall_identifier : hall sensor on wich front was detected. It's recommended to use identifier such HALL_IDENTIFIER_L or HALL_IDENTIFIER_R
 */
-void HallSensor_Callback(uint8_t hall_identifier) {
+void HallSensor_CallbackOnFront(uint8_t hall_identifier) {
 	HallSensor_newFront(hall_identifier);
 }
 
@@ -156,25 +163,13 @@ int32_t HallSensor_getLap(uint8_t hall_identifier) {
  * @retval      uint64_t Time of the detection passed as parameter if it is possible to found it, ERROR_VALUE_NOT_FOUND if not.
 */
 uint64_t HallSensor_getLastPop(uint8_t n, uint8_t hall_identifier) {
-	int position_to_read = HallSensor_number_of_pop[hall_identifier] - n;
+	int position_to_read = HallSensor_numberOfPop[hall_identifier] - n;
 	
 	if (n > HALL_SENSOR_MAX_SAVED_POP) return ERROR_VALUE_NOT_FOUND;  else {}; 
 
 	if (position_to_read < 0) position_to_read = position_to_read + HALL_SENSOR_MAX_SAVED_POP; // TODO : verifier ce calcul et le commenter
 		
-	return HallSensor_last_pops[position_to_read][hall_identifier];
-}
-
-/**
- * @brief       Update local variable HallSensor_periode_ticks[] with the number of ticks counted during completed period
- * @retval      None
-*/
-void HallSensor_countPeridodTicks(void) {
-	int i = 0; 
-	for (i=0; i<HALL_SENSOR_NUMBER; i++) {
-		HallSensor_periode_ticks[i] = HallSensor_current_periode_ticks[i];
-		HallSensor_current_periode_ticks[i] = 0;
-	}
+	return HallSensor_lastPops[position_to_read][hall_identifier];
 }
 
 /**
@@ -183,7 +178,16 @@ void HallSensor_countPeridodTicks(void) {
  * @retval      uint8_t Number of ticks during previous period for the hall sensor considered
 */
 int8_t HallSensor_getNumberTicksInPeriod(uint8_t hall_identifier) {
-	return HallSensor_periode_ticks[hall_identifier];
+	return HallSensor_periodeTicks[hall_identifier];
+}
+
+
+void HallSensor_CallbackOnTimeOut(void) {
+    HallSensor_remainingTimeInHallPeriod --; 
+	if (HallSensor_remainingTimeInHallPeriod == 0) {
+		HallSensor_countPeridodTicks();
+		HallSensor_resetTimeToNextHallPeriod();
+	}
 }
 
 /* Private functions ---------------------------------------------------------*/
@@ -194,15 +198,15 @@ int8_t HallSensor_getNumberTicksInPeriod(uint8_t hall_identifier) {
 */
 void HallSensor_reset (uint8_t hall_identifier) {
     	int i = 0;
-	HallSensor_number_of_pop[hall_identifier] = 0;
+	HallSensor_numberOfPop[hall_identifier] = 0;
 	HallSensor_sector[hall_identifier] = 0;
 	HallSensor_lap[hall_identifier] = 0;
 	for (i = 0; i < HALL_SENSOR_MAX_SAVED_POP; i++)	{
-		HallSensor_last_pops[i][hall_identifier] = 0;
+		HallSensor_lastPops[i][hall_identifier] = 0;
 	}
-	HallSensor_periode_ticks[hall_identifier] = 0;
-	HallSensor_current_periode_ticks[hall_identifier] = 0;
-	//callbacks_services_reset_time_to_next_hall_period();
+	HallSensor_periodeTicks[hall_identifier] = 0;
+	HallSensor_currentPeriodeTicks[hall_identifier] = 0;
+    HallSensor_resetTimeToNextHallPeriod();
 }
 
 /**
@@ -211,10 +215,10 @@ void HallSensor_reset (uint8_t hall_identifier) {
  * @retval      None
 */
 void HallSensor_newFront(uint8_t hall_identifier) {
-	HallSensor_last_pops[HallSensor_number_of_pop[hall_identifier]][hall_identifier] = millis();
+	HallSensor_lastPops[HallSensor_numberOfPop[hall_identifier]][hall_identifier] = millis();
 	
-	HallSensor_number_of_pop[hall_identifier] ++;
-	if (HallSensor_number_of_pop[hall_identifier] >= HALL_SENSOR_MAX_SAVED_POP) HallSensor_number_of_pop[hall_identifier] = 0; else {} 
+	HallSensor_numberOfPop[hall_identifier] ++;
+	if (HallSensor_numberOfPop[hall_identifier] >= HALL_SENSOR_MAX_SAVED_POP) HallSensor_numberOfPop[hall_identifier] = 0; else {} 
 	
 	HallSensor_sector[hall_identifier] = HallSensor_sector[hall_identifier] + adder;
 	
@@ -228,5 +232,25 @@ void HallSensor_newFront(uint8_t hall_identifier) {
 		HallSensor_lap[hall_identifier] ++;
 	}
 	else {}
-	HallSensor_current_periode_ticks[hall_identifier] = HallSensor_current_periode_ticks[hall_identifier] + adder;
+	HallSensor_currentPeriodeTicks[hall_identifier] = HallSensor_currentPeriodeTicks[hall_identifier] + adder;
+}
+
+/**
+ * @brief       Reinit private variable indicating time remainng before the next hall sensor period.
+ * @retval      None
+*/
+void HallSensor_resetTimeToNextHallPeriod(void) {
+    HallSensor_remainingTimeInHallPeriod = HALL_SENSOR_TIME_BETWEEN_TWO_UPDATES; 
+}
+
+/**
+ * @brief       Update local variable HallSensor_periodeTicks[] with the number of ticks counted during completed period
+ * @retval      None
+*/
+void HallSensor_countPeridodTicks(void) {
+	int i = 0; 
+	for (i=0; i<HALL_SENSOR_NUMBER; i++) {
+		HallSensor_periodeTicks[i] = HallSensor_currentPeriodeTicks[i];
+		HallSensor_currentPeriodeTicks[i] = 0;
+	}
 }
