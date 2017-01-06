@@ -1,19 +1,29 @@
 #include <stdint.h>
-
 #include <stm32f10x.h>
 #include <exti.h>
 #include <motor.h>
+#include <front_motor.h>
 
 
 int main(void) {
 	
+    front_motor_QuickInit();
+//    front_motor_turn(RIGHT);
+//    front_motor_stop();
+//    front_motor_turn(LEFT);
+//    front_motor_stop();
+//    front_motor_turn(LEFT);
+//    front_motor_turn(RIGHT);
+//    front_motor_turn(LEFT); 
+    while(1){
+        
+    }
    return 0;
 }
 
 //ENABLE:¡PPB2
-//PWM1£ºPB1(complementaire) PWM2£ºPA10(normal)
-
-// Reste a faire :
-// 1. mettre Callback du front motor dans Callbacks.c
-// 2. initialiser correctement front motor(Pwm) 
+//PWM IN1 : PA10 IN2 = PB1
+//info_buteeAV_G = EXTI PC10
+//info_buteeAV_D = EXTI PC11
+//Timer : TIM1 TIM_Channel_3 
 

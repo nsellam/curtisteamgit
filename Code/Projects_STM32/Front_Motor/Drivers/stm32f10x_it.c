@@ -23,6 +23,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
+#include "callbacks_services.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -148,6 +149,22 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
+}
+
+int exti_callbacks(uint32_t EXTI_Line) {
+	int R = -1; 
+	if (EXTI_GetFlagStatus(EXTI_Line)) {
+		callbacks_services_exti_front_motor(EXTI_Line);
+		EXTI_ClearFlag(EXTI_Line);
+		R = 1; 
+	} 
+	return R;
+}
+void EXTI10_IRQHandler(void) {
+	exti_callbacks(EXTI_Line10);
+}
+void EXTI11_IRQHandler(void) {
+	exti_callbacks(EXTI_Line11);
 }
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
