@@ -15,76 +15,26 @@
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
-/**
- * @brief Identifier associated to the left hall sensor
-*/
-#define HALL_IDENTIFIER_L                       0x00
-
-/**
- * @brief Identifier associated to the right hall sensor
-*/
-#define HALL_IDENTIFIER_R                       0x01
-
-/**
- * @brief Number of hall sensors available
-*/
-#define HALL_SENSOR_NUMBER                      2
-
-/**
- * @brief Number of the exti-line corresponding to the left hall sensor
-*/
-#define HALL_SENSOR_L_LINE                      EXTI_Line8
-
-/**
- * @brief Number of the exti-line corresponding to the right hall sensor
-*/
-#define HALL_SENSOR_R_LINE                      EXTI_Line9
-
-/**
- * @brief Number of the pin where the left hall sensor is plugged
-*/
-#define HALL_SENSOR_L_PIN                       GPIO_Pin_8
-
-/**
- * @brief Number of the pin where the right hall sensor is plugged
-*/
-#define HALL_SENSOR_R_PIN                       GPIO_Pin_9
-
-/**
- * @brief Pointer on the GPIO port interfacing the left hall sensor
-*/
-#define HALL_SENSOR_L_GPIO                      GPIOC
-
-/**
- * @brief Pointer on the GPIO port interfacing the right hall sensor
-*/
-#define HALL_SENSOR_R_GPIO                      GPIOC
 
 /**
  * @brief Way to trigg interrupts to detect forward movement
 */
-#define HALL_SENSOR_TRIGG_FW                    EXTI_Trigger_Rising
+#define HALLSENSOR_TRIGG_FW                    EXTI_Trigger_Rising
 
 /**
  * @brief Way to trigg interrupts to detect backward movement
 */
-#define HALL_SENSOR_TRIGG_BW                    EXTI_Trigger_Falling
+#define HALLSENSOR_TRIGG_BW                    EXTI_Trigger_Falling
 
 /**
  * @brief EXTI preemption priority
 */
-#define HALL_SENSOR_PRIO                        1
+#define HALLSENSOR_PRIO                        1
 
 /**
  * @brief Number of date of interrupt saved. Must be inferior to 0xFFFFFFFF
 */
-#define HALL_SENSOR_MAX_SAVED_POP 			    36
-
-/**
- * @def HALL_SENSOR_NUMBER_OF_SECTORS
- * @brief Number of fronts to count to get one full lap of wheel
-*/ 
-#define HALL_SENSOR_NUMBER_OF_SECTORS		    36
+#define HALLSENSOR_MAX_SAVED_POP 			    36
 
 /**
  * @def ERROR_SENSOR_OUT_RANGE
@@ -101,7 +51,7 @@
 /**
  * @brief Time corresponding to a hall sensor period : meaning time between two changes of speed. Expressed in ms. 
 */
-#define HALL_SENSOR_TIME_BETWEEN_TWO_UPDATES    1000
+#define HALLSENSOR_TIME_BETWEEN_TWO_UPDATES    1000
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
@@ -113,6 +63,6 @@ uint16_t HallSensor_getSector(uint8_t hall_identifier);
 int32_t HallSensor_getLap(uint8_t hall_identifier);
 uint64_t HallSensor_getLastPop(uint8_t n, uint8_t hall_identifier);
 int8_t HallSensor_getNumberTicksInPeriod(uint8_t hall_identifier);
-void HallSensor_CallbackOnFront(uint8_t hall_identifier);
-void HallSensor_CallbackOnTimeOut(void);
+void HallSensor_EdgeCallback(uint8_t hall_identifier);
+void HallSensor_TimeCallback(void);
 #endif // _HALL_SENSORS_H

@@ -21,7 +21,7 @@ static uint64_t time_millis;
 /* Private function prototypes -----------------------------------------------*/
 /* Public functions ----------------------------------------------------------*/
 
-__weak void HallSensor_CallbackOnTimeOut(void) {}
+__weak void HallSensor_TimeCallback(void) {}
 
 /**
  * @brief       Makes the initialization of time for the whole system 
@@ -41,7 +41,7 @@ void SysTick_Callback(void) {
     // Time increment 
     time_millis ++;
     
-    HallSensor_CallbackOnTimeOut();
+    HallSensor_TimeCallback();
     // Other periodic functions (every 1 ms)
     
     // Other periodic functions (every 10 ms)
