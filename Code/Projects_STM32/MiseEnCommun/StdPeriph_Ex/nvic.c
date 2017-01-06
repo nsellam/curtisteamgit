@@ -5,6 +5,8 @@
  */
 
  /* Includes ------------------------------------------------------------------*/
+#include <stdint.h>
+#include <stm32f10x.h>
 #include "nvic.h"
 
 /* Private typedef -----------------------------------------------------------*/
@@ -24,6 +26,8 @@
 */
 void NVIC_QuickInit(int8_t IRQChannel, uint8_t Priority) {
     NVIC_InitTypeDef NVIC_InitStruct;
+    
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
 
     NVIC_InitStruct.NVIC_IRQChannel = IRQChannel;
     NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = Priority;
