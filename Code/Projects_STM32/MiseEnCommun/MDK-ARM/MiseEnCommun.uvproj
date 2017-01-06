@@ -417,6 +417,43 @@
         </Group>
         <Group>
           <GroupName>Drivers_Car</GroupName>
+          <Files>
+            <File>
+              <FileName>hall_sensors.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers_Car\hall_sensors.c</FilePath>
+            </File>
+            <File>
+              <FileName>system_time.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers_Car\system_time.c</FilePath>
+            </File>
+            <File>
+              <FileName>driver_callbacks.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers_Car\driver_callbacks.c</FilePath>
+            </File>
+            <File>
+              <FileName>frame_check.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers_Car\frame_check.c</FilePath>
+            </File>
+            <File>
+              <FileName>motors.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers_Car\motors.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi_comm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers_Car\spi_comm.c</FilePath>
+            </File>
+            <File>
+              <FileName>us_sensors.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers_Car\us_sensors.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>StdPeriph_Ex</GroupName>
