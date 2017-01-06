@@ -12,6 +12,12 @@
 #include "stm32f10x.h"
 
 /* Exported types ------------------------------------------------------------*/
+typedef enum {
+    NEUTRAL,
+    FORWARD, 
+    BACKWARD
+} direction_TypeDef;
+
 /* Exported constants --------------------------------------------------------*/
 /**
 * @brief Number of microseconds per second

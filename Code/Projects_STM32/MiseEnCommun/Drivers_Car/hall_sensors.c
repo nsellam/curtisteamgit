@@ -9,7 +9,6 @@
 #include "exti.h"
 #include "system_time.h"
 #include "driver_callbacks.h"
-#include "modules_defines.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -68,36 +67,36 @@ int8_t adder = COUNT_ADDER;
 uint32_t HallSensor_remainingTimeInHallPeriod = HALLSENSOR_TIME_BETWEEN_TWO_UPDATES; 
 
 /* Private function prototypes -----------------------------------------------*/
-void HallSensor_reset (uint8_t hall_identifier);
-void HallSensor_newEdge(uint8_t hall_identifier);
+void HallSensor_reset (HallSensors_Enum hall_identifier);
+void HallSensor_newEdge(HallSensors_Enum hall_identifier);
 void HallSensor_resetTimeToNextHallPeriod(void);
 void HallSensor_countPeridodTicks(void);
 
 /* Public functions ----------------------------------------------------------*/
 /**
  * @brief       Reset and start specified hall sensor 
- * @param       hall_identifier Number of the hall sensor to consider. It's recommended to use identifier such HALLSENSOR_IDENTIFIER_L or HALLSENSOR_IDENTIFIER_R
+ * @param       hall_identifier Number of the hall sensor to consider. 
  * @retval      None
 */
-void HallSensor_init(uint8_t hall_identifier) {
+void HallSensor_init(HallSensors_Enum hall_identifier) {
 	HallSensor_reset(hall_identifier);
 	HallSensor_count(hall_identifier);
 }
 
 /**
  * @brief       Parameterizes hall sensor as counter
- * @param       hall_identifier Number of the hall sensor to consider. It's recommended to use identifier such HALLSENSOR_IDENTIFIER_L or HALLSENSOR_IDENTIFIER_R
+ * @param       hall_identifier Number of the hall sensor to consider. 
  * @retval      None
 */
-void HallSensor_count(uint8_t hall_identifier) {
+void HallSensor_count(HallSensors_Enum hall_identifier) {
 	GPIO_TypeDef *GPIO;
 	uint16_t pin;
 	
-	if (hall_identifier == HALLSENSOR_IDENTIFIER_L) {
+	if (hall_identifier == HALLSENSOR_L) {
 		GPIO = HALLSENSOR_L_GPIO;
 		pin = HALLSENSOR_L_PIN;
 	}
-	else if (hall_identifier == HALLSENSOR_IDENTIFIER_R) {
+	else if (hall_identifier == HALLSENSOR_R) {
 		GPIO = HALLSENSOR_R_GPIO;
 		pin = HALLSENSOR_R_PIN;
 	}
@@ -110,18 +109,18 @@ void HallSensor_count(uint8_t hall_identifier) {
 
 /**
  * @brief       Parameterizes hall sensor as decounter
- * @param       hall_identifier Number of the hall sensor to consider. It's recommended to use identifier such HALLSENSOR_IDENTIFIER_L or HALLSENSOR_IDENTIFIER_R
+ * @param       hall_identifier Number of the hall sensor to consider. 
  * @retval      None
 */
-void HallSensor_decount(uint8_t hall_identifier) {
+void HallSensor_decount(HallSensors_Enum hall_identifier) {
 	GPIO_TypeDef *GPIO;
 	uint16_t pin;
 	
-	if (hall_identifier == HALLSENSOR_IDENTIFIER_L) {
+	if (hall_identifier == HALLSENSOR_L) {
 		GPIO = HALLSENSOR_L_GPIO;
 		pin = HALLSENSOR_L_PIN;
 	}
-	else if (hall_identifier == HALLSENSOR_IDENTIFIER_R) {
+	else if (hall_identifier == HALLSENSOR_R) {
 		GPIO = HALLSENSOR_R_GPIO;
 		pin = HALLSENSOR_R_PIN;
 	}
@@ -133,38 +132,38 @@ void HallSensor_decount(uint8_t hall_identifier) {
 }
 /**
  * @brief       Called function on external interrupt (EXTI). Must not be call by user. 
- * @param       hall_identifier : hall sensor on wich edge was detected. It's recommended to use identifier such HALLSENSOR_IDENTIFIER_L or HALLSENSOR_IDENTIFIER_R
+ * @param       hall_identifier : hall sensor on wich edge was detected. 
 */
-void HallSensor_EdgeCallback(uint8_t hall_identifier) {
+void HallSensor_EdgeCallback(HallSensors_Enum hall_identifier) {
 	HallSensor_newEdge(hall_identifier);
 }
 
 /**
  * @brief       Returns the current sector for hall sensor considered.
- * @param       hall_identifier Number of the hall sensor to consider. It's recommended to use identifier such HALLSENSOR_IDENTIFIER_L or HALLSENSOR_IDENTIFIER_R.
+ * @param       hall_identifier Number of the hall sensor to consider.
  * @retval      Current sector if current sector is under number of sectors, ERROR_SENSOR_OUT_OF_RANGE if not.
 */
-uint16_t HallSensor_getSector(uint8_t hall_identifier){
+uint16_t HallSensor_getSector(HallSensors_Enum hall_identifier){
 	if (HallSensor_sector[hall_identifier] >= HALLSENSOR_NUMBER_OF_SECTORS) return ERROR_SENSOR_OUT_OF_RANGE; else {};
 	return HallSensor_sector[hall_identifier];
 }
 
 /**
  * @brief       Returns the current lap for the hall sensor considered.
- * @param       hall_identifier Number of the hall sensor to consider. It's recommended to use identifier such HALLSENSOR_IDENTIFIER_L or HALLSENSOR_IDENTIFIER_R.
+ * @param       hall_identifier Number of the hall sensor to consider.
  * @retval      Curent lap.
 */
-int32_t HallSensor_getLap(uint8_t hall_identifier) {
+int32_t HallSensor_getLap(HallSensors_Enum hall_identifier) {
 	return HallSensor_lap[hall_identifier];
 }
 
 /**
  * @brief       Returns the date (in milliseconds) of the last - n detection of the hall sensor. 
  * @param       n Number of the wanted sample.
- * @param       hall_identifier Number of the hall sensor to consider. It's recommended to use identifier such HALLSENSOR_IDENTIFIER_L or HALLSENSOR_IDENTIFIER_R.
+ * @param       hall_identifier Number of the hall sensor to consider. 
  * @retval      uint64_t Time of the detection passed as parameter if it is possible to found it, ERROR_VALUE_NOT_FOUND if not.
 */
-uint64_t HallSensor_getLastPop(uint8_t n, uint8_t hall_identifier) {
+uint64_t HallSensor_getLastPop(uint8_t n, HallSensors_Enum hall_identifier) {
 	int position_to_read = HallSensor_numberOfPop[hall_identifier] - n;
 	
 	if (n > HALLSENSOR_MAX_SAVED_POP) return ERROR_VALUE_NOT_FOUND;  else {}; 
@@ -176,10 +175,10 @@ uint64_t HallSensor_getLastPop(uint8_t n, uint8_t hall_identifier) {
 
 /**
  * @brief       Return the number of ticks detected during the last hall sensor period
- * @param       hall_identifier Number of the hall sensor to consider. It's recommended to use identifier such HALLSENSOR_IDENTIFIER_L or HALLSENSOR_IDENTIFIER_R
+ * @param       hall_identifier Number of the hall sensor to consider. 
  * @retval      uint8_t Number of ticks during previous period for the hall sensor considered
 */
-int8_t HallSensor_getNumberTicksInPeriod(uint8_t hall_identifier) {
+int8_t HallSensor_getNumberTicksInPeriod(HallSensors_Enum hall_identifier) {
 	return HallSensor_periodeTicks[hall_identifier];
 }
 
@@ -194,11 +193,11 @@ void HallSensor_TimeCallback(void) {
 
 /* Private functions ---------------------------------------------------------*/
 /**
- * @brief       Reset all the variables used to describe a hall_sensor
- * @param       hall_identifier Number of the hall sensor to consider. It's recommended to use identifier such HALLSENSOR_IDENTIFIER_L or HALLSENSOR_IDENTIFIER_R.
+ * @brief       Reset all the variables used to describe a hall_sensor.
+ * @param       hall_identifier Number of the hall sensor to consider.
  * @retval      None
 */
-void HallSensor_reset (uint8_t hall_identifier) {
+void HallSensor_reset (HallSensors_Enum hall_identifier) {
     	int i = 0;
 	HallSensor_numberOfPop[hall_identifier] = 0;
 	HallSensor_sector[hall_identifier] = 0;
@@ -212,11 +211,11 @@ void HallSensor_reset (uint8_t hall_identifier) {
 }
 
 /**
- * @brief       Updates the hall sensor definied variables according to . 
- * @param       hall_identifier Number of the hall sensor to consider. It's recommended to use identifier such HALLSENSOR_IDENTIFIER_L or HALLSENSOR_IDENTIFIER_R.
+ * @brief       Updates the hall sensor definied variables according to hall sensor specified. 
+ * @param       hall_identifier Number of the hall sensor to consider.
  * @retval      None
 */
-void HallSensor_newEdge(uint8_t hall_identifier) {
+void HallSensor_newEdge(HallSensors_Enum hall_identifier) {
 	HallSensor_lastPops[HallSensor_numberOfPop[hall_identifier]][hall_identifier] = millis();
 	
 	HallSensor_numberOfPop[hall_identifier] ++;
@@ -246,7 +245,7 @@ void HallSensor_resetTimeToNextHallPeriod(void) {
 }
 
 /**
- * @brief       Update local variable HallSensor_periodeTicks[] with the number of ticks counted during completed period
+ * @brief       Update local variable HallSensor_periodeTicks[] with the number of ticks counted during completed period.
  * @retval      None
 */
 void HallSensor_countPeridodTicks(void) {

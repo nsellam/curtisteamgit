@@ -12,6 +12,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include "stm32f10x.h"
+#include "modules_definitions.h"
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
@@ -51,18 +52,18 @@
 /**
  * @brief Time corresponding to a hall sensor period : meaning time between two changes of speed. Expressed in ms. 
 */
-#define HALLSENSOR_TIME_BETWEEN_TWO_UPDATES    1000
+#define HALLSENSOR_TIME_BETWEEN_TWO_UPDATES     1000
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void HallSensor_init(uint8_t hall_identifier);
-void HallSensor_count(uint8_t hall_identifier);
-void HallSensor_decount(uint8_t hall_identifier);
-void HallSensor_Callback(uint8_t hall_identifier);
-uint16_t HallSensor_getSector(uint8_t hall_identifier);
-int32_t HallSensor_getLap(uint8_t hall_identifier);
-uint64_t HallSensor_getLastPop(uint8_t n, uint8_t hall_identifier);
-int8_t HallSensor_getNumberTicksInPeriod(uint8_t hall_identifier);
-void HallSensor_EdgeCallback(uint8_t hall_identifier);
+void HallSensor_init(HallSensors_Enum hall_identifier);
+void HallSensor_count(HallSensors_Enum hall_identifier);
+void HallSensor_decount(HallSensors_Enum hall_identifier);
+void HallSensor_Callback(HallSensors_Enum hall_identifier);
+uint16_t HallSensor_getSector(HallSensors_Enum hall_identifier);
+int32_t HallSensor_getLap(HallSensors_Enum hall_identifier);
+uint64_t HallSensor_getLastPop(uint8_t n, HallSensors_Enum hall_identifier);
+int8_t HallSensor_getNumberTicksInPeriod(HallSensors_Enum hall_identifier);
+void HallSensor_EdgeCallback(HallSensors_Enum hall_identifier);
 void HallSensor_TimeCallback(void);
 #endif // _HALL_SENSORS_H
