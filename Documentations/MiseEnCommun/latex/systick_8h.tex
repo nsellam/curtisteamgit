@@ -26,7 +26,7 @@ uint64\+\_\+t \hyperlink{systick_8h_ac4da2262c9e029e8213116c8482099b9}{millis} (
 \begin{DoxyCompactList}\small\item\em Returns the current S\+T\+M32 time. \end{DoxyCompactList}\item 
 \hypertarget{systick_8h_a1776ae73b563f2f9fc51d6cd626f1a62}{}\label{systick_8h_a1776ae73b563f2f9fc51d6cd626f1a62} 
 void \hyperlink{systick_8h_a1776ae73b563f2f9fc51d6cd626f1a62}{Sys\+Tick\+\_\+\+Callback} (void)
-\begin{DoxyCompactList}\small\item\em Callback associated to Sys\+Tick. Increments current time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Callback associated to Sys\+Tick. Please add here your periodic functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -49,5 +49,10 @@ Curtis Team
 Returns the current S\+T\+M32 time. 
 
 \begin{DoxyReturn}{Returns}
-uint64\+\_\+t (time elapsed since systick initialization expressed in milliseconds) 
+uint64\+\_\+t Time elapsed since initialization 
 \end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em Result} & is expressed in ms \\
+\hline
+\end{DoxyRetVals}

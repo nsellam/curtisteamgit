@@ -101,30 +101,66 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6e3be1da33a63ac4084d4071b7482c20"><td class="memItemLeft" align="right" valign="top"><a id="a6e3be1da33a63ac4084d4071b7482c20"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#a6e3be1da33a63ac4084d4071b7482c20">TIM_QuickInit</a> (TIM_TypeDef *Timer, float period_us)</td></tr>
-<tr class="memdesc:a6e3be1da33a63ac4084d4071b7482c20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Analog to Digital Converter (ADC) with the parameters specified. <br /></td></tr>
-<tr class="separator:a6e3be1da33a63ac4084d4071b7482c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9533eb94577ee2a36ffa73f5c390265"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#ac9533eb94577ee2a36ffa73f5c390265">TIM_Start</a> (TIM_TypeDef *timer)</td></tr>
-<tr class="memdesc:ac9533eb94577ee2a36ffa73f5c390265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables timers 1, 2, 3 or 4.  <a href="#ac9533eb94577ee2a36ffa73f5c390265">More...</a><br /></td></tr>
-<tr class="separator:ac9533eb94577ee2a36ffa73f5c390265"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f2a4961fbae8223dafcf468bee1215f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#a4f2a4961fbae8223dafcf468bee1215f">TIM_Stop</a> (TIM_TypeDef *timer)</td></tr>
-<tr class="memdesc:a4f2a4961fbae8223dafcf468bee1215f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables timers 1, 2, 3 or 4.  <a href="#a4f2a4961fbae8223dafcf468bee1215f">More...</a><br /></td></tr>
-<tr class="separator:a4f2a4961fbae8223dafcf468bee1215f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af505c944df76f590612cb7f6cfdb4737"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#af505c944df76f590612cb7f6cfdb4737">TIM_QuickInit</a> (TIM_TypeDef *TIMx, float period_us)</td></tr>
+<tr class="memdesc:af505c944df76f590612cb7f6cfdb4737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Timer with the parameter specified.  <a href="#af505c944df76f590612cb7f6cfdb4737">More...</a><br /></td></tr>
+<tr class="separator:af505c944df76f590612cb7f6cfdb4737"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14703e8e6ec40dbe7c312d7e4c4a81ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#a14703e8e6ec40dbe7c312d7e4c4a81ae">TIM_Start</a> (TIM_TypeDef *TIMx)</td></tr>
+<tr class="memdesc:a14703e8e6ec40dbe7c312d7e4c4a81ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables specified timer.  <a href="#a14703e8e6ec40dbe7c312d7e4c4a81ae">More...</a><br /></td></tr>
+<tr class="separator:a14703e8e6ec40dbe7c312d7e4c4a81ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefcd2eb322b205f8f3d186d88797b128"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#aefcd2eb322b205f8f3d186d88797b128">TIM_Stop</a> (TIM_TypeDef *TIMx)</td></tr>
+<tr class="memdesc:aefcd2eb322b205f8f3d186d88797b128"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables specified timer.  <a href="#aefcd2eb322b205f8f3d186d88797b128">More...</a><br /></td></tr>
+<tr class="separator:aefcd2eb322b205f8f3d186d88797b128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a947a10c021c8ce345c9df97eb3a4b909"><td class="memItemLeft" align="right" valign="top"><a id="a947a10c021c8ce345c9df97eb3a4b909"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>TIM_Callback</b> (TIM_TypeDef TIMx)</td></tr>
 <tr class="separator:a947a10c021c8ce345c9df97eb3a4b909"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c37fd5b5273a54176ea1c02120e436e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#a8c37fd5b5273a54176ea1c02120e436e">TIM_Remap</a> (TIM_TypeDef TIMx, <a class="el" href="tim_8h.html#ab7959a3b19895530e110cb574c110f18">TIM_remap_TypeDef</a> RemapType)</td></tr>
 <tr class="memdesc:a8c37fd5b5273a54176ea1c02120e436e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remaps given timer according to remap type chosen.  <a href="#a8c37fd5b5273a54176ea1c02120e436e">More...</a><br /></td></tr>
 <tr class="separator:a8c37fd5b5273a54176ea1c02120e436e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0655b32178250fa676262a67f41fafa4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tim_8h.html#ab7959a3b19895530e110cb574c110f18">TIM_remap_TypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#a0655b32178250fa676262a67f41fafa4">TIM_RemapStatus</a> (TIM_TypeDef TIMx)</td></tr>
-<tr class="memdesc:a0655b32178250fa676262a67f41fafa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the remapping status of the given Timer.  <a href="#a0655b32178250fa676262a67f41fafa4">More...</a><br /></td></tr>
-<tr class="separator:a0655b32178250fa676262a67f41fafa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72191982cd151365f14eb0cf0844e54f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tim_8h.html#ab7959a3b19895530e110cb574c110f18">TIM_remap_TypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#a72191982cd151365f14eb0cf0844e54f">TIM_RemapStatus</a> (TIM_TypeDef *TIMx)</td></tr>
+<tr class="memdesc:a72191982cd151365f14eb0cf0844e54f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the remapping status of the given Timer.  <a href="#a72191982cd151365f14eb0cf0844e54f">More...</a><br /></td></tr>
+<tr class="separator:a72191982cd151365f14eb0cf0844e54f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Headers of functions to handle Timers. </p>
 <dl class="section author"><dt>Author</dt><dd>Curtis Team </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="af505c944df76f590612cb7f6cfdb4737"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af505c944df76f590612cb7f6cfdb4737">&sect;&nbsp;</a></span>TIM_QuickInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TIM_QuickInit </td>
+          <td>(</td>
+          <td class="paramtype">TIM_TypeDef *&#160;</td>
+          <td class="paramname"><em>TIMx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>PeriodUs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Makes the initialization of the given Timer with the parameter specified. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">TIMx</td><td>Timer to use </td></tr>
+    <tr><td class="paramname">PeriodUs</td><td>Period (in µs) expected for the Timer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a8c37fd5b5273a54176ea1c02120e436e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c37fd5b5273a54176ea1c02120e436e">&sect;&nbsp;</a></span>TIM_Remap()</h2>
 
@@ -168,8 +204,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>TIM_Callback</b> (TIM
 
 </div>
 </div>
-<a id="a0655b32178250fa676262a67f41fafa4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0655b32178250fa676262a67f41fafa4">&sect;&nbsp;</a></span>TIM_RemapStatus()</h2>
+<a id="a72191982cd151365f14eb0cf0844e54f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72191982cd151365f14eb0cf0844e54f">&sect;&nbsp;</a></span>TIM_RemapStatus()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +213,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>TIM_Callback</b> (TIM
         <tr>
           <td class="memname"><a class="el" href="tim_8h.html#ab7959a3b19895530e110cb574c110f18">TIM_remap_TypeDef</a> TIM_RemapStatus </td>
           <td>(</td>
-          <td class="paramtype">TIM_TypeDef&#160;</td>
+          <td class="paramtype">TIM_TypeDef *&#160;</td>
           <td class="paramname"><em>TIMx</em></td><td>)</td>
           <td></td>
         </tr>
@@ -200,8 +236,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>TIM_Callback</b> (TIM
 
 </div>
 </div>
-<a id="ac9533eb94577ee2a36ffa73f5c390265"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9533eb94577ee2a36ffa73f5c390265">&sect;&nbsp;</a></span>TIM_Start()</h2>
+<a id="a14703e8e6ec40dbe7c312d7e4c4a81ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14703e8e6ec40dbe7c312d7e4c4a81ae">&sect;&nbsp;</a></span>TIM_Start()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,7 +252,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>TIM_Callback</b> (TIM
       </table>
 </div><div class="memdoc">
 
-<p>Enables timers 1, 2, 3 or 4. </p>
+<p>Enables specified timer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">TIMx</td><td>Timer to be used </td></tr>
@@ -227,8 +263,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>TIM_Callback</b> (TIM
 
 </div>
 </div>
-<a id="a4f2a4961fbae8223dafcf468bee1215f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f2a4961fbae8223dafcf468bee1215f">&sect;&nbsp;</a></span>TIM_Stop()</h2>
+<a id="aefcd2eb322b205f8f3d186d88797b128"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefcd2eb322b205f8f3d186d88797b128">&sect;&nbsp;</a></span>TIM_Stop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,7 +279,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>TIM_Callback</b> (TIM
       </table>
 </div><div class="memdoc">
 
-<p>Disables timers 1, 2, 3 or 4. </p>
+<p>Disables specified timer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">TIMx</td><td>Timer to be used </td></tr>

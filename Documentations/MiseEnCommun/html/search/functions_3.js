@@ -9,5 +9,5 @@ var searchData=
   ['exti9_5f5_5firqhandler',['EXTI9_5_IRQHandler',['../it__handlers_8c.html#a7b2096b8b2643286dc3a7e5110e5ae85',1,'it_handlers.c']]],
   ['exti_5fithandler',['EXTI_ITHandler',['../exti_8c.html#aa82e0dedc4077cc5a2e0c81a47797894',1,'exti.c']]],
   ['exti_5fquickinit',['EXTI_QuickInit',['../exti_8c.html#a2eee151d004e2c6970b2e96f8f9ed82d',1,'EXTI_QuickInit(GPIO_TypeDef *GPIOx, uint16_t pin, EXTITrigger_TypeDef trigger, uint8_t priority):&#160;exti.c'],['../exti_8h.html#a2eee151d004e2c6970b2e96f8f9ed82d',1,'EXTI_QuickInit(GPIO_TypeDef *GPIOx, uint16_t pin, EXTITrigger_TypeDef trigger, uint8_t priority):&#160;exti.c']]],
-  ['extix_5firqhandler',['EXTIx_IRQHandler',['../it__handlers_8c.html#aab4ead34f11ccc9948b48ba6731e43df',1,'it_handlers.c']]]
+  ['extix_5firqhandler',['EXTIx_IRQHandler',['../it__handlers_8c.html#a265be0e992f52eb2652fc83baa754d26',1,'it_handlers.c']]]
 ];

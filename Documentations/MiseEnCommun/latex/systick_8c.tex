@@ -10,14 +10,15 @@ Functions to handle systick (S\+TM internal time)
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{systick_8c_acab88d32995a14a6120f9f2bcc24de5c}{}\label{systick_8c_acab88d32995a14a6120f9f2bcc24de5c} 
+\+\_\+\+\_\+weak void {\bfseries Sys\+Tick\+\_\+\+Callback} (void)
+\item 
 \hypertarget{systick_8c_a5a32ca87bb53e0c027409c0d875ce323}{}\label{systick_8c_a5a32ca87bb53e0c027409c0d875ce323} 
 void \hyperlink{systick_8c_a5a32ca87bb53e0c027409c0d875ce323}{Sys\+Tick\+\_\+\+Quick\+Init} (void)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the systick system. \end{DoxyCompactList}\item 
-uint64\+\_\+t \hyperlink{systick_8c_ac4da2262c9e029e8213116c8482099b9}{millis} (void)
-\begin{DoxyCompactList}\small\item\em Returns the current S\+T\+M32 time. \end{DoxyCompactList}\item 
-\hypertarget{systick_8c_a1776ae73b563f2f9fc51d6cd626f1a62}{}\label{systick_8c_a1776ae73b563f2f9fc51d6cd626f1a62} 
-void \hyperlink{systick_8c_a1776ae73b563f2f9fc51d6cd626f1a62}{Sys\+Tick\+\_\+\+Callback} (void)
-\begin{DoxyCompactList}\small\item\em Callback associated to Sys\+Tick. Increments current time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hypertarget{systick_8c_ab5e09814056d617c521549e542639b7e}{}\label{systick_8c_ab5e09814056d617c521549e542639b7e} 
+void \hyperlink{systick_8c_ab5e09814056d617c521549e542639b7e}{Sys\+Tick\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handler associated to Sys\+Tick. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -26,19 +27,3 @@ Functions to handle systick (S\+TM internal time)
 \begin{DoxyAuthor}{Author}
 Curtis Team 
 \end{DoxyAuthor}
-
-
-\subsection{Function Documentation}
-\hypertarget{systick_8c_ac4da2262c9e029e8213116c8482099b9}{}\label{systick_8c_ac4da2262c9e029e8213116c8482099b9} 
-\index{systick.\+c@{systick.\+c}!millis@{millis}}
-\index{millis@{millis}!systick.\+c@{systick.\+c}}
-\subsubsection{\texorpdfstring{millis()}{millis()}}
-{\footnotesize\ttfamily uint64\+\_\+t millis (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-
-
-Returns the current S\+T\+M32 time. 
-
-\begin{DoxyReturn}{Returns}
-uint64\+\_\+t (time elapsed since systick initialization expressed in milliseconds) 
-\end{DoxyReturn}

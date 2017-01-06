@@ -26,18 +26,17 @@ Functions to handle Timers.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{tim_8c_a49772a0ada157e4f61055018cdc0156f}{R\+C\+C\+\_\+timer\+\_\+configuration} (T\+I\+M\+\_\+\+Type\+Def $\ast$timer)
+void \hyperlink{tim_8c_a9e44751153d5b7905c836da747fba3ae}{R\+C\+C\+\_\+timer\+\_\+configuration} (T\+I\+M\+\_\+\+Type\+Def $\ast$T\+I\+Mx)
 \begin{DoxyCompactList}\small\item\em Configures the different system clocks. \end{DoxyCompactList}\item 
-\hypertarget{tim_8c_af505c944df76f590612cb7f6cfdb4737}{}\label{tim_8c_af505c944df76f590612cb7f6cfdb4737} 
-void \hyperlink{tim_8c_af505c944df76f590612cb7f6cfdb4737}{T\+I\+M\+\_\+\+Quick\+Init} (T\+I\+M\+\_\+\+Type\+Def $\ast$T\+I\+Mx, float period\+\_\+us)
-\begin{DoxyCompactList}\small\item\em Makes the initialization of the given Analog to Digital Converter (A\+DC) with the parameters specified. \end{DoxyCompactList}\item 
+void \hyperlink{tim_8c_a82330614441bc2769304394a38531e1b}{T\+I\+M\+\_\+\+Quick\+Init} (T\+I\+M\+\_\+\+Type\+Def $\ast$T\+I\+Mx, float Period\+Us)
+\begin{DoxyCompactList}\small\item\em Makes the initialization of the given Timer with the parameter specified. \end{DoxyCompactList}\item 
 void \hyperlink{tim_8c_a14703e8e6ec40dbe7c312d7e4c4a81ae}{T\+I\+M\+\_\+\+Start} (T\+I\+M\+\_\+\+Type\+Def $\ast$T\+I\+Mx)
-\begin{DoxyCompactList}\small\item\em Enables timers 1, 2, 3 or 4. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Enables specified timer. \end{DoxyCompactList}\item 
 void \hyperlink{tim_8c_aefcd2eb322b205f8f3d186d88797b128}{T\+I\+M\+\_\+\+Stop} (T\+I\+M\+\_\+\+Type\+Def $\ast$T\+I\+Mx)
-\begin{DoxyCompactList}\small\item\em Disables timers 1, 2, 3 or 4. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Disables specified timer. \end{DoxyCompactList}\item 
 int \hyperlink{tim_8c_a8c37fd5b5273a54176ea1c02120e436e}{T\+I\+M\+\_\+\+Remap} (T\+I\+M\+\_\+\+Type\+Def T\+I\+Mx, \hyperlink{tim_8h_ab7959a3b19895530e110cb574c110f18}{T\+I\+M\+\_\+remap\+\_\+\+Type\+Def} Remap\+Type)
 \begin{DoxyCompactList}\small\item\em Remaps given timer according to remap type chosen. \end{DoxyCompactList}\item 
-\hyperlink{tim_8h_ab7959a3b19895530e110cb574c110f18}{T\+I\+M\+\_\+remap\+\_\+\+Type\+Def} \hyperlink{tim_8c_a0655b32178250fa676262a67f41fafa4}{T\+I\+M\+\_\+\+Remap\+Status} (T\+I\+M\+\_\+\+Type\+Def T\+I\+Mx)
+\hyperlink{tim_8h_ab7959a3b19895530e110cb574c110f18}{T\+I\+M\+\_\+remap\+\_\+\+Type\+Def} \hyperlink{tim_8c_a72191982cd151365f14eb0cf0844e54f}{T\+I\+M\+\_\+\+Remap\+Status} (T\+I\+M\+\_\+\+Type\+Def $\ast$T\+I\+Mx)
 \begin{DoxyCompactList}\small\item\em Returns the remapping status of the given Timer. \end{DoxyCompactList}\item 
 \hypertarget{tim_8c_ae5ebe5a02885dfdc73fee3d3ec87c221}{}\label{tim_8c_ae5ebe5a02885dfdc73fee3d3ec87c221} 
 \+\_\+\+\_\+weak void {\bfseries T\+I\+M\+\_\+\+Callback} (T\+I\+M\+\_\+\+Type\+Def T\+I\+Mx)
@@ -62,11 +61,11 @@ Curtis Team
 
 
 \subsection{Function Documentation}
-\hypertarget{tim_8c_a49772a0ada157e4f61055018cdc0156f}{}\label{tim_8c_a49772a0ada157e4f61055018cdc0156f} 
+\hypertarget{tim_8c_a9e44751153d5b7905c836da747fba3ae}{}\label{tim_8c_a9e44751153d5b7905c836da747fba3ae} 
 \index{tim.\+c@{tim.\+c}!R\+C\+C\+\_\+timer\+\_\+configuration@{R\+C\+C\+\_\+timer\+\_\+configuration}}
 \index{R\+C\+C\+\_\+timer\+\_\+configuration@{R\+C\+C\+\_\+timer\+\_\+configuration}!tim.\+c@{tim.\+c}}
 \subsubsection{\texorpdfstring{R\+C\+C\+\_\+timer\+\_\+configuration()}{RCC\_timer\_configuration()}}
-{\footnotesize\ttfamily void R\+C\+C\+\_\+timer\+\_\+configuration (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Type\+Def $\ast$}]{timer }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void R\+C\+C\+\_\+timer\+\_\+configuration (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Type\+Def $\ast$}]{T\+I\+Mx }\end{DoxyParamCaption})}
 
 
 
@@ -82,6 +81,23 @@ Configures the different system clocks.
 {\em None} & \\
 \hline
 \end{DoxyRetVals}
+\hypertarget{tim_8c_a82330614441bc2769304394a38531e1b}{}\label{tim_8c_a82330614441bc2769304394a38531e1b} 
+\index{tim.\+c@{tim.\+c}!T\+I\+M\+\_\+\+Quick\+Init@{T\+I\+M\+\_\+\+Quick\+Init}}
+\index{T\+I\+M\+\_\+\+Quick\+Init@{T\+I\+M\+\_\+\+Quick\+Init}!tim.\+c@{tim.\+c}}
+\subsubsection{\texorpdfstring{T\+I\+M\+\_\+\+Quick\+Init()}{TIM\_QuickInit()}}
+{\footnotesize\ttfamily void T\+I\+M\+\_\+\+Quick\+Init (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Type\+Def $\ast$}]{T\+I\+Mx,  }\item[{float}]{Period\+Us }\end{DoxyParamCaption})}
+
+
+
+Makes the initialization of the given Timer with the parameter specified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T\+I\+Mx} & Timer to use \\
+\hline
+{\em Period\+Us} & Period (in µs) expected for the Timer \\
+\hline
+\end{DoxyParams}
 \hypertarget{tim_8c_a8c37fd5b5273a54176ea1c02120e436e}{}\label{tim_8c_a8c37fd5b5273a54176ea1c02120e436e} 
 \index{tim.\+c@{tim.\+c}!T\+I\+M\+\_\+\+Remap@{T\+I\+M\+\_\+\+Remap}}
 \index{T\+I\+M\+\_\+\+Remap@{T\+I\+M\+\_\+\+Remap}!tim.\+c@{tim.\+c}}
@@ -104,11 +120,11 @@ Remaps given timer according to remap type chosen.
 {\em 0} & if everything went right, -\/1 if not (unexpected remap type according to chosen Timer) \\
 \hline
 \end{DoxyRetVals}
-\hypertarget{tim_8c_a0655b32178250fa676262a67f41fafa4}{}\label{tim_8c_a0655b32178250fa676262a67f41fafa4} 
+\hypertarget{tim_8c_a72191982cd151365f14eb0cf0844e54f}{}\label{tim_8c_a72191982cd151365f14eb0cf0844e54f} 
 \index{tim.\+c@{tim.\+c}!T\+I\+M\+\_\+\+Remap\+Status@{T\+I\+M\+\_\+\+Remap\+Status}}
 \index{T\+I\+M\+\_\+\+Remap\+Status@{T\+I\+M\+\_\+\+Remap\+Status}!tim.\+c@{tim.\+c}}
 \subsubsection{\texorpdfstring{T\+I\+M\+\_\+\+Remap\+Status()}{TIM\_RemapStatus()}}
-{\footnotesize\ttfamily \hyperlink{tim_8h_ab7959a3b19895530e110cb574c110f18}{T\+I\+M\+\_\+remap\+\_\+\+Type\+Def} T\+I\+M\+\_\+\+Remap\+Status (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Type\+Def}]{T\+I\+Mx }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \hyperlink{tim_8h_ab7959a3b19895530e110cb574c110f18}{T\+I\+M\+\_\+remap\+\_\+\+Type\+Def} T\+I\+M\+\_\+\+Remap\+Status (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Type\+Def $\ast$}]{T\+I\+Mx }\end{DoxyParamCaption})}
 
 
 
@@ -132,7 +148,7 @@ Returns the remapping status of the given Timer.
 
 
 
-Enables timers 1, 2, 3 or 4. 
+Enables specified timer. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -150,7 +166,7 @@ void
 
 
 
-Disables timers 1, 2, 3 or 4. 
+Disables specified timer. 
 
 
 \begin{DoxyParams}{Parameters}

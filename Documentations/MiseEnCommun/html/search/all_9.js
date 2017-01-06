@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['nmi_5fhandler',['NMI_Handler',['../it__handlers_8c.html#a6ad7a5e3ee69cb6db6a6b9111ba898bc',1,'it_handlers.c']]],
-  ['nvic_2ec',['nvic.c',['../nvic_8c.html',1,'']]],
-  ['nvic_2eh',['nvic.h',['../nvic_8h.html',1,'']]],
-  ['nvic_5fquickinit',['NVIC_QuickInit',['../nvic_8c.html#a6f8cf870bdda2fc1959aef5b0fd730a5',1,'NVIC_QuickInit(uint8_t IRQChannel, uint8_t priority):&#160;nvic.c'],['../nvic_8h.html#a6f8cf870bdda2fc1959aef5b0fd730a5',1,'NVIC_QuickInit(uint8_t IRQChannel, uint8_t priority):&#160;nvic.c']]]
+  ['memmanage_5fhandler',['MemManage_Handler',['../it__handlers_8c.html#a3150f74512510287a942624aa9b44cc5',1,'it_handlers.c']]],
+  ['millis',['millis',['../systick_8h.html#ac4da2262c9e029e8213116c8482099b9',1,'millis(void):&#160;system_time.c'],['../system__time_8c.html#ac4da2262c9e029e8213116c8482099b9',1,'millis(void):&#160;system_time.c'],['../system__time_8h.html#ac4da2262c9e029e8213116c8482099b9',1,'millis(void):&#160;system_time.c']]],
+  ['motors_2ec',['motors.c',['../motors_8c.html',1,'']]],
+  ['motors_2eh',['motors.h',['../motors_8h.html',1,'']]]
 ];

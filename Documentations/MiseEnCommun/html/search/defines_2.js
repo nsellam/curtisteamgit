@@ -1,6 +1,8 @@
 var searchData=
 [
   ['error_5fcomputing_5fchannel',['ERROR_COMPUTING_CHANNEL',['../exti_8c.html#a028dd75710bca97483823fee61232400',1,'exti.c']]],
+  ['error_5finvalid_5fpin',['ERROR_INVALID_PIN',['../adc_8c.html#a12efaf0ce5990566e841716c0c6cea56',1,'adc.c']]],
+  ['error_5finvalid_5fport',['ERROR_INVALID_PORT',['../adc_8c.html#af0a320afa61a52db59de96a72ab64ee2',1,'adc.c']]],
   ['error_5fline_5funreachable',['ERROR_LINE_UNREACHABLE',['../exti_8c.html#aaa95df06c3c69c417451c5017e6b39bc',1,'exti.c']]],
   ['error_5fpin_5fsource',['ERROR_PIN_SOURCE',['../exti_8c.html#abf04d7aa0a4c98fb5081cdf66315022f',1,'exti.c']]],
   ['error_5fport_5fsource',['ERROR_PORT_SOURCE',['../exti_8c.html#ac9438bb67ccad9801a7cea95d7918143',1,'exti.c']]],

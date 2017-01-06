@@ -1,6 +1,8 @@
 var searchData=
 [
   ['error_5fcomputing_5fchannel',['ERROR_COMPUTING_CHANNEL',['../exti_8c.html#a028dd75710bca97483823fee61232400',1,'exti.c']]],
+  ['error_5finvalid_5fpin',['ERROR_INVALID_PIN',['../adc_8c.html#a12efaf0ce5990566e841716c0c6cea56',1,'adc.c']]],
+  ['error_5finvalid_5fport',['ERROR_INVALID_PORT',['../adc_8c.html#af0a320afa61a52db59de96a72ab64ee2',1,'adc.c']]],
   ['error_5fline_5funreachable',['ERROR_LINE_UNREACHABLE',['../exti_8c.html#aaa95df06c3c69c417451c5017e6b39bc',1,'exti.c']]],
   ['error_5fpin_5fsource',['ERROR_PIN_SOURCE',['../exti_8c.html#abf04d7aa0a4c98fb5081cdf66315022f',1,'exti.c']]],
   ['error_5fport_5fsource',['ERROR_PORT_SOURCE',['../exti_8c.html#ac9438bb67ccad9801a7cea95d7918143',1,'exti.c']]],
@@ -20,5 +22,5 @@ var searchData=
   ['exti_5fithandler',['EXTI_ITHandler',['../exti_8c.html#aa82e0dedc4077cc5a2e0c81a47797894',1,'exti.c']]],
   ['exti_5fno_5ferror',['EXTI_NO_ERROR',['../exti_8h.html#a2294d5797552e995bed96f8343cc2a1e',1,'exti.h']]],
   ['exti_5fquickinit',['EXTI_QuickInit',['../exti_8c.html#a2eee151d004e2c6970b2e96f8f9ed82d',1,'EXTI_QuickInit(GPIO_TypeDef *GPIOx, uint16_t pin, EXTITrigger_TypeDef trigger, uint8_t priority):&#160;exti.c'],['../exti_8h.html#a2eee151d004e2c6970b2e96f8f9ed82d',1,'EXTI_QuickInit(GPIO_TypeDef *GPIOx, uint16_t pin, EXTITrigger_TypeDef trigger, uint8_t priority):&#160;exti.c']]],
-  ['extix_5firqhandler',['EXTIx_IRQHandler',['../it__handlers_8c.html#aab4ead34f11ccc9948b48ba6731e43df',1,'it_handlers.c']]]
+  ['extix_5firqhandler',['EXTIx_IRQHandler',['../it__handlers_8c.html#a265be0e992f52eb2652fc83baa754d26',1,'it_handlers.c']]]
 ];

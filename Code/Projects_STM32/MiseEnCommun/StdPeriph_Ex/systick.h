@@ -27,7 +27,6 @@
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 void SysTick_QuickInit(void);
-uint64_t millis(void);
-void SysTick_Callback(void);
+void SysTick_Handler(void);
 
 #endif // _SYSTICK_H

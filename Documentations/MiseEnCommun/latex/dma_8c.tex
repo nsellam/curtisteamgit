@@ -11,9 +11,9 @@ Functions to handle D\+MA.
 \item 
 void \hyperlink{dma_8c_a4cc3ea5b240eb073b75a4d8b2313a3d0}{D\+M\+A\+\_\+\+Clock\+Enable} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx)
 \begin{DoxyCompactList}\small\item\em Enables clock on the adequate D\+MA. \end{DoxyCompactList}\item 
-void \hyperlink{dma_8c_a98253e7f0effc4f593066a307bf413d5}{D\+M\+A\+\_\+\+Init\+Periph2\+Buffer} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint32\+\_\+t Periph\+\_\+\+D\+R\+\_\+\+Base, uint32\+\_\+t Memory\+\_\+\+D\+R\+\_\+\+Base, uint32\+\_\+t data\+\_\+buffer\+\_\+size)
+void \hyperlink{dma_8c_a78a4071bb1d65d36a6b50c14740b0e4d}{D\+M\+A\+\_\+\+Init\+Periph2\+Buffer} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint32\+\_\+t Peripheral\+Base\+Addr, uint32\+\_\+t Memory\+Base\+Addr, uint32\+\_\+t Memory\+Buffer\+Size)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given Direct Memory Access (D\+MA) with the parameters specified. \end{DoxyCompactList}\item 
-void \hyperlink{dma_8c_af5918bde73dd195eb629c56fec8de055}{D\+M\+A\+\_\+\+Init\+Buffer2\+Periph} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint32\+\_\+t Periph\+\_\+\+D\+R\+\_\+\+Base, uint32\+\_\+t Memory\+\_\+\+D\+R\+\_\+\+Base, uint32\+\_\+t data\+\_\+buffer\+\_\+size)
+void \hyperlink{dma_8c_a227365b3006fa8257ba8538da497c855}{D\+M\+A\+\_\+\+Init\+Buffer2\+Periph} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint32\+\_\+t Peripheral\+Base\+Addr, uint32\+\_\+t Memory\+Base\+Addr, uint32\+\_\+t Memory\+Buffer\+Size)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given Direct Memory Access (D\+MA) with the parameters specified. \end{DoxyCompactList}\item 
 \hypertarget{dma_8c_ae88da9c90e6b562b30d5177c38441da4}{}\label{dma_8c_ae88da9c90e6b562b30d5177c38441da4} 
 \+\_\+\+\_\+weak void {\bfseries D\+M\+A\+\_\+\+Callback} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint8\+\_\+t flags)
@@ -52,11 +52,11 @@ Enables clock on the adequate D\+MA.
 {\em None} & \\
 \hline
 \end{DoxyRetVals}
-\hypertarget{dma_8c_af5918bde73dd195eb629c56fec8de055}{}\label{dma_8c_af5918bde73dd195eb629c56fec8de055} 
+\hypertarget{dma_8c_a227365b3006fa8257ba8538da497c855}{}\label{dma_8c_a227365b3006fa8257ba8538da497c855} 
 \index{dma.\+c@{dma.\+c}!D\+M\+A\+\_\+\+Init\+Buffer2\+Periph@{D\+M\+A\+\_\+\+Init\+Buffer2\+Periph}}
 \index{D\+M\+A\+\_\+\+Init\+Buffer2\+Periph@{D\+M\+A\+\_\+\+Init\+Buffer2\+Periph}!dma.\+c@{dma.\+c}}
 \subsubsection{\texorpdfstring{D\+M\+A\+\_\+\+Init\+Buffer2\+Periph()}{DMA\_InitBuffer2Periph()}}
-{\footnotesize\ttfamily void D\+M\+A\+\_\+\+Init\+Buffer2\+Periph (\begin{DoxyParamCaption}\item[{D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$}]{D\+M\+Ay\+\_\+\+Channelx,  }\item[{uint32\+\_\+t}]{Periph\+\_\+\+D\+R\+\_\+\+Base,  }\item[{uint32\+\_\+t}]{Memory\+\_\+\+D\+R\+\_\+\+Base,  }\item[{uint32\+\_\+t}]{data\+\_\+buffer\+\_\+size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void D\+M\+A\+\_\+\+Init\+Buffer2\+Periph (\begin{DoxyParamCaption}\item[{D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$}]{D\+M\+Ay\+\_\+\+Channelx,  }\item[{uint32\+\_\+t}]{Peripheral\+Base\+Addr,  }\item[{uint32\+\_\+t}]{Memory\+Base\+Addr,  }\item[{uint32\+\_\+t}]{Memory\+Buffer\+Size }\end{DoxyParamCaption})}
 
 
 
@@ -73,11 +73,11 @@ Makes the initialization of the given Direct Memory Access (D\+MA) with the para
 {\em data\+\_\+buffer\+\_\+size} & uint32\+\_\+t size of the buffer \\
 \hline
 \end{DoxyParams}
-\hypertarget{dma_8c_a98253e7f0effc4f593066a307bf413d5}{}\label{dma_8c_a98253e7f0effc4f593066a307bf413d5} 
+\hypertarget{dma_8c_a78a4071bb1d65d36a6b50c14740b0e4d}{}\label{dma_8c_a78a4071bb1d65d36a6b50c14740b0e4d} 
 \index{dma.\+c@{dma.\+c}!D\+M\+A\+\_\+\+Init\+Periph2\+Buffer@{D\+M\+A\+\_\+\+Init\+Periph2\+Buffer}}
 \index{D\+M\+A\+\_\+\+Init\+Periph2\+Buffer@{D\+M\+A\+\_\+\+Init\+Periph2\+Buffer}!dma.\+c@{dma.\+c}}
 \subsubsection{\texorpdfstring{D\+M\+A\+\_\+\+Init\+Periph2\+Buffer()}{DMA\_InitPeriph2Buffer()}}
-{\footnotesize\ttfamily void D\+M\+A\+\_\+\+Init\+Periph2\+Buffer (\begin{DoxyParamCaption}\item[{D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$}]{D\+M\+Ay\+\_\+\+Channelx,  }\item[{uint32\+\_\+t}]{Periph\+\_\+\+D\+R\+\_\+\+Base,  }\item[{uint32\+\_\+t}]{Memory\+\_\+\+D\+R\+\_\+\+Base,  }\item[{uint32\+\_\+t}]{data\+\_\+buffer\+\_\+size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void D\+M\+A\+\_\+\+Init\+Periph2\+Buffer (\begin{DoxyParamCaption}\item[{D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$}]{D\+M\+Ay\+\_\+\+Channelx,  }\item[{uint32\+\_\+t}]{Peripheral\+Base\+Addr,  }\item[{uint32\+\_\+t}]{Memory\+Base\+Addr,  }\item[{uint32\+\_\+t}]{Memory\+Buffer\+Size }\end{DoxyParamCaption})}
 
 
 
@@ -94,4 +94,3 @@ Makes the initialization of the given Direct Memory Access (D\+MA) with the para
 {\em data\+\_\+buffer\+\_\+size} & uint32\+\_\+t size of the buffer \\
 \hline
 \end{DoxyParams}
-V\+E\+R\+I\+F\+I\+ER SI ON A B\+I\+EN M\+IS LE T\+R\+UC D\+A\+NS LE B\+ON S\+E\+NS E\+R\+R\+E\+UR P\+O\+S\+S\+I\+B\+LE E\+N\+T\+RE Buffer2\+Periph ET Periph2\+Buffer 
