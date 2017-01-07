@@ -19,6 +19,8 @@ typedef enum {
     HALLSENSOR_R
 } HallSensors_Enum;
 
+typedef HallSensors_Enum PositionSensor_Enum;
+
 typedef enum {
     FRONT_MOTOR,
     REAR_MOTOR_L,
@@ -29,7 +31,7 @@ typedef enum {
 /**
  * @brief       Number of hall sensors available
 */
-#define HALLSENSOR_NUMBER                      2
+#define HALLSENSORS_NUMBER                          2
 
 /**
  * @brief       Identifier used to designate the hall sensor associated to the left rear motor 

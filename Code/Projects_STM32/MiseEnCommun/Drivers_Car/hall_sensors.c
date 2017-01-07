@@ -34,32 +34,32 @@ direction_TypeDef Motors_Dir[MOTORS_NUMBER];
 /**
  * @brief   Number of the hall detection. Positive is counted on rising edges, negative if not.  
 */
-int32_t HallSensor_numberOfPop[HALLSENSOR_NUMBER];
+int32_t HallSensor_numberOfPop[HALLSENSORS_NUMBER];
 
 /**
  * @brief   Date of the last dectections of each hall sensor
 */
-uint64_t HallSensor_lastPops[HALLSENSOR_MAX_SAVED_POP][HALLSENSOR_NUMBER];
+uint64_t HallSensor_lastPops[HALLSENSOR_MAX_SAVED_POP][HALLSENSORS_NUMBER];
 
 /**
  * @brief   Number of the sector currently seen by each hall sensor
 */
-uint16_t HallSensor_sector[HALLSENSOR_NUMBER];
+uint16_t HallSensor_sector[HALLSENSORS_NUMBER];
 
 /**
  * @brief   Number of laps count by each hall sensor. Positive is counted on rising edges, negative if not. 
 */
-int32_t HallSensor_lap[HALLSENSOR_NUMBER];
+int32_t HallSensor_lap[HALLSENSORS_NUMBER];
 
 /**
  * @brief   Number of ticks count during this periode
 */
-int8_t HallSensor_currentPeriodeTicks[HALLSENSOR_NUMBER];
+int8_t HallSensor_currentPeriodeTicks[HALLSENSORS_NUMBER];
 
 /**
  * @brief   Number of ticks count during the last periode
 */
-int8_t HallSensor_periodeTicks[HALLSENSOR_NUMBER];
+int8_t HallSensor_periodeTicks[HALLSENSORS_NUMBER];
 
 /**
  * @brief   Number of systick iteruptions to wait until next hall sensor period
@@ -149,7 +149,7 @@ void HallSensor_TimeCallback(void) {
     
     HallSensor_remainingTimeInHallPeriod --; 
     
-    for (i=0;i<HALLSENSOR_NUMBER;i++) 
+    for (i=0;i<HALLSENSORS_NUMBER;i++) 
     {
         if (Motors_Dir[i] != Motors_Direction[i]) {
             Motors_Dir[i] = Motors_Direction[i];
@@ -223,7 +223,7 @@ void HallSensor_resetTimeToNextHallPeriod(void) {
 */
 void HallSensor_countPeridodTicks(void) {
 	int i = 0; 
-	for (i=0; i<HALLSENSOR_NUMBER; i++) {
+	for (i=0; i<HALLSENSORS_NUMBER; i++) {
 		HallSensor_periodeTicks[i] = HallSensor_currentPeriodeTicks[i];
 		HallSensor_currentPeriodeTicks[i] = 0;
 	}

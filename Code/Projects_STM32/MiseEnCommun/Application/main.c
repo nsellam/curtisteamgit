@@ -10,6 +10,7 @@
 #include "hall_sensors.h"
 #include "modules_definitions.h"
 #include "motors.h"
+#include "position_sensors.h"
 
 void PWM_Example(void);
 void ADC_Example(void);
@@ -84,4 +85,8 @@ void Motor_Example(Motors_Enum Motor) {
     pause(1000*3);
     
     Motor_Disable(Motor);
+}
+
+void PositionSensor_Example(PositionSensor_Enum PositionSensor_identifier) {
+    
 }
