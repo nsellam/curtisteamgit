@@ -30,7 +30,7 @@ void Motor_Example(Motors_Enum Motor);
 
 int main (void) {
     System_Time_QuickInit();
-    // HallSensor_Example(HALLSENSOR_L);
+    HallSensor_Example(HALLSENSOR_L);
     Motor_Example(REAR_MOTOR_L);
     while (1) {}
 }
