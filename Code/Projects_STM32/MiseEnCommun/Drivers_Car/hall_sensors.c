@@ -78,7 +78,7 @@ void HallSensor_countPeridodTicks(void);
  * @param       hall_identifier Number of the hall sensor to consider. 
  * @retval      None
 */
-void HallSensor_init(HallSensors_Enum hall_identifier) {
+void HallSensor_QuickInit(HallSensors_Enum hall_identifier) {
 	HallSensor_reset(hall_identifier);
 	HallSensor_count(hall_identifier);
 }
@@ -198,7 +198,7 @@ void HallSensor_TimeCallback(void) {
  * @retval      None
 */
 void HallSensor_reset (HallSensors_Enum hall_identifier) {
-    	int i = 0;
+    int i = 0;
 	HallSensor_numberOfPop[hall_identifier] = 0;
 	HallSensor_sector[hall_identifier] = 0;
 	HallSensor_lap[hall_identifier] = 0;

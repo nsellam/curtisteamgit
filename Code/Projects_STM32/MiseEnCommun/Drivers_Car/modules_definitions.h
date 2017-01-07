@@ -64,12 +64,62 @@ typedef enum {
 /**
  * @brief       Number of fronts to count to get one full lap of wheel
 */ 
-#define HALLSENSOR_NUMBER_OF_SECTORS		    36
+#define HALLSENSOR_NUMBER_OF_SECTORS            36
 
 /**
  * @brief       Number of motors used on the car
 */ 
-#define MOTORS_NUMBER                            3
+#define MOTORS_NUMBER                           3
+
+/**
+ * @brief       Minimum PWM value used to turn the motors backwards to their maximum
+*/
+#define MOTORS_PWM_MIN                          ((float)0.245)
+
+/**
+ * @brief       Maximum PWM value used to turn the motors forwards to their maximum
+*/
+#define MOTORS_PWM_MAX                          ((float)0.754)
+
+/**
+ * @brief       Zero PWM value used to turn the motors off
+*/
+#define MOTORS_PWM_ZERO                         ((float)0.500)
+
+/**
+ * @brief       Maximum variation of the PWM value from the PWM_ZERO value
+*/
+#define MOTORS_PWM_DELTA_MAX                    (((MOTORS_PWM_MAX - MOTORS_PWM_ZERO) < (MOTORS_PWM_ZERO - MOTORS_PWM_MIN)) ? (MOTORS_PWM_MAX - MOTORS_PWM_ZERO) : (MOTORS_PWM_ZERO - MOTORS_PWM_MIN))
+
+/**
+ * @brief       Identifier used to designate left rear motor 
+*/
+#define REAR_MOTOR_L_IDENTIFIER                     0x01
+
+/**
+ * @brief       Timer used to motors PWM generation
+*/
+#define REAR_MOTOR_L_TIM                             TIM1
+
+/**
+ * @brief       Channel used to motors PWM generation
+*/
+#define REAR_MOTOR_L_TIM_CHANNEL                     TIM_Channel_1
+
+/**
+ * @brief       Period used to motors PWM generation in Hz
+*/
+#define MOTORS_PWM_FREQUENCY                        (20e3)
+
+/**
+ * @brief       GPIO used to enable the motor
+*/
+#define REAR_MOTOR_L_ENABLE_GPIO                    GPIOC
+
+/**
+ * @brief       Pin used to enable the motors
+*/
+#define REAR_MOTOR_L_ENABLE_PIN                     GPIO_Pin_13
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
