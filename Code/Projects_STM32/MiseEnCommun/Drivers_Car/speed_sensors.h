@@ -12,11 +12,13 @@
 #include <stdint.h>
 #include <stddef.h>
 #include "stm32f10x.h"
+#include "modules_definitions.h"
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-
+void SpeedSensor_QuickInit(SpeedSensor_Enum SpeedSensor_identifier);
+float SpeedSensor_get(float unit, SpeedSensor_Enum SpeedSensor_identifier);
 
 #endif // _SPEED_SENSOR_H

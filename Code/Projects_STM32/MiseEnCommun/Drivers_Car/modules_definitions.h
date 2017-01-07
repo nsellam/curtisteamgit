@@ -20,6 +20,7 @@ typedef enum {
 } HallSensors_Enum;
 
 typedef HallSensors_Enum PositionSensor_Enum;
+typedef HallSensors_Enum SpeedSensor_Enum;
 
 typedef enum {
     FRONT_MOTOR,
