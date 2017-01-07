@@ -16,6 +16,7 @@ void PWM_Example(void);
 void ADC_Example(void);
 void HallSensor_Example(HallSensors_Enum hall_identifier);
 void Motor_Example(Motors_Enum Motor);
+void PositionSensor_Example(PositionSensor_Enum PositionSensor_identifier);
 
 // MAIN POUR DEMO BAS NIVEAU
 //int main(void) {
@@ -30,9 +31,10 @@ void Motor_Example(Motors_Enum Motor);
 //}
 
 int main (void) {
-    System_Time_QuickInit();
-    HallSensor_Example(HALLSENSOR_L);
-    Motor_Example(REAR_MOTOR_L);
+    
+    //HallSensor_Example(HALLSENSOR_L);
+    //Motor_Example(REAR_MOTOR_L);
+    PositionSensor_Example(POSITION_SENSOR_L);
     while (1) {}
 }
 
@@ -74,6 +76,7 @@ void HallSensor_Example(HallSensors_Enum hall_identifier) {
  * @retval  None
 */
 void Motor_Example(Motors_Enum Motor) {
+    System_Time_QuickInit();
     Motor_QuickInit(Motor);
     Motor_Enable(Motor);
     
@@ -87,6 +90,20 @@ void Motor_Example(Motors_Enum Motor) {
     Motor_Disable(Motor);
 }
 
+/**
+ * @brief   Measures car position. 
+ * @param   Motor Motor to be considered.
+ * @retval  None
+*/
 void PositionSensor_Example(PositionSensor_Enum PositionSensor_identifier) {
+    float LeftWheelPosition = 0; 
+    
+    System_Time_QuickInit();
+    PositionSensor_QuickInit(PositionSensor_identifier); 
+    
+    while(1) {
+        pause(100); 
+        LeftWheelPosition = PositionSensor_get(POSITION_M_, PositionSensor_identifier);
+    }
     
 }
