@@ -63,6 +63,8 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">it_handlers.h File Reference</div>  </div>
 </div><!--header-->
@@ -70,13 +72,82 @@ $(function() {
 
 <p>Header of Main Interrupt Service Routines.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;stm32f10x.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stm32f10x.h&gt;</code><br />
 </div>
 <p><a href="it__handlers_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aa82e0dedc4077cc5a2e0c81a47797894"><td class="memItemLeft" align="right" valign="top"><a id="aa82e0dedc4077cc5a2e0c81a47797894"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8h.html#aa82e0dedc4077cc5a2e0c81a47797894">EXTI_ITHandler</a> (uint32_t EXTI_Line)</td></tr>
+<tr class="memdesc:aa82e0dedc4077cc5a2e0c81a47797894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler associated to external interrupts. <br /></td></tr>
+<tr class="separator:aa82e0dedc4077cc5a2e0c81a47797894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac23c67b210acba646f913ddb26d225c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8h.html#aac23c67b210acba646f913ddb26d225c">DMA_ITHandler</a> (DMA_Channel_TypeDef *DMAy_Channelx, uint8_t flags)</td></tr>
+<tr class="memdesc:aac23c67b210acba646f913ddb26d225c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles DMA interrupt requests.  <a href="#aac23c67b210acba646f913ddb26d225c">More...</a><br /></td></tr>
+<tr class="separator:aac23c67b210acba646f913ddb26d225c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72152ccfe04a949c2df57df7286b7be7"><td class="memItemLeft" align="right" valign="top"><a id="a72152ccfe04a949c2df57df7286b7be7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ADC_ITHandler</b> (ADC_TypeDef *ADCx)</td></tr>
+<tr class="separator:a72152ccfe04a949c2df57df7286b7be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a742f4bbb39429df53d687454d623e67f"><td class="memItemLeft" align="right" valign="top"><a id="a742f4bbb39429df53d687454d623e67f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>TIM_ITHandler</b> (TIM_TypeDef *TIMx)</td></tr>
+<tr class="separator:a742f4bbb39429df53d687454d623e67f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a072c338a05f858bf06e23231628c7f70"><td class="memItemLeft" align="right" valign="top"><a id="a072c338a05f858bf06e23231628c7f70"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SPI_ITHandler</b> (SPI_TypeDef *SPIx)</td></tr>
+<tr class="separator:a072c338a05f858bf06e23231628c7f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf484bbe6cd361a5d7bcddc8e732d342"><td class="memItemLeft" align="right" valign="top"><a id="adf484bbe6cd361a5d7bcddc8e732d342"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="it__handlers_8h.html#adf484bbe6cd361a5d7bcddc8e732d342">SysTick_ITHandler</a> (void)</td></tr>
+<tr class="memdesc:adf484bbe6cd361a5d7bcddc8e732d342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler associated to SysTick. <br /></td></tr>
+<tr class="separator:adf484bbe6cd361a5d7bcddc8e732d342"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header of Main Interrupt Service Routines. </p>
 <dl class="section author"><dt>Author</dt><dd>Curtis Team </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="aac23c67b210acba646f913ddb26d225c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac23c67b210acba646f913ddb26d225c">&sect;&nbsp;</a></span>DMA_ITHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMA_ITHandler </td>
+          <td>(</td>
+          <td class="paramtype">DMA_Channel_TypeDef *&#160;</td>
+          <td class="paramname"><em>DMAy_Channelx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>flags</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles DMA interrupt requests. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DMAy_Channelx</td><td>DMA Channel of the interrupt </td></tr>
+    <tr><td class="paramname">flags</td><td>Any combination of DMA_IT_TC, DMA_IT_HT, DMA_IT_TE </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td>Handles DMA interrupt requests. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

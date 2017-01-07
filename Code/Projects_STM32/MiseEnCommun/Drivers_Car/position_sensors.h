@@ -1,5 +1,5 @@
 /**
- * @file    position_sensor.h
+ * @file    position_sensors.h
  * @author  Curtis Team
  * @brief   Headers of functions to handle position sensors 
  */

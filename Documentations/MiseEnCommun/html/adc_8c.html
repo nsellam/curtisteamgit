@@ -74,7 +74,9 @@ $(function() {
 
 <p>Functions to handle ADCs.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="adc_8h_source.html">adc.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stm32f10x.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="adc_8h_source.html">adc.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="gpio_8h_source.html">gpio.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -84,11 +86,11 @@ Macros</h2></td></tr>
 <tr class="memdesc:af8a28af200c653cdf82311b4844e0e03"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIOMode_TypeDef recommended to initialize GPIO for ADC. <br /></td></tr>
 <tr class="separator:af8a28af200c653cdf82311b4844e0e03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0a320afa61a52db59de96a72ab64ee2"><td class="memItemLeft" align="right" valign="top"><a id="af0a320afa61a52db59de96a72ab64ee2"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8c.html#af0a320afa61a52db59de96a72ab64ee2">ERROR_INVALID_PORT</a>&#160;&#160;&#160;(uint8_t) -1</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8c.html#af0a320afa61a52db59de96a72ab64ee2">ERROR_INVALID_PORT</a>&#160;&#160;&#160;((uint8_t) -1)</td></tr>
 <tr class="memdesc:af0a320afa61a52db59de96a72ab64ee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specified port is not valid (only GPIOA, GPIOB an GPIOC are available) <br /></td></tr>
 <tr class="separator:af0a320afa61a52db59de96a72ab64ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12efaf0ce5990566e841716c0c6cea56"><td class="memItemLeft" align="right" valign="top"><a id="a12efaf0ce5990566e841716c0c6cea56"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8c.html#a12efaf0ce5990566e841716c0c6cea56">ERROR_INVALID_PIN</a>&#160;&#160;&#160;(uint8_t) -2</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8c.html#a12efaf0ce5990566e841716c0c6cea56">ERROR_INVALID_PIN</a>&#160;&#160;&#160;((uint8_t) -2)</td></tr>
 <tr class="memdesc:a12efaf0ce5990566e841716c0c6cea56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specified pin can't be use on this port for ADC. <br /></td></tr>
 <tr class="separator:a12efaf0ce5990566e841716c0c6cea56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -100,9 +102,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a4f78e57a5d57a726473d36b5127ce2f4"><td class="memItemLeft" align="right" valign="top"><a id="a4f78e57a5d57a726473d36b5127ce2f4"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>GPIOPin2ADCChannel</b> (GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin_x)</td></tr>
 <tr class="separator:a4f78e57a5d57a726473d36b5127ce2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a012b21920b206b47f78b01644a24a7aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8c.html#a012b21920b206b47f78b01644a24a7aa">ADC_QuickInit</a> (ADC_TypeDef *ADCx, GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin_x, uint8_t SampleTime, uint8_t Rank)</td></tr>
-<tr class="memdesc:a012b21920b206b47f78b01644a24a7aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Analog to Digital Converter (ADC) with the parameters specified.  <a href="#a012b21920b206b47f78b01644a24a7aa">More...</a><br /></td></tr>
-<tr class="separator:a012b21920b206b47f78b01644a24a7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9c1e16ff94fbf1cd518f1eb22c7bf76"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8c.html#ac9c1e16ff94fbf1cd518f1eb22c7bf76">ADC_QuickInit</a> (ADC_TypeDef *ADCx, GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin_x, uint8_t Rank, uint8_t SampleTime)</td></tr>
+<tr class="memdesc:ac9c1e16ff94fbf1cd518f1eb22c7bf76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Analog to Digital Converter (ADC) with the parameters specified.  <a href="#ac9c1e16ff94fbf1cd518f1eb22c7bf76">More...</a><br /></td></tr>
+<tr class="separator:ac9c1e16ff94fbf1cd518f1eb22c7bf76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7defbc5079df7e920454289e8b819a2b"><td class="memItemLeft" align="right" valign="top"><a id="a7defbc5079df7e920454289e8b819a2b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8c.html#a7defbc5079df7e920454289e8b819a2b">ADC_Callback</a> (void)</td></tr>
 <tr class="memdesc:a7defbc5079df7e920454289e8b819a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback associated to ADC interrupts. <br /></td></tr>
@@ -150,8 +152,8 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>NbrOfChannelDeclar
 
 </div>
 </div>
-<a id="a012b21920b206b47f78b01644a24a7aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a012b21920b206b47f78b01644a24a7aa">&sect;&nbsp;</a></span>ADC_QuickInit()</h2>
+<a id="ac9c1e16ff94fbf1cd518f1eb22c7bf76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9c1e16ff94fbf1cd518f1eb22c7bf76">&sect;&nbsp;</a></span>ADC_QuickInit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,13 +180,13 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>NbrOfChannelDeclar
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>SampleTime</em>, </td>
+          <td class="paramname"><em>Rank</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>Rank</em>&#160;</td>
+          <td class="paramname"><em>SampleTime</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -200,6 +202,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>NbrOfChannelDeclar
     <tr><td class="paramname">ADCx</td><td>ADC unit to use to perform analog to digital conversions </td></tr>
     <tr><td class="paramname">GPIOx</td><td>Port of the input to consider </td></tr>
     <tr><td class="paramname">GPIO_Pin_x</td><td>Number of the pin to consider </td></tr>
+    <tr><td class="paramname">Rank</td><td>Place of this conversion in the conversions sequence </td></tr>
     <tr><td class="paramname">SampleTime</td><td>Averaging time (in number of cycles) This parameter can be one of the following values: <ul>
 <li>ADC_SampleTime_1Cycles5: Sample time equal to 1.5 cycles </li>
 <li>ADC_SampleTime_7Cycles5: Sample time equal to 7.5 cycles </li>
@@ -211,7 +214,6 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>NbrOfChannelDeclar
 <li>ADC_SampleTime_239Cycles5: Sample time equal to 239.5 cycles </li>
 </ul>
 </td></tr>
-    <tr><td class="paramname">Rank</td><td>Place of this conversion in the conversions sequence </td></tr>
   </table>
   </dd>
 </dl>

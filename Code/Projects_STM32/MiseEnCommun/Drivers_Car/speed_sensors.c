@@ -1,5 +1,5 @@
 /**
- * @file    speed_sensor.c
+ * @file    speed_sensors.c
  * @author  Curtis Team
  * @brief   Functions to handle speed sensors  
  */

@@ -1,5 +1,5 @@
 /**
- * @file    modules_defines.h
+ * @file    modules_definitions.h
  * @author  Curtis Team
  * @brief   Modules description
  */

@@ -1,5 +1,5 @@
 /**
- * @file    speed_sensor.h
+ * @file    speed_sensors.h
  * @author  Curtis Team
  * @brief   Headers of functions to handle speed sensors   
  */
