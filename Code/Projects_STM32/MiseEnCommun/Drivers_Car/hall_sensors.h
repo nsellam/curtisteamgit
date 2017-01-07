@@ -57,8 +57,6 @@
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 void HallSensor_QuickInit(HallSensors_Enum hall_identifier);
-void HallSensor_count(HallSensors_Enum hall_identifier);
-void HallSensor_decount(HallSensors_Enum hall_identifier);
 void HallSensor_Callback(HallSensors_Enum hall_identifier);
 uint16_t HallSensor_getSector(HallSensors_Enum hall_identifier);
 int32_t HallSensor_getLap(HallSensors_Enum hall_identifier);

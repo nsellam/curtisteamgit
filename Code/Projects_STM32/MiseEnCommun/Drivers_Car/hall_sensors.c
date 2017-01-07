@@ -9,68 +9,76 @@
 #include "exti.h"
 #include "system_time.h"
 #include "driver_callbacks.h"
+#include "common_constants.h"
+
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /**
- * @brief Value to be add to variables at each edge when count. 
+ * @brief   Value to be add to variables at each edge when forward. 
 */
 #define COUNT_ADDER         1 
 
 /**
- * @brief Value to be add to variables at each edge when decount. 
+ * @brief   Value to be add to variables at each edge when backward. 
 */
-#define DECOUNT_ADDER       -1
+#define DECOUNT_ADDER       -COUNT_ADDER
 
 /* Private macro -------------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/
-
+extern direction_TypeDef Motors_Direction[MOTORS_NUMBER];
+    
 /* Private variables ---------------------------------------------------------*/
+direction_TypeDef Motors_Dir[MOTORS_NUMBER];
+
 /**
- * @brief Number of the hall detection. Positive is counted on rising edges, negative if not.  
+ * @brief   Number of the hall detection. Positive is counted on rising edges, negative if not.  
 */
 int32_t HallSensor_numberOfPop[HALLSENSOR_NUMBER];
 
 /**
- * @brief Date of the last dectections of each hall sensor
+ * @brief   Date of the last dectections of each hall sensor
 */
 uint64_t HallSensor_lastPops[HALLSENSOR_MAX_SAVED_POP][HALLSENSOR_NUMBER];
 
 /**
- * @brief Number of the sector currently seen by each hall sensor
+ * @brief   Number of the sector currently seen by each hall sensor
 */
 uint16_t HallSensor_sector[HALLSENSOR_NUMBER];
 
 /**
- * @brief Number of laps count by each hall sensor. Positive is counted on rising edges, negative if not. 
+ * @brief   Number of laps count by each hall sensor. Positive is counted on rising edges, negative if not. 
 */
 int32_t HallSensor_lap[HALLSENSOR_NUMBER];
 
 /**
- * @brief Number of ticks count during this periode
+ * @brief   Number of ticks count during this periode
 */
 int8_t HallSensor_currentPeriodeTicks[HALLSENSOR_NUMBER];
 
 /**
- * @brief Number of ticks count during the last periode
+ * @brief   Number of ticks count during the last periode
 */
 int8_t HallSensor_periodeTicks[HALLSENSOR_NUMBER];
+
+/**
+ * @brief   Number of systick iteruptions to wait until next hall sensor period
+*/
+uint32_t HallSensor_remainingTimeInHallPeriod = HALLSENSOR_TIME_BETWEEN_TWO_UPDATES; 
 
 /**
  * @brief Increment per edge
 */
 int8_t adder = COUNT_ADDER;
 
-/**
- * @brief Number of systick iteruptions to wait until next hall sensor period
-*/
-uint32_t HallSensor_remainingTimeInHallPeriod = HALLSENSOR_TIME_BETWEEN_TWO_UPDATES; 
-
 /* Private function prototypes -----------------------------------------------*/
 void HallSensor_reset (HallSensors_Enum hall_identifier);
 void HallSensor_newEdge(HallSensors_Enum hall_identifier);
 void HallSensor_resetTimeToNextHallPeriod(void);
 void HallSensor_countPeridodTicks(void);
+void HallSensor_setCountDecount(uint8_t Motor_number, direction_TypeDef Direction);
+void HallSensor_count(HallSensors_Enum hall_identifier);
+void HallSensor_decount(HallSensors_Enum hall_identifier);
 
 /* Public functions ----------------------------------------------------------*/
 /**
@@ -83,53 +91,6 @@ void HallSensor_QuickInit(HallSensors_Enum hall_identifier) {
 	HallSensor_count(hall_identifier);
 }
 
-/**
- * @brief       Parameterizes hall sensor as counter
- * @param       hall_identifier Number of the hall sensor to consider. 
- * @retval      None
-*/
-void HallSensor_count(HallSensors_Enum hall_identifier) {
-	GPIO_TypeDef *GPIO;
-	uint16_t pin;
-	
-	if (hall_identifier == HALLSENSOR_L) {
-		GPIO = HALLSENSOR_L_GPIO;
-		pin = HALLSENSOR_L_PIN;
-	}
-	else if (hall_identifier == HALLSENSOR_R) {
-		GPIO = HALLSENSOR_R_GPIO;
-		pin = HALLSENSOR_R_PIN;
-	}
-	else {return;}	
-	
-	EXTI_QuickInit(GPIO, pin, HALLSENSOR_TRIGG_FW, HALLSENSOR_PRIO);
-    
-    adder = COUNT_ADDER;
-}
-
-/**
- * @brief       Parameterizes hall sensor as decounter
- * @param       hall_identifier Number of the hall sensor to consider. 
- * @retval      None
-*/
-void HallSensor_decount(HallSensors_Enum hall_identifier) {
-	GPIO_TypeDef *GPIO;
-	uint16_t pin;
-	
-	if (hall_identifier == HALLSENSOR_L) {
-		GPIO = HALLSENSOR_L_GPIO;
-		pin = HALLSENSOR_L_PIN;
-	}
-	else if (hall_identifier == HALLSENSOR_R) {
-		GPIO = HALLSENSOR_R_GPIO;
-		pin = HALLSENSOR_R_PIN;
-	}
-	else {return;}	
-	
-	EXTI_QuickInit(GPIO, pin, HALLSENSOR_TRIGG_BW, HALLSENSOR_PRIO);
-    
-    adder = DECOUNT_ADDER;
-}
 /**
  * @brief       Called function on external interrupt (EXTI). Must not be call by user. 
  * @param       hall_identifier : hall sensor on wich edge was detected. 
@@ -184,7 +145,19 @@ int8_t HallSensor_getNumberTicksInPeriod(HallSensors_Enum hall_identifier) {
 
 
 void HallSensor_TimeCallback(void) {
+    int i; 
+    
     HallSensor_remainingTimeInHallPeriod --; 
+    
+    for (i=0;i<HALLSENSOR_NUMBER;i++) 
+    {
+        if (Motors_Dir[i] != Motors_Direction[i]) {
+            Motors_Dir[i] = Motors_Direction[i];
+            HallSensor_setCountDecount(i, Motors_Dir[i]);
+        }
+        else {}
+    }
+    
 	if (HallSensor_remainingTimeInHallPeriod == 0) {
 		HallSensor_countPeridodTicks();
 		HallSensor_resetTimeToNextHallPeriod();
@@ -254,4 +227,69 @@ void HallSensor_countPeridodTicks(void) {
 		HallSensor_periodeTicks[i] = HallSensor_currentPeriodeTicks[i];
 		HallSensor_currentPeriodeTicks[i] = 0;
 	}
+}
+
+/**
+ * @brief       Sets hall sensor associated to MotorIdentifier as counter or decounter according to specified Direction.
+ * @param       MotorIdentifier Identifier of the motor whose associated HallSensor must be set as counter or decounter
+ * @param       Direction Direction of the motor.
+ * @retval      None
+*/
+void HallSensor_setCountDecount(uint8_t MotorIdentifier, direction_TypeDef Direction){
+    HallSensors_Enum hall_identifier; 
+            if (MotorIdentifier == FRONT_MOTOR_IDENTIFIER)  return;
+    else     if (MotorIdentifier == REAR_MOTOR_L_IDENTIFIER) hall_identifier = HALLSENSOR_L; 
+    else     if (MotorIdentifier == REAR_MOTOR_R_IDENTIFIER) hall_identifier = HALLSENSOR_R; 
+    else return;
+
+    if (Direction != BACKWARD) HallSensor_count(hall_identifier);
+    else HallSensor_decount(hall_identifier);
+}
+
+/**
+ * @brief       Parameterizes hall sensor as counter
+ * @param       hall_identifier Number of the hall sensor to consider. 
+ * @retval      None
+*/
+void HallSensor_count(HallSensors_Enum hall_identifier) {
+	GPIO_TypeDef *GPIO;
+	uint16_t pin;
+	
+	if (hall_identifier == HALLSENSOR_L) {
+		GPIO = HALLSENSOR_L_GPIO;
+		pin = HALLSENSOR_L_PIN;
+	}
+	else if (hall_identifier == HALLSENSOR_R) {
+		GPIO = HALLSENSOR_R_GPIO;
+		pin = HALLSENSOR_R_PIN;
+	}
+	else {return;}	
+	
+	EXTI_QuickInit(GPIO, pin, HALLSENSOR_TRIGG_FW, HALLSENSOR_PRIO);
+    
+    adder = COUNT_ADDER;
+}
+
+/**
+ * @brief       Parameterizes hall sensor as decounter
+ * @param       hall_identifier Number of the hall sensor to consider. 
+ * @retval      None
+*/
+void HallSensor_decount(HallSensors_Enum hall_identifier) {
+	GPIO_TypeDef *GPIO;
+	uint16_t pin;
+	
+	if (hall_identifier == HALLSENSOR_L) {
+		GPIO = HALLSENSOR_L_GPIO;
+		pin = HALLSENSOR_L_PIN;
+	}
+	else if (hall_identifier == HALLSENSOR_R) {
+		GPIO = HALLSENSOR_R_GPIO;
+		pin = HALLSENSOR_R_PIN;
+	}
+	else {return;}	
+	
+	EXTI_QuickInit(GPIO, pin, HALLSENSOR_TRIGG_BW, HALLSENSOR_PRIO);
+    
+    adder = DECOUNT_ADDER;
 }

@@ -32,6 +32,16 @@ typedef enum {
 #define HALLSENSOR_NUMBER                      2
 
 /**
+ * @brief       Identifier used to designate the hall sensor associated to the left rear motor 
+*/
+#define HALL_SENSOR_L_IDENTIFIER                     0x00
+
+/**
+ * @brief       Identifier used to designate the hall sensor associated to the right rear motor 
+*/
+#define HALL_SENSOR_R_IDENTIFIER                     0x01
+
+/**
  * @brief       Number of the exti-line corresponding to the left hall sensor
 */
 #define HALLSENSOR_L_LINE                      EXTI_Line8
@@ -94,7 +104,17 @@ typedef enum {
 /**
  * @brief       Identifier used to designate left rear motor 
 */
+#define FRONT_MOTOR_IDENTIFIER                     0x00
+
+/**
+ * @brief       Identifier used to designate left rear motor 
+*/
 #define REAR_MOTOR_L_IDENTIFIER                     0x01
+
+/**
+ * @brief       Identifier used to designate right rear motor 
+*/
+#define REAR_MOTOR_R_IDENTIFIER                     0x02
 
 /**
  * @brief       Timer used to motors PWM generation
@@ -117,9 +137,10 @@ typedef enum {
 #define REAR_MOTOR_L_ENABLE_GPIO                    GPIOC
 
 /**
- * @brief       Pin used to enable the motors
+ * @brief       Pin used to enable the motor
 */
 #define REAR_MOTOR_L_ENABLE_PIN                     GPIO_Pin_13
+
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
