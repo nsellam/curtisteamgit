@@ -1,7 +1,20 @@
 var searchData=
 [
-  ['nmi_5fhandler',['NMI_Handler',['../it__handlers_8c.html#a6ad7a5e3ee69cb6db6a6b9111ba898bc',1,'it_handlers.c']]],
-  ['nvic_2ec',['nvic.c',['../nvic_8c.html',1,'']]],
-  ['nvic_2eh',['nvic.h',['../nvic_8h.html',1,'']]],
-  ['nvic_5fquickinit',['NVIC_QuickInit',['../nvic_8c.html#a373c2122552aec599bc56315e4c79472',1,'NVIC_QuickInit(int8_t IRQChannel, uint8_t Priority):&#160;nvic.c'],['../nvic_8h.html#a946ac4d2d30f25b845d12f2fbed4a607',1,'NVIC_QuickInit(int8_t IRQChannel, uint8_t priority):&#160;nvic.c']]]
+  ['memmanage_5fhandler',['MemManage_Handler',['../it__handlers_8c.html#a3150f74512510287a942624aa9b44cc5',1,'it_handlers.c']]],
+  ['millis',['millis',['../system__time_8c.html#ac4da2262c9e029e8213116c8482099b9',1,'millis(void):&#160;system_time.c'],['../system__time_8h.html#ac4da2262c9e029e8213116c8482099b9',1,'millis(void):&#160;system_time.c']]],
+  ['modules_5fdefinitions_2eh',['modules_definitions.h',['../modules__definitions_8h.html',1,'']]],
+  ['motor_5fdisable',['Motor_Disable',['../motors_8c.html#aa61e4cfa40649ab78569c92a37a1a104',1,'Motor_Disable(Motors_Enum Motor):&#160;motors.c'],['../motors_8h.html#aa61e4cfa40649ab78569c92a37a1a104',1,'Motor_Disable(Motors_Enum Motor):&#160;motors.c']]],
+  ['motor_5fenable',['Motor_Enable',['../motors_8c.html#aca892a3d79cc74578fd1e034d309a45d',1,'Motor_Enable(Motors_Enum Motor):&#160;motors.c'],['../motors_8h.html#aca892a3d79cc74578fd1e034d309a45d',1,'Motor_Enable(Motors_Enum Motor):&#160;motors.c']]],
+  ['motor_5fquickinit',['Motor_QuickInit',['../motors_8c.html#af6092fc442beb117c81e39e0f49f9835',1,'Motor_QuickInit(Motors_Enum Motor):&#160;motors.c'],['../motors_8h.html#af6092fc442beb117c81e39e0f49f9835',1,'Motor_QuickInit(Motors_Enum Motor):&#160;motors.c']]],
+  ['motor_5fsetspeed',['Motor_setSpeed',['../motors_8c.html#a8f59ef6f72a2d1dc5692ed398dadc77e',1,'Motor_setSpeed(Motors_Enum Motor, float speed):&#160;motors.c'],['../motors_8h.html#a8f59ef6f72a2d1dc5692ed398dadc77e',1,'Motor_setSpeed(Motors_Enum Motor, float speed):&#160;motors.c']]],
+  ['motors_2ec',['motors.c',['../motors_8c.html',1,'']]],
+  ['motors_2eh',['motors.h',['../motors_8h.html',1,'']]],
+  ['motors_5fnumber',['MOTORS_NUMBER',['../modules__definitions_8h.html#ae2af5242fc1c8b2bb227b437aecb06fc',1,'modules_definitions.h']]],
+  ['motors_5fpwm_5fdelta_5fmax',['MOTORS_PWM_DELTA_MAX',['../modules__definitions_8h.html#a5e0b5fbc6e63a5a16d8867a0d4758b92',1,'modules_definitions.h']]],
+  ['motors_5fpwm_5ffrequency',['MOTORS_PWM_FREQUENCY',['../modules__definitions_8h.html#abe6d4124aaeee3b20564c5cfdd8fa878',1,'modules_definitions.h']]],
+  ['motors_5fpwm_5fmax',['MOTORS_PWM_MAX',['../modules__definitions_8h.html#a1f81962bf84ac84bffc9e671292a0592',1,'modules_definitions.h']]],
+  ['motors_5fpwm_5fmin',['MOTORS_PWM_MIN',['../modules__definitions_8h.html#ab5b726841f0479e91036037c8566b8c9',1,'modules_definitions.h']]],
+  ['motors_5fpwm_5fzero',['MOTORS_PWM_ZERO',['../modules__definitions_8h.html#aa8e548a64f031232370dfd963b035949',1,'modules_definitions.h']]],
+  ['motors_5fspeed_5fdelta',['MOTORS_SPEED_DELTA',['../motors_8h.html#aded8a6b90ebe0053e90ec0429957e62b',1,'motors.h']]],
+  ['motors_5fspeed_5fmax',['MOTORS_SPEED_MAX',['../motors_8h.html#a75608bb871b0b18111ca9abde8949d45',1,'motors.h']]]
 ];

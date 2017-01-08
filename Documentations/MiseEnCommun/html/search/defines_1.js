@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['default_5fremap',['DEFAULT_REMAP',['../tim_8c.html#aa03bb59552da1b80f62dcb55483e583f',1,'tim.c']]]
+  ['count_5fadder',['COUNT_ADDER',['../hall__sensors_8c.html#a90fd11d70b1950c76e7eed8ad2459987',1,'hall_sensors.c']]]
 ];
