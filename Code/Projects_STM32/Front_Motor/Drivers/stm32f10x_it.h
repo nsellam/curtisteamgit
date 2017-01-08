@@ -40,8 +40,7 @@ void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
-void EXTI11_IRQHandler(void);
-void EXTI10_IRQHandler(void);
+void EXTI15_10_IRQHandler(void);
 void exti_callbacks(uint32_t EXTI_Line);
 					 
 #endif /* __STM32F10x_IT_H */
