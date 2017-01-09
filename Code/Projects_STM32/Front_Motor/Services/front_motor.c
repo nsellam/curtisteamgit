@@ -63,10 +63,12 @@ void front_motor_Callback(Direction_TypeDef direction) {
 	if (direction ==  LEFT) { 
 		front_motor_speed = NONE;
 		front_motor_position = LEFT;
+        stop_front_motor();
 	}
 	else if (direction ==  RIGHT) {		
 		front_motor_speed = NONE;
 		front_motor_position = RIGHT;
+        stop_front_motor();
 	}
 }
 

@@ -157,11 +157,12 @@ void exti_callbacks(uint32_t EXTI_Line) {
 		EXTI_ClearFlag(EXTI_Line);
 	} 
 }
-void EXTI10_IRQHandler(void) {
+void EXTI15_10_IRQHandler(void) {
 	exti_callbacks(EXTI_Line10);
-}
-void EXTI11_IRQHandler(void) {
 	exti_callbacks(EXTI_Line11);
+	exti_callbacks(EXTI_Line12);
+	exti_callbacks(EXTI_Line13);
+	exti_callbacks(EXTI_Line14);
+	exti_callbacks(EXTI_Line15);
 }
-
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
