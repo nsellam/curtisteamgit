@@ -159,5 +159,13 @@ void Motor_Disable(Motors_Enum Motor) {
     GPIO_ResetBits(GPIOx, GPIO_Pin);
 }
 
+/**
+ * @brief   Returns current in specified motor.
+ * @param   Motor Motor to be considered.
+ * @retval  Value of current
+*/
+int16_t Motor_getCurrent(Motors_Enum Motor) {
+    return (int16_t) 0x00;
+}
 /* Private functions ---------------------------------------------------------*/
 
