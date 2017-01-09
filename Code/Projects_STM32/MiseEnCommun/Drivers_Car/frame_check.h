@@ -15,6 +15,21 @@
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
+/**
+ * @brief   Canary length (expressed in bytes)
+ */
+#define FRAME_CANARY_SIZE                   1
+
+/**
+ * @brief   CRC length (expressed in bytes)
+ */
+#define FRAME_CRC_SIZE                      1
+
+/**
+ * @brief   Total size added to payload for communication checking
+ */
+#define FRAME_CHECK_SIZE                    (FRAME_CANARY_SIZE + FRAME_CRC_SIZE)
+
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 uint8_t FrameCheck_computeCRC(uint8_t *pdata, size_t len);

@@ -18,11 +18,11 @@ void DMA_ClockEnable(DMA_Channel_TypeDef* DMAy_Channelx);
 /* Public functions ----------------------------------------------------------*/
 
 /**
- * @brief     Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified
- * @param        DMAy_Channelx DMA_Channel_TypeDef* Number of the DMA and of the channel used
- * @param        Periph_DR_Base uint32_t Base adress of the peripheral
- * @param        Memory_DR_Base uint32_t Base adress of the memory to use
- * @param        data_buffer_size uint32_t size of the buffer
+ * @brief   Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified
+ * @param   DMAy_Channelx DMA_Channel_TypeDef* Number of the DMA and of the channel used
+ * @param   Periph_DR_Base uint32_t Base adress of the peripheral
+ * @param   Memory_DR_Base uint32_t Base adress of the memory to use
+ * @param   data_buffer_size uint32_t size of the buffer
 */
 void DMA_InitPeriph2Buffer(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize) {
 
@@ -47,11 +47,11 @@ void DMA_InitPeriph2Buffer(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t Peripher
 }
 
 /**
- * @brief     Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified
- * @param        DMAy_Channelx DMA_Channel_TypeDef* Number of the DMA and of the channel used
- * @param        Periph_DR_Base uint32_t Base adress of the peripheral
- * @param        Memory_DR_Base uint32_t Base adress of the memory to use
- * @param        data_buffer_size uint32_t size of the buffer
+ * @brief   Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified
+ * @param   DMAy_Channelx DMA_Channel_TypeDef* Number of the DMA and of the channel used
+ * @param   Periph_DR_Base uint32_t Base adress of the peripheral
+ * @param   Memory_DR_Base uint32_t Base adress of the memory to use
+ * @param   data_buffer_size uint32_t size of the buffer
 */
 void DMA_InitBuffer2Periph(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize) {
     
@@ -79,9 +79,9 @@ __weak void DMA_Callback(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {}
 
 /* Private functions ---------------------------------------------------------*/
 /**
- * @brief     Enables clock on the adequate DMA
- * @param     DMAy_Channelx DMA_Channel_TypeDef* (DMA to switch on the clock)
- * @retval     None
+ * @brief   Enables clock on the adequate DMA
+ * @param   DMAy_Channelx DMA_Channel_TypeDef* (DMA to switch on the clock)
+ * @retval  None
 */
 void DMA_ClockEnable(DMA_Channel_TypeDef* DMAy_Channelx) {
     if (            (DMAy_Channelx == DMA1_Channel1) || 

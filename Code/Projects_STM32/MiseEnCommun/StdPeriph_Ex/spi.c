@@ -34,7 +34,7 @@ void SPI_QuickInit(SPI_TypeDef SPIx, uint16_t SPI_Mode) {
     SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_64;
     SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
     SPI_InitStructure.SPI_CRCPolynomial = 0; // no CRC
-    SPI_Init(SPI2, &SPI_InitStructure);
+    SPI_Init(&SPIx, &SPI_InitStructure);
 
     //SPI_Cmd(SPIx, ENABLE);
 }
