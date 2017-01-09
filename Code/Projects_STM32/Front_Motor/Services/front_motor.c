@@ -2,53 +2,53 @@
 #include "motor.h"
 #include "exti.h"
 
-/**
-* @def HARD_STOP_GPIO_LEFT
-* @brief GPIO of the front motor's left direction sensor
-*/
-#define HARD_STOP_GPIO_LEFT GPIOC
+///**
+////* @def HARD_STOP_GPIO_LEFT
+////* @brief GPIO of the front motor's left direction sensor
+////*/
+////#define HARD_STOP_GPIO_LEFT GPIOC
 
-/**
-* @def HARD_STOP_GPIO_RIGHT
-* @brief GPIO of the front motor's right direction sensor
-*/
-#define HARD_STOP_GPIO_RIGHT GPIOC
+///**
+//* @def HARD_STOP_GPIO_RIGHT
+//* @brief GPIO of the front motor's right direction sensor
+//*/
+//#define HARD_STOP_GPIO_RIGHT GPIOC
 
-/**
-* @def HARD_STOP_PIN_LEFT
-* @brief GPIO pin of the front motor's left direction sensor
-*/
-#define HARD_STOP_PIN_LEFT 10
+///**
+//* @def HARD_STOP_PIN_LEFT
+//* @brief GPIO pin of the front motor's left direction sensor
+//*/
+//#define HARD_STOP_PIN_LEFT 10
 
-/**
-* @def HARD_STOP_PIN_RIGHT
-* @brief GPIO pin of the front motor's right direction sensor
-*/
-#define HARD_STOP_PIN_RIGHT 11
+///**
+//* @def HARD_STOP_PIN_RIGHT
+//* @brief GPIO pin of the front motor's right direction sensor
+//*/
+//#define HARD_STOP_PIN_RIGHT 11
 
-/**
-* @def FRONT_LINE_LEFT
-* @brief EXTI_line of the front motor's left direction sensor
-*/
-#define FRONT_LINE_LEFT EXTI_Line10
+///**
+//* @def FRONT_LINE_LEFT
+//* @brief EXTI_line of the front motor's left direction sensor
+//*/
+//#define FRONT_LINE_LEFT EXTI_Line10
 
-/**
-* @def FRONT_LINE_RIGHT
-* @brief EXTI_line of the front motor's right direction sensor
-*/
-#define FRONT_LINE_RIGHT EXTI_Line11
+///**
+//* @def FRONT_LINE_RIGHT
+//* @brief EXTI_line of the front motor's right direction sensor
+//*/
+//#define FRONT_LINE_RIGHT EXTI_Line11
 
-/**
-* @def HARD_STOP_TRIGGATION
-* @brief EXTI_line rising signal
-*/
-#define HARD_STOP_TRIGGATION EXTI_Trigger_Rising
+///**
+//* @def HARD_STOP_TRIGGATION
+//* @brief EXTI_line rising signal
+//*/
+//#define HARD_STOP_TRIGGATION EXTI_Trigger_Rising
 
-/**
-* @def HARD_STOP_PRIORITY
-* @brief Set the priority for the Exti of front_motor
-*/
-#define HARD_STOP_PRIORITY 5
+///**
+//* @def HARD_STOP_PRIORITY
+//* @brief Set the priority for the Exti of front_motor
+//*/
+//#define HARD_STOP_PRIORITY 1
 
 Direction_TypeDef front_motor_speed;
 Direction_TypeDef front_motor_position;

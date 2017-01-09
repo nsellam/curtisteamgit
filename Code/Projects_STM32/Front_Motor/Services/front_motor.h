@@ -49,7 +49,7 @@
 * @def HARD_STOP_PRIORITY
 * @brief Set the priority for the Exti of front_motor
 */
-#define HARD_STOP_PRIORITY 5
+#define HARD_STOP_PRIORITY 3
 
 /**
 * @typedef Direction_TypeDef
