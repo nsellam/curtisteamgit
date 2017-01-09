@@ -130,7 +130,7 @@ typedef enum {
 */
 #define REAR_MOTOR_L_TIM_CHANNEL                     TIM_Channel_1
 #define REAR_MOTOR_R_TIM_CHANNEL                     TIM_Channel_1
-#define FRONT_MOTOR_TIM_CHANNEL                     TIM_Channel_3
+#define FRONT_MOTOR_TIM_CHANNEL                      TIM_Channel_3
 
 /**
  * @brief       Period used to motors PWM generation in Hz

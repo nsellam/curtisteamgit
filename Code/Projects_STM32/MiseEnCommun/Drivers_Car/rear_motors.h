@@ -32,5 +32,10 @@ extern volatile int16_t speed_cmd;
 */
 void rear_motor_L_control (int16_t cmd);
 
+/**
+ * @brief		the core of the control loop for Right rear motor
+*/
+void rear_motor_R_control (int16_t speed_cmd);
+    
 
 #endif // _REAR_MOTORS_H
