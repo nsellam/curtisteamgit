@@ -32,17 +32,17 @@ typedef enum {
 /**
  * @brief       Number of hall sensors available
 */
-#define HALLSENSORS_NUMBER                          2
+#define HALLSENSORS_NUMBER                      2
 
 /**
  * @brief       Identifier used to designate the hall sensor associated to the left rear motor 
 */
-#define HALL_SENSOR_L_IDENTIFIER                     0x00
+#define HALL_SENSOR_L_IDENTIFIER                0x00
 
 /**
  * @brief       Identifier used to designate the hall sensor associated to the right rear motor 
 */
-#define HALL_SENSOR_R_IDENTIFIER                     0x01
+#define HALL_SENSOR_R_IDENTIFIER                0x01
 
 /**
  * @brief       Number of the exti-line corresponding to the left hall sensor
