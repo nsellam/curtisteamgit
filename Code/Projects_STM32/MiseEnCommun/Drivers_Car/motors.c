@@ -47,7 +47,11 @@ void Motor_QuickInit(Motors_Enum Motor) {
         Motor_Identifier = REAR_MOTOR_R_IDENTIFIER;    
     }
     else if (Motor == FRONT_MOTOR) {
-        
+        TIMx = FRONT_MOTOR_TIM;
+        Channelx = FRONT_MOTOR_TIM_CHANNEL;
+        GPIOx = FRONT_MOTOR_ENABLE_GPIO;
+        GPIO_Pin = FRONT_MOTOR_ENABLE_PIN;
+        Motor_Identifier = FRONT_MOTOR_IDENTIFIER; 
     }
     else return;
     
@@ -82,6 +86,11 @@ void Motor_setSpeed(Motors_Enum Motor, float speed) {
         Channelx = REAR_MOTOR_R_TIM_CHANNEL;
         Motor_Identifier = REAR_MOTOR_R_IDENTIFIER;        
     }
+    else if (Motor == FRONT_MOTOR) {
+        TIMx = FRONT_MOTOR_TIM;
+        Channelx = FRONT_MOTOR_TIM_CHANNEL;
+        Motor_Identifier = FRONT_MOTOR_IDENTIFIER; 
+    }
     else return;
     
             if(speed >  MOTORS_SPEED_MAX) speed =  MOTORS_SPEED_MAX;
@@ -115,6 +124,10 @@ void Motor_Enable(Motors_Enum Motor) {
         GPIOx = REAR_MOTOR_R_ENABLE_GPIO;
         GPIO_Pin = REAR_MOTOR_R_ENABLE_PIN;
     }
+    else if (Motor == FRONT_MOTOR) {
+        GPIOx = FRONT_MOTOR_ENABLE_GPIO;
+        GPIO_Pin = FRONT_MOTOR_ENABLE_PIN;
+    }
     else return;
     
     GPIO_SetBits(GPIOx, GPIO_Pin);
@@ -136,6 +149,10 @@ void Motor_Disable(Motors_Enum Motor) {
     else if (Motor == REAR_MOTOR_R) {
         GPIOx = REAR_MOTOR_R_ENABLE_GPIO;
         GPIO_Pin = REAR_MOTOR_R_ENABLE_PIN;
+    }
+    else if (Motor == FRONT_MOTOR) {
+        GPIOx = FRONT_MOTOR_ENABLE_GPIO;
+        GPIO_Pin = FRONT_MOTOR_ENABLE_PIN;
     }
     else return;
     
