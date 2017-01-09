@@ -24,7 +24,7 @@ void EXTI_Callback(uint32_t EXTI_Line) {
     if (EXTI_Line == HALLSENSOR_L_LINE) HallSensor_EdgeCallback(HALLSENSOR_L);
     if (EXTI_Line == HALLSENSOR_R_LINE) HallSensor_EdgeCallback(HALLSENSOR_R);
     if (EXTI_Line == FRONT_LINE_LEFT)   FrontMotor_Callback(LEFT);
-    if (EXTI_Line == FRONT_LINE_LEFT)   FrontMotor_Callback(RIGHT);
+    if (EXTI_Line == FRONT_LINE_RIGHT)  FrontMotor_Callback(RIGHT);
 }
     
 /* Private functions ---------------------------------------------------------*/

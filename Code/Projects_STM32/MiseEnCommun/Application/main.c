@@ -39,8 +39,8 @@ int main (void) {
     //HallSensor_Example(HALLSENSOR_L);
     //Motor_Example(REAR_MOTOR_R);
     //PositionSensor_Example(POSITION_SENSOR_L);
-    SpeedSensor_Example(POSITION_SENSOR_L);
-    //FrontMotor_Example();
+    //SpeedSensor_Example(POSITION_SENSOR_L);
+    FrontMotor_Example();
     while (1) {}
 }
 

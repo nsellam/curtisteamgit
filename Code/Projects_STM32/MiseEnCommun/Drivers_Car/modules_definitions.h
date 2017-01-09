@@ -166,12 +166,12 @@ typedef enum {
 /**
  * @brief   GPIO pin of the front motor's left direction sensor
  */
-#define HARD_STOP_PIN_LEFT                          10
+#define HARD_STOP_PIN_LEFT                          GPIO_Pin_10
 
 /**
  * @brief   GPIO pin of the front motor's right direction sensor
  */
-#define HARD_STOP_PIN_RIGHT                         11
+#define HARD_STOP_PIN_RIGHT                         GPIO_Pin_11
 
 /**
  * @brief   EXTI_line of the front motor's left direction sensor
@@ -186,17 +186,17 @@ typedef enum {
 /**
  * @brief   EXTI_line rising signal
  */
-#define HARD_STOP_TRIGGATION                        EXTI_Trigger_Rising
+#define HARD_STOP_TRIGGATION                        EXTI_Trigger_Falling
 
 /**
  * @brief   Set the priority for the Exti of front_motor
  */
-#define HARD_STOP_PRIORITY       3
+#define HARD_STOP_PRIORITY                          3
 
 /**
  * @brief       Maximum current for the motors (mA)
 */
-#define MAX_CURRENT                          ((float)4000.0)
+#define MAX_CURRENT                                 ((float)4000.0)
 
 
 /* Exported macro ------------------------------------------------------------*/
