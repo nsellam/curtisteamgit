@@ -15,17 +15,17 @@
 
 /* Exported types ------------------------------------------------------------*/
 typedef enum {
-    HALLSENSOR_L,
-    HALLSENSOR_R
+    HALLSENSOR_L = 0,
+    HALLSENSOR_R = 1
 } HallSensors_Enum;
 
 typedef HallSensors_Enum PositionSensor_Enum;
 typedef HallSensors_Enum SpeedSensor_Enum;
 
 typedef enum {
-    FRONT_MOTOR,
-    REAR_MOTOR_L,
-    REAR_MOTOR_R
+    FRONT_MOTOR = 0,
+    REAR_MOTOR_L = 1,
+    REAR_MOTOR_R = 2
 } Motors_Enum;
 
 /* Exported constants --------------------------------------------------------*/
@@ -146,6 +146,48 @@ typedef enum {
 */
 #define REAR_MOTOR_L_ENABLE_PIN                     GPIO_Pin_13
 #define REAR_MOTOR_R_ENABLE_PIN                     GPIO_Pin_13
+
+
+/**
+ * @brief   GPIO of the front motor's left direction sensor
+ */
+#define HARD_STOP_GPIO_LEFT                         GPIOC
+
+/**
+ * @brief   GPIO of the front motor's right direction sensor
+ */
+#define HARD_STOP_GPIO_RIGHT                        GPIOC
+
+/**
+ * @brief   GPIO pin of the front motor's left direction sensor
+ */
+#define HARD_STOP_PIN_LEFT                          10
+
+/**
+ * @brief   GPIO pin of the front motor's right direction sensor
+ */
+#define HARD_STOP_PIN_RIGHT                         11
+
+/**
+ * @brief   EXTI_line of the front motor's left direction sensor
+ */
+#define FRONT_LINE_LEFT                             EXTI_Line10
+
+/**
+ * @brief   EXTI_line of the front motor's right direction sensor
+*/
+#define FRONT_LINE_RIGHT                            EXTI_Line11
+
+/**
+ * @brief   EXTI_line rising signal
+ */
+#define HARD_STOP_TRIGGATION                        EXTI_Trigger_Rising
+
+/**
+ * @brief   Set the priority for the Exti of front_motor
+ */
+#define HARD_STOP_PRIORITY                          3
+
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */

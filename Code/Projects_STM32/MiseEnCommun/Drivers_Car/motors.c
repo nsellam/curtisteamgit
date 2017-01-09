@@ -46,6 +46,9 @@ void Motor_QuickInit(Motors_Enum Motor) {
         GPIO_Pin = REAR_MOTOR_R_ENABLE_PIN;
         Motor_Identifier = REAR_MOTOR_R_IDENTIFIER;    
     }
+    else if (Motor == FRONT_MOTOR) {
+        
+    }
     else return;
     
     PWM_QuickInit(TIMx, Channelx, MOTORS_PWM_FREQUENCY);

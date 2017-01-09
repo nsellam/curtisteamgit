@@ -18,6 +18,13 @@ typedef enum {
     BACKWARD
 } direction_TypeDef;
 
+typedef enum {
+  LEFT = 1,
+  NONE = 0,
+  RIGHT = -1
+} side_TypeDef;
+
+
 /* Exported constants --------------------------------------------------------*/
 /**
  * @brief    Number of microseconds per second
