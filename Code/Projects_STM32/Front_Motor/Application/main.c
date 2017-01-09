@@ -8,8 +8,8 @@
 int main(void) {
 	
     front_motor_QuickInit();
-//    front_motor_turn(RIGHT);
-//    front_motor_stop();
+    //front_motor_turn(RIGHT);
+    //front_motor_stop();
 //    front_motor_turn(LEFT);
 //    front_motor_stop();
 //    front_motor_turn(LEFT);
