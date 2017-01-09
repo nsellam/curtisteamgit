@@ -1,27 +1,22 @@
 /**
- * @file 		template.h
- * @author 	Curtis Team
- * @brief 	Header template for all the files of the project  
+ * @file    front_motor.h
+ * @author  Curtis Team
+ * @brief   Headers of functions to handle front motor  
  */
  
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef _TEMPLATE_H
-#define _TEMPLATE_H
+#ifndef _FRONT_MOTOR_H
+#define _FRONT_MOTOR_H
 
 /* Includes ------------------------------------------------------------------*/
+#include <stdint.h>
+#include <stddef.h>
 #include "stm32f10x.h"
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
-
-/**
-  * @brief  This is an exported constant
-  */
-#define TEMPLATE_EXPORTED_CONSTANT 0
-
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 
-void Template_Example_Public(void);
-			 
-#endif // _TEMPLATE_H
+
+#endif // _FRONT_MOTOR_H

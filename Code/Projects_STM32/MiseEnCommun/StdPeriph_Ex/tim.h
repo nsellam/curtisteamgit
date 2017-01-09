@@ -15,8 +15,7 @@
 /** 
  * @brief  Timers remap type
 */
-typedef enum
-{
+typedef enum {
     DefaultRemap,
     PartialRemap1,
     PartialRemap2,

@@ -62,6 +62,9 @@ $(function() {
 &#160;
 
 <h3><a id="index_a"></a>- a -</h3><ul>
+<li>ADC1_2_IRQHandler()
+: <a class="el" href="it__handlers_8c.html#a3e8fca6e2f18e433a9fbc3d2dcc0b411">it_handlers.c</a>
+</li>
 <li>ADC_Callback()
 : <a class="el" href="adc_8c.html#a7defbc5079df7e920454289e8b819a2b">adc.c</a>
 , <a class="el" href="adc_8h.html#a7defbc5079df7e920454289e8b819a2b">adc.h</a>
@@ -70,8 +73,8 @@ $(function() {
 : <a class="el" href="adc_8c.html#a3eeed6ce49f7b81ad12809e53461062e">adc.c</a>
 </li>
 <li>ADC_QuickInit()
-: <a class="el" href="adc_8c.html#a012b21920b206b47f78b01644a24a7aa">adc.c</a>
-, <a class="el" href="adc_8h.html#a012b21920b206b47f78b01644a24a7aa">adc.h</a>
+: <a class="el" href="adc_8c.html#ac9c1e16ff94fbf1cd518f1eb22c7bf76">adc.c</a>
+, <a class="el" href="adc_8h.html#ac9c1e16ff94fbf1cd518f1eb22c7bf76">adc.h</a>
 </li>
 </ul>
 
@@ -120,7 +123,9 @@ $(function() {
 , <a class="el" href="dma_8h.html#a98253e7f0effc4f593066a307bf413d5">dma.h</a>
 </li>
 <li>DMA_ITHandler()
-: <a class="el" href="dma_8c.html#aac23c67b210acba646f913ddb26d225c">dma.c</a>
+: <a class="el" href="it__handlers_8c.html#a03a8748b703ea6d28520628143071e09">it_handlers.c</a>
+, <a class="el" href="it__handlers_8h.html#aac23c67b210acba646f913ddb26d225c">it_handlers.h</a>
+, <a class="el" href="dma_8c.html#aac23c67b210acba646f913ddb26d225c">dma.c</a>
 </li>
 </ul>
 
@@ -148,14 +153,13 @@ $(function() {
 : <a class="el" href="it__handlers_8c.html#a7b2096b8b2643286dc3a7e5110e5ae85">it_handlers.c</a>
 </li>
 <li>EXTI_ITHandler()
-: <a class="el" href="exti_8c.html#aa82e0dedc4077cc5a2e0c81a47797894">exti.c</a>
+: <a class="el" href="it__handlers_8h.html#aa82e0dedc4077cc5a2e0c81a47797894">it_handlers.h</a>
+, <a class="el" href="exti_8c.html#aa82e0dedc4077cc5a2e0c81a47797894">exti.c</a>
+, <a class="el" href="it__handlers_8c.html#a7a563c57a4447176b663c3026d3537a1">it_handlers.c</a>
 </li>
 <li>EXTI_QuickInit()
 : <a class="el" href="exti_8c.html#a2eee151d004e2c6970b2e96f8f9ed82d">exti.c</a>
 , <a class="el" href="exti_8h.html#a2eee151d004e2c6970b2e96f8f9ed82d">exti.h</a>
-</li>
-<li>EXTIx_IRQHandler()
-: <a class="el" href="it__handlers_8c.html#a265be0e992f52eb2652fc83baa754d26">it_handlers.c</a>
 </li>
 </ul>
 
@@ -181,6 +185,51 @@ $(function() {
 
 
 <h3><a id="index_h"></a>- h -</h3><ul>
+<li>HallSensor_count()
+: <a class="el" href="hall__sensors_8c.html#a1175f9f85ad81de35f8e245d1d2183cb">hall_sensors.c</a>
+</li>
+<li>HallSensor_countPeridodTicks()
+: <a class="el" href="hall__sensors_8c.html#af32be09e0001124a986d955ae918dd7e">hall_sensors.c</a>
+</li>
+<li>HallSensor_decount()
+: <a class="el" href="hall__sensors_8c.html#aaba8d866074786e93eaa811bc57f1334">hall_sensors.c</a>
+</li>
+<li>HallSensor_EdgeCallback()
+: <a class="el" href="hall__sensors_8c.html#ad012c410e4cf7d646906ea4d4bd2adf8">hall_sensors.c</a>
+, <a class="el" href="hall__sensors_8h.html#ad012c410e4cf7d646906ea4d4bd2adf8">hall_sensors.h</a>
+</li>
+<li>HallSensor_getLap()
+: <a class="el" href="hall__sensors_8c.html#ab409790bf6c92a4cdb0181cfe353cb24">hall_sensors.c</a>
+, <a class="el" href="hall__sensors_8h.html#ab409790bf6c92a4cdb0181cfe353cb24">hall_sensors.h</a>
+</li>
+<li>HallSensor_getLastPop()
+: <a class="el" href="hall__sensors_8c.html#a788658acfa4079557c8a664fe20962f2">hall_sensors.c</a>
+, <a class="el" href="hall__sensors_8h.html#a788658acfa4079557c8a664fe20962f2">hall_sensors.h</a>
+</li>
+<li>HallSensor_getNumberTicksInPeriod()
+: <a class="el" href="hall__sensors_8c.html#adcaebb67239b3bf1ddc750f89a34a884">hall_sensors.c</a>
+, <a class="el" href="hall__sensors_8h.html#adcaebb67239b3bf1ddc750f89a34a884">hall_sensors.h</a>
+</li>
+<li>HallSensor_getSector()
+: <a class="el" href="hall__sensors_8c.html#a8e24cfd80a59f76309fa720fadbc1dc2">hall_sensors.c</a>
+, <a class="el" href="hall__sensors_8h.html#a8e24cfd80a59f76309fa720fadbc1dc2">hall_sensors.h</a>
+</li>
+<li>HallSensor_newEdge()
+: <a class="el" href="hall__sensors_8c.html#a17a7cb20a9ab4dc83bc071367e055b62">hall_sensors.c</a>
+</li>
+<li>HallSensor_QuickInit()
+: <a class="el" href="hall__sensors_8c.html#a27299bd3125df181ea57522e616fc99d">hall_sensors.c</a>
+, <a class="el" href="hall__sensors_8h.html#a27299bd3125df181ea57522e616fc99d">hall_sensors.h</a>
+</li>
+<li>HallSensor_reset()
+: <a class="el" href="hall__sensors_8c.html#a8935771d18d190aab5a7e1e22ef8eaea">hall_sensors.c</a>
+</li>
+<li>HallSensor_resetTimeToNextHallPeriod()
+: <a class="el" href="hall__sensors_8c.html#ab8654b3eb45abc88d0f09dc8aca44fdb">hall_sensors.c</a>
+</li>
+<li>HallSensor_setCountDecount()
+: <a class="el" href="hall__sensors_8c.html#aadbf64c2f4d52e217abca010f053dbdb">hall_sensors.c</a>
+</li>
 <li>HardFault_Handler()
 : <a class="el" href="it__handlers_8c.html#a2bffc10d5bd4106753b7c30e86903bea">it_handlers.c</a>
 </li>
@@ -199,9 +248,24 @@ $(function() {
 : <a class="el" href="it__handlers_8c.html#a3150f74512510287a942624aa9b44cc5">it_handlers.c</a>
 </li>
 <li>millis()
-: <a class="el" href="systick_8h.html#ac4da2262c9e029e8213116c8482099b9">systick.h</a>
-, <a class="el" href="system__time_8c.html#ac4da2262c9e029e8213116c8482099b9">system_time.c</a>
+: <a class="el" href="system__time_8c.html#ac4da2262c9e029e8213116c8482099b9">system_time.c</a>
 , <a class="el" href="system__time_8h.html#ac4da2262c9e029e8213116c8482099b9">system_time.h</a>
+</li>
+<li>Motor_Disable()
+: <a class="el" href="motors_8c.html#aa61e4cfa40649ab78569c92a37a1a104">motors.c</a>
+, <a class="el" href="motors_8h.html#aa61e4cfa40649ab78569c92a37a1a104">motors.h</a>
+</li>
+<li>Motor_Enable()
+: <a class="el" href="motors_8c.html#aca892a3d79cc74578fd1e034d309a45d">motors.c</a>
+, <a class="el" href="motors_8h.html#aca892a3d79cc74578fd1e034d309a45d">motors.h</a>
+</li>
+<li>Motor_QuickInit()
+: <a class="el" href="motors_8c.html#af6092fc442beb117c81e39e0f49f9835">motors.c</a>
+, <a class="el" href="motors_8h.html#af6092fc442beb117c81e39e0f49f9835">motors.h</a>
+</li>
+<li>Motor_setSpeed()
+: <a class="el" href="motors_8c.html#a8f59ef6f72a2d1dc5692ed398dadc77e">motors.c</a>
+, <a class="el" href="motors_8h.html#a8f59ef6f72a2d1dc5692ed398dadc77e">motors.h</a>
 </li>
 </ul>
 
@@ -212,7 +276,7 @@ $(function() {
 </li>
 <li>NVIC_QuickInit()
 : <a class="el" href="nvic_8c.html#a373c2122552aec599bc56315e4c79472">nvic.c</a>
-, <a class="el" href="nvic_8h.html#a946ac4d2d30f25b845d12f2fbed4a607">nvic.h</a>
+, <a class="el" href="nvic_8h.html#a373c2122552aec599bc56315e4c79472">nvic.h</a>
 </li>
 </ul>
 
@@ -224,6 +288,12 @@ $(function() {
 </li>
 <li>PendSV_Handler()
 : <a class="el" href="it__handlers_8c.html#a6303e1f258cbdc1f970ce579cc015623">it_handlers.c</a>
+</li>
+<li>PositionSensor_get()
+: <a class="el" href="position__sensors_8h.html#a841774b559548a46856e644ab92195a2">position_sensors.h</a>
+</li>
+<li>PositionSensor_QuickInit()
+: <a class="el" href="position__sensors_8h.html#a5f8fb53deabd6c737cd2db43e6ece0af">position_sensors.h</a>
 </li>
 <li>pwm_gpio_init()
 : <a class="el" href="pwm_8c.html#a9fe99adb28b49e4bf282daf380a1ce14">pwm.c</a>
@@ -259,6 +329,23 @@ $(function() {
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>SpeedSensor_compute()
+: <a class="el" href="speed__sensors_8c.html#a50642021959163d84edc73e6b60895ae">speed_sensors.c</a>
+</li>
+<li>SpeedSensor_get()
+: <a class="el" href="speed__sensors_8c.html#a6e6cc154450cdf57b0e181e395762fa7">speed_sensors.c</a>
+, <a class="el" href="speed__sensors_8h.html#a6e6cc154450cdf57b0e181e395762fa7">speed_sensors.h</a>
+</li>
+<li>SpeedSensor_QuickInit()
+: <a class="el" href="speed__sensors_8c.html#ad4f941a194f361c1da1ce6bddd8862c9">speed_sensors.c</a>
+, <a class="el" href="speed__sensors_8h.html#ad4f941a194f361c1da1ce6bddd8862c9">speed_sensors.h</a>
+</li>
+<li>SpeedSensor_tickBasedMethod()
+: <a class="el" href="speed__sensors_8c.html#a09ca7442a83f16c137e1a0e751d853ff">speed_sensors.c</a>
+</li>
+<li>SpeedSensor_timeBasedMethod()
+: <a class="el" href="speed__sensors_8c.html#ab555fcca8ac358695cdd457595c78e47">speed_sensors.c</a>
+</li>
 <li>SPI1_IRQHandler()
 : <a class="el" href="it__handlers_8c.html#a9bbd8c17ce4f49adcca47d11f482aab6">it_handlers.c</a>
 </li>
@@ -283,13 +370,16 @@ $(function() {
 , <a class="el" href="system__time_8h.html#a5839223d4dcfe51b12cf4efc9e69c387">system_time.h</a>
 </li>
 <li>SysTick_Callback()
-: <a class="el" href="systick_8h.html#a1776ae73b563f2f9fc51d6cd626f1a62">systick.h</a>
-, <a class="el" href="system__time_8c.html#a1776ae73b563f2f9fc51d6cd626f1a62">system_time.c</a>
+: <a class="el" href="system__time_8c.html#a1776ae73b563f2f9fc51d6cd626f1a62">system_time.c</a>
 , <a class="el" href="system__time_8h.html#a1776ae73b563f2f9fc51d6cd626f1a62">system_time.h</a>
 </li>
 <li>SysTick_Handler()
 : <a class="el" href="it__handlers_8c.html#ab5e09814056d617c521549e542639b7e">it_handlers.c</a>
-, <a class="el" href="systick_8c.html#ab5e09814056d617c521549e542639b7e">systick.c</a>
+, <a class="el" href="systick_8h.html#ab5e09814056d617c521549e542639b7e">systick.h</a>
+</li>
+<li>SysTick_ITHandler()
+: <a class="el" href="it__handlers_8h.html#adf484bbe6cd361a5d7bcddc8e732d342">it_handlers.h</a>
+, <a class="el" href="systick_8c.html#adf484bbe6cd361a5d7bcddc8e732d342">systick.c</a>
 </li>
 <li>SysTick_QuickInit()
 : <a class="el" href="systick_8c.html#a5a32ca87bb53e0c027409c0d875ce323">systick.c</a>
