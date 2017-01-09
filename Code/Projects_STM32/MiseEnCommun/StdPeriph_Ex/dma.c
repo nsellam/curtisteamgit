@@ -24,7 +24,7 @@ void DMA_ClockEnable(DMA_Channel_TypeDef* DMAy_Channelx);
  * @param   Memory_DR_Base uint32_t Base adress of the memory to use
  * @param   data_buffer_size uint32_t size of the buffer
 */
-void DMA_InitPeriph2Buffer(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize) {
+void DMA_QuickInit_Periph2Buffer(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize) {
 
     DMA_InitTypeDef DMA_InitStructure;
 
@@ -53,7 +53,7 @@ void DMA_InitPeriph2Buffer(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t Peripher
  * @param   Memory_DR_Base uint32_t Base adress of the memory to use
  * @param   data_buffer_size uint32_t size of the buffer
 */
-void DMA_InitBuffer2Periph(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize) {
+void DMA_QuickInit_Buffer2Periph(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize) {
     
     DMA_InitTypeDef DMA_InitStructure;
 
