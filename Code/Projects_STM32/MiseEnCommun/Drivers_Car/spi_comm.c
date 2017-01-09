@@ -14,9 +14,8 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-#ifndef SPICOMM_BUFFER_SIZE_MAX
-   #define SPICOMM_BUFFER_SIZE_MAX 256
-#endif
+#define SPICOMM_BUFFER_SIZE_MAX 256
+
 
 #define FRAME_CANARY_POS(length) ((length) + 0)
 #define FRAME_CRC_POS(length)    (FRAME_CANARY_POS(length) + FRAME_CANARY_SIZE)

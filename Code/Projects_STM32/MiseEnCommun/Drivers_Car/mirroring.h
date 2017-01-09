@@ -17,6 +17,8 @@
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-
+void Mirroring_Init(void);
+void Mirroring_Start(void);
+void Mirroring_Stop(void);
 
 #endif // _MIRRORING_H
