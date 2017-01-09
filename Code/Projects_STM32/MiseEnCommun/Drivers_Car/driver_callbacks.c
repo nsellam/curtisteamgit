@@ -7,6 +7,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "driver_callbacks.h"
 #include "modules_definitions.h"
+#include "common_constants.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -17,10 +18,13 @@
 /* Public functions ----------------------------------------------------------*/
 
 __weak void HallSensor_EdgeCallback(HallSensors_Enum hall_identifier) {}
-
+__weak void FrontMotor_Callback(side_TypeDef direction) {}
+    
 void EXTI_Callback(uint32_t EXTI_Line) {
     if (EXTI_Line == HALLSENSOR_L_LINE) HallSensor_EdgeCallback(HALLSENSOR_L);
     if (EXTI_Line == HALLSENSOR_R_LINE) HallSensor_EdgeCallback(HALLSENSOR_R);
+    if (EXTI_Line == FRONT_LINE_LEFT)   FrontMotor_Callback(LEFT);
+    if (EXTI_Line == FRONT_LINE_LEFT)   FrontMotor_Callback(RIGHT);
 }
     
 /* Private functions ---------------------------------------------------------*/

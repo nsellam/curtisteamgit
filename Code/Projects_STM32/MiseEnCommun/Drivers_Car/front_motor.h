@@ -19,5 +19,7 @@
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 void FrontMotor_QuickInit(void);
-void front_motor_turn(side_TypeDef direction); 
+void FrontMotor_turn(side_TypeDef direction); 
+void FrontMotor_Callback(side_TypeDef direction);
+
 #endif // _FRONT_MOTOR_H
