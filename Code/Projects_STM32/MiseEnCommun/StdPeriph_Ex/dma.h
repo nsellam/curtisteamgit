@@ -15,8 +15,8 @@
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void DMA_InitBuffer2Periph(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t Periph_DR_Base, uint32_t Memory_DR_Base, uint32_t data_buffer_size);
-void DMA_InitPeriph2Buffer(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t Periph_DR_Base, uint32_t Memory_DR_Base, uint32_t data_buffer_size);
+void DMA_QuickInit_Periph2Buffer(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t PeripheralDataSize, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize);
+void DMA_QuickInit_Buffer2Periph(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t PeripheralDataSize, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize);
 
 void DMA_Callback(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags);
 
