@@ -39,6 +39,7 @@ uint16_t conversion_values[ADC_NB][ADC_NB_CHANNELS_MAX] = {0};
 /* Private function prototypes -----------------------------------------------*/
 void ADC_Clock_Enable(ADC_TypeDef* ADCx);
 uint8_t GPIOPin2ADCChannel (GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x);
+uint8_t ADC2int(ADC_TypeDef *ADCx);
 
 /* Public functions ----------------------------------------------------------*/
 /**
@@ -60,9 +61,9 @@ uint8_t GPIOPin2ADCChannel (GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x);
  * @retval  int (error detected while computing initialization)
  * @return  If everything went right ADC_NO_ERROR, if not ADC_ERROR_PIN or ADC_ERROR_PORT
 */
-int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, uint8_t SampleTime) {
+int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, uint8_t Rank, uint8_t SampleTime) {
     ADC_InitTypeDef ADC_InitStruct;
-    int num = (ADCx == ADC1) + 2*(ADCx == ADC2) + 3*(ADCx == ADC3) - 1;
+    uint8_t num = ADC2int(ADCx);
     uint8_t channelx = GPIOPin2ADCChannel(GPIOx, GPIO_Pin_x);
 
     if (!initialized[num]) {
@@ -82,9 +83,9 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
         ADC_Init(ADCx, &ADC_InitStruct);
         
         if(ADCx == ADC1) {
-            DMA_QuickInit_Periph2Buffer(DMA1_Channel1, &ADC1->DR, &conversion_values[0], DMA_PeripheralDataSize_HalfWord);
+            DMA_QuickInit_Periph2Buffer(DMA1_Channel1, (uint32_t)&ADC1->DR, DMA_PeripheralDataSize_HalfWord, (uint32_t)&conversion_values[0], DMA_MemoryDataSize_HalfWord);
         } else if (ADCx == ADC3) {
-            DMA_QuickInit_Periph2Buffer(DMA2_Channel5, &ADC3->DR, &conversion_values[3], DMA_PeripheralDataSize_HalfWord);
+            DMA_QuickInit_Periph2Buffer(DMA2_Channel5, (uint32_t)&ADC3->DR, DMA_PeripheralDataSize_HalfWord, (uint32_t)&conversion_values[3], DMA_MemoryDataSize_HalfWord);
         }
         
         //Reset of ADC Calibration register
@@ -110,9 +111,13 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
     GPIO_QuickInit(GPIOx, GPIO_Pin_x, GPIO_MODE_ADC);
 
     //Set ADC Conversion's sample time(channel, rank, sample time)
-    ADC_RegularChannelConfig(ADCx, channelx, 1, SampleTime);
+    ADC_RegularChannelConfig(ADCx, channelx, Rank, SampleTime);
 
     return ADC_NO_ERROR;
+}
+
+uint16_t ADC_GetValue(ADC_TypeDef* ADCx, int rank) {
+    return conversion_values[ADC2int(ADCx)][rank];
 }
 
 /**
@@ -170,4 +175,8 @@ uint8_t GPIOPin2ADCChannel(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x) {
         }
     }
     else return ERROR_INVALID_PORT;
+}
+
+uint8_t ADC2int(ADC_TypeDef *ADCx) {
+    return (ADCx == ADC1) + 2*(ADCx == ADC2) + 3*(ADCx == ADC3) - 1;
 }
