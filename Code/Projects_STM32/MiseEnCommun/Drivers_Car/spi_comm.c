@@ -95,8 +95,8 @@ void SPIComm_QuickInit(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t buffer_R
     SPI_QuickInit(*SPIx, SPI_Mode_Slave);
     
     // DMA configuration 
-    DMA_InitBuffer2Periph(SPIx_DMA_Tx_Channel, SPIx_DR_Base, (uint32_t)frame_buffer_Tx, data_buffer_Tx_size + FRAME_CHECK_SIZE);
-    DMA_InitPeriph2Buffer(SPIx_DMA_Rx_Channel, SPIx_DR_Base, (uint32_t)frame_buffer_Rx, data_buffer_Rx_size + FRAME_CHECK_SIZE);
+    DMA_QuickInit_Buffer2Periph(SPIx_DMA_Tx_Channel, SPIx_DR_Base, (uint32_t)frame_buffer_Tx, data_buffer_Tx_size + FRAME_CHECK_SIZE, data_buffer_Tx_size + FRAME_CHECK_SIZE);
+    DMA_QuickInit_Periph2Buffer(SPIx_DMA_Rx_Channel, SPIx_DR_Base, (uint32_t)frame_buffer_Rx, data_buffer_Rx_size + FRAME_CHECK_SIZE, data_buffer_Tx_size + FRAME_CHECK_SIZE);
 }
 
 
