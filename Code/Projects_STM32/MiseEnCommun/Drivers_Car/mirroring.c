@@ -1,11 +1,11 @@
 /**
- * @file    us_sensors.c
+ * @file    mirroring.c
  * @author  Curtis Team
- * @brief   Functions to handle ultrasonic sensors  
+ * @brief   Functions to perform mirroring between STM32 and master
  */
  
 /* Includes ------------------------------------------------------------------*/
-#include "us_sensors.h"
+#include "mirroring.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/

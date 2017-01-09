@@ -1,12 +1,12 @@
 /**
- * @file    us_sensors.h
+ * @file    mirroring.h
  * @author  Curtis Team
- * @brief   Headers of functions to manage time
+ * @brief   Headers of functions to perform mirroring between STM32 and master
  */
  
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef _US_SENSORS_H
-#define _US_SENSORS_H
+#ifndef _MIRRORING_H
+#define _MIRRORING_H
 
 /* Includes ------------------------------------------------------------------*/
 #include <stdint.h>
@@ -19,4 +19,4 @@
 /* Exported functions ------------------------------------------------------- */
 
 
-#endif // _US_SENSORS_H
+#endif // _MIRRORING_H
