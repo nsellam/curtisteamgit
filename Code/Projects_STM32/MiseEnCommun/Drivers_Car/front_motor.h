@@ -12,11 +12,12 @@
 #include <stdint.h>
 #include <stddef.h>
 #include "stm32f10x.h"
+#include "common_constants.h"
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-
-
+void FrontMotor_QuickInit(void);
+void front_motor_turn(side_TypeDef direction); 
 #endif // _FRONT_MOTOR_H
