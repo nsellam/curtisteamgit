@@ -22,6 +22,7 @@ static uint64_t time_millis;
 /* Public functions ----------------------------------------------------------*/
 
 __weak void HallSensor_TimeCallback(void) {}
+__weak void RearMotors_Callback(void) {}
 
 /**
  * @brief       Makes the initialization of time for the whole system 
@@ -42,6 +43,7 @@ void SysTick_Callback(void) {
     time_millis ++;
     
     HallSensor_TimeCallback();
+    RearMotors_Callback();
     // Other periodic functions (every 1 ms)
     
     // Other periodic functions (every 10 ms)
@@ -52,6 +54,7 @@ void SysTick_Callback(void) {
     
     // Other periodic functions (every 1 s)
     //if (time_millis % 1000 == 0) {}
+    
 }
 
 /**

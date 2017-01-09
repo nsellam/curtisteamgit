@@ -191,7 +191,12 @@ typedef enum {
 /**
  * @brief   Set the priority for the Exti of front_motor
  */
-#define HARD_STOP_PRIORITY                          3
+#define HARD_STOP_PRIORITY       3
+
+/**
+ * @brief       Maximum current for the motors (mA)
+*/
+#define MAX_CURRENT                          ((float)4000.0)
 
 
 /* Exported macro ------------------------------------------------------------*/
