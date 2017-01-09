@@ -453,6 +453,16 @@
               <FileType>1</FileType>
               <FilePath>..\Drivers_Car\us_sensors.c</FilePath>
             </File>
+            <File>
+              <FileName>position_sensors.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers_Car\position_sensors.c</FilePath>
+            </File>
+            <File>
+              <FileName>speed_sensors.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers_Car\speed_sensors.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

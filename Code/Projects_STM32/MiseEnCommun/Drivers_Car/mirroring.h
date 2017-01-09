@@ -1,12 +1,12 @@
 /**
- * @file    spi_comm.h
+ * @file    mirroring.h
  * @author  Curtis Team
- * @brief   Headers of functions to handle communication threw SPI  
+ * @brief   Headers of functions to perform mirroring between STM32 and master
  */
  
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef _SPI_COMM_H
-#define _SPI_COMM_H
+#ifndef _MIRRORING_H
+#define _MIRRORING_H
 
 /* Includes ------------------------------------------------------------------*/
 #include <stdint.h>
@@ -14,22 +14,11 @@
 #include "stm32f10x.h"
 
 /* Exported types ------------------------------------------------------------*/
-typedef enum {
-   TRANSFER_UNKNOWN  = -1,
-   TRANSFER_COMPLETE =  0,
-   TRANSFER_HALF     =  1,
-   TRANSFER_ERROR    =  2
-} SPIComm_TransferStatus;
-
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void SPIComm_QuickInit(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t buffer_Rx_size, size_t buffer_Tx_size);
+void Mirroring_Init(void);
+void Mirroring_Start(void);
+void Mirroring_Stop(void);
 
-void SPIComm_Start(void);
-void SPIComm_Stop(void);
-
-void SPIComm_Rx_Callback(SPIComm_TransferStatus status);
-void SPIComm_Tx_Callback(SPIComm_TransferStatus status);
-
-#endif // _SPI_COMM_H
+#endif // _MIRRORING_H
