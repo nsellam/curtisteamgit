@@ -123,11 +123,12 @@ typedef enum {
  * @brief       Timer used to motors PWM generation
 */
 #define REAR_MOTOR_L_TIM                             TIM1
-
+#define REAR_MOTOR_R_TIM                             TIM1
 /**
  * @brief       Channel used to motors PWM generation
 */
 #define REAR_MOTOR_L_TIM_CHANNEL                     TIM_Channel_1
+#define REAR_MOTOR_R_TIM_CHANNEL                     TIM_Channel_1
 
 /**
  * @brief       Period used to motors PWM generation in Hz
@@ -138,12 +139,13 @@ typedef enum {
  * @brief       GPIO used to enable the motor
 */
 #define REAR_MOTOR_L_ENABLE_GPIO                    GPIOC
+#define REAR_MOTOR_R_ENABLE_GPIO                    GPIOC
 
 /**
  * @brief       Pin used to enable the motor
 */
 #define REAR_MOTOR_L_ENABLE_PIN                     GPIO_Pin_13
-
+#define REAR_MOTOR_R_ENABLE_PIN                     GPIO_Pin_13
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */

@@ -39,7 +39,14 @@ void Motor_QuickInit(Motors_Enum Motor) {
         GPIO_Pin = REAR_MOTOR_L_ENABLE_PIN;
         Motor_Identifier = REAR_MOTOR_L_IDENTIFIER;
     }
-    else {return;}
+    else if (Motor == REAR_MOTOR_R) {
+        TIMx = REAR_MOTOR_R_TIM;
+        Channelx = REAR_MOTOR_R_TIM_CHANNEL;
+        GPIOx = REAR_MOTOR_R_ENABLE_GPIO;
+        GPIO_Pin = REAR_MOTOR_R_ENABLE_PIN;
+        Motor_Identifier = REAR_MOTOR_R_IDENTIFIER;    
+    }
+    else return;
     
     PWM_QuickInit(TIMx, Channelx, MOTORS_PWM_FREQUENCY);
     PWM_QuickInit_Complementary(TIMx, Channelx);
@@ -66,6 +73,11 @@ void Motor_setSpeed(Motors_Enum Motor, float speed) {
         TIMx = REAR_MOTOR_L_TIM;
         Channelx = REAR_MOTOR_L_TIM_CHANNEL;
         Motor_Identifier = REAR_MOTOR_L_IDENTIFIER;        
+    }
+    else if (Motor == REAR_MOTOR_R) {
+        TIMx = REAR_MOTOR_R_TIM;
+        Channelx = REAR_MOTOR_R_TIM_CHANNEL;
+        Motor_Identifier = REAR_MOTOR_R_IDENTIFIER;        
     }
     else return;
     
@@ -96,6 +108,11 @@ void Motor_Enable(Motors_Enum Motor) {
         GPIOx = REAR_MOTOR_L_ENABLE_GPIO;
         GPIO_Pin = REAR_MOTOR_L_ENABLE_PIN;
     }
+    else if (Motor == REAR_MOTOR_R) {
+        GPIOx = REAR_MOTOR_R_ENABLE_GPIO;
+        GPIO_Pin = REAR_MOTOR_R_ENABLE_PIN;
+    }
+    else return;
     
     GPIO_SetBits(GPIOx, GPIO_Pin);
 }
@@ -113,6 +130,11 @@ void Motor_Disable(Motors_Enum Motor) {
         GPIOx = REAR_MOTOR_L_ENABLE_GPIO;
         GPIO_Pin = REAR_MOTOR_L_ENABLE_PIN;
     }
+    else if (Motor == REAR_MOTOR_R) {
+        GPIOx = REAR_MOTOR_R_ENABLE_GPIO;
+        GPIO_Pin = REAR_MOTOR_R_ENABLE_PIN;
+    }
+    else return;
     
     GPIO_ResetBits(GPIOx, GPIO_Pin);
 }
