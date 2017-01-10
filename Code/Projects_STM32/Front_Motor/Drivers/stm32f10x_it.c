@@ -25,8 +25,6 @@
 #include "stm32f10x_it.h"
 #include "callbacks_services.h"
 
-uint32_t statuFlag;
-uint32_t statuIT;
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -153,22 +151,31 @@ void SysTick_Handler(void)
 {
 }
 
-void exti_callbacks(uint32_t EXTI_Line) {
-        statuFlag = EXTI_GetFlagStatus(EXTI_Line);
-        statuIT = EXTI_GetITStatus(EXTI_Line);
-	if (EXTI_GetFlagStatus(EXTI_Line) != RESET) {//EXTI_GetITStatus  GPIO_ReadOutputDataBit
-		callbacks_services_exti_front_motor(EXTI_Line);
-		EXTI_ClearFlag(EXTI_Line);//EXTI_ClearITPendingBit
-	}
-}
-
+void EXTI15_10_IRQHandler(void) ;
+void exti_callbacks(uint32_t EXTI_Line);
+__weak void callbacks_services_exti_front_motor(uint32_t EXTI_Line);
 
 void EXTI15_10_IRQHandler(void) {
 	exti_callbacks(EXTI_Line10);
 	exti_callbacks(EXTI_Line11);
-	exti_callbacks(EXTI_Line12);
-	exti_callbacks(EXTI_Line13);
-	exti_callbacks(EXTI_Line14);
-	exti_callbacks(EXTI_Line15);
+//	exti_callbacks(EXTI_Line12);
+//	exti_callbacks(EXTI_Line13);
+//	exti_callbacks(EXTI_Line14);
+//	exti_callbacks(EXTI_Line15);
 }
+
+//void exti_callbacks(uint32_t EXTI_Line) {
+//	if (EXTI_GetFlagStatus(EXTI_Line) != RESET) {//EXTI_GetITStatus  
+//		callbacks_services_exti_front_motor(EXTI_Line);
+//		EXTI_ClearFlag(EXTI_Line);//EXTI_ClearITPendingBit
+//	}
+//}
+void exti_callbacks(uint32_t EXTI_Line) {
+	if (EXTI_GetITStatus(EXTI_Line) != RESET) { 
+		callbacks_services_exti_front_motor(EXTI_Line);
+		EXTI_ClearITPendingBit(EXTI_Line);
+	}
+}
+
+
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
