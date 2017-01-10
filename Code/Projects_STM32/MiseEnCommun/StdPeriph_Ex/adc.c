@@ -83,9 +83,17 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
         ADC_Init(ADCx, &ADC_InitStruct);
         
         if(ADCx == ADC1) {
-            DMA_QuickInit_Periph2Buffer(DMA1_Channel1, (uint32_t)&ADC1->DR, DMA_PeripheralDataSize_HalfWord, (uint32_t)&conversion_values[0], DMA_MemoryDataSize_HalfWord);
+            DMA_QuickInit_Periph2Buffer(DMA1_Channel1, 
+                (uint32_t)&ADC1->DR,                DMA_PeripheralDataSize_HalfWord, 
+                (uint32_t)&conversion_values[0],    DMA_MemoryDataSize_HalfWord, 
+                ADC_NB_CHANNELS_MAX
+            );
         } else if (ADCx == ADC3) {
-            DMA_QuickInit_Periph2Buffer(DMA2_Channel5, (uint32_t)&ADC3->DR, DMA_PeripheralDataSize_HalfWord, (uint32_t)&conversion_values[3], DMA_MemoryDataSize_HalfWord);
+            DMA_QuickInit_Periph2Buffer(DMA2_Channel5, 
+                (uint32_t)&ADC3->DR,                DMA_PeripheralDataSize_HalfWord, 
+                (uint32_t)&conversion_values[3],    DMA_MemoryDataSize_HalfWord, 
+                ADC_NB_CHANNELS_MAX
+            );
         }
         
         //Reset of ADC Calibration register

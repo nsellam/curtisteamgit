@@ -20,9 +20,6 @@
 #define FRAME_CANARY_POS(length) ((length) + 0)
 #define FRAME_CRC_POS(length)    (FRAME_CANARY_POS(length) + FRAME_CANARY_SIZE)
 
-#define SPIx_DR_Offset           0x0C
-#define SPIx_DR_Base             (SPI2_BASE + SPIx_DR_Offset)
-
 #define SPIx                     SPI2
 #define SPIx_CLK                 RCC_APB1Periph_SPI2
 
@@ -95,8 +92,16 @@ void SPIComm_QuickInit(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t buffer_R
     SPI_QuickInit(*SPIx, SPI_Mode_Slave);
     
     // DMA configuration 
-    DMA_InitBuffer2Periph(SPIx_DMA_Tx_Channel, SPIx_DR_Base, (uint32_t)frame_buffer_Tx, data_buffer_Tx_size + FRAME_CHECK_SIZE);
-    DMA_InitPeriph2Buffer(SPIx_DMA_Rx_Channel, SPIx_DR_Base, (uint32_t)frame_buffer_Rx, data_buffer_Rx_size + FRAME_CHECK_SIZE);
+    DMA_QuickInit_Buffer2Periph(SPIx_DMA_Tx_Channel, 
+        (uint32_t)&SPIx->DR,        DMA_PeripheralDataSize_Byte, 
+        (uint32_t)frame_buffer_Tx,  DMA_MemoryDataSize_Byte, 
+        data_buffer_Tx_size + FRAME_CHECK_SIZE
+    );
+    DMA_QuickInit_Periph2Buffer(SPIx_DMA_Rx_Channel, 
+        (uint32_t)&SPIx->DR,        DMA_PeripheralDataSize_Byte, 
+        (uint32_t)frame_buffer_Rx,  DMA_MemoryDataSize_Byte, 
+        data_buffer_Rx_size + FRAME_CHECK_SIZE
+    );
 }
 
 
