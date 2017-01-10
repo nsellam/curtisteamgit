@@ -15,17 +15,17 @@
 
 /* Exported types ------------------------------------------------------------*/
 typedef enum {
-    HALLSENSOR_L = 0,
-    HALLSENSOR_R = 1
+    HALLSENSOR_L,
+    HALLSENSOR_R
 } HallSensors_Enum;
 
 typedef HallSensors_Enum PositionSensor_Enum;
 typedef HallSensors_Enum SpeedSensor_Enum;
 
 typedef enum {
-    FRONT_MOTOR = 0,
-    REAR_MOTOR_L = 1,
-    REAR_MOTOR_R = 2
+    FRONT_MOTOR,
+    REAR_MOTOR_L,
+    REAR_MOTOR_R
 } Motors_Enum;
 
 /* Exported constants --------------------------------------------------------*/
@@ -123,14 +123,11 @@ typedef enum {
  * @brief       Timer used to motors PWM generation
 */
 #define REAR_MOTOR_L_TIM                             TIM1
-#define REAR_MOTOR_R_TIM                             TIM1
-#define FRONT_MOTOR_TIM                              TIM1
+
 /**
  * @brief       Channel used to motors PWM generation
 */
 #define REAR_MOTOR_L_TIM_CHANNEL                     TIM_Channel_1
-#define REAR_MOTOR_R_TIM_CHANNEL                     TIM_Channel_1
-#define FRONT_MOTOR_TIM_CHANNEL                     TIM_Channel_3
 
 /**
  * @brief       Period used to motors PWM generation in Hz
@@ -141,57 +138,11 @@ typedef enum {
  * @brief       GPIO used to enable the motor
 */
 #define REAR_MOTOR_L_ENABLE_GPIO                    GPIOC
-#define REAR_MOTOR_R_ENABLE_GPIO                    GPIOC
-#define FRONT_MOTOR_ENABLE_GPIO                     GPIOB
-
 
 /**
  * @brief       Pin used to enable the motor
 */
 #define REAR_MOTOR_L_ENABLE_PIN                     GPIO_Pin_13
-#define REAR_MOTOR_R_ENABLE_PIN                     GPIO_Pin_13
-#define FRONT_MOTOR_ENABLE_PIN                      GPIO_Pin_13
-
-
-/**
- * @brief   GPIO of the front motor's left direction sensor
- */
-#define HARD_STOP_GPIO_LEFT                         GPIOC
-
-/**
- * @brief   GPIO of the front motor's right direction sensor
- */
-#define HARD_STOP_GPIO_RIGHT                        GPIOC
-
-/**
- * @brief   GPIO pin of the front motor's left direction sensor
- */
-#define HARD_STOP_PIN_LEFT                          10
-
-/**
- * @brief   GPIO pin of the front motor's right direction sensor
- */
-#define HARD_STOP_PIN_RIGHT                         11
-
-/**
- * @brief   EXTI_line of the front motor's left direction sensor
- */
-#define FRONT_LINE_LEFT                             EXTI_Line10
-
-/**
- * @brief   EXTI_line of the front motor's right direction sensor
-*/
-#define FRONT_LINE_RIGHT                            EXTI_Line11
-
-/**
- * @brief   EXTI_line rising signal
- */
-#define HARD_STOP_TRIGGATION                        EXTI_Trigger_Rising
-
-/**
- * @brief   Set the priority for the Exti of front_motor
- */
-#define HARD_STOP_PRIORITY                          3
 
 
 /* Exported macro ------------------------------------------------------------*/

@@ -35,9 +35,9 @@ void SpeedSensor_Example(SpeedSensor_Enum SpeedSensor_identifier);
 int main (void) {
     
     //HallSensor_Example(HALLSENSOR_L);
-    Motor_Example(REAR_MOTOR_R);
+    //Motor_Example(REAR_MOTOR_L);
     //PositionSensor_Example(POSITION_SENSOR_L);
-    //SpeedSensor_Example(POSITION_SENSOR_L);
+    SpeedSensor_Example(POSITION_SENSOR_L);
     while (1) {}
 }
 

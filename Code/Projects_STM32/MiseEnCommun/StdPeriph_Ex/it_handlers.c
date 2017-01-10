@@ -13,9 +13,6 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 
-/**
-* @brief IRQ Handler Macro for ADC: call ITHandler and clear interrupt
-*/
 #define ADC_IRQ_HANDLER(adc) \
    if ( (ADC_GetITStatus(ADC##adc, ADC_IT_AWD ) == SET) || \
         (ADC_GetITStatus(ADC##adc, ADC_IT_EOC ) == SET) || \
@@ -25,25 +22,16 @@
        ADC_ClearITPendingBit(ADC##adc, ADC_IT_AWD | ADC_IT_EOC | ADC_IT_JEOC); \
    }
 
-/**
-* @brief IRQ Handler Macro for TIM: call ITHandler and clear interrupt
-*/
 #define TIM_IRQ_HANDLER(tim) \
    TIM_ITHandler(TIM##tim); \
    TIM_ClearITPendingBit(TIM##tim, TIM_IT_Update | TIM_IT_CC1 | TIM_IT_CC2 | TIM_IT_CC3 | TIM_IT_CC4 | TIM_IT_COM | TIM_IT_Trigger | TIM_IT_Break); \
 
-/**
-* @brief IRQ Handler Macro for DMA: call ITHandler and clear interrupt
-*/
 #define DMA_IRQ_HANDLER(dma, channel) \
    DMA_ITHandler(DMA##dma##_Channel##channel,   ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_TC##channel) << 1) + \
                                                 ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_HT##channel) << 2) + \
                                                 ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_TE##channel) << 3)); \
    DMA_ClearITPendingBit(DMA##dma##_IT_GL##channel);
 
-/**
-* @brief IRQ Handler Macro for EXTI: call ITHandler and clear interrupt
-*/
 #define EXTI_IRQ_HANDLER(exti) \
     if (EXTI_GetITStatus(EXTI_Line##exti) == SET) { \
         EXTI_ITHandler(EXTI_Line##exti); \
@@ -146,6 +134,7 @@ void EXTI15_10_IRQHandler(void) {
  * @retval None
 */
 void ADC1_2_IRQHandler(void) {
+    uint8_t flags = 0;
     ADC_IRQ_HANDLER(1)
     ADC_IRQ_HANDLER(2)
 }
