@@ -76,7 +76,7 @@ __weak void TIM4_IT_Callback(uint16_t channel) {}
 void TIM1_UP_IRQHandler(void) {
    if(TIM_GetITStatus(TIM1,TIM_IT_Update) != RESET){
          TIM_ClearITPendingBit(TIM1,TIM_IT_Update);
-         TIM1_IT_Callback(0);
+         //TIM1_IT_Callback(0);
    } else if(TIM_GetITStatus(TIM1,TIM_IT_CC1) != RESET){
          TIM_ClearITPendingBit(TIM1,TIM_IT_CC1);
          TIM1_IT_Callback(TIM_Channel_1);
@@ -95,7 +95,7 @@ void TIM1_UP_IRQHandler(void) {
 void TIM2_IRQHandler(void) {
    if(TIM_GetITStatus(TIM2,TIM_IT_Update) != RESET){
          TIM_ClearITPendingBit(TIM2,TIM_IT_Update);
-         TIM2_IT_Callback(0);
+         //TIM2_T_Callback(0);
    } else if(TIM_GetITStatus(TIM2,TIM_IT_CC1) != RESET){
          TIM_ClearITPendingBit(TIM2,TIM_IT_CC1);
          TIM2_IT_Callback(TIM_Channel_1);
@@ -115,19 +115,19 @@ void TIM2_IRQHandler(void) {
 void TIM3_IRQHandler(void) {
    if(TIM_GetITStatus(TIM3,TIM_IT_Update) != RESET){
          TIM_ClearITPendingBit(TIM3,TIM_IT_Update);
-         TIM3_IT_Callback(0);
+         //TIM3_IT_Callback(0);
    } else if(TIM_GetITStatus(TIM3,TIM_IT_CC1) != RESET){
          TIM_ClearITPendingBit(TIM3,TIM_IT_CC1);
-         TIM3_IT_Callback(TIM_IT_CC1);
+         TIM3_IT_Callback(TIM_Channel_1);
    } else if(TIM_GetITStatus(TIM3,TIM_IT_CC2) != RESET){
          TIM_ClearITPendingBit(TIM3,TIM_IT_CC2);
-         TIM3_IT_Callback(TIM_IT_CC2);
+         TIM3_IT_Callback(TIM_Channel_2);
    } else if(TIM_GetITStatus(TIM3,TIM_IT_CC3) != RESET){
          TIM_ClearITPendingBit(TIM3,TIM_IT_CC3);
-         TIM3_IT_Callback(TIM_IT_CC3);
+         TIM3_IT_Callback(TIM_Channel_3);
    } else if(TIM_GetITStatus(TIM3,TIM_IT_CC4) != RESET){
          TIM_ClearITPendingBit(TIM3,TIM_IT_CC4);
-         TIM3_IT_Callback(TIM_IT_CC4);
+         TIM3_IT_Callback(TIM_Channel_4);
    }
 }
 
@@ -135,19 +135,19 @@ void TIM3_IRQHandler(void) {
 void TIM4_IRQHandler(void) {
    if(TIM_GetITStatus(TIM4,TIM_IT_Update) != RESET){
          TIM_ClearITPendingBit(TIM4,TIM_IT_Update);
-         TIM4_IT_Callback(0);
+         //TIM4_IT_Callback(0);
    } else if(TIM_GetITStatus(TIM4,TIM_IT_CC1) != RESET){
          TIM_ClearITPendingBit(TIM4,TIM_IT_CC1);
-         TIM4_IT_Callback(TIM_IT_CC1);
+         TIM4_IT_Callback(TIM_Channel_1);
    } else if(TIM_GetITStatus(TIM4,TIM_IT_CC2) != RESET){
          TIM_ClearITPendingBit(TIM4,TIM_IT_CC2);
-         TIM4_IT_Callback(TIM_IT_CC2);
+         TIM4_IT_Callback(TIM_Channel_2);
    } else if(TIM_GetITStatus(TIM4,TIM_IT_CC3) != RESET){
          TIM_ClearITPendingBit(TIM4,TIM_IT_CC3);
-         TIM4_IT_Callback(TIM_IT_CC3);
+         TIM4_IT_Callback(TIM_Channel_3);
    } else if(TIM_GetITStatus(TIM4,TIM_IT_CC4) != RESET){
          TIM_ClearITPendingBit(TIM4,TIM_IT_CC4);
-         TIM4_IT_Callback(TIM_IT_CC4);
+         TIM4_IT_Callback(TIM_Channel_4);
    }
 }
 

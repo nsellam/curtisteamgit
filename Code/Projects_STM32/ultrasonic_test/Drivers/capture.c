@@ -1,23 +1,38 @@
 #include "capture.h"
 #include "timer.h"
 
-__weak void Ultrasonic_ITHandling(uint16_t channel) {}
+__weak void Ultrasonic_ITHandler(TIM_TypeDef *timer, uint16_t channel) {}
 
+    
+void TIM1_IT_Callback(uint16_t channel) {
+    Ultrasonic_ITHandler(TIM1, channel);
+}    
+    
 void TIM2_IT_Callback(uint16_t channel) {
-   switch (channel){
-      case TIM_Channel_1:  Ultrasonic_ITHandling(TIM_Channel_1);   break;
-      case TIM_Channel_2:  Ultrasonic_ITHandling(TIM_Channel_1);   break;
-      case TIM_Channel_3:  Ultrasonic_ITHandling(TIM_Channel_1);   break;
-      case TIM_Channel_4:  Ultrasonic_ITHandling(TIM_Channel_1);   break;
-      default: break;
-   }
+    Ultrasonic_ITHandler(TIM2, channel);
 }
 
+
+void TIM3_IT_Callback(uint16_t channel) {
+    Ultrasonic_ITHandler(TIM3, channel);
+}
+
+
+
+void TIM4_IT_Callback(uint16_t channel) {
+    Ultrasonic_ITHandler(TIM4, channel);
+}
+
+
+
 void Capture_Init(TIM_TypeDef *timer, uint16_t channel, float frequency_compare_Hz){  
+   static int init = 0;
    float duree_compare_usec = US_PER_S/frequency_compare_Hz;
    TIM_ICInitTypeDef  TIM_ICInitStructure;
-   
-   timer_init(timer, duree_compare_usec);
+   if(!init){
+    init = 1;
+       timer_init(timer, duree_compare_usec);
+   }
   
    TIM_ICInitStructure.TIM_Channel = channel;
    TIM_ICInitStructure.TIM_ICPolarity = TIM_ICPolarity_Rising;
@@ -97,6 +112,7 @@ void Capture_ITEnable(TIM_TypeDef *timer, uint16_t channel, uint8_t priority) {
    }
    else return;
 
+   NVIC_SetPriorityGrouping(NVIC_PriorityGroup_4);
    /* Enable the TIMx global Interrupt */
    NVIC_InitStructure.NVIC_IRQChannel = timer_IRQn;
    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = priority;
