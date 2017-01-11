@@ -445,6 +445,16 @@
               <FileType>1</FileType>
               <FilePath>..\Application\frontmotor_example.c</FilePath>
             </File>
+            <File>
+              <FileName>rearmotors_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\rearmotors_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\gpio_example.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

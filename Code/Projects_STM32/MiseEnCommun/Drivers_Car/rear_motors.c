@@ -11,6 +11,7 @@
 #include "motors.h"
 #include "speed_sensors.h"
 #include "hall_sensors.h"
+#include "system_time.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -57,9 +58,11 @@ float ComputeMotorCommand (int16_t speed_cmd, int16_t current, int16_t speed);
  * @brief   Initializes rear motors
  * @retval  None
 */
-void RearMotor_QuickInit(void) {
+void RearMotors_QuickInit(void) {
     Motor_QuickInit(REAR_MOTOR_L);
     Motor_QuickInit(REAR_MOTOR_R);
+    
+    System_Time_QuickInit();
     
     SpeedSensor_QuickInit(SPEED_SENSOR_L);
     SpeedSensor_QuickInit(SPEED_SENSOR_R);
