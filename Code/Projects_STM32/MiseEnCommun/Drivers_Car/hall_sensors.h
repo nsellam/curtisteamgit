@@ -18,39 +18,37 @@
 /* Exported constants --------------------------------------------------------*/
 
 /**
- * @brief Way to trigg interrupts to detect forward movement
+ * @brief   Way to trigg interrupts to detect forward movement
 */
 #define HALLSENSOR_TRIGG_FW                    EXTI_Trigger_Rising
 
 /**
- * @brief Way to trigg interrupts to detect backward movement
+ * @brief   Way to trigg interrupts to detect backward movement
 */
 #define HALLSENSOR_TRIGG_BW                    EXTI_Trigger_Falling
 
 /**
- * @brief EXTI preemption priority
+ * @brief   EXTI preemption priority
 */
 #define HALLSENSOR_PRIO                        1
 
 /**
- * @brief Number of date of interrupt saved. Must be inferior to 0xFFFFFFFF
+ * @brief   Number of date of interrupt saved. Must be inferior to 0xFFFFFFFF
 */
 #define HALLSENSOR_MAX_SAVED_POP 			    36
 
 /**
- * @def ERROR_SENSOR_OUT_RANGE
- * @brief An error occured : current sector if superior to number of sectors 
+ * @brief   An error occured : current sector if superior to number of sectors 
 */ 
 #define ERROR_SENSOR_OUT_OF_RANGE 	            (uint16_t)(-1)
 
 /**
- * @def ERROR_VALUE_NOT_FOUND
- * @brief An error occured : this value was not computed (too few pops are kept in memory)
+ * @brief   An error occured : this value was not computed (too few pops are kept in memory)
 */ 
 #define ERROR_VALUE_NOT_FOUND 	                (uint64_t)(-1)
 
 /**
- * @brief Time corresponding to a hall sensor period : meaning time between two changes of speed. Expressed in ms. 
+ * @brief   Time corresponding to a hall sensor period : meaning time between two changes of speed. Expressed in ms. 
 */
 #define HALLSENSOR_TIME_BETWEEN_TWO_UPDATES     1000
 

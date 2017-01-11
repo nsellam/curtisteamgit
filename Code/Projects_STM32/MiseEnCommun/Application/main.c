@@ -24,6 +24,7 @@ void PositionSensor_Example(PositionSensor_Enum PositionSensor_identifier);
 void SpeedSensor_Example(SpeedSensor_Enum SpeedSensor_identifier);
 void GPIO_Example(void);
 void RearMotors_Example(void);
+void FrontMotor_Example(void);
 
 // MAIN POUR DEMO BAS NIVEAU
 //int main(void) {
@@ -46,7 +47,8 @@ int main (void) {
     //PositionSensor_Example(POSITION_SENSOR_L);
     //SpeedSensor_Example(SPEED_SENSOR_L);
     //PWM_Example();
-    RearMotors_Example();
+    //RearMotors_Example();
+    FrontMotor_Example();
     while (1) {}
 }
 
@@ -163,9 +165,15 @@ void FrontMotor_Example(void) {
     }
 }
 
+/**
+ * @brief   Tests rear motor by setting a speed. Expected behavior is a regulated speed. 
+ * @retval  None
+*/
 void RearMotors_Example(void) {
     Motor_QuickInit(REAR_MOTOR_L);
     System_Time_QuickInit();
     SpeedSensor_QuickInit(SPEED_SENSOR_L);
     Motor_Enable(REAR_MOTOR_L);
+    
+    RearMotors_setSpeed(50);
 }
