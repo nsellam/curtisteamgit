@@ -1,98 +1,55 @@
 /**
  * @file    rear_motors.c
  * @author  Curtis Team
- * @brief   Functions to handle rear motors 
+ * @brief   Functions to handle rear motors
  */
  
-/* Includes ------------------------------------------------------------------*/
+ /* Includes ------------------------------------------------------------------*/
 #include "rear_motors.h"
-
 #include "stm32f10x_conf.h"
+#include <math.h>
 #include "motors.h"
 #include "speed_sensors.h"
 #include "hall_sensors.h"
-#include "it_handlers.h"
-#include "modules_definitions.h"
-
-#include <math.h>
-
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/
-
-/**
- * @brief   Number of systick iteruptions to wait until next motors command refresh period
-*/
-uint32_t RearMotors_remainingTimeInCommandPeriod = MOTORS_COMMAND_TIME_BETWEEN_TWO_UPDATES; 
-
-/**
- * @brief memorizes the input command for the motors control loop  -  same for left and right motors
- */
-    volatile int16_t speed_cmd;
-
-/* Private variables ---------------------------------------------------------*/
-
-/**
- * @brief memorizes the current int the motors we measure
- */
-    int16_t current = 0; 
-    
-/**
- * @brief memorizes the measured left wheel speed  
- */    
-    volatile static int16_t wheel_speed_L = 0;
-    
-/**
- * @brief memorizes the duty-cycle for left wheel
- */  
-    volatile static float duty_cycle_L = MOTORS_PWM_ZERO;
-
+int16_t current = 0; 
+volatile static int16_t car_speed = 0;
+volatile int16_t speed_cmd;
+volatile static float duty_cycle_L = MOTORS_PWM_ZERO;
+uint32_t RearMotors_remainingTimeInCommandPeriod = MOTORS_COMMAND_TIME_BETWEEN_TWO_UPDATES;
+static float out_prec = 0;
 
 /* Private function prototypes -----------------------------------------------*/
-
-/**
- * @brief		Computes the next iteration Motor Duty-Cycle command
-*/
-float ComputeMotorCommand (int16_t speed_cmd, int16_t current, int16_t speed);
-
-/**
- * @brief		Applies a PI controller to the input
-*/
-float PI_Controller_L (int32_t in);
-
 /* Public functions ----------------------------------------------------------*/
+/* Private functions ---------------------------------------------------------*/
+
+
+
+int16_t car_model (float in) {
+    
+    float K_model = 250.0;   // speed in cm/s
+    float T_model = 0.1;
+    int16_t out;
+    out = (K_model * (float)(in-MOTORS_PWM_ZERO) - T_model * out_prec);
+    out_prec = (float)out;
+    return out;
+}
+
+
+
 
 void RearMotors_Callback(void) {
-  RearMotors_remainingTimeInCommandPeriod --;
-  if (RearMotors_remainingTimeInCommandPeriod == 0) {
-    //CMD
-    //rear_motor_L_control (speed_cmd);
-    //RearMotors_Callback();
-  }
-}
-
-
-/**
- * @brief		The core of the control loop for rear motor left
- * @param		the speed command 
- * @return	void
-*/
-
- void rear_motor_L_control (int16_t speed_cmd){
-
-    // declarations
-    float motor_speed_L;
+    RearMotors_remainingTimeInCommandPeriod --;
     
-    // core
-    motor_speed_L = (duty_cycle_L - MOTORS_PWM_ZERO) / (MOTORS_PWM_DELTA_MAX)/(MOTORS_SPEED_DELTA);
-    Motor_setSpeed(REAR_MOTOR_L, motor_speed_L);
-
-    duty_cycle_L = ComputeMotorCommand (speed_cmd, current, wheel_speed_L);       
+    if (RearMotors_remainingTimeInCommandPeriod == 0) {
+        rear_motor_L_control(speed_cmd);
+        RearMotors_remainingTimeInCommandPeriod = MOTORS_COMMAND_TIME_BETWEEN_TWO_UPDATES;
+    }
 }
-
-/* Private functions ---------------------------------------------------------*/
 
 
 /**
@@ -126,7 +83,7 @@ float ComputeMotorCommand (int16_t speed_cmd, int16_t current, int16_t speed){
         
         
         
-        dc = PI_Controller_L(in_PI) ; 
+        dc = PI_Controller(in_PI) ; 
         
     }        
     
@@ -141,7 +98,7 @@ float ComputeMotorCommand (int16_t speed_cmd, int16_t current, int16_t speed){
  * @return	PI controller output
 */
 
-float PI_Controller_L (int32_t in)
+float PI_Controller (int32_t in)
 {
 	
 	// PI controller
@@ -153,7 +110,7 @@ static const float T = 0.001;                  // 1Khz control loop frequency
    volatile static const float a1_PI =  T*Ki/2.0 - Kp ;      // coef. formula PI controller
    volatile static const float a2_PI =  T*Ki/2.0 + Kp; 
 
-static float outPI_prec_L_no_offset = 0.0, unsat_PI_output_f = MOTORS_PWM_ZERO;            // buffer previous in & out
+static float outPI_prec_no_offset = 0.0, unsat_PI_output_f = MOTORS_PWM_ZERO;            // buffer previous in & out
 
 	float in_f; 
 	float PI_output_f;
@@ -173,7 +130,7 @@ static float outPI_prec_L_no_offset = 0.0, unsat_PI_output_f = MOTORS_PWM_ZERO; 
        AW_f = 0.0;        
     
 	// Compute PI output - do not forget the 50% offset
-    unsat_PI_output_f = outPI_prec_L_no_offset + Kp*in_f - AW_f;
+    unsat_PI_output_f = outPI_prec_no_offset + Kp*in_f - AW_f;
     unsat_PI_output_f += MOTORS_PWM_ZERO;
 	
 	// Saturate PI output between Min and Max duty-cycles
@@ -186,7 +143,33 @@ static float outPI_prec_L_no_offset = 0.0, unsat_PI_output_f = MOTORS_PWM_ZERO; 
 	
 		
 	// Update variables for next iteration
-  outPI_prec_L_no_offset = PI_output_f - MOTORS_PWM_ZERO;
+  outPI_prec_no_offset = PI_output_f - MOTORS_PWM_ZERO;
   return PI_output_f;
 }
+
+
+
+
+/**
+ * @brief		The core of the control loop for rear motor left
+ * @param		the speed command 
+ * @return	void
+*/
+
+ 
+
+void rear_motor_L_control (int16_t speed_cmd){
+
+    float motor_speed_L;
+    
+    // Command must be send without jitter...
+    motor_speed_L = (duty_cycle_L - MOTORS_PWM_ZERO) / ((MOTORS_PWM_DELTA_MAX)/(MOTORS_SPEED_DELTA));
+    Motor_setSpeed(REAR_MOTOR_L, motor_speed_L);
+
+    // ... so we need to compute the command for next send.
+    car_speed = SpeedSensor_get(SPEED_CM_S, SPEED_SENSOR_L);     
+    duty_cycle_L = ComputeMotorCommand(speed_cmd, current, car_speed);
+
+}
+
 

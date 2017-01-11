@@ -4,6 +4,7 @@
 
 #include "pwm.h"
 #include "adc.h"
+#include "gpio.h"
 #include "systick.h"
 #include "spi.h"
 #include "system_time.h"
@@ -13,6 +14,7 @@
 #include "position_sensors.h"
 #include "speed_sensors.h"
 #include "front_motor.h"
+#include "rear_motors.h"
 
 void PWM_Example(void);
 void ADC_Example(void);
@@ -20,6 +22,8 @@ void HallSensor_Example(HallSensors_Enum hall_identifier);
 void Motor_Example(Motors_Enum Motor);
 void PositionSensor_Example(PositionSensor_Enum PositionSensor_identifier);
 void SpeedSensor_Example(SpeedSensor_Enum SpeedSensor_identifier);
+void GPIO_Example(void);
+void RearMotors_Example(void);
 
 // MAIN POUR DEMO BAS NIVEAU
 //int main(void) {
@@ -36,11 +40,23 @@ void SpeedSensor_Example(SpeedSensor_Enum SpeedSensor_identifier);
 int main (void) {
     
     //HallSensor_Example(HALLSENSOR_L);
-    Motor_Example(REAR_MOTOR_L);
+    //Motor_Example(REAR_MOTOR_L);
+    //GPIO_Example();
+    //PWM_Example();
     //PositionSensor_Example(POSITION_SENSOR_L);
     //SpeedSensor_Example(SPEED_SENSOR_L);
     //PWM_Example();
+    RearMotors_Example();
     while (1) {}
+}
+
+/**
+ * @brief 	Sets PC13 to '1'
+ * @retval 	None
+*/
+void GPIO_Example(void) {
+    GPIO_QuickInit(GPIOC, GPIO_Pin_13, GPIO_Mode_Out_PP);
+    GPIO_SetBits(GPIOC, GPIO_Pin_13);
 }
 
 /**
@@ -49,11 +65,11 @@ int main (void) {
 */
 void PWM_Example(void) {
 
-    PWM_QuickInit(TIM1, TIM_Channel_1, 1000.0);         // Output on PA8
-    //GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, ENABLE);
+    PWM_QuickInit(TIM1, TIM_Channel_1, 20000.0);         // Output on PA8
+    GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, ENABLE);
     PWM_QuickInit_Complementary(TIM1, TIM_Channel_1);   // Output on PB13
     
-    PWM_SetDutyCycle(TIM1, TIM_Channel_1, 0.75);
+    PWM_SetDutyCycle(TIM1, TIM_Channel_1, 0.250);
     PWM_Start(TIM1);
 }
 
@@ -145,4 +161,11 @@ void FrontMotor_Example(void) {
         FrontMotor_turn(RIGHT);
         pause(3000);
     }
+}
+
+void RearMotors_Example(void) {
+    Motor_QuickInit(REAR_MOTOR_L);
+    System_Time_QuickInit();
+    SpeedSensor_QuickInit(SPEED_SENSOR_L);
+    Motor_Enable(REAR_MOTOR_L);
 }

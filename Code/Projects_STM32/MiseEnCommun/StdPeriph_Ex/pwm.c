@@ -59,37 +59,51 @@ void PWM_QuickInit(TIM_TypeDef *TIMx, uint16_t Channelx, float frequencyPWMHz) {
  * @param   Channelx Channel to use
  * @retval  0 if everything went right, -1 if unexpected remap type according to chosen Timer, -2 if Timer is not available for PWM complementary (only TIM1 is available), -3 is channel is not available.
 */
+//int PWM_QuickInit_Complementary(TIM_TypeDef *TIMx, uint16_t Channelx) {
+//    TIM_remap_TypeDef remap = TIM_RemapStatus(TIMx);
+////remap = PartialRemap1;
+//    TIM_CCxNCmd (TIMx, Channelx, TIM_CCxN_Enable);
+//    
+//    if (TIMx != TIM1) return -2; 
+//    else {
+//        if (remap == DefaultRemap) {
+//            switch (Channelx) {
+//                case TIM_Channel_1: GPIO_QuickInit(GPIOB, GPIO_Pin_13, PWM_GPIO_MODE); break;
+//                case TIM_Channel_2: GPIO_QuickInit(GPIOB, GPIO_Pin_14, PWM_GPIO_MODE); break;
+//                case TIM_Channel_3: GPIO_QuickInit(GPIOB, GPIO_Pin_15, PWM_GPIO_MODE); break;
+//                default: return -3; break;
+//            }
+//        }
+//        else if (remap == PartialRemap1) {
+//            switch (Channelx) {
+//                RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+//                case TIM_Channel_1: GPIO_QuickInit(GPIOA, GPIO_Pin_7, PWM_GPIO_MODE); break;
+//                case TIM_Channel_2: GPIO_QuickInit(GPIOB, GPIO_Pin_0, PWM_GPIO_MODE); break;
+//                case TIM_Channel_3: GPIO_QuickInit(GPIOB, GPIO_Pin_1, PWM_GPIO_MODE); break;
+//                default: return -3; break;
+//            }
+//        }
+//        else if (remap == PartialRemap2) {
+//            return -1;
+//        }
+//        else    if (remap == FullRemap) {
+//            return -1;
+//        }
+//        else {}
+//    }
+//    return 0;
+//}
+/// The code above set complementary on remap pins by default
 int PWM_QuickInit_Complementary(TIM_TypeDef *TIMx, uint16_t Channelx) {
-    TIM_remap_TypeDef remap = TIM_RemapStatus(TIMx);
-//remap = PartialRemap1;
-    TIM_CCxNCmd (TIMx, Channelx, TIM_CCxN_Enable);
+    TIM_CCxNCmd	(TIMx, Channelx,TIM_CCxN_Enable);
     
-    if (TIMx != TIM1) return -2; 
-    else {
-        if (remap == DefaultRemap) {
-            switch (Channelx) {
-                case TIM_Channel_1: GPIO_QuickInit(GPIOB, GPIO_Pin_13, PWM_GPIO_MODE); break;
-                case TIM_Channel_2: GPIO_QuickInit(GPIOB, GPIO_Pin_14, PWM_GPIO_MODE); break;
-                case TIM_Channel_3: GPIO_QuickInit(GPIOB, GPIO_Pin_15, PWM_GPIO_MODE); break;
-                default: return -3; break;
-            }
-        }
-        else if (remap == PartialRemap1) {
-            switch (Channelx) {
-                RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
-                case TIM_Channel_1: GPIO_QuickInit(GPIOA, GPIO_Pin_7, PWM_GPIO_MODE); break;
-                case TIM_Channel_2: GPIO_QuickInit(GPIOB, GPIO_Pin_0, PWM_GPIO_MODE); break;
-                case TIM_Channel_3: GPIO_QuickInit(GPIOB, GPIO_Pin_1, PWM_GPIO_MODE); break;
-                default: return -3; break;
-            }
-        }
-        else if (remap == PartialRemap2) {
-            return -1;
-        }
-        else    if (remap == FullRemap) {
-            return -1;
-        }
-        else {}
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+    GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, ENABLE);
+    switch (Channelx) {
+     case TIM_Channel_1: GPIO_QuickInit(GPIOA, GPIO_Pin_7, PWM_GPIO_MODE); break;
+     case TIM_Channel_2: GPIO_QuickInit(GPIOB, GPIO_Pin_0, PWM_GPIO_MODE); break;
+     case TIM_Channel_3: GPIO_QuickInit(GPIOB, GPIO_Pin_1, PWM_GPIO_MODE); break;
+     default: break;
     }
     return 0;
 }

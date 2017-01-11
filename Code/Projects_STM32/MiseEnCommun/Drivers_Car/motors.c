@@ -59,6 +59,7 @@ void Motor_QuickInit(Motors_Enum Motor) {
     else return;
     
     PWM_QuickInit(TIMx, Channelx, MOTORS_PWM_FREQUENCY);
+    GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, ENABLE);
     PWM_QuickInit_Complementary(TIMx, Channelx);
     PWM_SetDutyCycle(TIMx, Channelx, MOTORS_PWM_ZERO);
     GPIO_QuickInit(GPIOx, GPIO_Pin, GPIO_Mode_Out_PP);

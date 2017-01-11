@@ -19,12 +19,12 @@
 /**
  * @brief   Left position sensor identifier
 */
-#define SPEED_SENSOR_L              POSITION_SENSOR_L          
+#define SPEED_SENSOR_L              HALLSENSOR_L          
 
 /**
  * @brief   Right position sensor identifier
 */
-#define SPEED_SENSOR_R              POSITION_SENSOR_R          
+#define SPEED_SENSOR_R              HALLSENSOR_R          
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */

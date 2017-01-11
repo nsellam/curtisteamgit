@@ -468,6 +468,11 @@
               <FileType>1</FileType>
               <FilePath>..\Drivers_Car\front_motor.c</FilePath>
             </File>
+            <File>
+              <FileName>rear_motors.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers_Car\rear_motors.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
