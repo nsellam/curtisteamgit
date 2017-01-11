@@ -17,7 +17,7 @@
 /**
  * @brief   Front motor speed when turning left
 */
-#define FRONT_MOTOR_SPEED_L               0.4
+#define FRONT_MOTOR_SPEED_L               1.0
 
 /**
  * @brief   Front motor speed when turning right

@@ -9,9 +9,9 @@ Headers of functions to handle D\+MA.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{dma_8h_af5918bde73dd195eb629c56fec8de055}{D\+M\+A\+\_\+\+Init\+Buffer2\+Periph} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint32\+\_\+t Periph\+\_\+\+D\+R\+\_\+\+Base, uint32\+\_\+t Memory\+\_\+\+D\+R\+\_\+\+Base, uint32\+\_\+t data\+\_\+buffer\+\_\+size)
+void \hyperlink{dma_8h_ad545c0e40b3bb1ce2902be4ce581adc4}{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Periph2\+Buffer} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint32\+\_\+t Peripheral\+Base\+Addr, uint32\+\_\+t Peripheral\+Data\+Size, uint32\+\_\+t Memory\+Base\+Addr, uint32\+\_\+t Memory\+Buffer\+Size)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given Direct Memory Access (D\+MA) with the parameters specified. \end{DoxyCompactList}\item 
-void \hyperlink{dma_8h_a98253e7f0effc4f593066a307bf413d5}{D\+M\+A\+\_\+\+Init\+Periph2\+Buffer} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint32\+\_\+t Periph\+\_\+\+D\+R\+\_\+\+Base, uint32\+\_\+t Memory\+\_\+\+D\+R\+\_\+\+Base, uint32\+\_\+t data\+\_\+buffer\+\_\+size)
+void \hyperlink{dma_8h_a6aeb5a264782557f331d4d6d4776c49d}{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Buffer2\+Periph} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint32\+\_\+t Peripheral\+Base\+Addr, uint32\+\_\+t Peripheral\+Data\+Size, uint32\+\_\+t Memory\+Base\+Addr, uint32\+\_\+t Memory\+Buffer\+Size)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given Direct Memory Access (D\+MA) with the parameters specified. \end{DoxyCompactList}\item 
 \hypertarget{dma_8h_a0b9e91b5a2422409da48a3bcf3e7d0d5}{}\label{dma_8h_a0b9e91b5a2422409da48a3bcf3e7d0d5} 
 void {\bfseries D\+M\+A\+\_\+\+Callback} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint8\+\_\+t flags)
@@ -27,11 +27,11 @@ Curtis Team
 
 
 \subsection{Function Documentation}
-\hypertarget{dma_8h_af5918bde73dd195eb629c56fec8de055}{}\label{dma_8h_af5918bde73dd195eb629c56fec8de055} 
-\index{dma.\+h@{dma.\+h}!D\+M\+A\+\_\+\+Init\+Buffer2\+Periph@{D\+M\+A\+\_\+\+Init\+Buffer2\+Periph}}
-\index{D\+M\+A\+\_\+\+Init\+Buffer2\+Periph@{D\+M\+A\+\_\+\+Init\+Buffer2\+Periph}!dma.\+h@{dma.\+h}}
-\subsubsection{\texorpdfstring{D\+M\+A\+\_\+\+Init\+Buffer2\+Periph()}{DMA\_InitBuffer2Periph()}}
-{\footnotesize\ttfamily void D\+M\+A\+\_\+\+Init\+Buffer2\+Periph (\begin{DoxyParamCaption}\item[{D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$}]{D\+M\+Ay\+\_\+\+Channelx,  }\item[{uint32\+\_\+t}]{Peripheral\+Base\+Addr,  }\item[{uint32\+\_\+t}]{Memory\+Base\+Addr,  }\item[{uint32\+\_\+t}]{Memory\+Buffer\+Size }\end{DoxyParamCaption})}
+\hypertarget{dma_8h_a6aeb5a264782557f331d4d6d4776c49d}{}\label{dma_8h_a6aeb5a264782557f331d4d6d4776c49d} 
+\index{dma.\+h@{dma.\+h}!D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Buffer2\+Periph@{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Buffer2\+Periph}}
+\index{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Buffer2\+Periph@{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Buffer2\+Periph}!dma.\+h@{dma.\+h}}
+\subsubsection{\texorpdfstring{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Buffer2\+Periph()}{DMA\_QuickInit\_Buffer2Periph()}}
+{\footnotesize\ttfamily void D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Buffer2\+Periph (\begin{DoxyParamCaption}\item[{D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$}]{D\+M\+Ay\+\_\+\+Channelx,  }\item[{uint32\+\_\+t}]{Peripheral\+Base\+Addr,  }\item[{uint32\+\_\+t}]{Peripheral\+Data\+Size,  }\item[{uint32\+\_\+t}]{Memory\+Base\+Addr,  }\item[{uint32\+\_\+t}]{Memory\+Buffer\+Size }\end{DoxyParamCaption})}
 
 
 
@@ -48,11 +48,11 @@ Makes the initialization of the given Direct Memory Access (D\+MA) with the para
 {\em data\+\_\+buffer\+\_\+size} & uint32\+\_\+t size of the buffer \\
 \hline
 \end{DoxyParams}
-\hypertarget{dma_8h_a98253e7f0effc4f593066a307bf413d5}{}\label{dma_8h_a98253e7f0effc4f593066a307bf413d5} 
-\index{dma.\+h@{dma.\+h}!D\+M\+A\+\_\+\+Init\+Periph2\+Buffer@{D\+M\+A\+\_\+\+Init\+Periph2\+Buffer}}
-\index{D\+M\+A\+\_\+\+Init\+Periph2\+Buffer@{D\+M\+A\+\_\+\+Init\+Periph2\+Buffer}!dma.\+h@{dma.\+h}}
-\subsubsection{\texorpdfstring{D\+M\+A\+\_\+\+Init\+Periph2\+Buffer()}{DMA\_InitPeriph2Buffer()}}
-{\footnotesize\ttfamily void D\+M\+A\+\_\+\+Init\+Periph2\+Buffer (\begin{DoxyParamCaption}\item[{D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$}]{D\+M\+Ay\+\_\+\+Channelx,  }\item[{uint32\+\_\+t}]{Peripheral\+Base\+Addr,  }\item[{uint32\+\_\+t}]{Memory\+Base\+Addr,  }\item[{uint32\+\_\+t}]{Memory\+Buffer\+Size }\end{DoxyParamCaption})}
+\hypertarget{dma_8h_ad545c0e40b3bb1ce2902be4ce581adc4}{}\label{dma_8h_ad545c0e40b3bb1ce2902be4ce581adc4} 
+\index{dma.\+h@{dma.\+h}!D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Periph2\+Buffer@{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Periph2\+Buffer}}
+\index{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Periph2\+Buffer@{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Periph2\+Buffer}!dma.\+h@{dma.\+h}}
+\subsubsection{\texorpdfstring{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Periph2\+Buffer()}{DMA\_QuickInit\_Periph2Buffer()}}
+{\footnotesize\ttfamily void D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Periph2\+Buffer (\begin{DoxyParamCaption}\item[{D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$}]{D\+M\+Ay\+\_\+\+Channelx,  }\item[{uint32\+\_\+t}]{Peripheral\+Base\+Addr,  }\item[{uint32\+\_\+t}]{Peripheral\+Data\+Size,  }\item[{uint32\+\_\+t}]{Memory\+Base\+Addr,  }\item[{uint32\+\_\+t}]{Memory\+Buffer\+Size }\end{DoxyParamCaption})}
 
 
 

@@ -38,13 +38,15 @@ void Motor_QuickInit(Motors_Enum Motor) {
         GPIOx = REAR_MOTOR_L_ENABLE_GPIO;
         GPIO_Pin = REAR_MOTOR_L_ENABLE_PIN;
         Motor_Identifier = REAR_MOTOR_L_IDENTIFIER;
+        TIM_Remap(TIMx, PartialRemap1);
     }
     else if (Motor == REAR_MOTOR_R) {
         TIMx = REAR_MOTOR_R_TIM;
         Channelx = REAR_MOTOR_R_TIM_CHANNEL;
         GPIOx = REAR_MOTOR_R_ENABLE_GPIO;
         GPIO_Pin = REAR_MOTOR_R_ENABLE_PIN;
-        Motor_Identifier = REAR_MOTOR_R_IDENTIFIER;    
+        Motor_Identifier = REAR_MOTOR_R_IDENTIFIER;
+        TIM_Remap(TIMx, PartialRemap1);
     }
     else if (Motor == FRONT_MOTOR) {
         TIMx = FRONT_MOTOR_TIM;
@@ -52,6 +54,7 @@ void Motor_QuickInit(Motors_Enum Motor) {
         GPIOx = FRONT_MOTOR_ENABLE_GPIO;
         GPIO_Pin = FRONT_MOTOR_ENABLE_PIN;
         Motor_Identifier = FRONT_MOTOR_IDENTIFIER; 
+        TIM_Remap(TIMx, PartialRemap1);
     }
     else return;
     
@@ -102,7 +105,7 @@ void Motor_setSpeed(Motors_Enum Motor, float speed) {
     else    if (duty_cycle >  MOTORS_PWM_ZERO) Motors_Direction[Motor_Identifier] = FORWARD;
     else    if (duty_cycle <  MOTORS_PWM_ZERO) Motors_Direction[Motor_Identifier] = BACKWARD;
     
-    PWM_SetDutyCycle(TIMx,Channelx,duty_cycle);
+    PWM_SetDutyCycle(TIMx, Channelx, duty_cycle);
 }
 
 void Motor_Disable(Motors_Enum Motor);

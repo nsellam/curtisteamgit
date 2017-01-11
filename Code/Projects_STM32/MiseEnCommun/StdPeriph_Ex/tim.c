@@ -109,41 +109,47 @@ void TIM_Stop(TIM_TypeDef *TIMx){
  * @param   RemapType Type of the remap expected
  * @retval  0 if everything went right, -1 if not (unexpected remap type according to chosen Timer)
 */
-int TIM_Remap(TIM_TypeDef TIMx, TIM_remap_TypeDef RemapType) {
-    if (&TIMx == TIM1) {
-        if (RemapType == DefaultRemap)  GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, DISABLE); 
-        if (RemapType == PartialRemap1) GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, ENABLE);
-        if (RemapType == PartialRemap2) return -1;
-        if (RemapType == FullRemap)     GPIO_PinRemapConfig(GPIO_FullRemap_TIM1, ENABLE);
-        
-        RemapTimersStatus[0] = RemapType;
-    }
-    else if (&TIMx == TIM2) {
-        if (RemapType == DefaultRemap)  GPIO_PinRemapConfig(GPIO_PartialRemap1_TIM2, DISABLE); 
-        if (RemapType == PartialRemap1) GPIO_PinRemapConfig(GPIO_PartialRemap1_TIM2, ENABLE);
-        if (RemapType == PartialRemap2) GPIO_PinRemapConfig(GPIO_PartialRemap2_TIM2, ENABLE);
-        if (RemapType == FullRemap)     GPIO_PinRemapConfig(GPIO_FullRemap_TIM2, ENABLE);
-        
-        RemapTimersStatus[1] = RemapType;
-    }
-    else if (&TIMx == TIM3) {
-        if (RemapType == DefaultRemap)  GPIO_PinRemapConfig(GPIO_PartialRemap_TIM3, DISABLE); 
-        if (RemapType == PartialRemap1) GPIO_PinRemapConfig(GPIO_PartialRemap_TIM3, ENABLE);
-        if (RemapType == PartialRemap2) return -1;
-        if (RemapType == FullRemap)     GPIO_PinRemapConfig(GPIO_FullRemap_TIM3, ENABLE);
-        
-        RemapTimersStatus[2] = RemapType;
-    }
-    else if (&TIMx == TIM4) {
-        if (RemapType == DefaultRemap)  GPIO_PinRemapConfig(GPIO_Remap_TIM4, DISABLE); 
-        if (RemapType == PartialRemap1) return -1;
-        if (RemapType == PartialRemap2) return -1;
-        if (RemapType == FullRemap)     GPIO_PinRemapConfig(GPIO_Remap_TIM4, ENABLE);
-        
-        RemapTimersStatus[3] = RemapType;
-    }
-    else{}
-        
+int TIM_Remap(TIM_TypeDef *TIMx, TIM_remap_TypeDef RemapType) {
+    GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, ENABLE);
+    RemapTimersStatus[0] = RemapType;
+//    if (&TIMx == TIM1) {
+//        if (RemapType == DefaultRemap)  
+//            GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, DISABLE); 
+//        if (RemapType == PartialRemap1) 
+//            GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, ENABLE);
+//        if (RemapType == PartialRemap2) 
+//            return -1;
+//        if (RemapType == FullRemap)     
+//            GPIO_PinRemapConfig(GPIO_FullRemap_TIM1, ENABLE);
+//        
+//        RemapTimersStatus[0] = RemapType;
+//    }
+//    else if (&TIMx == TIM2) {
+//        if (RemapType == DefaultRemap)  GPIO_PinRemapConfig(GPIO_PartialRemap1_TIM2, DISABLE); 
+//        if (RemapType == PartialRemap1) GPIO_PinRemapConfig(GPIO_PartialRemap1_TIM2, ENABLE);
+//        if (RemapType == PartialRemap2) GPIO_PinRemapConfig(GPIO_PartialRemap2_TIM2, ENABLE);
+//        if (RemapType == FullRemap)     GPIO_PinRemapConfig(GPIO_FullRemap_TIM2, ENABLE);
+//        
+//        RemapTimersStatus[1] = RemapType;
+//    }
+//    else if (&TIMx == TIM3) {
+//        if (RemapType == DefaultRemap)  GPIO_PinRemapConfig(GPIO_PartialRemap_TIM3, DISABLE); 
+//        if (RemapType == PartialRemap1) GPIO_PinRemapConfig(GPIO_PartialRemap_TIM3, ENABLE);
+//        if (RemapType == PartialRemap2) return -1;
+//        if (RemapType == FullRemap)     GPIO_PinRemapConfig(GPIO_FullRemap_TIM3, ENABLE);
+//        
+//        RemapTimersStatus[2] = RemapType;
+//    }
+//    else if (&TIMx == TIM4) {
+//        if (RemapType == DefaultRemap)  GPIO_PinRemapConfig(GPIO_Remap_TIM4, DISABLE); 
+//        if (RemapType == PartialRemap1) return -1;
+//        if (RemapType == PartialRemap2) return -1;
+//        if (RemapType == FullRemap)     GPIO_PinRemapConfig(GPIO_Remap_TIM4, ENABLE);
+//        
+//        RemapTimersStatus[3] = RemapType;
+//    }
+//    else{}
+//        
     return 0;
 }
 

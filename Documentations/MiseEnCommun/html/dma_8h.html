@@ -78,12 +78,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af5918bde73dd195eb629c56fec8de055"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8h.html#af5918bde73dd195eb629c56fec8de055">DMA_InitBuffer2Periph</a> (DMA_Channel_TypeDef *DMAy_Channelx, uint32_t Periph_DR_Base, uint32_t Memory_DR_Base, uint32_t data_buffer_size)</td></tr>
-<tr class="memdesc:af5918bde73dd195eb629c56fec8de055"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified.  <a href="#af5918bde73dd195eb629c56fec8de055">More...</a><br /></td></tr>
-<tr class="separator:af5918bde73dd195eb629c56fec8de055"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98253e7f0effc4f593066a307bf413d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8h.html#a98253e7f0effc4f593066a307bf413d5">DMA_InitPeriph2Buffer</a> (DMA_Channel_TypeDef *DMAy_Channelx, uint32_t Periph_DR_Base, uint32_t Memory_DR_Base, uint32_t data_buffer_size)</td></tr>
-<tr class="memdesc:a98253e7f0effc4f593066a307bf413d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified.  <a href="#a98253e7f0effc4f593066a307bf413d5">More...</a><br /></td></tr>
-<tr class="separator:a98253e7f0effc4f593066a307bf413d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad545c0e40b3bb1ce2902be4ce581adc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8h.html#ad545c0e40b3bb1ce2902be4ce581adc4">DMA_QuickInit_Periph2Buffer</a> (DMA_Channel_TypeDef *DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t PeripheralDataSize, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize)</td></tr>
+<tr class="memdesc:ad545c0e40b3bb1ce2902be4ce581adc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified.  <a href="#ad545c0e40b3bb1ce2902be4ce581adc4">More...</a><br /></td></tr>
+<tr class="separator:ad545c0e40b3bb1ce2902be4ce581adc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aeb5a264782557f331d4d6d4776c49d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8h.html#a6aeb5a264782557f331d4d6d4776c49d">DMA_QuickInit_Buffer2Periph</a> (DMA_Channel_TypeDef *DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t PeripheralDataSize, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize)</td></tr>
+<tr class="memdesc:a6aeb5a264782557f331d4d6d4776c49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified.  <a href="#a6aeb5a264782557f331d4d6d4776c49d">More...</a><br /></td></tr>
+<tr class="separator:a6aeb5a264782557f331d4d6d4776c49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b9e91b5a2422409da48a3bcf3e7d0d5"><td class="memItemLeft" align="right" valign="top"><a id="a0b9e91b5a2422409da48a3bcf3e7d0d5"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>DMA_Callback</b> (DMA_Channel_TypeDef *DMAy_Channelx, uint8_t flags)</td></tr>
 <tr class="separator:a0b9e91b5a2422409da48a3bcf3e7d0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -92,14 +92,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DMA_Callback</b> (DMA
 <div class="textblock"><p>Headers of functions to handle DMA. </p>
 <dl class="section author"><dt>Author</dt><dd>Curtis Team </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="af5918bde73dd195eb629c56fec8de055"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5918bde73dd195eb629c56fec8de055">&sect;&nbsp;</a></span>DMA_InitBuffer2Periph()</h2>
+<a id="a6aeb5a264782557f331d4d6d4776c49d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aeb5a264782557f331d4d6d4776c49d">&sect;&nbsp;</a></span>DMA_QuickInit_Buffer2Periph()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void DMA_InitBuffer2Periph </td>
+          <td class="memname">void DMA_QuickInit_Buffer2Periph </td>
           <td>(</td>
           <td class="paramtype">DMA_Channel_TypeDef *&#160;</td>
           <td class="paramname"><em>DMAy_Channelx</em>, </td>
@@ -109,6 +109,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DMA_Callback</b> (DMA
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>PeripheralBaseAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>PeripheralDataSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -143,14 +149,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DMA_Callback</b> (DMA
 
 </div>
 </div>
-<a id="a98253e7f0effc4f593066a307bf413d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98253e7f0effc4f593066a307bf413d5">&sect;&nbsp;</a></span>DMA_InitPeriph2Buffer()</h2>
+<a id="ad545c0e40b3bb1ce2902be4ce581adc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad545c0e40b3bb1ce2902be4ce581adc4">&sect;&nbsp;</a></span>DMA_QuickInit_Periph2Buffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void DMA_InitPeriph2Buffer </td>
+          <td class="memname">void DMA_QuickInit_Periph2Buffer </td>
           <td>(</td>
           <td class="paramtype">DMA_Channel_TypeDef *&#160;</td>
           <td class="paramname"><em>DMAy_Channelx</em>, </td>
@@ -160,6 +166,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>DMA_Callback</b> (DMA
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>PeripheralBaseAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>PeripheralDataSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

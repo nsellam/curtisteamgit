@@ -39,7 +39,7 @@ uint8_t SAMPLE_TO_USE;
 /**
  * @brief   Last computed speed (expressed in centimeters per second) for each speed sensor
 */
-float speed[HALLSENSORS_NUMBER]; // cm/s
+static float speed[HALLSENSORS_NUMBER]; // cm/s
 
 /**
  * @brief   Last computed speed by tick based method (expressed in centimeters per second) for each speed sensor

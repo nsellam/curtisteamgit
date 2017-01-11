@@ -68,8 +68,8 @@ void RearMotors_Callback(void) {
   RearMotors_remainingTimeInCommandPeriod --;
   if (RearMotors_remainingTimeInCommandPeriod == 0) {
     //CMD
-    rear_motor_L_control (speed_cmd);
-    RearMotors_Callback();
+    //rear_motor_L_control (speed_cmd);
+    //RearMotors_Callback();
   }
 }
 

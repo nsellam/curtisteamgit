@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['hall_5fsensors_2ec',['hall_sensors.c',['../hall__sensors_8c.html',1,'']]],
-  ['hall_5fsensors_2eh',['hall_sensors.h',['../hall__sensors_8h.html',1,'']]]
+  ['gpio_2ec',['gpio.c',['../gpio_8c.html',1,'']]],
+  ['gpio_2eh',['gpio.h',['../gpio_8h.html',1,'']]]
 ];
