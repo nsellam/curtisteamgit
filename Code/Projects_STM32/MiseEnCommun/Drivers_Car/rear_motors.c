@@ -54,6 +54,36 @@ float ComputeMotorCommand (int16_t speed_cmd, int16_t current, int16_t speed);
 
 /* Public functions ----------------------------------------------------------*/
 /**
+ * @brief   Initializes rear motors
+ * @retval  None
+*/
+void RearMotor_QuickInit(void) {
+    Motor_QuickInit(REAR_MOTOR_L);
+    Motor_QuickInit(REAR_MOTOR_R);
+    
+    SpeedSensor_QuickInit(SPEED_SENSOR_L);
+    SpeedSensor_QuickInit(SPEED_SENSOR_R);
+}
+
+/**
+ * @brief   Allows rear motors to spin
+ * @retval  None
+*/
+void RearMotors_Enable(void) {
+    Motor_Enable(REAR_MOTOR_L);
+    Motor_Enable(REAR_MOTOR_R);
+}
+
+/**
+ * @brief   Forbides rear motors to spin
+ * @retval  None
+*/
+void RearMotors_Disable(void) {
+    Motor_Disable(REAR_MOTOR_L);
+    Motor_Disable(REAR_MOTOR_R);
+}
+
+/**
  * @brief   The core of the control loop for rear motor left
  * @param   speed_cmd The speed command 
  * @retval	None

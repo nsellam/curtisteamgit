@@ -26,6 +26,9 @@
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
+void RearMotors_QuickInit(void);
+void RearMotors_Enable(void);
+void RearMotors_Disable(void);
 void RearMotor_controlL(int16_t cmd);
 void RearMotors_Callback(void);
 void RearMotors_setSpeed(int16_t speed);
