@@ -40,6 +40,9 @@ void FrontMotor_Example(void);
 
 int main (void) {
     
+    int a; 
+    a = 0; 
+    a++;
     //HallSensor_Example(HALLSENSOR_L);
     //Motor_Example(REAR_MOTOR_L);
     //GPIO_Example();
