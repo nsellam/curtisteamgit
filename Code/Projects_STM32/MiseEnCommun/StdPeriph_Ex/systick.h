@@ -1,7 +1,7 @@
 /**
- * @file 		systick.h
- * @author 	Curtis Team
- * @brief 	Headers of functions to handle systick (STM internal time)  
+ * @file    systick.h
+ * @author  Curtis Team
+ * @brief   Headers of functions to handle systick (STM internal time)  
  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -27,7 +27,6 @@
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 void SysTick_QuickInit(void);
-uint64_t millis(void);
-void SysTick_Callback(void);
+void SysTick_Handler(void);
 
 #endif // _SYSTICK_H

@@ -1,7 +1,7 @@
 /**
- * @file exti.h
- * @author Curtis Team
- * @brief Headers of functions to handle external interrupts (EXTI)  
+ * @file    exti.h
+ * @author  Curtis Team
+ * @brief   Headers of functions to handle external interrupts (EXTI)  
  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -16,19 +16,16 @@
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /**
- * @def EXTI_NO_ERROR
  * @brief Given pin was succesfully initialize as external interruption
 */
 #define EXTI_NO_ERROR                  0
 
 /**
- * @def EXTI_ERROR_INVALID_LINE
  * @brief Given pin couldn't be initialize as external interruption due to a non valid line
 */ 
 #define EXTI_ERROR_INVALID_LINE        -1
 
 /**
- * @def EXTI_ERROR_INVALID_CHANNEL
  * @brief Given pin couldn't be initialize as external interruption due to a problem while computing channel
 */ 
 #define EXTI_ERROR_INVALID_CHANNEL     -2

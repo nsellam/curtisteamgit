@@ -72,20 +72,22 @@ $(function() {
 
 <p>Functions to handle NVIC.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;nvic.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stm32f10x.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="nvic_8h_source.html">nvic.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6f8cf870bdda2fc1959aef5b0fd730a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nvic_8c.html#a6f8cf870bdda2fc1959aef5b0fd730a5">NVIC_QuickInit</a> (uint8_t IRQChannel, uint8_t priority)</td></tr>
-<tr class="memdesc:a6f8cf870bdda2fc1959aef5b0fd730a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given NVIC with the parameters specified.  <a href="#a6f8cf870bdda2fc1959aef5b0fd730a5">More...</a><br /></td></tr>
-<tr class="separator:a6f8cf870bdda2fc1959aef5b0fd730a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a373c2122552aec599bc56315e4c79472"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nvic_8c.html#a373c2122552aec599bc56315e4c79472">NVIC_QuickInit</a> (int8_t IRQChannel, uint8_t Priority)</td></tr>
+<tr class="memdesc:a373c2122552aec599bc56315e4c79472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given NVIC with the parameters specified.  <a href="#a373c2122552aec599bc56315e4c79472">More...</a><br /></td></tr>
+<tr class="separator:a373c2122552aec599bc56315e4c79472"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functions to handle NVIC. </p>
 <dl class="section author"><dt>Author</dt><dd>Curtis Team </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a6f8cf870bdda2fc1959aef5b0fd730a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f8cf870bdda2fc1959aef5b0fd730a5">&sect;&nbsp;</a></span>NVIC_QuickInit()</h2>
+<a id="a373c2122552aec599bc56315e4c79472"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a373c2122552aec599bc56315e4c79472">&sect;&nbsp;</a></span>NVIC_QuickInit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -93,14 +95,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void NVIC_QuickInit </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">int8_t&#160;</td>
           <td class="paramname"><em>IRQChannel</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>priority</em>&#160;</td>
+          <td class="paramname"><em>Priority</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -114,7 +116,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">IRQChannel</td><td>Number of the Interrupt Request to init </td></tr>
-    <tr><td class="paramname">priority</td><td>Priority of the interruption initialized </td></tr>
+    <tr><td class="paramname">Priority</td><td>Priority of the interruption initialized </td></tr>
   </table>
   </dd>
 </dl>

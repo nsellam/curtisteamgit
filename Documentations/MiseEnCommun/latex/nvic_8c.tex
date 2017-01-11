@@ -5,11 +5,13 @@
 Functions to handle N\+V\+IC.  
 
 
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stm32f10x.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}nvic.\+h\char`\"{}}\newline
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{nvic_8c_a6f8cf870bdda2fc1959aef5b0fd730a5}{N\+V\+I\+C\+\_\+\+Quick\+Init} (uint8\+\_\+t I\+R\+Q\+Channel, uint8\+\_\+t priority)
+void \hyperlink{nvic_8c_a373c2122552aec599bc56315e4c79472}{N\+V\+I\+C\+\_\+\+Quick\+Init} (int8\+\_\+t I\+R\+Q\+Channel, uint8\+\_\+t Priority)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given N\+V\+IC with the parameters specified. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -22,11 +24,11 @@ Curtis Team
 
 
 \subsection{Function Documentation}
-\hypertarget{nvic_8c_a6f8cf870bdda2fc1959aef5b0fd730a5}{}\label{nvic_8c_a6f8cf870bdda2fc1959aef5b0fd730a5} 
+\hypertarget{nvic_8c_a373c2122552aec599bc56315e4c79472}{}\label{nvic_8c_a373c2122552aec599bc56315e4c79472} 
 \index{nvic.\+c@{nvic.\+c}!N\+V\+I\+C\+\_\+\+Quick\+Init@{N\+V\+I\+C\+\_\+\+Quick\+Init}}
 \index{N\+V\+I\+C\+\_\+\+Quick\+Init@{N\+V\+I\+C\+\_\+\+Quick\+Init}!nvic.\+c@{nvic.\+c}}
 \subsubsection{\texorpdfstring{N\+V\+I\+C\+\_\+\+Quick\+Init()}{NVIC\_QuickInit()}}
-{\footnotesize\ttfamily void N\+V\+I\+C\+\_\+\+Quick\+Init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{I\+R\+Q\+Channel,  }\item[{uint8\+\_\+t}]{priority }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void N\+V\+I\+C\+\_\+\+Quick\+Init (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{I\+R\+Q\+Channel,  }\item[{uint8\+\_\+t}]{Priority }\end{DoxyParamCaption})}
 
 
 
@@ -36,7 +38,7 @@ Makes the initialization of the given N\+V\+IC with the parameters specified.
 \begin{DoxyParams}{Parameters}
 {\em I\+R\+Q\+Channel} & Number of the Interrupt Request to init \\
 \hline
-{\em priority} & Priority of the interruption initialized \\
+{\em Priority} & Priority of the interruption initialized \\
 \hline
 \end{DoxyParams}
 

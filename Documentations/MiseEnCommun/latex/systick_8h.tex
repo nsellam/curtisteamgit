@@ -22,11 +22,8 @@ Headers of functions to handle systick (S\+TM internal time)
 \hypertarget{systick_8h_a5a32ca87bb53e0c027409c0d875ce323}{}\label{systick_8h_a5a32ca87bb53e0c027409c0d875ce323} 
 void \hyperlink{systick_8h_a5a32ca87bb53e0c027409c0d875ce323}{Sys\+Tick\+\_\+\+Quick\+Init} (void)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the systick system. \end{DoxyCompactList}\item 
-uint64\+\_\+t \hyperlink{systick_8h_ac4da2262c9e029e8213116c8482099b9}{millis} (void)
-\begin{DoxyCompactList}\small\item\em Returns the current S\+T\+M32 time. \end{DoxyCompactList}\item 
-\hypertarget{systick_8h_a1776ae73b563f2f9fc51d6cd626f1a62}{}\label{systick_8h_a1776ae73b563f2f9fc51d6cd626f1a62} 
-void \hyperlink{systick_8h_a1776ae73b563f2f9fc51d6cd626f1a62}{Sys\+Tick\+\_\+\+Callback} (void)
-\begin{DoxyCompactList}\small\item\em Callback associated to Sys\+Tick. Increments current time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \hyperlink{systick_8h_ab5e09814056d617c521549e542639b7e}{Sys\+Tick\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Handles Sys\+Tick Handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -38,16 +35,23 @@ Curtis Team
 
 
 \subsection{Function Documentation}
-\hypertarget{systick_8h_ac4da2262c9e029e8213116c8482099b9}{}\label{systick_8h_ac4da2262c9e029e8213116c8482099b9} 
-\index{systick.\+h@{systick.\+h}!millis@{millis}}
-\index{millis@{millis}!systick.\+h@{systick.\+h}}
-\subsubsection{\texorpdfstring{millis()}{millis()}}
-{\footnotesize\ttfamily uint64\+\_\+t millis (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+\hypertarget{systick_8h_ab5e09814056d617c521549e542639b7e}{}\label{systick_8h_ab5e09814056d617c521549e542639b7e} 
+\index{systick.\+h@{systick.\+h}!Sys\+Tick\+\_\+\+Handler@{Sys\+Tick\+\_\+\+Handler}}
+\index{Sys\+Tick\+\_\+\+Handler@{Sys\+Tick\+\_\+\+Handler}!systick.\+h@{systick.\+h}}
+\subsubsection{\texorpdfstring{Sys\+Tick\+\_\+\+Handler()}{SysTick\_Handler()}}
+{\footnotesize\ttfamily void Sys\+Tick\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
-Returns the current S\+T\+M32 time. 
+Handles Sys\+Tick Handler. 
 
-\begin{DoxyReturn}{Returns}
-uint64\+\_\+t (time elapsed since systick initialization expressed in milliseconds) 
-\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}

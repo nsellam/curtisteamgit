@@ -1,111 +1,260 @@
 /**
- * @file 		it_handlers.c
- * @author 	Curtis Team
- * @brief 	Main Interrupt Service Routines 
- */
+ * @file    it_handlers.c
+ * @author  Curtis Team
+ * @brief   Main Interrupt Service Routines
+*/
 
 /* Includes ------------------------------------------------------------------*/
+#include <stdint.h>
+#include <stm32f10x.h>
 #include "it_handlers.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
+
+#define ADC_IRQ_HANDLER(adc) \
+   if ( (ADC_GetITStatus(ADC##adc, ADC_IT_AWD ) == SET) || \
+        (ADC_GetITStatus(ADC##adc, ADC_IT_EOC ) == SET) || \
+        (ADC_GetITStatus(ADC##adc, ADC_IT_JEOC) == SET) ) \
+   { \
+       ADC_ITHandler(ADC##adc); \
+       ADC_ClearITPendingBit(ADC##adc, ADC_IT_AWD | ADC_IT_EOC | ADC_IT_JEOC); \
+   }
+
+#define TIM_IRQ_HANDLER(tim) \
+   TIM_ITHandler(TIM##tim); \
+   TIM_ClearITPendingBit(TIM##tim, TIM_IT_Update | TIM_IT_CC1 | TIM_IT_CC2 | TIM_IT_CC3 | TIM_IT_CC4 | TIM_IT_COM | TIM_IT_Trigger | TIM_IT_Break); \
+
+#define DMA_IRQ_HANDLER(dma, channel) \
+   DMA_ITHandler(DMA##dma##_Channel##channel,   ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_TC##channel) << 1) + \
+                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_HT##channel) << 2) + \
+                                                ((uint8_t)DMA_GetITStatus(DMA##dma##_IT_TE##channel) << 3)); \
+   DMA_ClearITPendingBit(DMA##dma##_IT_GL##channel);
+
+#define EXTI_IRQ_HANDLER(exti) \
+    if (EXTI_GetITStatus(EXTI_Line##exti) == SET) { \
+        EXTI_ITHandler(EXTI_Line##exti); \
+        EXTI_ClearITPendingBit(EXTI_Line##exti); \
+    }
+
 /* Public variables ----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /* Public functions ----------------------------------------------------------*/
 
 /* Private functions ---------------------------------------------------------*/
-__INLINE void EXTIx_IRQHandler(uint32_t EXTI_Line);
 
-__weak void EXTI_Callback(uint32_t EXTI_Line) {}
-__weak void SysTick_Callback(void) {}
+__weak void EXTI_ITHandler(uint32_t EXTI_Line) {}
+__weak void DMA_ITHandler(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {}
+__weak void ADC_ITHandler(ADC_TypeDef* ADCx) {}
+__weak void TIM_ITHandler(TIM_TypeDef* TIMx) {}
+__weak void SPI_ITHandler(SPI_TypeDef* SPIx) {}
+__weak void SysTick_ITHandler(void) {}
 
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */
 /******************************************************************************/
 /**
-  * @brief  Handles EXTI0_IRQHandler interrupt request.
-  * @param  None
-  * @retval None
-  */
+ * @brief  Handles EXTI0_IRQHandler interrupt request.
+ * @param  None
+ * @retval None
+*/
 void EXTI0_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line0);
+    EXTI_IRQ_HANDLER(0);
 }
 
 /**
-  * @brief  Handles EXTI1_IRQHandler interrupt request.
-  * @param  None
-  * @retval None
-  */
+ * @brief  Handles EXTI1_IRQHandler interrupt request.
+ * @param  None
+ * @retval None
+*/
 void EXTI1_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line1);
+    EXTI_IRQ_HANDLER(1);
 }
 
 /**
-  * @brief  Handles EXTI2_IRQHandler interrupt request.
-  * @param  None
-  * @retval None
-  */
+ * @brief  Handles EXTI2_IRQHandler interrupt request.
+ * @param  None
+ * @retval None
+*/
 void EXTI2_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line2);
+    EXTI_IRQ_HANDLER(2);
 }
 
 /**
-  * @brief  Handles EXTI3_IRQHandler interrupt request.
-  * @param  None
-  * @retval None
-  */
+ * @brief  Handles EXTI3_IRQHandler interrupt request.
+ * @param  None
+ * @retval None
+*/
 void EXTI3_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line3);
+    EXTI_IRQ_HANDLER(3);
 }
 
 /**
-  * @brief  Handles EXTI4_IRQHandler interrupt request.
-  * @param  None
-  * @retval None
-  */
+ * @brief  Handles EXTI4_IRQHandler interrupt request.
+ * @param  None
+ * @retval None
+*/
 void EXTI4_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line4);
+    EXTI_IRQ_HANDLER(4);
 }
 
 /**
-  * @brief  Handles EXTI9_5_IRQHandler interrupt request.
-  * @param  None
-  * @retval None
-  */
+ * @brief  Handles EXTI9_5_IRQHandler interrupt request.
+ * @param  None
+ * @retval None
+*/
 void EXTI9_5_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line5);
-	EXTIx_IRQHandler(EXTI_Line6);
-	EXTIx_IRQHandler(EXTI_Line7);
-	EXTIx_IRQHandler(EXTI_Line8);
-	EXTIx_IRQHandler(EXTI_Line9);
+    EXTI_IRQ_HANDLER(5);
+    EXTI_IRQ_HANDLER(6);
+    EXTI_IRQ_HANDLER(7);
+    EXTI_IRQ_HANDLER(8);
+    EXTI_IRQ_HANDLER(9);
 }
 
 /**
-  * @brief  Handles EXTI9_5_IRQHandler interrupt request.
-  * @param  None
-  * @retval None
-  */
+ * @brief  Handles EXTI9_5_IRQHandler interrupt request.
+ * @param  None
+ * @retval None
+*/
 void EXTI15_10_IRQHandler(void) {
-	EXTIx_IRQHandler(EXTI_Line10);
-	EXTIx_IRQHandler(EXTI_Line11);
-	EXTIx_IRQHandler(EXTI_Line12);
-	EXTIx_IRQHandler(EXTI_Line13);
-	EXTIx_IRQHandler(EXTI_Line14);
-	EXTIx_IRQHandler(EXTI_Line15);
+    EXTI_IRQ_HANDLER(10);
+    EXTI_IRQ_HANDLER(11);
+    EXTI_IRQ_HANDLER(12);
+    EXTI_IRQ_HANDLER(13);
+    EXTI_IRQ_HANDLER(14);
+    EXTI_IRQ_HANDLER(15);
+}
+
+
+/**
+ * @brief  Handles ADC1_2_IRQHandler interrupt request.
+ * @param  None
+ * @retval None
+*/
+void ADC1_2_IRQHandler(void) {
+    uint8_t flags = 0;
+    ADC_IRQ_HANDLER(1)
+    ADC_IRQ_HANDLER(2)
+}
+
+
+/**
+ * @brief  Handles DMA1_Channel1 interrupt request.
+ * @param  None
+ * @retval None
+*/
+void DMA1_Channel1_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 1)
 }
 
 /**
-  * @brief  Manage 
-  * @param  None
-  * @retval None
-  */
-void EXTIx_IRQHandler(uint32_t EXTI_Line) { 
-	if (EXTI_GetFlagStatus(EXTI_Line)) {
-		EXTI_Callback(EXTI_Line);
-		EXTI_ClearFlag(EXTI_Line);
-	}
+ * @brief  Handles DMA1_Channel2 interrupt request.
+ * @param  None
+ * @retval None
+*/
+void DMA1_Channel2_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 2)
+}
+
+/**
+ * @brief  Handles DMA1_Channel3 interrupt request.
+ * @param  None
+ * @retval None
+*/
+void DMA1_Channel3_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 3)
+}
+
+/**
+ * @brief  Handles DMA1_Channel4 interrupt request.
+ * @param  None
+ * @retval None
+*/
+void DMA1_Channel4_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 4)
+}
+
+/**
+ * @brief  Handles DMA1_Channel5 interrupt request.
+ * @param  None
+ * @retval None
+*/
+void DMA1_Channel5_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 5)
+}
+
+/**
+ * @brief  Handles DMA1_Channel6 interrupt request.
+ * @param  None
+ * @retval None
+*/
+void DMA1_Channel6_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 6)
+}
+
+/**
+ * @brief  Handles DMA1_Channel7 interrupt request.
+ * @param  None
+ * @retval None
+*/
+void DMA1_Channel7_IRQHandler(void) {
+   DMA_IRQ_HANDLER(1, 7)
+}
+
+/**
+ * @brief  Handles TIM1 up interrupt request.
+ * @param  None
+ * @retval None
+*/
+void TIM1_UP_IRQHandler(void) {
+    TIM_ITHandler(TIM1);
+}
+
+/**
+ * @brief  Handles TIM2 interrupt request.
+ * @param  None
+ * @retval None
+*/
+void TIM2_IRQHandler(void) {
+    TIM_ITHandler(TIM2);
+}
+
+/**
+ * @brief  Handles TIM3 interrupt request.
+ * @param  None
+ * @retval None
+*/
+void TIM3_IRQHandler(void) {
+    TIM_ITHandler(TIM3);
+}
+
+/**
+ * @brief  Handles TIM4 interrupt request.
+ * @param  None
+ * @retval None
+*/
+void TIM4_IRQHandler(void) {
+    TIM_ITHandler(TIM4);
+}
+
+/**
+ * @brief  Handles SPI1 interrupt request.
+ * @param  None
+ * @retval None
+*/
+void SPI1_IRQHandler(void) {
+    SPI_ITHandler(SPI1);
+}
+
+/**
+ * @brief  Handles SPI2 interrupt request.
+ * @param  None
+ * @retval None
+*/
+void SPI2_IRQHandler(void) {
+    SPI_ITHandler(SPI2);
 }
 
 /******************************************************************************/
@@ -124,10 +273,9 @@ void NMI_Handler(void) {}
   * @param  None
   * @retval None
   */
-void HardFault_Handler(void)
-{
-  /* Go to infinite loop when Hard Fault exception occurs */
-  while (1) {}
+void HardFault_Handler(void) {
+  // Go to infinite loop when Hard Fault exception occurs
+  while(1) {}
 }
 
 /**
@@ -135,10 +283,9 @@ void HardFault_Handler(void)
   * @param  None
   * @retval None
   */
-void MemManage_Handler(void)
-{
-  /* Go to infinite loop when Memory Manage exception occurs */
-  while (1) {}
+void MemManage_Handler(void) {
+  // Go to infinite loop when Memory Manage exception occurs
+  while(1) {}
 }
 
 /**
@@ -146,10 +293,9 @@ void MemManage_Handler(void)
   * @param  None
   * @retval None
   */
-void BusFault_Handler(void)
-{
-  /* Go to infinite loop when Bus Fault exception occurs */
-  while (1) {}
+void BusFault_Handler(void) {
+  // Go to infinite loop when Bus Fault exception occurs
+  while(1) {}
 }
 
 /**
@@ -157,10 +303,9 @@ void BusFault_Handler(void)
   * @param  None
   * @retval None
   */
-void UsageFault_Handler(void)
-{
-  /* Go to infinite loop when Usage Fault exception occurs */
-  while (1) {}
+void UsageFault_Handler(void) {
+  // Go to infinite loop when Usage Fault exception occurs
+  while(1) {}
 }
 
 /**
@@ -190,5 +335,5 @@ void PendSV_Handler(void) {}
   * @retval None
   */
 void SysTick_Handler(void) {
-	SysTick_Callback();
+    SysTick_ITHandler();
 }

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['memmanage_5fhandler',['MemManage_Handler',['../it__handlers_8c.html#a3150f74512510287a942624aa9b44cc5',1,'it_handlers.c']]],
-  ['millis',['millis',['../systick_8c.html#ac4da2262c9e029e8213116c8482099b9',1,'millis(void):&#160;systick.c'],['../systick_8h.html#ac4da2262c9e029e8213116c8482099b9',1,'millis(void):&#160;systick.c']]]
+  ['it_5fhandlers_2ec',['it_handlers.c',['../it__handlers_8c.html',1,'']]],
+  ['it_5fhandlers_2eh',['it_handlers.h',['../it__handlers_8h.html',1,'']]]
 ];
