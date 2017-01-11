@@ -134,7 +134,6 @@ void EXTI15_10_IRQHandler(void) {
  * @retval None
 */
 void ADC1_2_IRQHandler(void) {
-    uint8_t flags = 0;
     ADC_IRQ_HANDLER(1)
     ADC_IRQ_HANDLER(2)
 }

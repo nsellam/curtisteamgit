@@ -17,17 +17,22 @@
 /**
  * @brief Given pin was succesfully initialized as analogic input
 */
-#define ADC_NO_ERROR                  0
+#define ADC_NO_ERROR    0
 
 /**
 * @brief Given pin couldn't be initialized: port is unreachable
 */ 
-#define ADC_ERROR_PORT               (-1)
+#define ADC_ERROR_PORT  (-1)
 
 /**
  * @brief Given pin couldn't be initialized: pin is unreachable
 */ 
-#define ADC_ERROR_PIN                (-2)
+#define ADC_ERROR_PIN   (-2)
+
+/**
+ * @brief Maximum number of channels for one ADC
+*/ 
+#define ADC_NB_CHANNELS_MAX  16
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */

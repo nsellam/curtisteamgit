@@ -479,16 +479,6 @@
               <FilePath>..\StdPeriph_Ex\it_handlers.c</FilePath>
             </File>
             <File>
-              <FileName>adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\adc.c</FilePath>
-            </File>
-            <File>
-              <FileName>dma.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\dma.c</FilePath>
-            </File>
-            <File>
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\StdPeriph_Ex\gpio.c</FilePath>
@@ -527,6 +517,16 @@
               <FileName>tim_ic.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\StdPeriph_Ex\tim_ic.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\StdPeriph_Ex\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\StdPeriph_Ex\dma.c</FilePath>
             </File>
           </Files>
         </Group>
