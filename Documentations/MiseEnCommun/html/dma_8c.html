@@ -79,12 +79,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a4cc3ea5b240eb073b75a4d8b2313a3d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8c.html#a4cc3ea5b240eb073b75a4d8b2313a3d0">DMA_ClockEnable</a> (DMA_Channel_TypeDef *DMAy_Channelx)</td></tr>
 <tr class="memdesc:a4cc3ea5b240eb073b75a4d8b2313a3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables clock on the adequate DMA.  <a href="#a4cc3ea5b240eb073b75a4d8b2313a3d0">More...</a><br /></td></tr>
 <tr class="separator:a4cc3ea5b240eb073b75a4d8b2313a3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78a4071bb1d65d36a6b50c14740b0e4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8c.html#a78a4071bb1d65d36a6b50c14740b0e4d">DMA_InitPeriph2Buffer</a> (DMA_Channel_TypeDef *DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize)</td></tr>
-<tr class="memdesc:a78a4071bb1d65d36a6b50c14740b0e4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified.  <a href="#a78a4071bb1d65d36a6b50c14740b0e4d">More...</a><br /></td></tr>
-<tr class="separator:a78a4071bb1d65d36a6b50c14740b0e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a227365b3006fa8257ba8538da497c855"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8c.html#a227365b3006fa8257ba8538da497c855">DMA_InitBuffer2Periph</a> (DMA_Channel_TypeDef *DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize)</td></tr>
-<tr class="memdesc:a227365b3006fa8257ba8538da497c855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified.  <a href="#a227365b3006fa8257ba8538da497c855">More...</a><br /></td></tr>
-<tr class="separator:a227365b3006fa8257ba8538da497c855"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad545c0e40b3bb1ce2902be4ce581adc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8c.html#ad545c0e40b3bb1ce2902be4ce581adc4">DMA_QuickInit_Periph2Buffer</a> (DMA_Channel_TypeDef *DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t PeripheralDataSize, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize)</td></tr>
+<tr class="memdesc:ad545c0e40b3bb1ce2902be4ce581adc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified.  <a href="#ad545c0e40b3bb1ce2902be4ce581adc4">More...</a><br /></td></tr>
+<tr class="separator:ad545c0e40b3bb1ce2902be4ce581adc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aeb5a264782557f331d4d6d4776c49d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dma_8c.html#a6aeb5a264782557f331d4d6d4776c49d">DMA_QuickInit_Buffer2Periph</a> (DMA_Channel_TypeDef *DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t PeripheralDataSize, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize)</td></tr>
+<tr class="memdesc:a6aeb5a264782557f331d4d6d4776c49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified.  <a href="#a6aeb5a264782557f331d4d6d4776c49d">More...</a><br /></td></tr>
+<tr class="separator:a6aeb5a264782557f331d4d6d4776c49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae88da9c90e6b562b30d5177c38441da4"><td class="memItemLeft" align="right" valign="top"><a id="ae88da9c90e6b562b30d5177c38441da4"></a>
 __weak void&#160;</td><td class="memItemRight" valign="bottom"><b>DMA_Callback</b> (DMA_Channel_TypeDef *DMAy_Channelx, uint8_t flags)</td></tr>
 <tr class="separator:ae88da9c90e6b562b30d5177c38441da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,108 +128,6 @@ __weak void&#160;</td><td class="memItemRight" valign="bottom"><b>DMA_Callback</
 
 </div>
 </div>
-<a id="a227365b3006fa8257ba8538da497c855"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a227365b3006fa8257ba8538da497c855">&sect;&nbsp;</a></span>DMA_InitBuffer2Periph()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DMA_InitBuffer2Periph </td>
-          <td>(</td>
-          <td class="paramtype">DMA_Channel_TypeDef *&#160;</td>
-          <td class="paramname"><em>DMAy_Channelx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>PeripheralBaseAddr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>MemoryBaseAddr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>MemoryBufferSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">DMAy_Channelx</td><td>DMA_Channel_TypeDef* Number of the DMA and of the channel used </td></tr>
-    <tr><td class="paramname">Periph_DR_Base</td><td>uint32_t Base adress of the peripheral </td></tr>
-    <tr><td class="paramname">Memory_DR_Base</td><td>uint32_t Base adress of the memory to use </td></tr>
-    <tr><td class="paramname">data_buffer_size</td><td>uint32_t size of the buffer </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a78a4071bb1d65d36a6b50c14740b0e4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78a4071bb1d65d36a6b50c14740b0e4d">&sect;&nbsp;</a></span>DMA_InitPeriph2Buffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DMA_InitPeriph2Buffer </td>
-          <td>(</td>
-          <td class="paramtype">DMA_Channel_TypeDef *&#160;</td>
-          <td class="paramname"><em>DMAy_Channelx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>PeripheralBaseAddr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>MemoryBaseAddr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>MemoryBufferSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">DMAy_Channelx</td><td>DMA_Channel_TypeDef* Number of the DMA and of the channel used </td></tr>
-    <tr><td class="paramname">Periph_DR_Base</td><td>uint32_t Base adress of the peripheral </td></tr>
-    <tr><td class="paramname">Memory_DR_Base</td><td>uint32_t Base adress of the memory to use </td></tr>
-    <tr><td class="paramname">data_buffer_size</td><td>uint32_t size of the buffer </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="aac23c67b210acba646f913ddb26d225c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aac23c67b210acba646f913ddb26d225c">&sect;&nbsp;</a></span>DMA_ITHandler()</h2>
 
@@ -258,6 +156,120 @@ __weak void&#160;</td><td class="memItemRight" valign="bottom"><b>DMA_Callback</
 
 <p>Handler associated to DMA. </p>
 <p>Handles DMA interrupt requests. </p>
+
+</div>
+</div>
+<a id="a6aeb5a264782557f331d4d6d4776c49d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aeb5a264782557f331d4d6d4776c49d">&sect;&nbsp;</a></span>DMA_QuickInit_Buffer2Periph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMA_QuickInit_Buffer2Periph </td>
+          <td>(</td>
+          <td class="paramtype">DMA_Channel_TypeDef *&#160;</td>
+          <td class="paramname"><em>DMAy_Channelx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>PeripheralBaseAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>PeripheralDataSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>MemoryBaseAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>MemoryBufferSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DMAy_Channelx</td><td>DMA_Channel_TypeDef* Number of the DMA and of the channel used </td></tr>
+    <tr><td class="paramname">Periph_DR_Base</td><td>uint32_t Base adress of the peripheral </td></tr>
+    <tr><td class="paramname">Memory_DR_Base</td><td>uint32_t Base adress of the memory to use </td></tr>
+    <tr><td class="paramname">data_buffer_size</td><td>uint32_t size of the buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad545c0e40b3bb1ce2902be4ce581adc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad545c0e40b3bb1ce2902be4ce581adc4">&sect;&nbsp;</a></span>DMA_QuickInit_Periph2Buffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMA_QuickInit_Periph2Buffer </td>
+          <td>(</td>
+          <td class="paramtype">DMA_Channel_TypeDef *&#160;</td>
+          <td class="paramname"><em>DMAy_Channelx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>PeripheralBaseAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>PeripheralDataSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>MemoryBaseAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>MemoryBufferSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Makes the initialization of the given Direct Memory Access (DMA) with the parameters specified. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DMAy_Channelx</td><td>DMA_Channel_TypeDef* Number of the DMA and of the channel used </td></tr>
+    <tr><td class="paramname">Periph_DR_Base</td><td>uint32_t Base adress of the peripheral </td></tr>
+    <tr><td class="paramname">Memory_DR_Base</td><td>uint32_t Base adress of the memory to use </td></tr>
+    <tr><td class="paramname">data_buffer_size</td><td>uint32_t size of the buffer </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

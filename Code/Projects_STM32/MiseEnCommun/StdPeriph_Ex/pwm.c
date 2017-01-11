@@ -61,6 +61,7 @@ void PWM_QuickInit(TIM_TypeDef *TIMx, uint16_t Channelx, float frequencyPWMHz) {
 */
 int PWM_QuickInit_Complementary(TIM_TypeDef *TIMx, uint16_t Channelx) {
     TIM_remap_TypeDef remap = TIM_RemapStatus(TIMx);
+//remap = PartialRemap1;
     TIM_CCxNCmd (TIMx, Channelx, TIM_CCxN_Enable);
     
     if (TIMx != TIM1) return -2; 
