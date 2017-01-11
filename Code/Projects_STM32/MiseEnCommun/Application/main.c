@@ -12,6 +12,7 @@
 #include "motors.h"
 #include "position_sensors.h"
 #include "speed_sensors.h"
+#include "front_motor.h"
 
 void PWM_Example(void);
 void ADC_Example(void);
@@ -19,6 +20,7 @@ void HallSensor_Example(HallSensors_Enum hall_identifier);
 void Motor_Example(Motors_Enum Motor);
 void PositionSensor_Example(PositionSensor_Enum PositionSensor_identifier);
 void SpeedSensor_Example(SpeedSensor_Enum SpeedSensor_identifier);
+void FrontMotor_Example(void);
 
 // MAIN POUR DEMO BAS NIVEAU
 //int main(void) {
@@ -35,9 +37,10 @@ void SpeedSensor_Example(SpeedSensor_Enum SpeedSensor_identifier);
 int main (void) {
     
     //HallSensor_Example(HALLSENSOR_L);
-    //Motor_Example(REAR_MOTOR_L);
+    //Motor_Example(REAR_MOTOR_R);
     //PositionSensor_Example(POSITION_SENSOR_L);
     SpeedSensor_Example(POSITION_SENSOR_L);
+    //FrontMotor_Example();
     while (1) {}
 }
 
@@ -126,4 +129,16 @@ void SpeedSensor_Example(SpeedSensor_Enum SpeedSensor_identifier) {
         pause(100); 
         WheelSpeed = SpeedSensor_get(SPEED_M__S, SpeedSensor_identifier);
     }
+}
+
+/**
+ * @brief   Tests front motor by turning left, expecting 1 second and turning right. 
+ * @retval  None
+*/
+void FrontMotor_Example(void) {
+    System_Time_QuickInit();
+    FrontMotor_QuickInit();
+    FrontMotor_turn(LEFT); 
+    pause(1000); 
+    FrontMotor_turn(RIGHT);
 }

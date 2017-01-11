@@ -43,14 +43,14 @@
 * @def HARD_STOP_TRIGGATION
 * @brief EXTI_line rising signal
 */
-#define HARD_STOP_TRIGGATION EXTI_Trigger_Rising
-//#define HARD_STOP_TRIGGATION EXTI_Trigger_Rising_Falling
+//#define HARD_STOP_TRIGGATION EXTI_Trigger_Rising
+#define HARD_STOP_TRIGGATION EXTI_Trigger_Rising_Falling
 
 /**
 * @def HARD_STOP_PRIORITY
 * @brief Set the priority for the Exti of front_motor
 */
-#define HARD_STOP_PRIORITY 3
+#define HARD_STOP_PRIORITY 0
 
 /**
 * @typedef Direction_TypeDef
