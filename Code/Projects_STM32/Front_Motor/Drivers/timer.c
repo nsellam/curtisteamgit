@@ -64,95 +64,63 @@
 //------- Private prototypes ----------
 
 // IRQ Handlers
-__weak void TIM1_IT_Callback(uint16_t channel) {}
-__weak void TIM2_IT_Callback(uint16_t channel) {}
-__weak void TIM3_IT_Callback(uint16_t channel) {}
-__weak void TIM4_IT_Callback(uint16_t channel) {}
-   
+void (*TIM1_IT_Function)(void);
+void (*TIM2_IT_Function)(void);
+void (*TIM3_IT_Function)(void);
+void (*TIM4_IT_Function)(void);
 
 
-//------- Handlers functions -----------
-
+//------- Private functions -----------
 void TIM1_UP_IRQHandler(void) {
-   if(TIM_GetITStatus(TIM1,TIM_IT_Update) != RESET){
-         TIM_ClearITPendingBit(TIM1,TIM_IT_Update);
-         //TIM1_IT_Callback(0);
-   } else if(TIM_GetITStatus(TIM1,TIM_IT_CC1) != RESET){
-         TIM_ClearITPendingBit(TIM1,TIM_IT_CC1);
-         TIM1_IT_Callback(TIM_Channel_1);
-   } else if(TIM_GetITStatus(TIM1,TIM_IT_CC2) != RESET){
-         TIM_ClearITPendingBit(TIM1,TIM_IT_CC2);
-         TIM1_IT_Callback(TIM_Channel_2);
-   } else if(TIM_GetITStatus(TIM1,TIM_IT_CC3) != RESET){
-         TIM_ClearITPendingBit(TIM1,TIM_IT_CC3);
-         TIM1_IT_Callback(TIM_Channel_3);
-   } else if(TIM_GetITStatus(TIM1,TIM_IT_CC4) != RESET){
-         TIM_ClearITPendingBit(TIM1,TIM_IT_CC4);
-         TIM1_IT_Callback(TIM_Channel_4);
-   }
+   // Clear interrupt
+   TIM1->SR &= ~TIM_SR_UIF;
+   TIM1_IT_Function();
 }
 
 void TIM2_IRQHandler(void) {
-   if(TIM_GetITStatus(TIM2,TIM_IT_Update) != RESET){
-         TIM_ClearITPendingBit(TIM2,TIM_IT_Update);
-         //TIM2_T_Callback(0);
-   } else if(TIM_GetITStatus(TIM2,TIM_IT_CC1) != RESET){
-         TIM_ClearITPendingBit(TIM2,TIM_IT_CC1);
-         TIM2_IT_Callback(TIM_Channel_1);
-   } else if(TIM_GetITStatus(TIM2,TIM_IT_CC2) != RESET){
-         TIM_ClearITPendingBit(TIM2,TIM_IT_CC2);
-         TIM2_IT_Callback(TIM_Channel_2);
-   } else if(TIM_GetITStatus(TIM2,TIM_IT_CC3) != RESET){
-         TIM_ClearITPendingBit(TIM2,TIM_IT_CC3);
-         TIM2_IT_Callback(TIM_Channel_3);
-   } else if(TIM_GetITStatus(TIM2,TIM_IT_CC4) != RESET){
-         TIM_ClearITPendingBit(TIM2,TIM_IT_CC4);
-         TIM2_IT_Callback(TIM_Channel_4);
-   }
+   // Clear interrupt
+   TIM2->SR &= ~TIM_SR_UIF;
+   TIM2_IT_Function();
 }
-
 
 void TIM3_IRQHandler(void) {
-   if(TIM_GetITStatus(TIM3,TIM_IT_Update) != RESET){
-         TIM_ClearITPendingBit(TIM3,TIM_IT_Update);
-         //TIM3_IT_Callback(0);
-   } else if(TIM_GetITStatus(TIM3,TIM_IT_CC1) != RESET){
-         TIM_ClearITPendingBit(TIM3,TIM_IT_CC1);
-         TIM3_IT_Callback(TIM_Channel_1);
-   } else if(TIM_GetITStatus(TIM3,TIM_IT_CC2) != RESET){
-         TIM_ClearITPendingBit(TIM3,TIM_IT_CC2);
-         TIM3_IT_Callback(TIM_Channel_2);
-   } else if(TIM_GetITStatus(TIM3,TIM_IT_CC3) != RESET){
-         TIM_ClearITPendingBit(TIM3,TIM_IT_CC3);
-         TIM3_IT_Callback(TIM_Channel_3);
-   } else if(TIM_GetITStatus(TIM3,TIM_IT_CC4) != RESET){
-         TIM_ClearITPendingBit(TIM3,TIM_IT_CC4);
-         TIM3_IT_Callback(TIM_Channel_4);
-   }
+   // Clear interrupt
+   TIM3->SR &= ~TIM_SR_UIF;
+   TIM3_IT_Function();
 }
-
 
 void TIM4_IRQHandler(void) {
-   if(TIM_GetITStatus(TIM4,TIM_IT_Update) != RESET){
-         TIM_ClearITPendingBit(TIM4,TIM_IT_Update);
-         //TIM4_IT_Callback(0);
-   } else if(TIM_GetITStatus(TIM4,TIM_IT_CC1) != RESET){
-         TIM_ClearITPendingBit(TIM4,TIM_IT_CC1);
-         TIM4_IT_Callback(TIM_Channel_1);
-   } else if(TIM_GetITStatus(TIM4,TIM_IT_CC2) != RESET){
-         TIM_ClearITPendingBit(TIM4,TIM_IT_CC2);
-         TIM4_IT_Callback(TIM_Channel_2);
-   } else if(TIM_GetITStatus(TIM4,TIM_IT_CC3) != RESET){
-         TIM_ClearITPendingBit(TIM4,TIM_IT_CC3);
-         TIM4_IT_Callback(TIM_Channel_3);
-   } else if(TIM_GetITStatus(TIM4,TIM_IT_CC4) != RESET){
-         TIM_ClearITPendingBit(TIM4,TIM_IT_CC4);
-         TIM4_IT_Callback(TIM_Channel_4);
-   }
+   // Clear interrupt
+   TIM4->SR &= ~TIM_SR_UIF;
+   TIM4_IT_Function();
 }
 
+void TIM1_CC_IRQHandler(void) {
+   // Clear interrupt
+   TIM1->SR &= ~TIM_SR_UIF;
+   TIM1_IT_Function();
+}
+
+void TIM2_CC_IRQHandler(void) {
+   // Clear interrupt
+   TIM2->SR &= ~TIM_SR_UIF;
+   TIM2_IT_Function();
+}
+
+void TIM3_CC_IRQHandler(void) {
+   // Clear interrupt
+   TIM3->SR &= ~TIM_SR_UIF;
+   TIM3_IT_Function();
+}
+
+void TIM4_CC_IRQHandler(void) {
+   // Clear interrupt
+   TIM4->SR &= ~TIM_SR_UIF;
+   TIM4_IT_Function();
+}
 
 //------- Public functions ------------
+
 /**
 * @fn timer_clock_init
 * @brief Initializes timers 1, 2, 3 or 4
@@ -160,6 +128,7 @@ void TIM4_IRQHandler(void) {
 * @param period_us Timer period in microseconds  
 * @return Period in microseconds obtained
 */
+
 void timer_init (TIM_TypeDef *timer, float period_us){
    volatile const float fclock = (float)SystemCoreClock;
    const float frequency_ratio = SYSTEM_CORE_CLOCK * period_us / US_PER_S;
@@ -213,30 +182,45 @@ void timer_disable (TIM_TypeDef *timer){
 * @param IT_function run in interruption handling 
 * @return void
 */
-void timer_ITEnable(TIM_TypeDef *Timer, uint8_t priority) {
-   NVIC_InitTypeDef NVIC_InitStructure;
+void Timer_1234_ITEnable(TIM_TypeDef *Timer, uint8_t priority, void (*IT_function)(void)) {
    IRQn_Type Timer_IRQn;
-   
    if (Timer == TIM1) {
       Timer_IRQn = TIM1_UP_IRQn;
+      TIM1_IT_Function = IT_function;
    }
    else if (Timer == TIM2) {
       Timer_IRQn = TIM2_IRQn;
+      TIM2_IT_Function = IT_function;
    }
    else if (Timer == TIM3) {
       Timer_IRQn = TIM3_IRQn;
+      TIM3_IT_Function = IT_function;
    }
    else if (Timer == TIM4) {
       Timer_IRQn = TIM4_IRQn;
+      TIM4_IT_Function = IT_function;
    }
    else return;
-  
-   NVIC_InitStructure.NVIC_IRQChannel = Timer_IRQn;
-   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = priority;
-   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-   NVIC_Init(&NVIC_InitStructure);
+
+   // Set priority
+   NVIC_SetPriority(Timer_IRQn, (uint32_t)priority);
+   NVIC_EnableIRQ(Timer_IRQn);
+
+   // UIE
+   Timer->DIER |= TIM_DIER_UIE;
 }
+
+/**
+* @fn Timer_1234_Get_Counter_Val
+* @brief Gets timer Counter register value
+* @param Timer Timer to be used  
+* @return void
+*/
+uint16_t Timer_1234_Get_Counter_Val(TIM_TypeDef* Timer) {
+   return (uint16_t)Timer->CNT;
+}
+
+
 
 
 
@@ -253,4 +237,20 @@ void RCC_timer_configuration(TIM_TypeDef *timer){
    
 }
 
+void NVIC_Conf(IRQn_Type Timer_IRQn, uint8_t PreemptionPriority, uint8_t SubPriority, void (*IT_function)(void));
 
+/**
+  * @brief  Configure the nested vectored interrupt controller.
+  * @param  None
+  * @retval None
+  */
+void NVIC_Conf(IRQn_Type Timer_IRQn, uint8_t PreemptionPriority, uint8_t SubPriority, void (*IT_function)(void)){
+  /* Enable the TIMx global Interrupt */
+  NVIC_InitTypeDef NVIC_InitStructure;
+  
+  NVIC_InitStructure.NVIC_IRQChannel = Timer_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = PreemptionPriority;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = SubPriority;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+}

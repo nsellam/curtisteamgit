@@ -12,7 +12,6 @@
 #include "motors.h"
 #include "position_sensors.h"
 #include "speed_sensors.h"
-#include "front_motor.h"
 
 void PWM_Example(void);
 void ADC_Example(void);
@@ -20,7 +19,6 @@ void HallSensor_Example(HallSensors_Enum hall_identifier);
 void Motor_Example(Motors_Enum Motor);
 void PositionSensor_Example(PositionSensor_Enum PositionSensor_identifier);
 void SpeedSensor_Example(SpeedSensor_Enum SpeedSensor_identifier);
-void FrontMotor_Example(void);
 
 // MAIN POUR DEMO BAS NIVEAU
 //int main(void) {
@@ -37,10 +35,9 @@ void FrontMotor_Example(void);
 int main (void) {
     
     //HallSensor_Example(HALLSENSOR_L);
-    //Motor_Example(REAR_MOTOR_R);
+    //Motor_Example(REAR_MOTOR_L);
     //PositionSensor_Example(POSITION_SENSOR_L);
     //SpeedSensor_Example(SPEED_SENSOR_L);
-    //FrontMotor_Example();
     //PWM_Example();
     //while (1) {}
 }
