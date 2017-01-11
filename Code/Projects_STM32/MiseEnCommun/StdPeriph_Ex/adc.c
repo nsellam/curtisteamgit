@@ -34,11 +34,11 @@
 /* Public variables ----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 int initialized[ADC_NB] = {0,0,0};
-uint16_t conversion_values[ADC_NB][ADC_NB_CHANNELS_MAX] = {0};
+volatile uint16_t conversion_values[ADC_NB][ADC_NB_CHANNELS_MAX] = {0};
 
 /* Private function prototypes -----------------------------------------------*/
 void ADC_Clock_Enable(ADC_TypeDef* ADCx);
-uint8_t GPIOPin2ADCChannel (GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x);
+uint8_t GPIOPin2ADCChannel(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x);
 uint8_t ADC2int(ADC_TypeDef *ADCx);
 
 /* Public functions ----------------------------------------------------------*/
