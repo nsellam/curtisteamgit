@@ -410,6 +410,41 @@
               <FileType>1</FileType>
               <FilePath>..\Application\main.c</FilePath>
             </File>
+            <File>
+              <FileName>adc_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\adc_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>pwm_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\pwm_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\motor_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>hallsensor_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\hallsensor_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>positionsensor_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\positionsensor_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>speedsensor_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\speedsensor_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>frontmotor_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\frontmotor_example.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

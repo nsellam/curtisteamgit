@@ -62,7 +62,7 @@ typedef enum {
 */
 #define POSITION_MM		        10                      // millimeters
 #define POSITION_CM		        1                       // centimeters
-#define POSITION_M_		        0.01                    // meters
+#define POSITION_M 		        0.01                    // meters
 #define	POSITION_KM		        0.00001                 // kilometers
 #define POSITION_IN		        0.393701                // inches
 #define POSITION_FT		        0.0328084               // feet
@@ -73,7 +73,7 @@ typedef enum {
  */
 #define SPEED_MM_S		        10                      // millimeters per second
 #define SPEED_CM_S 		        1                       // centimeters per second
-#define SPEED_M__S		        0.01                    // meters per second
+#define SPEED_M_S		        0.01                    // meters per second
 #define SPEED_KM_S		        0.00001                 // kilometers per second
 #define SPEED_KM_H		        0.036                   // kilometers per hour
 #define SPEED_FT_S		        0.0328084               // feet per second
