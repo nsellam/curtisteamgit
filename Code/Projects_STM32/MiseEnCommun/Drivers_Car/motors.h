@@ -36,5 +36,4 @@ void Motor_QuickInit(Motors_Enum Motor);
 void Motor_setSpeed(Motors_Enum Motor, float speed);
 void Motor_Disable(Motors_Enum Motor);
 void Motor_Enable(Motors_Enum Motor);
-int16_t Motor_getCurrent(Motors_Enum Motor);
 #endif // _MOTORS_H
