@@ -410,6 +410,51 @@
               <FileType>1</FileType>
               <FilePath>..\Application\main.c</FilePath>
             </File>
+            <File>
+              <FileName>adc_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\adc_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>pwm_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\pwm_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\motor_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>hallsensor_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\hallsensor_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>positionsensor_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\positionsensor_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>speedsensor_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\speedsensor_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>frontmotor_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\frontmotor_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>rearmotors_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\rearmotors_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\gpio_example.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -464,16 +509,6 @@
               <FilePath>..\Drivers_Car\speed_sensors.c</FilePath>
             </File>
             <File>
-              <FileName>mirroring.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers_Car\mirroring.c</FilePath>
-            </File>
-            <File>
-              <FileName>data_interface.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers_Car\data_interface.c</FilePath>
-            </File>
-            <File>
               <FileName>front_motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers_Car\front_motor.c</FilePath>
@@ -492,16 +527,6 @@
               <FileName>it_handlers.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\StdPeriph_Ex\it_handlers.c</FilePath>
-            </File>
-            <File>
-              <FileName>adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\adc.c</FilePath>
-            </File>
-            <File>
-              <FileName>dma.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\StdPeriph_Ex\dma.c</FilePath>
             </File>
             <File>
               <FileName>gpio.c</FileName>
@@ -542,6 +567,16 @@
               <FileName>tim_ic.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\StdPeriph_Ex\tim_ic.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\StdPeriph_Ex\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\StdPeriph_Ex\dma.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -11,14 +11,14 @@ Main Interrupt Service Routines.
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define {\bfseries A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}(adc)
-\item 
-\#define {\bfseries T\+I\+M\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}(tim)
-\item 
-\#define {\bfseries D\+M\+A\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}(dma,  channel)
-\item 
-\#define {\bfseries E\+X\+T\+I\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}(exti)
-\end{DoxyCompactItemize}
+\#define \hyperlink{it__handlers_8c_a42b8a092b6a411920c8e2970aa74a804}{A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}(adc)
+\begin{DoxyCompactList}\small\item\em I\+RQ Handler Macro for A\+DC\+: call I\+T\+Handler and clear interrupt. \end{DoxyCompactList}\item 
+\#define \hyperlink{it__handlers_8c_a8d6ddc592c40c4313f2bac723bdc254f}{T\+I\+M\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}(tim)
+\begin{DoxyCompactList}\small\item\em I\+RQ Handler Macro for T\+IM\+: call I\+T\+Handler and clear interrupt. \end{DoxyCompactList}\item 
+\#define \hyperlink{it__handlers_8c_add510eb8656d57d7b166b0cf0925eff2}{D\+M\+A\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}(dma,  channel)
+\begin{DoxyCompactList}\small\item\em I\+RQ Handler Macro for D\+MA\+: call I\+T\+Handler and clear interrupt. \end{DoxyCompactList}\item 
+\#define \hyperlink{it__handlers_8c_aad4ac873f7463c7eaf62dafaf236e953}{E\+X\+T\+I\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}(exti)
+\begin{DoxyCompactList}\small\item\em I\+RQ Handler Macro for E\+X\+TI\+: call I\+T\+Handler and clear interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -126,6 +126,10 @@ Curtis Team
        ADC\_ClearITPendingBit(ADC##adc, ADC\_IT\_AWD | ADC\_IT\_EOC | ADC\_IT\_JEOC); \(\backslash\)
    \}
 \end{DoxyCode}
+
+
+I\+RQ Handler Macro for A\+DC\+: call I\+T\+Handler and clear interrupt. 
+
 \hypertarget{it__handlers_8c_add510eb8656d57d7b166b0cf0925eff2}{}\label{it__handlers_8c_add510eb8656d57d7b166b0cf0925eff2} 
 \index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!D\+M\+A\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER@{D\+M\+A\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}}
 \index{D\+M\+A\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER@{D\+M\+A\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
@@ -142,6 +146,10 @@ Curtis Team
       ; \(\backslash\)
    DMA\_ClearITPendingBit(DMA##dma##\_IT\_GL##channel);
 \end{DoxyCode}
+
+
+I\+RQ Handler Macro for D\+MA\+: call I\+T\+Handler and clear interrupt. 
+
 \hypertarget{it__handlers_8c_aad4ac873f7463c7eaf62dafaf236e953}{}\label{it__handlers_8c_aad4ac873f7463c7eaf62dafaf236e953} 
 \index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!E\+X\+T\+I\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER@{E\+X\+T\+I\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}}
 \index{E\+X\+T\+I\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER@{E\+X\+T\+I\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
@@ -155,6 +163,10 @@ Curtis Team
         EXTI\_ClearITPendingBit(EXTI\_Line##exti); \(\backslash\)
     \}
 \end{DoxyCode}
+
+
+I\+RQ Handler Macro for E\+X\+TI\+: call I\+T\+Handler and clear interrupt. 
+
 \hypertarget{it__handlers_8c_a8d6ddc592c40c4313f2bac723bdc254f}{}\label{it__handlers_8c_a8d6ddc592c40c4313f2bac723bdc254f} 
 \index{it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}!T\+I\+M\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER@{T\+I\+M\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}}
 \index{T\+I\+M\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER@{T\+I\+M\+\_\+\+I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ER}!it\+\_\+handlers.\+c@{it\+\_\+handlers.\+c}}
@@ -167,6 +179,10 @@ TIM\_ITHandler(TIM##tim); \(\backslash\)
    TIM\_ClearITPendingBit(TIM##tim, TIM\_IT\_Update | TIM\_IT\_CC1 | TIM\_IT\_CC2 | TIM\_IT\_CC3 | TIM\_IT\_CC4 | 
       TIM\_IT\_COM | TIM\_IT\_Trigger | TIM\_IT\_Break); \(\backslash\)
 \end{DoxyCode}
+
+
+I\+RQ Handler Macro for T\+IM\+: call I\+T\+Handler and clear interrupt. 
+
 
 
 \subsection{Function Documentation}

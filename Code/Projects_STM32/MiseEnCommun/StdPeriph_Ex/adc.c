@@ -34,11 +34,11 @@
 /* Public variables ----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 int initialized[ADC_NB] = {0,0,0};
-uint16_t conversion_values[ADC_NB][ADC_NB_CHANNELS_MAX] = {0};
+volatile uint16_t conversion_values[ADC_NB][ADC_NB_CHANNELS_MAX] = {0};
 
 /* Private function prototypes -----------------------------------------------*/
 void ADC_Clock_Enable(ADC_TypeDef* ADCx);
-uint8_t GPIOPin2ADCChannel (GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x);
+uint8_t GPIOPin2ADCChannel(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x);
 uint8_t ADC2int(ADC_TypeDef *ADCx);
 
 /* Public functions ----------------------------------------------------------*/
@@ -83,9 +83,17 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
         ADC_Init(ADCx, &ADC_InitStruct);
         
         if(ADCx == ADC1) {
-            DMA_QuickInit_Periph2Buffer(DMA1_Channel1, (uint32_t)&ADC1->DR, DMA_PeripheralDataSize_HalfWord, (uint32_t)&conversion_values[0], DMA_MemoryDataSize_HalfWord);
+            DMA_QuickInit_Periph2Buffer(DMA1_Channel1, 
+                (uint32_t)&ADC1->DR,                DMA_PeripheralDataSize_HalfWord, 
+                (uint32_t)&conversion_values[0],    DMA_MemoryDataSize_HalfWord, 
+                ADC_NB_CHANNELS_MAX
+            );
         } else if (ADCx == ADC3) {
-            DMA_QuickInit_Periph2Buffer(DMA2_Channel5, (uint32_t)&ADC3->DR, DMA_PeripheralDataSize_HalfWord, (uint32_t)&conversion_values[3], DMA_MemoryDataSize_HalfWord);
+            DMA_QuickInit_Periph2Buffer(DMA2_Channel5, 
+                (uint32_t)&ADC3->DR,                DMA_PeripheralDataSize_HalfWord, 
+                (uint32_t)&conversion_values[3],    DMA_MemoryDataSize_HalfWord, 
+                ADC_NB_CHANNELS_MAX
+            );
         }
         
         //Reset of ADC Calibration register

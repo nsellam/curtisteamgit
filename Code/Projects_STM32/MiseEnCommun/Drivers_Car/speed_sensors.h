@@ -16,6 +16,16 @@
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
+/**
+ * @brief   Left position sensor identifier
+*/
+#define SPEED_SENSOR_L              HALLSENSOR_L          
+
+/**
+ * @brief   Right position sensor identifier
+*/
+#define SPEED_SENSOR_R              HALLSENSOR_R          
+
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 void SpeedSensor_QuickInit(SpeedSensor_Enum SpeedSensor_identifier);

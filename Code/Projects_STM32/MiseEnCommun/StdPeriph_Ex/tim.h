@@ -38,7 +38,7 @@ void TIM_Stop(TIM_TypeDef *TIMx);
 
 void TIM_Callback(TIM_TypeDef TIMx);
 
-int TIM_Remap(TIM_TypeDef TIMx, TIM_remap_TypeDef RemapType);
+int TIM_Remap(TIM_TypeDef *TIMx, TIM_remap_TypeDef RemapType);
 TIM_remap_TypeDef TIM_RemapStatus(TIM_TypeDef *TIMx);
 
 #endif // _TIM_H

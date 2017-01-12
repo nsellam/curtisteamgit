@@ -7,6 +7,7 @@ var searchData=
   ['error_5fpin_5fsource',['ERROR_PIN_SOURCE',['../exti_8c.html#abf04d7aa0a4c98fb5081cdf66315022f',1,'exti.c']]],
   ['error_5fport_5fsource',['ERROR_PORT_SOURCE',['../exti_8c.html#ac9438bb67ccad9801a7cea95d7918143',1,'exti.c']]],
   ['error_5fvalue_5fnot_5ffound',['ERROR_VALUE_NOT_FOUND',['../hall__sensors_8h.html#ad54b9dcfdca2ca2c5b0aff41aad320f4',1,'hall_sensors.h']]],
+  ['errors_5fspi',['errors_SPI',['../structdata___s_t_m__t.html#a5e781c24f9fa4b5b75b23c150a48863c',1,'data_STM_t::errors_SPI()'],['../structdata___p_i__t.html#a5e781c24f9fa4b5b75b23c150a48863c',1,'data_PI_t::errors_SPI()']]],
   ['exti_2ec',['exti.c',['../exti_8c.html',1,'']]],
   ['exti_2eh',['exti.h',['../exti_8h.html',1,'']]],
   ['exti0_5firqhandler',['EXTI0_IRQHandler',['../it__handlers_8c.html#a17e9789a29a87d2df54f12b94dd1a0b6',1,'it_handlers.c']]],
@@ -20,6 +21,7 @@ var searchData=
   ['exti_5ferror_5finvalid_5fline',['EXTI_ERROR_INVALID_LINE',['../exti_8h.html#aadf92e4e0654663511035697636edca7',1,'exti.h']]],
   ['exti_5ferror_5finvalid_5fpin_5fsource',['EXTI_ERROR_INVALID_PIN_SOURCE',['../exti_8h.html#aceb91ca8c99be08378080db8dbda8208',1,'exti.h']]],
   ['exti_5ferror_5finvalid_5fport_5fsource',['EXTI_ERROR_INVALID_PORT_SOURCE',['../exti_8h.html#a18b1749e409f9bba4ce53da4f8504d45',1,'exti.h']]],
+  ['exti_5firq_5fhandler',['EXTI_IRQ_HANDLER',['../it__handlers_8c.html#aad4ac873f7463c7eaf62dafaf236e953',1,'it_handlers.c']]],
   ['exti_5fithandler',['EXTI_ITHandler',['../exti_8c.html#aa82e0dedc4077cc5a2e0c81a47797894',1,'EXTI_ITHandler(uint32_t EXTI_Line):&#160;exti.c'],['../it__handlers_8c.html#a7a563c57a4447176b663c3026d3537a1',1,'EXTI_ITHandler(uint32_t EXTI_Line):&#160;it_handlers.c'],['../it__handlers_8h.html#aa82e0dedc4077cc5a2e0c81a47797894',1,'EXTI_ITHandler(uint32_t EXTI_Line):&#160;exti.c']]],
   ['exti_5fno_5ferror',['EXTI_NO_ERROR',['../exti_8h.html#a2294d5797552e995bed96f8343cc2a1e',1,'exti.h']]],
   ['exti_5fquickinit',['EXTI_QuickInit',['../exti_8c.html#a2eee151d004e2c6970b2e96f8f9ed82d',1,'EXTI_QuickInit(GPIO_TypeDef *GPIOx, uint16_t pin, EXTITrigger_TypeDef trigger, uint8_t priority):&#160;exti.c'],['../exti_8h.html#a2eee151d004e2c6970b2e96f8f9ed82d',1,'EXTI_QuickInit(GPIO_TypeDef *GPIOx, uint16_t pin, EXTITrigger_TypeDef trigger, uint8_t priority):&#160;exti.c']]]

@@ -1,5 +1,11 @@
 var searchData=
 [
+  ['data_5finterface_2ec',['data_interface.c',['../data__interface_8c.html',1,'']]],
+  ['data_5finterface_2eh',['data_interface.h',['../data__interface_8h.html',1,'']]],
+  ['data_5fpi',['data_PI',['../data__interface_8c.html#a5b940fb8e2779ba236ae4324120661ff',1,'data_interface.c']]],
+  ['data_5fpi_5ft',['data_PI_t',['../structdata___p_i__t.html',1,'']]],
+  ['data_5fstm',['data_STM',['../data__interface_8c.html#abd0a7e0fd221b14c89684b5e2370d91d',1,'data_interface.c']]],
+  ['data_5fstm_5ft',['data_STM_t',['../structdata___s_t_m__t.html',1,'']]],
   ['debugmon_5fhandler',['DebugMon_Handler',['../it__handlers_8c.html#adbdfb05858cc36fc520974df37ec3cb0',1,'it_handlers.c']]],
   ['decount_5fadder',['DECOUNT_ADDER',['../hall__sensors_8c.html#a55101c48e3ef1e46a10f1809023dea76',1,'hall_sensors.c']]],
   ['default_5fremap',['DEFAULT_REMAP',['../tim_8c.html#aa03bb59552da1b80f62dcb55483e583f',1,'tim.c']]],
@@ -14,9 +20,10 @@ var searchData=
   ['dma1_5fchannel6_5firqhandler',['DMA1_Channel6_IRQHandler',['../it__handlers_8c.html#ab74311855aee10304ffc57c319c91ed3',1,'it_handlers.c']]],
   ['dma1_5fchannel7_5firqhandler',['DMA1_Channel7_IRQHandler',['../it__handlers_8c.html#a7a964205d5b1ce4b9c69ae6a105145ca',1,'it_handlers.c']]],
   ['dma_5fclockenable',['DMA_ClockEnable',['../dma_8c.html#a4cc3ea5b240eb073b75a4d8b2313a3d0',1,'dma.c']]],
-  ['dma_5finitbuffer2periph',['DMA_InitBuffer2Periph',['../dma_8c.html#a227365b3006fa8257ba8538da497c855',1,'DMA_InitBuffer2Periph(DMA_Channel_TypeDef *DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize):&#160;dma.c'],['../dma_8h.html#af5918bde73dd195eb629c56fec8de055',1,'DMA_InitBuffer2Periph(DMA_Channel_TypeDef *DMAy_Channelx, uint32_t Periph_DR_Base, uint32_t Memory_DR_Base, uint32_t data_buffer_size):&#160;dma.c']]],
-  ['dma_5finitperiph2buffer',['DMA_InitPeriph2Buffer',['../dma_8c.html#a78a4071bb1d65d36a6b50c14740b0e4d',1,'DMA_InitPeriph2Buffer(DMA_Channel_TypeDef *DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize):&#160;dma.c'],['../dma_8h.html#a98253e7f0effc4f593066a307bf413d5',1,'DMA_InitPeriph2Buffer(DMA_Channel_TypeDef *DMAy_Channelx, uint32_t Periph_DR_Base, uint32_t Memory_DR_Base, uint32_t data_buffer_size):&#160;dma.c']]],
+  ['dma_5firq_5fhandler',['DMA_IRQ_HANDLER',['../it__handlers_8c.html#add510eb8656d57d7b166b0cf0925eff2',1,'it_handlers.c']]],
   ['dma_5fithandler',['DMA_ITHandler',['../dma_8c.html#aac23c67b210acba646f913ddb26d225c',1,'DMA_ITHandler(DMA_Channel_TypeDef *DMAy_Channelx, uint8_t flags):&#160;dma.c'],['../it__handlers_8c.html#a03a8748b703ea6d28520628143071e09',1,'DMA_ITHandler(DMA_Channel_TypeDef *DMAy_Channelx, uint8_t flags):&#160;it_handlers.c'],['../it__handlers_8h.html#aac23c67b210acba646f913ddb26d225c',1,'DMA_ITHandler(DMA_Channel_TypeDef *DMAy_Channelx, uint8_t flags):&#160;dma.c']]],
+  ['dma_5fquickinit_5fbuffer2periph',['DMA_QuickInit_Buffer2Periph',['../dma_8c.html#a6aeb5a264782557f331d4d6d4776c49d',1,'DMA_QuickInit_Buffer2Periph(DMA_Channel_TypeDef *DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t PeripheralDataSize, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize):&#160;dma.c'],['../dma_8h.html#a6aeb5a264782557f331d4d6d4776c49d',1,'DMA_QuickInit_Buffer2Periph(DMA_Channel_TypeDef *DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t PeripheralDataSize, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize):&#160;dma.c']]],
+  ['dma_5fquickinit_5fperiph2buffer',['DMA_QuickInit_Periph2Buffer',['../dma_8c.html#ad545c0e40b3bb1ce2902be4ce581adc4',1,'DMA_QuickInit_Periph2Buffer(DMA_Channel_TypeDef *DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t PeripheralDataSize, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize):&#160;dma.c'],['../dma_8h.html#ad545c0e40b3bb1ce2902be4ce581adc4',1,'DMA_QuickInit_Periph2Buffer(DMA_Channel_TypeDef *DMAy_Channelx, uint32_t PeripheralBaseAddr, uint32_t PeripheralDataSize, uint32_t MemoryBaseAddr, uint32_t MemoryBufferSize):&#160;dma.c']]],
   ['driver_5fcallbacks_2ec',['driver_callbacks.c',['../driver__callbacks_8c.html',1,'']]],
   ['driver_5fcallbacks_2eh',['driver_callbacks.h',['../driver__callbacks_8h.html',1,'']]]
 ];

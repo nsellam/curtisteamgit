@@ -7,8 +7,9 @@ Functions to handle A\+D\+Cs.
 
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$stm32f10x.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}adc.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}adc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dma.\+h\char`\"{}}\newline
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -20,7 +21,10 @@ Functions to handle A\+D\+Cs.
 \begin{DoxyCompactList}\small\item\em Specified port is not valid (only G\+P\+I\+OA, G\+P\+I\+OB an G\+P\+I\+OC are available) \end{DoxyCompactList}\item 
 \hypertarget{adc_8c_a12efaf0ce5990566e841716c0c6cea56}{}\label{adc_8c_a12efaf0ce5990566e841716c0c6cea56} 
 \#define \hyperlink{adc_8c_a12efaf0ce5990566e841716c0c6cea56}{E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+P\+IN}~((uint8\+\_\+t) -\/2)
-\begin{DoxyCompactList}\small\item\em Specified pin can\textquotesingle{}t be use on this port for A\+DC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Specified pin can\textquotesingle{}t be use on this port for A\+DC. \end{DoxyCompactList}\item 
+\hypertarget{adc_8c_a463f0e4a963177026b901ac439ac4625}{}\label{adc_8c_a463f0e4a963177026b901ac439ac4625} 
+\#define {\bfseries A\+D\+C\+\_\+\+NB}~3
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -29,16 +33,25 @@ void \hyperlink{adc_8c_a3eeed6ce49f7b81ad12809e53461062e}{A\+D\+C\+\_\+\+Clock\+
 \hypertarget{adc_8c_a4f78e57a5d57a726473d36b5127ce2f4}{}\label{adc_8c_a4f78e57a5d57a726473d36b5127ce2f4} 
 uint8\+\_\+t {\bfseries G\+P\+I\+O\+Pin2\+A\+D\+C\+Channel} (G\+P\+I\+O\+\_\+\+Type\+Def $\ast$G\+P\+I\+Ox, uint16\+\_\+t G\+P\+I\+O\+\_\+\+Pin\+\_\+x)
 \item 
+\hypertarget{adc_8c_a39a3ad92c4a8177ed4f677a86dcdb353}{}\label{adc_8c_a39a3ad92c4a8177ed4f677a86dcdb353} 
+uint8\+\_\+t {\bfseries A\+D\+C2int} (A\+D\+C\+\_\+\+Type\+Def $\ast$A\+D\+Cx)
+\item 
 int \hyperlink{adc_8c_ac9c1e16ff94fbf1cd518f1eb22c7bf76}{A\+D\+C\+\_\+\+Quick\+Init} (A\+D\+C\+\_\+\+Type\+Def $\ast$A\+D\+Cx, G\+P\+I\+O\+\_\+\+Type\+Def $\ast$G\+P\+I\+Ox, uint16\+\_\+t G\+P\+I\+O\+\_\+\+Pin\+\_\+x, uint8\+\_\+t Rank, uint8\+\_\+t Sample\+Time)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given Analog to Digital Converter (A\+DC) with the parameters specified. \end{DoxyCompactList}\item 
+\hypertarget{adc_8c_a8c541c573ae8116bd93719a44aab8aa0}{}\label{adc_8c_a8c541c573ae8116bd93719a44aab8aa0} 
+uint16\+\_\+t {\bfseries A\+D\+C\+\_\+\+Get\+Value} (A\+D\+C\+\_\+\+Type\+Def $\ast$A\+D\+Cx, int rank)
+\item 
 \hypertarget{adc_8c_a7defbc5079df7e920454289e8b819a2b}{}\label{adc_8c_a7defbc5079df7e920454289e8b819a2b} 
 void \hyperlink{adc_8c_a7defbc5079df7e920454289e8b819a2b}{A\+D\+C\+\_\+\+Callback} (void)
 \begin{DoxyCompactList}\small\item\em Callback associated to A\+DC interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{adc_8c_ac498c11b1345045d82f5fc02a60ac1f2}{}\label{adc_8c_ac498c11b1345045d82f5fc02a60ac1f2} 
-uint8\+\_\+t {\bfseries Nbr\+Of\+Channel\+Declared} = 0
+\hypertarget{adc_8c_a03896c549501608ff69c3c95ac3d30e4}{}\label{adc_8c_a03896c549501608ff69c3c95ac3d30e4} 
+int {\bfseries initialized} \mbox{[}A\+D\+C\+\_\+\+NB\mbox{]} = \{0,0,0\}
+\item 
+\hypertarget{adc_8c_a28f1c966974502786a1a3cc705cba47c}{}\label{adc_8c_a28f1c966974502786a1a3cc705cba47c} 
+uint16\+\_\+t {\bfseries conversion\+\_\+values} \mbox{[}A\+D\+C\+\_\+\+NB\mbox{]}\mbox{[}\hyperlink{adc_8h_a53f3bf26ad6198c3d5f4f69b76533c7c}{A\+D\+C\+\_\+\+N\+B\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+AX}\mbox{]} = \{0\}
 \end{DoxyCompactItemize}
 
 
