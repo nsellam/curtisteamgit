@@ -9,9 +9,9 @@ int main(void) {
     //PositionSensor_Example(POSITION_SENSOR_L);
     //SpeedSensor_Example(SPEED_SENSOR_L);
     //PWM_Example();
-    //ADC_Example();
+    ADC_Example();
     //GPIO_Example();
-    FrontMotor_Example();
+    //FrontMotor_Example();
     //RearMotors_Example();
 
     while(1) {}
