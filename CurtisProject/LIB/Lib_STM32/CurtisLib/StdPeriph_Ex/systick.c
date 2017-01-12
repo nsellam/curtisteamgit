@@ -1,43 +1,36 @@
 /**
- * @file    adc_example.c
+ * @file    systick.c
  * @author  Curtis Team
- * @brief   ADC API use case example
+ * @brief   Functions to handle systick (STM internal time)  
  */
- 
+
 /* Includes ------------------------------------------------------------------*/
-#include <stdint.h>
-#include <stm32f10x.h>
-#include "adc.h"
+#include "systick.h"
+#include "nvic.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-/**
- * @brief 	ADC to test
-*/
-#define ADCx            ADC1
-
-/**
- * @brief 	Rank in the ADC sequence of the measure to consider
-*/
-#define RANK            1
-
 /* Private macro -------------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /* Public functions ----------------------------------------------------------*/
+
+__weak void SysTick_Callback(void) {}
+
 /**
- * @brief 	Sets PA0 as analog input
- * @retval 	None
+ * @brief     Makes the initialization of the systick system 
 */
-void ADC_Example(void) {
-    volatile int value;
-    
-    ADC_QuickInit(ADCx, GPIOA, GPIO_Pin_0, RANK, ADC_SampleTime_71Cycles5);
-    
-    while(1) {
-        value = ADC_QuickGet(ADCx, RANK);
-    }
+void SysTick_QuickInit(void) {
+    while (SysTick_Config(SystemCoreClock / SYSTICK_FREQ - 1) != 0);
+    NVIC_QuickInit(SysTick_IRQn, 1);
+}
+
+/**
+ * @brief Handler associated to SysTick.  
+*/
+void SysTick_ITHandler(void) {
+  SysTick_Callback();
 }
 
 /* Private functions ---------------------------------------------------------*/
