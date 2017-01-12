@@ -47,7 +47,7 @@ uint8_t ADC2int(ADC_TypeDef *ADCx);
  * @param   ADCx ADC unit to use to perform analog to digital conversions
  * @param   GPIOx Port of the input to consider
  * @param   GPIO_Pin_x Number of the pin to consider
- * @param   Rank Place of this conversion in the conversions sequence
+ * @param   Rank Place of this conversion in the conversions sequence. This parameter must be between 1 to 16.
  * @param   SampleTime Averaging time (in number of cycles)
  *   This parameter can be one of the following values:
  *     @arg ADC_SampleTime_1Cycles5: Sample time equal to 1.5 cycles
@@ -72,8 +72,10 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
 
         ADC_InitStruct.ADC_Mode = ADC_Mode_Independent;
         
-        if(ADCx == ADC2) ADC_InitStruct.ADC_ScanConvMode = DISABLE;
-        else ADC_InitStruct.ADC_ScanConvMode = ENABLE;
+        if(ADCx == ADC2)
+            ADC_InitStruct.ADC_ScanConvMode = DISABLE;
+        else
+            ADC_InitStruct.ADC_ScanConvMode = ENABLE;
         
         ADC_InitStruct.ADC_ContinuousConvMode = ENABLE;
         ADC_InitStruct.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;
@@ -124,8 +126,14 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
     return ADC_NO_ERROR;
 }
 
-uint16_t ADC_GetValue(ADC_TypeDef* ADCx, int rank) {
-    return conversion_values[ADC2int(ADCx)][rank];
+/**
+ * @brief   Get the conversion value of an ADC at a given rank
+ * @param   ADCx ADC unit to use to perform analog to digital conversions
+ * @param   Rank Place of this conversion in the conversions sequence. This parameter must be between 1 to 16.
+ * @return  Conversion value of the ADC at the rank
+*/
+uint16_t ADC_QuickGet(ADC_TypeDef* ADCx, int Rank) {
+    return conversion_values[ADC2int(ADCx)][Rank-1];
 }
 
 /**

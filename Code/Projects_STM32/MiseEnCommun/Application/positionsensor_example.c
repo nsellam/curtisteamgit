@@ -25,7 +25,7 @@
  * @retval  None
 */
 void PositionSensor_Example(PositionSensor_Enum PositionSensor_identifier) {
-    float WheelPosition = 0; 
+    volatile float WheelPosition = 0; 
     
     System_Time_QuickInit();
     PositionSensor_QuickInit(PositionSensor_identifier); 
