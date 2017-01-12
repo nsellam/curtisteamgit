@@ -11,7 +11,7 @@ int main(void) {
     //PWM_Example();
     //ADC_Example();
     //GPIO_Example();
-    //FrontMotor_Example();
+    FrontMotor_Example();
     //RearMotors_Example();
 
     while(1) {}
