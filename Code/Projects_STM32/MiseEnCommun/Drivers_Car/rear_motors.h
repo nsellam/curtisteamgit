@@ -30,12 +30,27 @@ extern volatile int16_t speed_cmd;
 /**
  * @brief		the core of the control loop for Left rear motor
 */
-void rear_motor_L_control (int16_t cmd);
+void rear_motor_L_control (int16_t speed_cmd);
 
 /**
  * @brief		the core of the control loop for Right rear motor
 */
 void rear_motor_R_control (int16_t speed_cmd);
+
+/**
+ * @brief		init the rear motors
+*/
+void RearMotors_QuickInit(void);
+
+/**
+ * @brief		enable the rear motors
+*/
+void RearMotors_Enable(void);
+
+/**
+ * @brief		disable the rear motors
+*/
+void RearMotors_Disable(void);
     
 
 #endif // _REAR_MOTORS_H

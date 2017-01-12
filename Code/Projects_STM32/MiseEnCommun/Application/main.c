@@ -13,6 +13,7 @@
 #include "position_sensors.h"
 #include "speed_sensors.h"
 #include "front_motor.h"
+#include "rear_motors.h"
 
 void PWM_Example(void);
 void ADC_Example(void);
@@ -21,6 +22,7 @@ void Motor_Example(Motors_Enum Motor);
 void PositionSensor_Example(PositionSensor_Enum PositionSensor_identifier);
 void SpeedSensor_Example(SpeedSensor_Enum SpeedSensor_identifier);
 void FrontMotor_Example(void);
+void RearMotors_Example(void);
 
 // MAIN POUR DEMO BAS NIVEAU
 //int main(void) {
@@ -40,6 +42,9 @@ int main (void) {
     //Motor_Example(REAR_MOTOR_R);
     //PositionSensor_Example(POSITION_SENSOR_L);
     SpeedSensor_Example(POSITION_SENSOR_L);
+    
+    RearMotors_Example();
+    
     //FrontMotor_Example();
     while (1) {}
 }
@@ -102,7 +107,7 @@ void Motor_Example(Motors_Enum Motor) {
  * @retval  None
 */
 void PositionSensor_Example(PositionSensor_Enum PositionSensor_identifier) {
-    float WheelPosition = 0; 
+    float WheelPosition = 0.0; 
     
     System_Time_QuickInit();
     PositionSensor_QuickInit(PositionSensor_identifier); 
@@ -120,7 +125,7 @@ void PositionSensor_Example(PositionSensor_Enum PositionSensor_identifier) {
  * @retval  None
 */
 void SpeedSensor_Example(SpeedSensor_Enum SpeedSensor_identifier) {
-    float WheelSpeed = 0; 
+    float WheelSpeed = 0.0; 
     
     System_Time_QuickInit();
     PositionSensor_QuickInit(SpeedSensor_identifier); 
@@ -141,4 +146,25 @@ void FrontMotor_Example(void) {
     FrontMotor_turn(LEFT); 
     pause(1000); 
     FrontMotor_turn(RIGHT);
+}
+
+/**
+ * @brief   Tests rear motors by going forward at mid speed (4sec), going forward at max speed (4sec) , going backward at mid speed (4sec) and stopping
+ * @retval  None
+*/
+void RearMotor_Example(void) {
+    System_Time_QuickInit();
+    RearMotors_QuickInit();
+    RearMotors_Enable(); 
+    speed_cmd = 0;
+    pause(1000); 
+    speed_cmd = 30;
+    pause(3000); 
+    speed_cmd = 60;
+    pause(3000); 
+    speed_cmd = -60;
+    pause(3000); 
+    speed_cmd = 0;
+
+    RearMotors_Disable(); 
 }

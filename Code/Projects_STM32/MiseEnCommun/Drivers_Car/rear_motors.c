@@ -67,7 +67,7 @@ float ComputeMotorCommand_L (int16_t speed_cmd, int16_t current, int16_t speed);
 float ComputeMotorCommand_R (int16_t speed_cmd, int16_t current, int16_t speed);
 float PI_Controller_L (int32_t in);
 float PI_Controller_R (int32_t in);
-void  RearMotors_resetTimeToNextCommandPeriod();
+void  RearMotors_resetTimeToNextCommandPeriod(void);
 
 /* Public functions ----------------------------------------------------------*/
 
@@ -117,6 +117,38 @@ void RearMotors_Callback(void) {
 
     duty_cycle_R = ComputeMotorCommand_R (speed_cmd, current, wheel_speed_R);       
 }
+
+/**
+ * @brief		To initialize the rear motors
+ * @return	void
+*/
+
+void RearMotors_QuickInit(void) { 
+    Motor_QuickInit(REAR_MOTOR_L);
+    Motor_QuickInit(REAR_MOTOR_R);
+}
+
+/**
+ * @brief		To enable the rear motors
+ * @return	void
+*/
+
+void RearMotors_Enable(void) { 
+    Motor_Enable(REAR_MOTOR_L);
+    Motor_Enable(REAR_MOTOR_R);
+}
+
+
+/**
+ * @brief		To disable the rear motors
+ * @return	void
+*/
+
+void RearMotors_Disable(void) { 
+    Motor_Disable(REAR_MOTOR_L);
+    Motor_Disable(REAR_MOTOR_R);
+}
+
 
 /* Private functions ---------------------------------------------------------*/
 
