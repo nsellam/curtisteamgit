@@ -16,11 +16,11 @@
  * @brief    Direction of the car
 */
 typedef enum {
-    /** * @brief    Neither forward neither backward*/
+    /** * @brief    Neither forward neither backward */
     NEUTRAL,
-    /** * @brief    Forward*/
+    /** * @brief    Forward */
     FORWARD,  
-    /** * @brief    Backward*/
+    /** * @brief    Backward */
     BACKWARD
 } direction_TypeDef;
 
@@ -28,14 +28,13 @@ typedef enum {
  * @brief    Side of turning 
 */
 typedef enum {
-  /** * @brief    Left*/
+  /** * @brief    Left */
   LEFT = 1,
-  /** * @brief    Neither left neither right*/
+  /** * @brief    Neither left neither right */
   NONE = 0,
-  /** * @brief    Right*/
+  /** * @brief    Right */
   RIGHT = -1
 } side_TypeDef;
-
 
 /* Exported constants --------------------------------------------------------*/
 /**
