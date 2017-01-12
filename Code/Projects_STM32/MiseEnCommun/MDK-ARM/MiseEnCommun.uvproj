@@ -518,6 +518,16 @@
               <FileType>1</FileType>
               <FilePath>..\Drivers_Car\rear_motors.c</FilePath>
             </File>
+            <File>
+              <FileName>mirroring.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers_Car\mirroring.c</FilePath>
+            </File>
+            <File>
+              <FileName>data_interface.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers_Car\data_interface.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

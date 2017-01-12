@@ -120,16 +120,33 @@ typedef enum {
 #define REAR_MOTOR_R_IDENTIFIER                     0x02
 
 /**
- * @brief       Timer used to motors PWM generation
+ * @brief       Timer used for rear motor left PWM generation
 */
 #define REAR_MOTOR_L_TIM                             TIM1
-#define REAR_MOTOR_R_TIM                             TIM1
-#define FRONT_MOTOR_TIM                              TIM1
+
 /**
- * @brief       Channel used to motors PWM generation
+ * @brief       Timer used for rear motor right PWM generation
+*/
+#define REAR_MOTOR_R_TIM                             TIM1
+
+/**
+ * @brief       Timer used for front motor PWM generation
+*/
+#define FRONT_MOTOR_TIM                              TIM1
+
+/**
+ * @brief       Channel used for rear motor left PWM generation
 */
 #define REAR_MOTOR_L_TIM_CHANNEL                     TIM_Channel_1
+
+/**
+ * @brief       Channel used for rear motor right PWM generation
+*/
 #define REAR_MOTOR_R_TIM_CHANNEL                     TIM_Channel_1
+
+/**
+ * @brief       Channel used for front motor PWM generation
+*/
 #define FRONT_MOTOR_TIM_CHANNEL                      TIM_Channel_3
 
 /**
@@ -138,20 +155,34 @@ typedef enum {
 #define MOTORS_PWM_FREQUENCY                        (20e3)
 
 /**
- * @brief       GPIO used to enable the motor
+ * @brief       GPIO used to enable the rear motor left
 */
 #define REAR_MOTOR_L_ENABLE_GPIO                    GPIOC
-#define REAR_MOTOR_R_ENABLE_GPIO                    GPIOC
-#define FRONT_MOTOR_ENABLE_GPIO                     GPIOB
-
 
 /**
- * @brief       Pin used to enable the motor
+ * @brief       GPIO used to enable the rear motor right
+*/
+#define REAR_MOTOR_R_ENABLE_GPIO                    GPIOC
+
+/**
+ * @brief       GPIO used to enable the front left
+*/
+#define FRONT_MOTOR_ENABLE_GPIO                     GPIOB
+
+/**
+ * @brief       Pin used to enable the rear motor left
 */
 #define REAR_MOTOR_L_ENABLE_PIN                     GPIO_Pin_13
-#define REAR_MOTOR_R_ENABLE_PIN                     GPIO_Pin_13
-#define FRONT_MOTOR_ENABLE_PIN                      GPIO_Pin_2
 
+/**
+ * @brief       Pin used to enable the rear motor right
+*/
+#define REAR_MOTOR_R_ENABLE_PIN                     GPIO_Pin_13
+
+/**
+ * @brief       Pin used to enable the front motor
+*/
+#define FRONT_MOTOR_ENABLE_PIN                      GPIO_Pin_2
 
 /**
  * @brief   GPIO of the front motor's left direction sensor

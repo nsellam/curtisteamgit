@@ -14,32 +14,97 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-#define SPICOMM_BUFFER_SIZE_MAX 256
+/**
+ * @brief   Size of the buffer used for SPI communication.
+ */
+#define SPICOMM_BUFFER_SIZE_MAX     256
 
+/**
+ * @brief   Canary position in the frame.
+ */
+#define FRAME_CANARY_POS(length)    ((length) + 0)
 
-#define FRAME_CANARY_POS(length) ((length) + 0)
-#define FRAME_CRC_POS(length)    (FRAME_CANARY_POS(length) + FRAME_CANARY_SIZE)
+/**
+ * @brief   CRC position in the frame.
+ */
+#define FRAME_CRC_POS(length)       (FRAME_CANARY_POS(length) + FRAME_CANARY_SIZE)
 
-#define SPIx                     SPI2
-#define SPIx_CLK                 RCC_APB1Periph_SPI2
+/**
+ * @brief   SPI used.
+ */
+#define SPIx                        SPI2
 
-#define SPIx_GPIO                GPIOB
-#define SPIx_GPIO_CLK            RCC_APB2Periph_GPIOB
-#define SPIx_PIN_SCK             GPIO_Pin_13
-#define SPIx_PIN_MISO            GPIO_Pin_14
-#define SPIx_PIN_MOSI            GPIO_Pin_15
+/**
+ * @brief   Clock of the SPI used.
+ */
+#define SPIx_CLK                    RCC_APB1Periph_SPI2
 
-#define SPIx_DMA                 DMA1
-#define SPIx_DMA_CLK             RCC_AHBPeriph_DMA1
-#define SPIx_DMA_Rx_Channel      DMA1_Channel4
-#define SPIx_DMA_Tx_Channel      DMA1_Channel5
-#define SPIx_DMA_Rx_Channel_IRQn DMA1_Channel4_IRQn
-#define SPIx_DMA_Tx_Channel_IRQn DMA1_Channel5_IRQn
-#define SPIx_DMA_PRIO            1
+/**
+ * @brief   GPIO associated to the SPI used.
+ */
+#define SPIx_GPIO                   GPIOB
 
-#define DMA_FLAGS2STATUS(flags) (((flags) & DMA_FLAG_TE) ? TRANSFER_ERROR    :\
-                                (((flags) & DMA_FLAG_HT) ? TRANSFER_HALF     :\
-                                (((flags) & DMA_FLAG_TC) ? TRANSFER_COMPLETE : TRANSFER_UNKNOWN)))
+/**
+ * @brief   Clock of the GPIO associated to the SPI used.
+ */
+#define SPIx_GPIO_CLK               RCC_APB2Periph_GPIOB
+
+/**
+ * @brief   Pin where the clock is received
+ */
+#define SPIx_PIN_SCK                GPIO_Pin_13
+
+/**
+ * @brief   Pin MISO (Master Input, Slave Output)
+ */
+#define SPIx_PIN_MISO               GPIO_Pin_14
+
+/**
+ * @brief   Pin MISO (Master Output, Slave Input)
+ */
+#define SPIx_PIN_MOSI               GPIO_Pin_15
+
+/**
+ * @brief   DMA used by the SPI
+ */
+#define SPIx_DMA                    DMA1
+
+/**
+ * @brief   Clock of the DMA used by the SPI
+ */
+#define SPIx_DMA_CLK                RCC_AHBPeriph_DMA1
+
+/**
+ * @brief   Channel DMA used by the SPI for reception
+ */
+#define SPIx_DMA_Rx_Channel         DMA1_Channel4
+
+/**
+ * @brief   Channel DMA used by the SPI for transmission
+ */
+#define SPIx_DMA_Tx_Channel         DMA1_Channel5
+
+/**
+ * @brief   Interupt of the DMA used by the SPI for reception
+ */
+#define SPIx_DMA_Rx_Channel_IRQn    DMA1_Channel4_IRQn
+
+/**
+ * @brief   Interupt of the DMA used by the SPI for transmission
+ */
+#define SPIx_DMA_Tx_Channel_IRQn    DMA1_Channel5_IRQn
+
+/**
+ * @brief   Priority of the DMA used by the SPI
+ */
+#define SPIx_DMA_PRIO               1
+
+/**
+ * @brief   DMA flags detrmining DMA status
+ */
+#define DMA_FLAGS2STATUS(flags)     (((flags) & DMA_FLAG_TE) ? TRANSFER_ERROR    :\
+                                    (((flags) & DMA_FLAG_HT) ? TRANSFER_HALF     :\
+                                    (((flags) & DMA_FLAG_TC) ? TRANSFER_COMPLETE : TRANSFER_UNKNOWN)))
 
 /* Private macro -------------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/

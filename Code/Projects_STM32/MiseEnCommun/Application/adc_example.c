@@ -1,11 +1,23 @@
+/**
+ * @file    adc_example.c
+ * @author  Curtis Team
+ * @brief   ADC API use case example
+ */
+ 
+/* Includes ------------------------------------------------------------------*/
 #include <stdint.h>
 #include <stm32f10x.h>
-
 #include "adc.h"
 
 #define ADCx ADC1
 #define RANK 1
-
+/* Private typedef -----------------------------------------------------------*/
+/* Private define ------------------------------------------------------------*/
+/* Private macro -------------------------------------------------------------*/
+/* Public variables ----------------------------------------------------------*/
+/* Private variables ---------------------------------------------------------*/
+/* Private function prototypes -----------------------------------------------*/
+/* Public functions ----------------------------------------------------------*/
 volatile uint16_t value;
 
 /**
@@ -19,3 +31,5 @@ void ADC_Example(void) {
         value = ADC_QuickGet(ADCx, RANK);
     }
 }
+
+/* Private functions ---------------------------------------------------------*/

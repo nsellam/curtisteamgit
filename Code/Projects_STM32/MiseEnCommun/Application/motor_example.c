@@ -1,9 +1,23 @@
+/**
+ * @file    motor_example.c
+ * @author  Curtis Team
+ * @brief   Motors API use case example 
+ * (system_time.h API is not required to use motors.h : it is used here to have a more visual demonstration)
+ */
+ 
+/* Includes ------------------------------------------------------------------*/
 #include <stdint.h>
 #include <stm32f10x.h>
-
 #include "system_time.h"
 #include "motors.h"
 
+/* Private typedef -----------------------------------------------------------*/
+/* Private define ------------------------------------------------------------*/
+/* Private macro -------------------------------------------------------------*/
+/* Public variables ----------------------------------------------------------*/
+/* Private variables ---------------------------------------------------------*/
+/* Private function prototypes -----------------------------------------------*/
+/* Public functions ----------------------------------------------------------*/
 /**
  * @brief   Lauches motor. Motor is initalized, then set to forward 80% during 3 seconds, 
                                                 then stoped during 3seconds,
@@ -26,3 +40,5 @@ void Motor_Example(Motors_Enum Motor) {
     
     Motor_Disable(Motor);
 }
+
+/* Private functions ---------------------------------------------------------*/
