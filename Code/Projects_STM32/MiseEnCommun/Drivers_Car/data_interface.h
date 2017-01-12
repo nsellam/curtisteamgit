@@ -15,64 +15,78 @@
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
+/**
+* @brief    Number of ultrasonic sensors
+*/
 #define DATA_STM_US_NUM             6
 
+/**
+* @brief    Data alignment for Rapberry Pi : alignment is done at 4 bytes.
+*/
 #define DATA_ALIGNMENT_PI           4
+
+/**
+* @brief    Max payload size betweeen STM and Raspi
+*/
 #define DATA_SIZE_MAX_RAW           ((sizeof(data_STM_t) > sizeof(data_PI_t)) ? sizeof(data_STM_t) : sizeof(data_PI_t))
+
+/**
+* @brief    Size of a frame (including byte alignment and control bytes)
+*/
 #define DATA_SIZE_MAX               (DATA_SIZE_MAX_RAW - (DATA_ALIGNMENT_PI - DATA_SIZE_MAX_RAW % DATA_ALIGNMENT_PI) % DATA_ALIGNMENT_PI)
 
 // Ultrasonic ID
 /**
 * @brief    US_FR : id of front right ultrasonic sensor
 */
-#define US_FR 0x00
+#define US_FR                       0x00
 
 /**
 * @brief    US_FM : id of front middle ultrasonic sensor
 */
-#define US_FM 0x01
+#define US_FM                       0x01
 
 /**
 * @brief    US_FL : id of front left ultrasonic sensor
 */
-#define US_FL 0x02
+#define US_FL                       0x02
 
 /**
 * @brief    US_BR : id of back right ultrasonic sensor
 */
-#define US_BR 0x03
+#define US_BR                       0x03
 
 /**
 * @brief    US_BM : id of back middle ultrasonic sensor
 */
-#define US_BM 0x04
+#define US_BM                       0x04
     
 /**
 * @brief    US_BL : id of back left ultrasonic sensor
 */
-#define US_BL 0x05
+#define US_BL                       0x05
 
 // Wheel position sensors 
 /**
 * @brief    WP_R : id of Right wheel position sensor
 */
-#define WP_R 0x00
+#define WP_R                        0x00
 
 /**
 * @brief    WP_L : id of Left wheel position sensor
 */
-#define WP_L 0x01
+#define WP_L                        0x01
 
 // Steering stop sensor
 /**
 * @brief    SS_R : id of Right wheel position sensor
 */
-#define SS_R 0x00
+#define SS_R                        0x00
 
 /**
 * @brief    SS_L : id of Left wheel position sensor
 */
-#define SS_L 0x01
+#define SS_L                        0x01
 
 /**
  * @brief data updated by the STM32
