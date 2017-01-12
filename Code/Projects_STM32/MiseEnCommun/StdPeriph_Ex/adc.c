@@ -66,13 +66,30 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
     uint8_t num = ADC2int(ADCx);
     uint8_t channelx = GPIOPin2ADCChannel(GPIOx, GPIO_Pin_x);
 
+    if (channelx == ERROR_INVALID_PORT) return ADC_ERROR_PORT; else{}
+    if (channelx == ERROR_INVALID_PIN)  return ADC_ERROR_PIN; else{}
+
+    GPIO_QuickInit(GPIOx, GPIO_Pin_x, GPIO_MODE_ADC);
+        
     if (!initialized[num]) {
         RCC_ADCCLKConfig(RCC_PCLK2_Div6);
         ADC_Clock_Enable(ADCx);
 
+        if(ADCx == ADC1) {
+            DMA_QuickInit_Periph2Buffer(DMA1_Channel1, 
+                (uint32_t)&ADC1->DR,                DMA_PeripheralDataSize_HalfWord, 
+                (uint32_t)conversion_values[0],    DMA_MemoryDataSize_HalfWord, 
+                ADC_NB_CHANNELS_MAX);
+        } else if (ADCx == ADC3) {
+            DMA_QuickInit_Periph2Buffer(DMA2_Channel5, 
+                (uint32_t)&ADC3->DR,                DMA_PeripheralDataSize_HalfWord, 
+                (uint32_t)conversion_values[3],    DMA_MemoryDataSize_HalfWord, 
+                ADC_NB_CHANNELS_MAX);
+        }
+        
         ADC_InitStruct.ADC_Mode = ADC_Mode_Independent;
         
-        if(ADCx == ADC2)
+        if(ADCx == ADC2) // ADC2 cannot use DMA
             ADC_InitStruct.ADC_ScanConvMode = DISABLE;
         else
             ADC_InitStruct.ADC_ScanConvMode = ENABLE;
@@ -84,43 +101,28 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
         
         ADC_Init(ADCx, &ADC_InitStruct);
         
-        if(ADCx == ADC1) {
-            DMA_QuickInit_Periph2Buffer(DMA1_Channel1, 
-                (uint32_t)&ADC1->DR,                DMA_PeripheralDataSize_HalfWord, 
-                (uint32_t)&conversion_values[0],    DMA_MemoryDataSize_HalfWord, 
-                ADC_NB_CHANNELS_MAX
-            );
-        } else if (ADCx == ADC3) {
-            DMA_QuickInit_Periph2Buffer(DMA2_Channel5, 
-                (uint32_t)&ADC3->DR,                DMA_PeripheralDataSize_HalfWord, 
-                (uint32_t)&conversion_values[3],    DMA_MemoryDataSize_HalfWord, 
-                ADC_NB_CHANNELS_MAX
-            );
-        }
+        // Enable ADCx DMA
+        ADC_DMACmd(ADCx, ENABLE);
+            
+        // Enable ADC
+        ADC_Cmd(ADCx, ENABLE);
         
-        //Reset of ADC Calibration register
+        // Reset of ADC Calibration register
         ADC_ResetCalibration(ADCx);
 
-        //Wait until the reset of register is finished
+        // Wait until the reset of register is finished
         while (ADC_GetResetCalibrationStatus(ADCx));
 
-        //ADC starts to calibrate
+        // ADC starts to calibrate
         ADC_StartCalibration(ADCx);
 
-        //Wait until the calibration is done
+        // Wait until the calibration is done
         while (ADC_GetCalibrationStatus(ADCx));
-            
-        //Enable ADC
-        ADC_Cmd(ADCx, ENABLE);
+        
         initialized[num] = 1;
     }
 
-    if (channelx == ERROR_INVALID_PORT) return ADC_ERROR_PORT; else{}
-    if (channelx == ERROR_INVALID_PIN)  return ADC_ERROR_PIN; else{}
-
-    GPIO_QuickInit(GPIOx, GPIO_Pin_x, GPIO_MODE_ADC);
-
-    //Set ADC Conversion's sample time(channel, rank, sample time)
+    // Set ADC Conversion's sample time(channel, rank, sample time)
     ADC_RegularChannelConfig(ADCx, channelx, Rank, SampleTime);
 
     return ADC_NO_ERROR;
@@ -132,7 +134,7 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
  * @param   Rank Place of this conversion in the conversions sequence. This parameter must be between 1 to 16.
  * @return  Conversion value of the ADC at the rank
 */
-uint16_t ADC_QuickGet(ADC_TypeDef* ADCx, int Rank) {
+uint16_t ADC_QuickGet(ADC_TypeDef* ADCx, uint8_t Rank) {
     return conversion_values[ADC2int(ADCx)][Rank-1];
 }
 
@@ -152,7 +154,7 @@ void ADC_Callback(void) {
 void ADC_Clock_Enable(ADC_TypeDef* ADCx) {
     if (ADCx == ADC1)
         RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1,ENABLE);
-    else if (ADCx == ADC2)//WARNING: ADC2 cannot use DMA
+    else if (ADCx == ADC2)
         RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC2,ENABLE);
     else if (ADCx == ADC3)
         RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC3,ENABLE);
