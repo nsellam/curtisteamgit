@@ -11,6 +11,16 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
+/**
+ * @brief 	ADC to test
+*/
+#define ADCx            ADC1
+
+/**
+ * @brief 	Rank in the ADC sequence of the measure to consider
+*/
+#define RANK            1
+
 /* Private macro -------------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
