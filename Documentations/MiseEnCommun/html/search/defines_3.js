@@ -6,6 +6,7 @@ var searchData=
   ['error_5fline_5funreachable',['ERROR_LINE_UNREACHABLE',['../exti_8c.html#aaa95df06c3c69c417451c5017e6b39bc',1,'exti.c']]],
   ['error_5fpin_5fsource',['ERROR_PIN_SOURCE',['../exti_8c.html#abf04d7aa0a4c98fb5081cdf66315022f',1,'exti.c']]],
   ['error_5fport_5fsource',['ERROR_PORT_SOURCE',['../exti_8c.html#ac9438bb67ccad9801a7cea95d7918143',1,'exti.c']]],
+  ['error_5fsensor_5fout_5fof_5frange',['ERROR_SENSOR_OUT_OF_RANGE',['../hall__sensors_8h.html#aa245104dd825cf25a7ad0c851c145697',1,'hall_sensors.h']]],
   ['error_5fvalue_5fnot_5ffound',['ERROR_VALUE_NOT_FOUND',['../hall__sensors_8h.html#ad54b9dcfdca2ca2c5b0aff41aad320f4',1,'hall_sensors.h']]],
   ['exti_5ferror_5finvalid_5fchannel',['EXTI_ERROR_INVALID_CHANNEL',['../exti_8h.html#a69d3ee1b38dd6cb6565c61852669a17c',1,'exti.h']]],
   ['exti_5ferror_5finvalid_5fline',['EXTI_ERROR_INVALID_LINE',['../exti_8h.html#aadf92e4e0654663511035697636edca7',1,'exti.h']]],
