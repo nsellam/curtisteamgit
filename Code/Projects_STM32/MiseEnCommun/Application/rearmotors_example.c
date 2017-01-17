@@ -23,7 +23,7 @@
 void RearMotors_Example(void) {
     RearMotors_QuickInit();
     RearMotors_Enable();
-    RearMotors_setSpeed(50);
+    RearMotors_setSpeed(10);
 }
 
 /* Private functions ---------------------------------------------------------*/
