@@ -116,7 +116,9 @@ void SpeedSensor_compute(SpeedSensor_Enum SpeedSensor_identifier) {
     }
 
     // Store value of speed
-    speed[SpeedSensor_identifier] = coeff*(tick_based)+(1-coeff)*(time_based);
+    if (speed_tick[SpeedSensor_identifier] < 0) speed[SpeedSensor_identifier] = coeff*(tick_based)+(1-coeff)*(time_based);
+    else                                        speed[SpeedSensor_identifier]  = -(coeff*(tick_based)+(1-coeff)*(time_based));
+    
 }
 
 /**
