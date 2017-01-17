@@ -20,7 +20,7 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 
-#define MANAGER_TIME_BETWEEN_TWO_UPDATES 1
+#define MANAGER_TIME_BETWEEN_TWO_UPDATES 10
 
 /* Private macro -------------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/
@@ -54,10 +54,10 @@ void Manager_Callback(void) {
         // Rear motors
         if (pdata_PI->enable_motors_control == ENABLE) {
           speed_cmd = pdata_PI->motor_prop;  
-          RearMotor_controlL(speed_cmd);
+          RearMotors_setSpeed(speed_cmd);
         }
         else if (pdata_PI->enable_motors_control != ENABLE) {
-            motor_speed = (float)(pdata_PI->motor_prop);
+            motor_speed = (float)(pdata_PI->motor_prop/100.0);
             Motor_setSpeed(REAR_MOTOR_L, motor_speed);
             Motor_setSpeed(REAR_MOTOR_R, motor_speed);
         }

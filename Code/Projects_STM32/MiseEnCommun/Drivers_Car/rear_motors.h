@@ -22,7 +22,7 @@
 /**
  * @brief   Time corresponding to a rear motor period : meaning time between two changes of command. Expressed in ms. 
 */
-#define MOTORS_COMMAND_TIME_BETWEEN_TWO_UPDATES 1
+#define MOTORS_COMMAND_TIME_BETWEEN_TWO_UPDATES 10
 
 /* Exported macro ------------------------------------------------------------*/
 
@@ -33,8 +33,6 @@ extern volatile int16_t speed_cmd;
 void RearMotors_QuickInit(void);
 void RearMotors_Enable(void);
 void RearMotors_Disable(void);
-void RearMotor_controlL(int16_t cmd);
-void RearMotors_Callback(void);
 void RearMotors_setSpeed(int16_t speed);
 
 #endif // _REAR_MOTORS_H_

@@ -130,7 +130,7 @@ typedef struct {
  * size: 4 bytes
  */
 typedef struct {
-  uint8_t motor_prop;							/*!< Propulsion motors data */
+  int16_t motor_prop;							/*!< Propulsion motors data */
   int8_t motor_dir;				     			/*!< Direction motor data */
   uint8_t enable_motors_control;				/*!< To enable or not a PI controller on the car speed */
 
