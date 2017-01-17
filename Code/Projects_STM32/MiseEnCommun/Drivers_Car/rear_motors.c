@@ -38,11 +38,6 @@ volatile int16_t speed_cmd;
 volatile static float duty_cycle_L = MOTORS_PWM_ZERO;
 
 /**
- * @brief   Counter to determine command refreshing time
-*/
-uint32_t RearMotors_remainingTimeInCommandPeriod = MOTORS_COMMAND_TIME_BETWEEN_TWO_UPDATES;
-
-/**
  * @brief   Formal output of the system
 */
 static float out_prec = 0;
@@ -103,18 +98,6 @@ void RearMotor_controlL(int16_t speed_cmd){
     duty_cycle_L = ComputeMotorCommand(speed_cmd, current, car_speed);
 }
 
-/**
- * @brief   Callback associated to rear motors whose aim is to set the adequate command on the motors
- * @retval	None
-*/
-void RearMotors_Callback(void) {
-    RearMotors_remainingTimeInCommandPeriod --;
-    
-    if (RearMotors_remainingTimeInCommandPeriod == 0) {
-        RearMotor_controlL(speed_cmd);
-        RearMotors_remainingTimeInCommandPeriod = MOTORS_COMMAND_TIME_BETWEEN_TWO_UPDATES;
-    }
-}
 
 /**
  * @brief   Sets speed which must be regulated. 

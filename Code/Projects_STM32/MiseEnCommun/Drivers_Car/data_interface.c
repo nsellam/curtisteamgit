@@ -80,8 +80,10 @@ void init_data_STM(void) {
    data_STM.motor_current_L         = INITIAL_16B_VALUE;
    data_STM.errors_SPI              = INITIAL_8B_VALUE;
 
-	data_STM.car_speed					= INITIAL_MOTOR_VALUE;
-	data_STM.travelled_distance		= INITIAL_FLOAT_VALUE;
+	data_STM.wheel_speed_R					= INITIAL_MOTOR_VALUE;
+    data_STM.wheel_speed_L					= INITIAL_MOTOR_VALUE;
+	data_STM.travelled_distance_R		= INITIAL_FLOAT_VALUE;
+    data_STM.travelled_distance_L		= INITIAL_FLOAT_VALUE;
 }
 
 /**
@@ -91,6 +93,6 @@ void init_data_STM(void) {
 void init_data_PI(void) {
    data_PI.motor_prop = INITIAL_8B_VALUE;
    data_PI.motor_dir  = INITIAL_8B_VALUE;
-   data_PI.led        = INITIAL_8B_VALUE;
+   data_PI.enable_motors_control        = INITIAL_8B_VALUE;
    data_PI.errors_SPI = INITIAL_8B_VALUE;
 }

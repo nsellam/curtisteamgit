@@ -25,6 +25,10 @@
 #define MOTORS_COMMAND_TIME_BETWEEN_TWO_UPDATES 1
 
 /* Exported macro ------------------------------------------------------------*/
+
+/* Exported variables --------------------------------------------------------*/
+extern volatile int16_t speed_cmd;
+
 /* Exported functions ------------------------------------------------------- */
 void RearMotors_QuickInit(void);
 void RearMotors_Enable(void);
