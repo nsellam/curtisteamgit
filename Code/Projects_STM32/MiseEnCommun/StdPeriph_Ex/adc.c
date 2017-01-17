@@ -39,14 +39,19 @@ volatile uint16_t conversion_values[ADC_NB][ADC_NB_CHANNELS_MAX] = {0};
 /* Private function prototypes -----------------------------------------------*/
 void ADC_Clock_Enable(ADC_TypeDef* ADCx);
 uint8_t GPIOPin2ADCChannel(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x);
+DMA_Channel_TypeDef * ADC2DMA_Channel(ADC_TypeDef *ADCx);
 uint8_t ADC2int(ADC_TypeDef *ADCx);
 
 /* Public functions ----------------------------------------------------------*/
 /**
  * @brief   Makes the initialization of the given Analog to Digital Converter (ADC) with the parameters specified
  * @param   ADCx ADC unit to use to perform analog to digital conversions
- * @param   GPIOx Port of the input to consider
+ * @param   GPIOx where x can be (A..G) to select the GPIO port of the input to consider
  * @param   GPIO_Pin_x Number of the pin to consider
+ *   This parameter can be one of the following values:
+ *     - For GPIOA: x can be (0..7)
+ *     - For GPIOB: x can be (0..1)
+ *     - For GPIOC: x can be (0..5)
  * @param   Rank Place of this conversion in the conversions sequence. This parameter must be between 1 to 16.
  * @param   SampleTime Averaging time (in number of cycles)
  *   This parameter can be one of the following values:
@@ -67,7 +72,8 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
     uint8_t channelx = GPIOPin2ADCChannel(GPIOx, GPIO_Pin_x);
 
     if (channelx == ERROR_INVALID_PORT) return ADC_ERROR_PORT; else{}
-    if (channelx == ERROR_INVALID_PIN)  return ADC_ERROR_PIN; else{}
+    if (channelx == ERROR_INVALID_PIN)  return ADC_ERROR_PIN;  else{}
+    if (Rank > ADC_NB_CHANNELS_MAX)     return ADC_ERROR_RANK; else{}
 
     GPIO_QuickInit(GPIOx, GPIO_Pin_x, GPIO_MODE_ADC);
         
@@ -76,15 +82,19 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
         ADC_Clock_Enable(ADCx);
 
         if(ADCx == ADC1) {
-            DMA_QuickInit_Periph2Buffer(DMA1_Channel1, 
-                (uint32_t)&ADC1->DR,                DMA_PeripheralDataSize_HalfWord, 
-                (uint32_t)conversion_values[0],    DMA_MemoryDataSize_HalfWord, 
-                ADC_NB_CHANNELS_MAX);
+            DMA_QuickInit_Periph2Buffer(
+                ADC2DMA_Channel(ADC1), 
+                (uint32_t)&ADC1->DR,            DMA_PeripheralDataSize_HalfWord, 
+                (uint32_t)conversion_values[0], DMA_MemoryDataSize_HalfWord, 
+                ADC_NB_CHANNELS_MAX
+            );
         } else if (ADCx == ADC3) {
-            DMA_QuickInit_Periph2Buffer(DMA2_Channel5, 
-                (uint32_t)&ADC3->DR,                DMA_PeripheralDataSize_HalfWord, 
-                (uint32_t)conversion_values[3],    DMA_MemoryDataSize_HalfWord, 
-                ADC_NB_CHANNELS_MAX);
+            DMA_QuickInit_Periph2Buffer(
+                ADC2DMA_Channel(ADC3), 
+                (uint32_t)&ADC3->DR,            DMA_PeripheralDataSize_HalfWord, 
+                (uint32_t)conversion_values[3], DMA_MemoryDataSize_HalfWord, 
+                ADC_NB_CHANNELS_MAX
+            );
         }
         
         ADC_InitStruct.ADC_Mode = ADC_Mode_Independent;
@@ -120,10 +130,28 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
         while (ADC_GetCalibrationStatus(ADCx));
         
         initialized[num] = 1;
+    } else {
+            
+        // Disable ADC
+        ADC_Cmd(ADCx, DISABLE);
+        
+        // Disable DMA
+        DMA_Cmd(ADC2DMA_Channel(ADCx), DISABLE);
+        
+        // Reset DMA counter
+        DMA_SetCurrDataCounter(ADC2DMA_Channel(ADCx), ADC_NB_CHANNELS_MAX);
+        
+        // Enable DMA
+        DMA_Cmd(ADC2DMA_Channel(ADCx), ENABLE);
+            
+        // Enable ADC
+        ADC_Cmd(ADCx, ENABLE);
     }
-
+    
     // Set ADC Conversion's sample time(channel, rank, sample time)
     ADC_RegularChannelConfig(ADCx, channelx, Rank, SampleTime);
+    
+    ADC_SoftwareStartConvCmd(ADCx, ENABLE);
 
     return ADC_NO_ERROR;
 }
@@ -193,6 +221,14 @@ uint8_t GPIOPin2ADCChannel(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x) {
         }
     }
     else return ERROR_INVALID_PORT;
+}
+
+DMA_Channel_TypeDef * ADC2DMA_Channel(ADC_TypeDef *ADCx) {
+    if (ADCx == ADC1)
+        return DMA1_Channel1;
+    else if (ADCx == ADC3)
+        return DMA2_Channel5;
+    else return 0;
 }
 
 uint8_t ADC2int(ADC_TypeDef *ADCx) {

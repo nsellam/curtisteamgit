@@ -71,7 +71,7 @@ void Motor_QuickInit(Motors_Enum Motor) {
 /**
  * @brief   Sets speed on the indicated motor. 
  * @param   Motor Motor to be considered.
- * @param   speed Expecteed speed on the motor. 
+ * @param   speed Expected speed on the motor. 
  * @retval  None
 */
 void Motor_setSpeed(Motors_Enum Motor, float speed) {

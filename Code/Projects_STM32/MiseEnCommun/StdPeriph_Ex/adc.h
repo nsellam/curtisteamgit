@@ -30,6 +30,11 @@
 #define ADC_ERROR_PIN   (-2)
 
 /**
+ * @brief Given rank couldn't be initialized: rank is out of range
+*/ 
+#define ADC_ERROR_RANK  (-3)
+
+/**
  * @brief Maximum number of channels for one ADC
 */ 
 #define ADC_NB_CHANNELS_MAX  16

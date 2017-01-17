@@ -20,7 +20,6 @@ int main(void) {
     //ADC_Example();
     //GPIO_Example();
     //FrontMotor_Example();
-    //RearMotors_Example();
-
+    RearMotors_Example();
     while(1) {}
 }

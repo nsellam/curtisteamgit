@@ -16,5 +16,4 @@
 *.axf
 *.Clément
 *.TheCake
-Code/Projects_STM32/*.htm
-/Code/Projects_STM32/MiseEnCommun/MDK-ARM/MiseEnCommun.uvproj
+Release
