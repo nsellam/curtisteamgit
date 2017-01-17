@@ -588,6 +588,11 @@
               <FileType>1</FileType>
               <FilePath>..\StdPeriph_Ex\dma.c</FilePath>
             </File>
+            <File>
+              <FileName>debug.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\StdPeriph_Ex\debug.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

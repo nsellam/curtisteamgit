@@ -30,7 +30,7 @@ void SysTick_QuickInit(void) {
  * @brief Handler associated to SysTick.  
 */
 void SysTick_ITHandler(void) {
-  SysTick_Callback();
+    SysTick_Callback();
 }
 
 /* Private functions ---------------------------------------------------------*/
