@@ -2,8 +2,16 @@
 #include <stm32f10x.h>
 
 #include "examples.h"
+#include "init.h"
+#include "rear_motors.h"
+
 
 int main(void) {
+    
+    Init();
+    RearMotors_Enable();
+ 
+    
     //HallSensor_Example(HALLSENSOR_L);
     //Motor_Example(REAR_MOTOR_L);
     //PositionSensor_Example(POSITION_SENSOR_L);

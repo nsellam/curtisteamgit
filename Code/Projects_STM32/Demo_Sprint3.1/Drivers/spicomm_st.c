@@ -167,7 +167,7 @@ __weak void SPIComm_Tx_Callback(SPIComm_TransferStatus status){}
  * @param  flags   Interrupts flags
  * @retval None
  */
-void SPIComm_DMA_Callback(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {
+void SPIComm_DMA_Callback(int channel, uint8_t flags) {
    SPIComm_TransferStatus status = DMA_FLAGS2STATUS(flags);
    if (/*GET_DMA_CHANNEL[dma][channel] == SPIx_DMA_Rx_Channel*/channel == 4) {
       if(status == TRANSFER_COMPLETE) handle_data_Rx(status);
