@@ -26,19 +26,27 @@
  * @param   Motor Motor to be considered.
  * @retval  None
 */
-void Motor_Example(Motors_Enum Motor) {
+void Motor_Example(void) {
     System_Time_QuickInit();
-    Motor_QuickInit(Motor);
-    Motor_Enable(Motor);
+
+    Motor_QuickInit(REAR_MOTOR_L);
+    Motor_QuickInit(REAR_MOTOR_R);
+   
+    Motor_Enable(REAR_MOTOR_L);
+    Motor_Enable(REAR_MOTOR_R);
     
-    Motor_setSpeed(Motor, 1.0);
+    Motor_setSpeed(REAR_MOTOR_L, 1.0);
+    Motor_setSpeed(REAR_MOTOR_R, 1.0);
     pause(1000*3);
-    Motor_setSpeed(Motor, 0.0);
+    Motor_setSpeed(REAR_MOTOR_L, 0.0);
+    Motor_setSpeed(REAR_MOTOR_R, 0.0);
     pause(1000*3);
-    Motor_setSpeed(Motor, -1.0);
+    Motor_setSpeed(REAR_MOTOR_L, -1.0);
+    Motor_setSpeed(REAR_MOTOR_R, -1.0);
     pause(1000*3);
     
-    Motor_Disable(Motor);
+    Motor_Disable(REAR_MOTOR_L);
+    Motor_Disable(REAR_MOTOR_R);
 }
 
 /* Private functions ---------------------------------------------------------*/

@@ -12,6 +12,7 @@
 #include "system_time.h"
 #include "position_sensors.h"
 #include "speed_sensors.h"
+#include "debug.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -25,15 +26,20 @@
  * @param   Motor Motor to be considered.
  * @retval  None
 */
-void SpeedSensor_Example(SpeedSensor_Enum SpeedSensor_identifier) {
-    float WheelSpeed = 0; 
+void SpeedSensor_Example() {
+    float WheelSpeed_L = 0; 
+    float WheelSpeed_R = 0; 
     
     System_Time_QuickInit();
-    PositionSensor_QuickInit(SpeedSensor_identifier); 
+    PositionSensor_QuickInit(SPEED_SENSOR_L); 
+    PositionSensor_QuickInit(SPEED_SENSOR_R); 
     
-    while(WheelSpeed >= 0) {
+    while(1) {
         pause(100); 
-        WheelSpeed = SpeedSensor_get(SPEED_M_S, SpeedSensor_identifier);
+        WheelSpeed_L = SpeedSensor_get(SPEED_M_S, SPEED_SENSOR_L);
+        WheelSpeed_R = SpeedSensor_get(SPEED_M_S, SPEED_SENSOR_R);
+        printf("Left  wheel: %.2f \n", WheelSpeed_L);
+        printf("Right wheel: %.2f \n", WheelSpeed_R);
     }
 }
 

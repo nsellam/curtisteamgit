@@ -21,8 +21,9 @@
  * @param   hall_identifier Hall Sensor to be considered
  * @retval  None
 */
-void HallSensor_Example(HallSensors_Enum hall_identifier) {
-    HallSensor_QuickInit(hall_identifier);
+void HallSensor_Example(void) {
+    HallSensor_QuickInit(HALLSENSOR_L);
+    HallSensor_QuickInit(HALLSENSOR_R);
 }
 
 /* Private functions ---------------------------------------------------------*/

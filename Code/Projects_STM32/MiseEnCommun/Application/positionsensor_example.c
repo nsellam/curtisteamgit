@@ -11,6 +11,7 @@
 #include "common_constants.h"
 #include "system_time.h"
 #include "position_sensors.h"
+#include "debug.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -24,17 +25,21 @@
  * @param   Motor Motor to be considered.
  * @retval  None
 */
-void PositionSensor_Example(PositionSensor_Enum PositionSensor_identifier) {
-    volatile float WheelPosition = 0; 
+void PositionSensor_Example() {
+    float WheelPosition_L = 0; 
+    float WheelPosition_R = 0; 
     
     System_Time_QuickInit();
-    PositionSensor_QuickInit(PositionSensor_identifier); 
+    PositionSensor_QuickInit(POSITION_SENSOR_L); 
+    PositionSensor_QuickInit(POSITION_SENSOR_L); 
     
     while(1) {
         pause(100); 
-        WheelPosition = PositionSensor_get(POSITION_M, PositionSensor_identifier);
+        WheelPosition_L = PositionSensor_get(POSITION_CM, POSITION_SENSOR_L);
+        WheelPosition_R = PositionSensor_get(POSITION_CM, POSITION_SENSOR_R);
+        printf("Left  wheel: %.2f cm \n", WheelPosition_L);
+        printf("Right wheel: %.2f cm \n", WheelPosition_R);
     }
-    
 }
 
 /* Private functions ---------------------------------------------------------*/
