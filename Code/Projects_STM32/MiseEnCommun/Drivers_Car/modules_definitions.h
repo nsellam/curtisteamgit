@@ -142,7 +142,7 @@ typedef enum {
 /**
  * @brief       Channel used for rear motor right PWM generation
 */
-#define REAR_MOTOR_R_TIM_CHANNEL                     TIM_Channel_1
+#define REAR_MOTOR_R_TIM_CHANNEL                     TIM_Channel_2
 
 /**
  * @brief       Channel used for front motor PWM generation
@@ -177,7 +177,7 @@ typedef enum {
 /**
  * @brief       Pin used to enable the rear motor right
 */
-#define REAR_MOTOR_R_ENABLE_PIN                     GPIO_Pin_13
+#define REAR_MOTOR_R_ENABLE_PIN                     GPIO_Pin_11
 
 /**
  * @brief       Pin used to enable the front motor

@@ -23,9 +23,14 @@
 int16_t current = 0; 
 
 /**
- * @brief   Last measured car speed
+ * @brief   Last measured car speed on left wheel
 */
-volatile static int16_t car_speed = 0;
+volatile static int16_t car_speed_L = 0;
+
+/**
+ * @brief   Last measured car speed on right wheel
+*/
+volatile static int16_t car_speed_R = 0;
 
 /**
  * @brief   Expected speed on the wheel
@@ -33,9 +38,14 @@ volatile static int16_t car_speed = 0;
 volatile int16_t speed_cmd;
 
 /**
- * @brief   Duty cycle applied
+ * @brief   Duty cycle applied on left motor
 */
 volatile static float duty_cycle_L = MOTORS_PWM_ZERO;
+
+/**
+ * @brief   Duty cycle applied on right motor
+*/
+volatile static float duty_cycle_R = MOTORS_PWM_ZERO;
 
 /**
  * @brief   Counter to determine command refreshing time
@@ -51,7 +61,9 @@ static float out_prec = 0;
 int16_t car_model(float in);
 float PI_Controller (int32_t in);
 float ComputeMotorCommand(int16_t speed_cmd, int16_t current, int16_t speed);
-float ComputeMotorCommand (int16_t speed_cmd, int16_t current, int16_t speed);
+float ComputeMotorCommand(int16_t speed_cmd, int16_t current, int16_t speed);
+void RearMotor_controlL(int16_t speed_cmd);
+void RearMotor_controlR(int16_t speed_cmd);
 
 /* Public functions ----------------------------------------------------------*/
 /**
@@ -87,23 +99,6 @@ void RearMotors_Disable(void) {
 }
 
 /**
- * @brief   The core of the control loop for rear motor left
- * @param   speed_cmd The speed command 
- * @retval	None
-*/
-void RearMotor_controlL(int16_t speed_cmd){
-    float motor_speed_L;
-    
-    // Command must be send without jitter...
-    motor_speed_L = (duty_cycle_L - MOTORS_PWM_ZERO) / ((MOTORS_PWM_DELTA_MAX)/(MOTORS_SPEED_DELTA));
-    Motor_setSpeed(REAR_MOTOR_L, motor_speed_L);
-
-    // ... so we need to compute the command for next send.
-    car_speed = SpeedSensor_get(SPEED_CM_S, SPEED_SENSOR_L);     
-    duty_cycle_L = ComputeMotorCommand(speed_cmd, current, car_speed);
-}
-
-/**
  * @brief   Callback associated to rear motors whose aim is to set the adequate command on the motors
  * @retval	None
 */
@@ -112,12 +107,14 @@ void RearMotors_Callback(void) {
     
     if (RearMotors_remainingTimeInCommandPeriod == 0) {
         RearMotor_controlL(speed_cmd);
+        RearMotor_controlR(speed_cmd);
         RearMotors_remainingTimeInCommandPeriod = MOTORS_COMMAND_TIME_BETWEEN_TWO_UPDATES;
     }
 }
 
 /**
  * @brief   Sets speed which must be regulated. 
+ * @param   speed Expected speed (in cm/s)
  * @retval	None
 */
 void RearMotors_setSpeed(int16_t speed) {
@@ -217,5 +214,39 @@ float PI_Controller (int32_t in)
     // Update variables for next iteration
     outPI_prec_no_offset = PI_output_f - MOTORS_PWM_ZERO;
     return PI_output_f;
+}
+
+/**
+ * @brief   The core of the control loop for rear motor left
+ * @param   speed_cmd The speed command 
+ * @retval	None
+*/
+void RearMotor_controlL(int16_t speed_cmd){
+    float motor_speed_L;
+    
+    // Command must be send without jitter...
+    motor_speed_L = (duty_cycle_L - MOTORS_PWM_ZERO) / ((MOTORS_PWM_DELTA_MAX)/(MOTORS_SPEED_DELTA));
+    Motor_setSpeed(REAR_MOTOR_L, motor_speed_L);
+
+    // ... so we need to compute the command for next send.
+    car_speed_L = SpeedSensor_get(SPEED_CM_S, SPEED_SENSOR_L);     
+    duty_cycle_L = ComputeMotorCommand(speed_cmd, current, car_speed_L);
+}
+
+/**
+ * @brief   The core of the control loop for rear motor left
+ * @param   speed_cmd The speed command 
+ * @retval	None
+*/
+void RearMotor_controlR(int16_t speed_cmd){
+    float motor_speed_R;
+    
+    // Command must be send without jitter...
+    motor_speed_R = (duty_cycle_R - MOTORS_PWM_ZERO) / ((MOTORS_PWM_DELTA_MAX)/(MOTORS_SPEED_DELTA));
+    Motor_setSpeed(REAR_MOTOR_R, motor_speed_R);
+
+    // ... so we need to compute the command for next send.
+    car_speed_R = SpeedSensor_get(SPEED_CM_S, SPEED_SENSOR_R);     
+    duty_cycle_R = ComputeMotorCommand(speed_cmd, current, car_speed_R);
 }
 
