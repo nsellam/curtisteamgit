@@ -19,11 +19,10 @@
 /* Private function prototypes -----------------------------------------------*/
 /* Public functions ----------------------------------------------------------*/
 /**
- * @brief   Lauches motor. Motor is initalized, then set to forward 80% during 3 seconds, 
+ * @brief   Lauches motors. Motor are initalized, then set to forward 80% during 3 seconds, 
                                                 then stoped during 3seconds,
                                                 then set to backward 80% during 3 seconds,
                                                 and finally stoped.
- * @param   Motor Motor to be considered.
  * @retval  None
 */
 void Motor_Example(void) {

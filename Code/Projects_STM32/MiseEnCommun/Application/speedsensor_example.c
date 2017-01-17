@@ -23,10 +23,9 @@
 /* Public functions ----------------------------------------------------------*/
 /**
  * @brief   Measures car speed. 
- * @param   Motor Motor to be considered.
  * @retval  None
 */
-void SpeedSensor_Example() {
+void SpeedSensor_Example(void) {
     float WheelSpeed_L = 0; 
     float WheelSpeed_R = 0; 
     
