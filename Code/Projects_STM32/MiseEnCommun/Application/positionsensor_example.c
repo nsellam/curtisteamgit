@@ -22,10 +22,9 @@
 /* Public functions ----------------------------------------------------------*/
 /**
  * @brief   Measures car position. 
- * @param   Motor Motor to be considered.
  * @retval  None
 */
-void PositionSensor_Example() {
+void PositionSensor_Example(void) {
     float WheelPosition_L = 0; 
     float WheelPosition_R = 0; 
     

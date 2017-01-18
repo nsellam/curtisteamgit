@@ -18,7 +18,6 @@
 /* Public functions ----------------------------------------------------------*/
 /**
  * @brief   Lauches hall sensor. After this procedure, hall-sensor interrupts detected. Best way to see it is to run debug mode and insert a breakpoint in the function HallSensor_EdgeCallback().
- * @param   hall_identifier Hall Sensor to be considered
  * @retval  None
 */
 void HallSensor_Example(void) {
