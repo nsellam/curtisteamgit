@@ -20,6 +20,7 @@ void PWM_Example(void);
 void GPIO_Example(void);
 void HallSensor_Example(void);
 void Motor_Example(void);
+void MotorCurrent_Example(void);
 void PositionSensor_Example(void);
 void SpeedSensor_Example(void);
 void FrontMotor_Example(void);

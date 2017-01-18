@@ -460,6 +460,11 @@
               <FileType>1</FileType>
               <FilePath>..\Application\nucleo_functionnalities_manager.c</FilePath>
             </File>
+            <File>
+              <FileName>battery_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\battery_example.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -537,6 +542,11 @@
               <FileName>init.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers_Car\init.c</FilePath>
+            </File>
+            <File>
+              <FileName>battery.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers_Car\battery.c</FilePath>
             </File>
           </Files>
         </Group>

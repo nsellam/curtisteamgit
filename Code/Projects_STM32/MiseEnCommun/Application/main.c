@@ -22,6 +22,7 @@ int main(void) {
     //GPIO_Example();
     //FrontMotor_Example();
     //RearMotors_Example();
-    Battery_Example();
+    //Battery_Example();
+    MotorCurrent_Example();
     while(1) {}
 }

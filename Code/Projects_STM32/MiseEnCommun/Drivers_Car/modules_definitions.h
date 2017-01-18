@@ -105,6 +105,16 @@ typedef enum {
 #define MOTORS_PWM_DELTA_MAX                    (((MOTORS_PWM_MAX - MOTORS_PWM_ZERO) < (MOTORS_PWM_ZERO - MOTORS_PWM_MIN)) ? (MOTORS_PWM_MAX - MOTORS_PWM_ZERO) : (MOTORS_PWM_ZERO - MOTORS_PWM_MIN))
 
 /**
+ * @brief       ADC used for motors current capture 
+*/
+#define MOTORS_ADC                                ADC1
+
+/**
+ * @brief       Sampling time for battery
+*/
+#define MOTORS_CURRENT_SAMPLING                     ADC_SampleTime_41Cycles5
+
+/**
  * @brief       Identifier used to designate left rear motor 
 */
 #define FRONT_MOTOR_IDENTIFIER                     0x00
@@ -115,9 +125,54 @@ typedef enum {
 #define REAR_MOTOR_L_IDENTIFIER                     0x01
 
 /**
+ * @brief       GPIO for current capture of rear motor left
+*/
+#define REAR_MOTOR_L_CURRENT_GPIO                   GPIOA
+
+/**
+ * @brief       Pin for current capture of rear motor left
+*/
+#define REAR_MOTOR_L_CURRENT_PIN                   GPIO_Pin_4
+
+/**
+ * @brief       Rank for current capture of rear motor left
+*/
+#define REAR_MOTOR_L_CURRENT_RANK                   0x01
+
+/**
  * @brief       Identifier used to designate right rear motor 
 */
 #define REAR_MOTOR_R_IDENTIFIER                     0x02
+
+/**
+ * @brief       GPIO for current capture of rear motor right
+*/
+#define REAR_MOTOR_R_CURRENT_GPIO                   GPIOA
+
+/**
+ * @brief       Pin for current capture of rear motor right
+*/
+#define REAR_MOTOR_R_CURRENT_PIN                   GPIO_Pin_5
+
+/**
+ * @brief       Rank for current capture of rear motor right
+*/
+#define REAR_MOTOR_R_CURRENT_RANK                   0x02
+
+/**
+ * @brief       GPIO for current capture of front motor 
+*/
+#define FRONT_MOTOR_CURRENT_GPIO                   GPIOC
+
+/**
+ * @brief       Pin for current capture of front motor
+*/
+#define FRONT_MOTOR_CURRENT_PIN                   GPIO_Pin_0
+
+/**
+ * @brief       Rank for current capture of front motor 
+*/
+#define FRONT_MOTOR_CURRENT_RANK                   0x03
 
 /**
  * @brief       Timer used for rear motor left PWM generation

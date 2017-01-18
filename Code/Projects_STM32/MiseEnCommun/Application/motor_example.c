@@ -10,6 +10,7 @@
 #include <stm32f10x.h>
 #include "system_time.h"
 #include "motors.h"
+#include "debug.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -25,7 +26,7 @@
                                                 and finally stoped.
  * @retval  None
 */
-void Motor_Example(void) {
+void Motor_Example(void) {   
     System_Time_QuickInit();
 
     Motor_QuickInit(REAR_MOTOR_L);
@@ -46,6 +47,23 @@ void Motor_Example(void) {
     
     Motor_Disable(REAR_MOTOR_L);
     //Motor_Disable(REAR_MOTOR_R);
+}
+
+/**
+ * @brief   Switches on a motor and displays continuously the value of its internal current. 
+ * @retval  None
+*/
+void MotorCurrent_Example(void) {
+    uint16_t current;
+    
+    Motor_QuickInit(FRONT_MOTOR);
+    Motor_Enable(FRONT_MOTOR);
+    Motor_setSpeed(FRONT_MOTOR, 0.5);
+    
+    while(1) {
+        current = Motor_getCurrent(FRONT_MOTOR);
+        printf("%d mA\n", current);
+    }
 }
 
 /* Private functions ---------------------------------------------------------*/

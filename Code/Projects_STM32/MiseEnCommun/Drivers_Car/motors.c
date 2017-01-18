@@ -9,6 +9,7 @@
 #include "gpio.h"
 #include "tim.h"
 #include "pwm.h"
+#include "adc.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -18,6 +19,8 @@ direction_TypeDef Motors_Direction[MOTORS_NUMBER] = {NEUTRAL, NEUTRAL, NEUTRAL};
 
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
+void Motor_InitCurrent(Motors_Enum Motor);
+
 /* Public functions ----------------------------------------------------------*/
 /**
  * @brief       Initializes specified motor.
@@ -57,6 +60,8 @@ void Motor_QuickInit(Motors_Enum Motor) {
         TIM_Remap(TIMx, PartialRemap1);
     }
     else return;
+    
+    Motor_InitCurrent(Motor);
     
     PWM_QuickInit(TIMx, Channelx, MOTORS_PWM_FREQUENCY);
     GPIO_PinRemapConfig(GPIO_PartialRemap_TIM1, ENABLE);
@@ -109,8 +114,6 @@ void Motor_setSpeed(Motors_Enum Motor, float speed) {
     PWM_SetDutyCycle(TIMx, Channelx, duty_cycle);
 }
 
-void Motor_Disable(Motors_Enum Motor);
-
 /**
  * @brief   Allows motor activation
  * @param   Motor Motor to be considered.
@@ -161,5 +164,33 @@ void Motor_Disable(Motors_Enum Motor) {
     GPIO_ResetBits(GPIOx, GPIO_Pin);
 }
 
-/* Private functions ---------------------------------------------------------*/
+/**
+ * @brief   Returns current value in specified motor
+ * @param   Motor Motor to be considered.
+ * @retval  Current value of the current.
+*/
+int16_t Motor_getCurrent(Motors_Enum Motor) {
+    if(Motor == REAR_MOTOR_L)       
+        return ADC_QuickGet(MOTORS_ADC, REAR_MOTOR_L_CURRENT_RANK);
+    else if(Motor == REAR_MOTOR_R) 
+        return ADC_QuickGet(MOTORS_ADC, REAR_MOTOR_R_CURRENT_RANK);
+    else if(Motor == FRONT_MOTOR) 
+        return ADC_QuickGet(MOTORS_ADC, FRONT_MOTOR_CURRENT_RANK);
+    else return 0; 
+}
 
+/* Private functions ---------------------------------------------------------*/
+/**
+ * @brief   Inits the current capture sensor for the considerated motor.
+ * @param   Motor Motor to be considered.
+ * @retval  None
+*/
+void Motor_InitCurrent(Motors_Enum Motor) {
+    if(Motor == REAR_MOTOR_L)       
+        ADC_QuickInit(MOTORS_ADC, REAR_MOTOR_L_CURRENT_GPIO, REAR_MOTOR_L_CURRENT_PIN, REAR_MOTOR_L_CURRENT_RANK, MOTORS_CURRENT_SAMPLING);
+    else if(Motor == REAR_MOTOR_R) 
+        ADC_QuickInit(MOTORS_ADC, REAR_MOTOR_R_CURRENT_GPIO, REAR_MOTOR_R_CURRENT_PIN, REAR_MOTOR_R_CURRENT_RANK, MOTORS_CURRENT_SAMPLING);
+    else if(Motor == FRONT_MOTOR) 
+        ADC_QuickInit(MOTORS_ADC, FRONT_MOTOR_CURRENT_GPIO,  FRONT_MOTOR_CURRENT_PIN,  FRONT_MOTOR_CURRENT_RANK,  MOTORS_CURRENT_SAMPLING);
+    else return; 
+}
