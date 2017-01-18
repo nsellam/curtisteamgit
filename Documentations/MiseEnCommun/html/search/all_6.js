@@ -1,6 +1,7 @@
 var searchData=
 [
   ['forward',['FORWARD',['../common__constants_8h.html#a1ed50b689ade9b55c5f591be14d9807faa26736999186daf8146f809e863712a1',1,'common_constants.h']]],
+  ['fputc',['fputc',['../debug_8c.html#abac7707b6be5733e890091048fcb99a2',1,'fputc(int ch, FILE *f):&#160;debug.c'],['../debug_8h.html#abac7707b6be5733e890091048fcb99a2',1,'fputc(int ch, FILE *f):&#160;debug.c']]],
   ['frame_5fcanary_5fpos',['FRAME_CANARY_POS',['../spi__comm_8c.html#ac01641ce8394d476902340261d4c2cb3',1,'spi_comm.c']]],
   ['frame_5fcanary_5fsize',['FRAME_CANARY_SIZE',['../frame__check_8h.html#adc405ca2bdcfea14085440c63c5fda94',1,'frame_check.h']]],
   ['frame_5fcheck_2ec',['frame_check.c',['../frame__check_8c.html',1,'']]],

@@ -28,6 +28,9 @@
 */
 #define ERROR_INVALID_PIN   ((uint8_t) -2)
 
+/**
+ * @brief     Number of ADCs
+*/
 #define ADC_NB 3
 
 /* Private macro -------------------------------------------------------------*/
@@ -173,8 +176,8 @@ void ADC_Callback(void) {
 /* Private functions ---------------------------------------------------------*/
 /**
  * @brief   Starts the ADC Clock
- * @param   ADC_TypeDef ADCx defines an ADC among ADC1, ADC2, and ADC3 that will be used later
- * @retval  none
+ * @param   ADCx defines an ADC among ADC1, ADC2, and ADC3 that will be used later
+ * @retval  None
 */
 void ADC_Clock_Enable(ADC_TypeDef* ADCx) {
     if (ADCx == ADC1)
@@ -185,6 +188,12 @@ void ADC_Clock_Enable(ADC_TypeDef* ADCx) {
         RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC3,ENABLE);
 }
 
+/**
+ * @brief   Returns the ADC Channel corresponding to the pin given.
+ * @param   GPIOx Port of the pin. 
+ * @param   GPIO_Pin_x Number of the pin. 
+ * @retval  ADC_Channel_x corresponding. ERROR_INVALID_PORT if no ADC Channel has been found.
+*/
 uint8_t GPIOPin2ADCChannel(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x) {
     if (GPIOx == GPIOA) {
         switch (GPIO_Pin_x) {
@@ -220,6 +229,11 @@ uint8_t GPIOPin2ADCChannel(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x) {
     else return ERROR_INVALID_PORT;
 }
 
+/**
+ * @brief   Returns the DMA channel associated to the ADC given.
+ * @param   *ADCx Pointer on an ADC. 
+ * @retval  DMAx_Channely. 0 if no DMA Channel could be found. 
+*/
 DMA_Channel_TypeDef * ADC2DMA_Channel(ADC_TypeDef *ADCx) {
     if (ADCx == ADC1)
         return DMA1_Channel1;
@@ -228,6 +242,11 @@ DMA_Channel_TypeDef * ADC2DMA_Channel(ADC_TypeDef *ADCx) {
     else return 0;
 }
 
+/**
+ * @brief   Returns an integer giving the reading mask for ADC
+ * @param   *ADCx Pointer on an ADC. 
+ * @retval  Mask
+*/
 uint8_t ADC2int(ADC_TypeDef *ADCx) {
     return (ADCx == ADC1) + 2*(ADCx == ADC2) + 3*(ADCx == ADC3) - 1;
 }

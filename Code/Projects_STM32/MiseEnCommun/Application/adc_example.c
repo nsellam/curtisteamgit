@@ -15,21 +15,43 @@
 /* Private macro -------------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+/**
+ * @brief   Name of the ADC pins 
+ */
 static const char * Pin_Names[ADC_NB_CHANNELS_MAX] = {
     "PA0", "PA1", "PA2", "PA3", "PA4", "PA5", "PA6", "PA7",
     "PB0", "PB1", "PC0", "PC1", "PC2", "PC3", "PC4", "PC5"
 };
+
+/**
+ * @brief   Port associated to each ADC pins 
+ */
 static GPIO_TypeDef * Port_List[ADC_NB_CHANNELS_MAX] = {
     GPIOA, GPIOA, GPIOA, GPIOA, GPIOA, GPIOA, GPIOA, GPIOA,
     GPIOB, GPIOB, GPIOC, GPIOC, GPIOC, GPIOC, GPIOC, GPIOC
 };
+
+/**
+ * @brief   Pin number associated to each ADC pins 
+ */
 static const uint16_t Pin_List[ADC_NB_CHANNELS_MAX] = {
     GPIO_Pin_0, GPIO_Pin_1, GPIO_Pin_2, GPIO_Pin_3, GPIO_Pin_4, GPIO_Pin_5, GPIO_Pin_6, GPIO_Pin_7,
     GPIO_Pin_0, GPIO_Pin_1, GPIO_Pin_0, GPIO_Pin_1, GPIO_Pin_2, GPIO_Pin_3, GPIO_Pin_4, GPIO_Pin_5
 };
 
+/**
+ * @brief   Values read on each ADC channel
+ */
 volatile uint16_t values[ADC_NB_CHANNELS_MAX];
+
+/**
+ * @brief   Corresponding voltage to values read on each ADC channel
+ */
 volatile float voltages[ADC_NB_CHANNELS_MAX];
+
+/**
+ * @brief   Condition of eah ADC Channel
+ */
 volatile uint8_t checked[ADC_NB_CHANNELS_MAX] = {0};
 
 /* Private function prototypes -----------------------------------------------*/
@@ -51,6 +73,7 @@ void print_voltages(void);
  *    - '-'  means the pin did not pass the test (yet)
  * Two 'OK' means the pin is very likely to work.
  * Although this test is not 100% reliable, it is a good tool to detect a malfunctioning pin.
+ * @retval  None
 */
 void ADC_Example(void) {
     int i;
@@ -81,17 +104,39 @@ void ADC_Example(void) {
 }
 
 /* Private functions ---------------------------------------------------------*/
-
+/**
+ * @brief   Max admissible voltage on ADC pins
+ */
 #define V_MAX 3.3
+
+/**
+ * @brief   Convert the digital value given to the theoric voltage
+ * @param   value A value given by an ADC
+ * @retval  Theoric voltage
+ */
 float to_voltage(uint16_t value) {
     return V_MAX*(float)value/0xFFF;
 }
 
+/**
+ * @brief   Acceptable delta on ADC pins
+ */
 #define V_MARGIN 0.1
+
+/**
+ * @brief   Check if voltage is in the expected interval
+ * @param   voltage Voltage to check.
+ * @retval  '1' if voltage is acceptable, '0' if not.
+ */
 uint8_t check_voltage(float voltage) {
     return (voltage <= 0.0 + V_MARGIN) | ((voltage >= V_MAX - V_MARGIN) << 1);
 }
 
+/**
+ * @brief   Display function
+ * @param   index Number of the ADC Channel to print
+ * @retval  None
+ */
 void print_pin_voltage(int index) {
     printf("%s: %.2fV", Pin_Names[index], voltages[index]);
     printf("\t");
@@ -100,6 +145,10 @@ void print_pin_voltage(int index) {
     if (checked[index] & 0x2) printf("OK"); else printf("-");
 }
 
+/**
+ * @brief   Display function
+ * @retval  None
+ */
 void print_voltages(void) {
     int i;
     printf("\t\tGND\t3.3V\t| \t\tGND\t3.3V\t\n");

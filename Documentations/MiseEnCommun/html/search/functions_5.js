@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['fputc',['fputc',['../debug_8c.html#abac7707b6be5733e890091048fcb99a2',1,'fputc(int ch, FILE *f):&#160;debug.c'],['../debug_8h.html#abac7707b6be5733e890091048fcb99a2',1,'fputc(int ch, FILE *f):&#160;debug.c']]],
   ['framecheck_5fcheckcanary',['FrameCheck_checkCanary',['../frame__check_8c.html#a138746c61a901e37233bd6c532da7e54',1,'FrameCheck_checkCanary(uint8_t canary):&#160;frame_check.c'],['../frame__check_8h.html#a138746c61a901e37233bd6c532da7e54',1,'FrameCheck_checkCanary(uint8_t canary):&#160;frame_check.c']]],
   ['framecheck_5fcheckcrc',['FrameCheck_checkCRC',['../frame__check_8c.html#aa35c872cf33ce36d81461a282fb84bfe',1,'FrameCheck_checkCRC(uint8_t *pdata, size_t len, uint8_t crc):&#160;frame_check.c'],['../frame__check_8h.html#aa35c872cf33ce36d81461a282fb84bfe',1,'FrameCheck_checkCRC(uint8_t *pdata, size_t len, uint8_t crc):&#160;frame_check.c']]],
   ['framecheck_5fcomputecanary',['FrameCheck_computeCanary',['../frame__check_8c.html#ae65c70b6fd871999da3cbbbb3bd81d93',1,'FrameCheck_computeCanary(void):&#160;frame_check.c'],['../frame__check_8h.html#ae65c70b6fd871999da3cbbbb3bd81d93',1,'FrameCheck_computeCanary(void):&#160;frame_check.c']]],

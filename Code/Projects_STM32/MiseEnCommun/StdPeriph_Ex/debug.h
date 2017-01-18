@@ -1,7 +1,7 @@
 /**
- * @file    debug.c
+ * @file    debug.h
  * @author  Curtis Team
- * @brief   Functions to help debugging  
+ * @brief   Headers of functions to help debugging  
  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
