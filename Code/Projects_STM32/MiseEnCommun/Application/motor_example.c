@@ -19,7 +19,7 @@
 /* Private function prototypes -----------------------------------------------*/
 /* Public functions ----------------------------------------------------------*/
 /**
- * @brief   Lauches motors. Motor are initalized, then set to forward 80% during 3 seconds, 
+ * @brief   Lauches motor. Motor is initalized, then set to forward 80% during 3 seconds, 
                                                 then stoped during 3seconds,
                                                 then set to backward 80% during 3 seconds,
                                                 and finally stoped.
@@ -29,23 +29,23 @@ void Motor_Example(void) {
     System_Time_QuickInit();
 
     Motor_QuickInit(REAR_MOTOR_L);
-    Motor_QuickInit(REAR_MOTOR_R);
+    //Motor_QuickInit(REAR_MOTOR_R);
    
     Motor_Enable(REAR_MOTOR_L);
-    Motor_Enable(REAR_MOTOR_R);
+    //Motor_Enable(REAR_MOTOR_R);
     
     Motor_setSpeed(REAR_MOTOR_L, 1.0);
-    Motor_setSpeed(REAR_MOTOR_R, 1.0);
+    //Motor_setSpeed(REAR_MOTOR_R, 1.0);
     pause(1000*3);
     Motor_setSpeed(REAR_MOTOR_L, 0.0);
-    Motor_setSpeed(REAR_MOTOR_R, 0.0);
+    //Motor_setSpeed(REAR_MOTOR_R, 0.0);
     pause(1000*3);
     Motor_setSpeed(REAR_MOTOR_L, -1.0);
-    Motor_setSpeed(REAR_MOTOR_R, -1.0);
+    //Motor_setSpeed(REAR_MOTOR_R, -1.0);
     pause(1000*3);
     
     Motor_Disable(REAR_MOTOR_L);
-    Motor_Disable(REAR_MOTOR_R);
+    //Motor_Disable(REAR_MOTOR_R);
 }
 
 /* Private functions ---------------------------------------------------------*/

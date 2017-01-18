@@ -30,7 +30,7 @@
 /**
  * @brief 	Number of GPIO to test
 */
-#define GPIO_NUMBER 8
+#define GPIO_NUMBER 16
 
 /**
  * @brief 	String to print for KO pins 
@@ -65,17 +65,17 @@
 /**
  * @brief 	Name of the pins 
 */
-static const char * pin_names[GPIO_NUMBER] =    {"PA0",         "PA1",          "PA2",          "PA3",          "PA4",          "PA5",          "PA6",          "PA7"};
+static const char * pin_names[GPIO_NUMBER] =    {"PA0",         "PA1",          "PA2",          "PA3",          "PA4",          "PA5",          "PA6",          "PA7",          "PA8",          "PA9",          "PA10",          "PA11",        "PA12",         "PA13",         "PA14",         "PA15"};
 
 /**
  * @brief 	GPIO associated to the pins
 */
-GPIO_TypeDef* GPIO_List[GPIO_NUMBER] =          {GPIOA,         GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA};
+GPIO_TypeDef* GPIO_List[GPIO_NUMBER] =          {GPIOA,         GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA,          GPIOA};
 
 /**
  * @brief 	Number of the pins
 */
-uint16_t PIN_List[GPIO_NUMBER] =                {GPIO_Pin_0,    GPIO_Pin_1,     GPIO_Pin_2,     GPIO_Pin_3,     GPIO_Pin_4,     GPIO_Pin_5,     GPIO_Pin_6,     GPIO_Pin_7};
+uint16_t PIN_List[GPIO_NUMBER] =                {GPIO_Pin_0,    GPIO_Pin_1,     GPIO_Pin_2,     GPIO_Pin_3,     GPIO_Pin_4,     GPIO_Pin_5,     GPIO_Pin_6,     GPIO_Pin_7,     GPIO_Pin_8,     GPIO_Pin_9,     GPIO_Pin_10,    GPIO_Pin_11,    GPIO_Pin_12,    GPIO_Pin_13,    GPIO_Pin_14,    GPIO_Pin_15};
 
 /**
  * @brief 	Condition of the pins. Condition is coded on 4 bits (the 4 others have no interest) 
@@ -109,7 +109,6 @@ void GPIO_Example(void) {
         }
         // Pins '0' read
         GPIO_ResetBits(GPIO_List[i], PIN_List[i]);
-        //pause(10);
         for(j=0; j<GPIO_NUMBER; j++) {
             if (j != i) result[j] = GPIO_ReadInputDataBit(GPIO_List[j], PIN_List[j]);
             else        result[j] = 0x00;
@@ -141,7 +140,6 @@ void GPIO_Example(void) {
         
         // Pins '1' read
         GPIO_SetBits(GPIO_List[i], PIN_List[i]);
-        //pause(10);
         for(j=0; j<GPIO_NUMBER; j++) {
             if (j != i) result[j] = GPIO_ReadInputDataBit(GPIO_List[j], PIN_List[j]);
             else        result[j] = 0x01;

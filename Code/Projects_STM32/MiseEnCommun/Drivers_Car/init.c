@@ -37,30 +37,24 @@
 
 void Init (void) {
     
-    init_data();
-    
-    System_Time_QuickInit();
-    
-    HallSensor_QuickInit(HALLSENSOR_L);
-    HallSensor_QuickInit(HALLSENSOR_R);
-    
-    Motor_QuickInit(REAR_MOTOR_L);
-    Motor_QuickInit(REAR_MOTOR_R);
-    Motor_QuickInit(FRONT_MOTOR);
-    
-// SPIComm_QuickInit(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t buffer_Rx_size, size_t buffer_Tx_size)
-    
-    PositionSensor_QuickInit(POSITION_SENSOR_L);
-    PositionSensor_QuickInit(POSITION_SENSOR_R);
-    
-    SpeedSensor_QuickInit(SPEED_SENSOR_L);
-    SpeedSensor_QuickInit(SPEED_SENSOR_R);
-    
     FrontMotor_QuickInit();
     
     RearMotors_QuickInit();
     
-    Mirroring_Init();
+    init_data();
+    
+      
+    HallSensor_QuickInit(HALLSENSOR_L);
+    HallSensor_QuickInit(HALLSENSOR_R);
+        
+// SPIComm_QuickInit(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t buffer_Rx_size, size_t buffer_Tx_size)
+    
+    PositionSensor_QuickInit(POSITION_SENSOR_L);
+    PositionSensor_QuickInit(POSITION_SENSOR_R);
+     
+
+    
+    //Mirroring_Init();
 
 }
 

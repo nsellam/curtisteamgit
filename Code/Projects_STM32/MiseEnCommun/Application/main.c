@@ -2,14 +2,14 @@
 #include <stm32f10x.h>
 
 #include "examples.h"
-//#include "init.h"
-//#include "rear_motors.h"
+#include "init.h"
+#include "rear_motors.h"
 
 
 int main(void) {
     
-    //Init();
-    //RearMotors_Enable();
+    Init();
+    RearMotors_Enable();
  
     
     //HallSensor_Example();
@@ -18,7 +18,7 @@ int main(void) {
     //SpeedSensor_Example();
     //PWM_Example();
     //ADC_Example();
-    GPIO_Example();
+    //GPIO_Example();
     //FrontMotor_Example();
     //RearMotors_Example();
     while(1) {}
