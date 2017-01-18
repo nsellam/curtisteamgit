@@ -33,8 +33,6 @@ volatile float voltages[ADC_NB_CHANNELS_MAX];
 volatile uint8_t checked[ADC_NB_CHANNELS_MAX] = {0};
 
 /* Private function prototypes -----------------------------------------------*/
-void sleep(void);
-
 float to_voltage(uint16_t value);
 uint8_t check_voltage(float voltage);
 void print_pin_voltage(int index);
@@ -71,24 +69,18 @@ void ADC_Example(void) {
                 values[i] = ADC_QuickGet(ADC1, i+1);
                 // Compute the voltage
                 voltages[i] = to_voltage(values[i]);
-                // Check if the voltage passed the ground test or the 3.3V test
+                // Check if the voltage passed the ground or the 3.3V threshold test
                 checked[i] |= check_voltage(voltages[i]);
             }
             // Display everything in the Debug Viewer
             print_voltages();
             // Delay
-            sleep();
+            dbg_sleep(100);
         }
     }
 }
 
 /* Private functions ---------------------------------------------------------*/
-
-// Hard coded pause
-void sleep(void) {
-    int i;
-    for(i = 0; i < 2e5; i++);
-}
 
 #define V_MAX 3.3
 float to_voltage(uint16_t value) {

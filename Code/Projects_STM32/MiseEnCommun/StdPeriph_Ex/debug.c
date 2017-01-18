@@ -7,7 +7,23 @@ struct __FILE {int handle;/* Add whatever you need here */};
 FILE __stdout;
 FILE __stdin;
 
+/**
+ * @brief   Function used by printf to put a char in the Debug Viewer.
+ * @param   ch Character to send.
+ * @param   f  Output stream.
+ * @return  The character sent.
+*/
 int fputc(int ch, FILE *f) {
   ITM_SendChar(ch);
   return(ch);
+}
+
+/**
+ * @brief   For-loop sleep
+ * @param   ms Number milliseconds
+*/
+void dbg_sleep(uint32_t ms) {
+    uint32_t i;
+    uint32_t ticks = ms * (SystemCoreClock/1000);
+    for(i = 29; i < ticks; i+=5);
 }

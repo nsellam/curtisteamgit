@@ -9,7 +9,6 @@
 #include <stm32f10x.h>
 #include "gpio.h"
 #include "debug.h"
-#include "system_time.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
