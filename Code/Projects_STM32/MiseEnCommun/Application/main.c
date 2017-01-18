@@ -5,11 +5,12 @@
 #include "init.h"
 #include "rear_motors.h"
 
-
 int main(void) {
+
     
-    Init();
-    RearMotors_Enable();
+    
+    //Init();
+    //RearMotors_Enable();
  
     
     //HallSensor_Example();
@@ -21,5 +22,6 @@ int main(void) {
     //GPIO_Example();
     //FrontMotor_Example();
     //RearMotors_Example();
+    Battery_Example();
     while(1) {}
 }

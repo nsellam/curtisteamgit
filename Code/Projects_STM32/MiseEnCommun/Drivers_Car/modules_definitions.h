@@ -228,7 +228,36 @@ typedef enum {
  * @brief       Maximum current for the motors (mA)
 */
 #define MAX_CURRENT                                 ((float)4000.0)
+    
+/**
+ * @brief       GPIO of the battery
+*/
+#define BATTERY_GPIO                                GPIOA
 
+/**
+ * @brief       Pin of the battery
+*/
+#define BATTERY_PIN                                GPIO_Pin_0
+
+/**
+ * @brief       ADC used for battery
+*/
+#define BATTERY_ADC                                 ADC1
+
+/**
+ * @brief       Sampling time for battery
+*/
+#define BATTERY_SAMPLING                            ADC_SampleTime_41Cycles5
+
+/**
+ * @brief       Sampling time for battery
+*/
+#define BATTERY_RANK                                0x01
+
+/**
+ * @brief       ADC scale for calculating the battery level value : 4069/3.3 *(3.2 - 1.6) = 1973 = 0x07B5
+*/
+#define BATTERY_ADC_SCALE                           ((uint16_t)0x07B5) //1973
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */

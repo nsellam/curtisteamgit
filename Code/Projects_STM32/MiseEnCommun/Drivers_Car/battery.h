@@ -1,29 +1,23 @@
 /**
- * @file    examples.h
+ * @file    battery.h
  * @author  Curtis Team
- * @brief   Headers of API use case examples
+ * @brief   Headers of functions to handle battery 
  */
  
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef _EXAMPLES_H
-#define _EXAMPLES_H
- 
+#ifndef _BATTERY_H
+#define _BATTERY_H
+
 /* Includes ------------------------------------------------------------------*/
-#include "modules_definitions.h"
+#include <stdint.h>
+#include <stddef.h>
+#include "stm32f10x.h"
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void ADC_Example(void);
-void PWM_Example(void);
-void GPIO_Example(void);
-void HallSensor_Example(void);
-void Motor_Example(void);
-void PositionSensor_Example(void);
-void SpeedSensor_Example(void);
-void FrontMotor_Example(void);
-void RearMotors_Example(void);
-void Battery_Example(void);
+void Battery_QuickInit(void);
+uint8_t Battery_get(void);
 
-#endif // _EXAMPLES_H
+#endif // _BATTERY_H

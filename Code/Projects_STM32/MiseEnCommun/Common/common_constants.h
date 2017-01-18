@@ -142,6 +142,11 @@ typedef enum {
  */
 #define SPEED_KNOT		        0.01943845  	        // knots
 
+/**
+ * @brief   Convert float to percentage coefficient 
+ */
+#define PERCENTAGE              100
+
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 
