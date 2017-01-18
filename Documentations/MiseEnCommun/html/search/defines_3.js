@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['enable',['ENABLE',['../data__interface_8h.html#a514ad415fb6125ba296793df7d1a468a',1,'data_interface.h']]],
   ['error_5fcomputing_5fchannel',['ERROR_COMPUTING_CHANNEL',['../exti_8c.html#a028dd75710bca97483823fee61232400',1,'exti.c']]],
   ['error_5finvalid_5fpin',['ERROR_INVALID_PIN',['../adc_8c.html#a12efaf0ce5990566e841716c0c6cea56',1,'adc.c']]],
   ['error_5finvalid_5fport',['ERROR_INVALID_PORT',['../adc_8c.html#af0a320afa61a52db59de96a72ab64ee2',1,'adc.c']]],

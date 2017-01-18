@@ -85,7 +85,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:a259bee748117476f5bf763c71a2f66a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frequency to count systicks. <br /></td></tr>
 <tr class="separator:a259bee748117476f5bf763c71a2f66a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d1fc1e3a90f1efaf0b9e3047e9b4e0e"><td class="memItemLeft" align="right" valign="top"><a id="a7d1fc1e3a90f1efaf0b9e3047e9b4e0e"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="systick_8h.html#a7d1fc1e3a90f1efaf0b9e3047e9b4e0e">SYSTICK_UNIT</a>&#160;&#160;&#160;1/1000</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="systick_8h.html#a7d1fc1e3a90f1efaf0b9e3047e9b4e0e">SYSTICK_UNIT</a>&#160;&#160;&#160;(1.0/<a class="el" href="systick_8h.html#a259bee748117476f5bf763c71a2f66a8">SYSTICK_FREQ</a>)</td></tr>
 <tr class="memdesc:a7d1fc1e3a90f1efaf0b9e3047e9b4e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unit used by the system to count time. <br /></td></tr>
 <tr class="separator:a7d1fc1e3a90f1efaf0b9e3047e9b4e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -95,22 +95,22 @@ Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="systick_8h.html#a5a32ca87bb53e0c027409c0d875ce323">SysTick_QuickInit</a> (void)</td></tr>
 <tr class="memdesc:a5a32ca87bb53e0c027409c0d875ce323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the initialization of the systick system. <br /></td></tr>
 <tr class="separator:a5a32ca87bb53e0c027409c0d875ce323"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5e09814056d617c521549e542639b7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="systick_8h.html#ab5e09814056d617c521549e542639b7e">SysTick_Handler</a> (void)</td></tr>
-<tr class="memdesc:ab5e09814056d617c521549e542639b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles SysTick Handler.  <a href="#ab5e09814056d617c521549e542639b7e">More...</a><br /></td></tr>
-<tr class="separator:ab5e09814056d617c521549e542639b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1776ae73b563f2f9fc51d6cd626f1a62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="systick_8h.html#a1776ae73b563f2f9fc51d6cd626f1a62">SysTick_Callback</a> (void)</td></tr>
+<tr class="memdesc:a1776ae73b563f2f9fc51d6cd626f1a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback associated to SysTick. Please add here your periodic functions.  <a href="#a1776ae73b563f2f9fc51d6cd626f1a62">More...</a><br /></td></tr>
+<tr class="separator:a1776ae73b563f2f9fc51d6cd626f1a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Headers of functions to handle systick (STM internal time) </p>
 <dl class="section author"><dt>Author</dt><dd>Curtis Team </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ab5e09814056d617c521549e542639b7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5e09814056d617c521549e542639b7e">&sect;&nbsp;</a></span>SysTick_Handler()</h2>
+<a id="a1776ae73b563f2f9fc51d6cd626f1a62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1776ae73b563f2f9fc51d6cd626f1a62">&sect;&nbsp;</a></span>SysTick_Callback()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SysTick_Handler </td>
+          <td class="memname">void SysTick_Callback </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -119,13 +119,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syst
       </table>
 </div><div class="memdoc">
 
-<p>Handles SysTick Handler. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Callback associated to SysTick. Please add here your periodic functions. </p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">None</td><td></td></tr>

@@ -1,8 +1,9 @@
 var searchData=
 [
   ['rcc_5ftimer_5fconfiguration',['RCC_timer_configuration',['../tim_8c.html#a9e44751153d5b7905c836da747fba3ae',1,'tim.c']]],
-  ['rearmotor_5fcontroll',['RearMotor_controlL',['../rear__motors_8c.html#a147d006aa5f32a0a25ed9a815553c36b',1,'RearMotor_controlL(int16_t speed_cmd):&#160;rear_motors.c'],['../rear__motors_8h.html#a0c9bdcd4040868cd93895672dfc71914',1,'RearMotor_controlL(int16_t cmd):&#160;rear_motors.c']]],
-  ['rearmotors_5fcallback',['RearMotors_Callback',['../rear__motors_8c.html#a7ea50c47129386809c33323249de480e',1,'RearMotors_Callback(void):&#160;rear_motors.c'],['../rear__motors_8h.html#a7ea50c47129386809c33323249de480e',1,'RearMotors_Callback(void):&#160;rear_motors.c'],['../system__time_8c.html#adcea1e14d59008d0a1cfd259373505d4',1,'RearMotors_Callback(void):&#160;system_time.c']]],
+  ['rearmotor_5fcontroll',['RearMotor_controlL',['../rear__motors_8c.html#a147d006aa5f32a0a25ed9a815553c36b',1,'rear_motors.c']]],
+  ['rearmotor_5fcontrolr',['RearMotor_controlR',['../rear__motors_8c.html#ab28ae61844fad4e3a7cf0bc86967cda4',1,'rear_motors.c']]],
+  ['rearmotors_5fcallback',['RearMotors_Callback',['../rear__motors_8c.html#a7ea50c47129386809c33323249de480e',1,'rear_motors.c']]],
   ['rearmotors_5fdisable',['RearMotors_Disable',['../rear__motors_8c.html#a2241493ba36912eaef48597d2a50d148',1,'RearMotors_Disable(void):&#160;rear_motors.c'],['../rear__motors_8h.html#a2241493ba36912eaef48597d2a50d148',1,'RearMotors_Disable(void):&#160;rear_motors.c']]],
   ['rearmotors_5fenable',['RearMotors_Enable',['../rear__motors_8c.html#a4978279b1af44cae0cf1abd17dd7fc4f',1,'RearMotors_Enable(void):&#160;rear_motors.c'],['../rear__motors_8h.html#a4978279b1af44cae0cf1abd17dd7fc4f',1,'RearMotors_Enable(void):&#160;rear_motors.c']]],
   ['rearmotors_5fexample',['RearMotors_Example',['../examples_8h.html#aff89581787d7a201941fde7cc03cc80d',1,'RearMotors_Example(void):&#160;rearmotors_example.c'],['../rearmotors__example_8c.html#aff89581787d7a201941fde7cc03cc80d',1,'RearMotors_Example(void):&#160;rearmotors_example.c']]],

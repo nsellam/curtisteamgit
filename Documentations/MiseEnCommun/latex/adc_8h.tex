@@ -19,6 +19,9 @@ Headers of functions to handle A\+D\+Cs.
 \hypertarget{adc_8h_a0b870445558a3d9a59773dc14e617a98}{}\label{adc_8h_a0b870445558a3d9a59773dc14e617a98} 
 \#define \hyperlink{adc_8h_a0b870445558a3d9a59773dc14e617a98}{A\+D\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+IN}~(-\/2)
 \begin{DoxyCompactList}\small\item\em Given pin couldn\textquotesingle{}t be initialized\+: pin is unreachable. \end{DoxyCompactList}\item 
+\hypertarget{adc_8h_a65e7e7dd930b0e7a56f510f4948700a8}{}\label{adc_8h_a65e7e7dd930b0e7a56f510f4948700a8} 
+\#define \hyperlink{adc_8h_a65e7e7dd930b0e7a56f510f4948700a8}{A\+D\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+A\+NK}~(-\/3)
+\begin{DoxyCompactList}\small\item\em Given rank couldn\textquotesingle{}t be initialized\+: rank is out of range. \end{DoxyCompactList}\item 
 \hypertarget{adc_8h_a53f3bf26ad6198c3d5f4f69b76533c7c}{}\label{adc_8h_a53f3bf26ad6198c3d5f4f69b76533c7c} 
 \#define \hyperlink{adc_8h_a53f3bf26ad6198c3d5f4f69b76533c7c}{A\+D\+C\+\_\+\+N\+B\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+AX}~16
 \begin{DoxyCompactList}\small\item\em Maximum number of channels for one A\+DC. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -27,6 +30,8 @@ Headers of functions to handle A\+D\+Cs.
 \item 
 int \hyperlink{adc_8h_ac9c1e16ff94fbf1cd518f1eb22c7bf76}{A\+D\+C\+\_\+\+Quick\+Init} (A\+D\+C\+\_\+\+Type\+Def $\ast$A\+D\+Cx, G\+P\+I\+O\+\_\+\+Type\+Def $\ast$G\+P\+I\+Ox, uint16\+\_\+t G\+P\+I\+O\+\_\+\+Pin\+\_\+x, uint8\+\_\+t Rank, uint8\+\_\+t Sample\+Time)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given Analog to Digital Converter (A\+DC) with the parameters specified. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{adc_8h_a64c75c96fc4cec9e53881ec94471d1a6}{A\+D\+C\+\_\+\+Quick\+Get} (A\+D\+C\+\_\+\+Type\+Def $\ast$A\+D\+Cx, uint8\+\_\+t Rank)
+\begin{DoxyCompactList}\small\item\em Get the conversion value of an A\+DC at a given rank. \end{DoxyCompactList}\item 
 \hypertarget{adc_8h_a7defbc5079df7e920454289e8b819a2b}{}\label{adc_8h_a7defbc5079df7e920454289e8b819a2b} 
 void \hyperlink{adc_8h_a7defbc5079df7e920454289e8b819a2b}{A\+D\+C\+\_\+\+Callback} (void)
 \begin{DoxyCompactList}\small\item\em Callback associated to A\+DC interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -41,6 +46,26 @@ Curtis Team
 
 
 \subsection{Function Documentation}
+\hypertarget{adc_8h_a64c75c96fc4cec9e53881ec94471d1a6}{}\label{adc_8h_a64c75c96fc4cec9e53881ec94471d1a6} 
+\index{adc.\+h@{adc.\+h}!A\+D\+C\+\_\+\+Quick\+Get@{A\+D\+C\+\_\+\+Quick\+Get}}
+\index{A\+D\+C\+\_\+\+Quick\+Get@{A\+D\+C\+\_\+\+Quick\+Get}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{A\+D\+C\+\_\+\+Quick\+Get()}{ADC\_QuickGet()}}
+{\footnotesize\ttfamily uint16\+\_\+t A\+D\+C\+\_\+\+Quick\+Get (\begin{DoxyParamCaption}\item[{A\+D\+C\+\_\+\+Type\+Def $\ast$}]{A\+D\+Cx,  }\item[{uint8\+\_\+t}]{Rank }\end{DoxyParamCaption})}
+
+
+
+Get the conversion value of an A\+DC at a given rank. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A\+D\+Cx} & A\+DC unit to use to perform analog to digital conversions \\
+\hline
+{\em Rank} & Place of this conversion in the conversions sequence. This parameter must be between 1 to 16. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Conversion value of the A\+DC at the rank 
+\end{DoxyReturn}
 \hypertarget{adc_8h_ac9c1e16ff94fbf1cd518f1eb22c7bf76}{}\label{adc_8h_ac9c1e16ff94fbf1cd518f1eb22c7bf76} 
 \index{adc.\+h@{adc.\+h}!A\+D\+C\+\_\+\+Quick\+Init@{A\+D\+C\+\_\+\+Quick\+Init}}
 \index{A\+D\+C\+\_\+\+Quick\+Init@{A\+D\+C\+\_\+\+Quick\+Init}!adc.\+h@{adc.\+h}}
@@ -55,11 +80,16 @@ Makes the initialization of the given Analog to Digital Converter (A\+DC) with t
 \begin{DoxyParams}{Parameters}
 {\em A\+D\+Cx} & A\+DC unit to use to perform analog to digital conversions \\
 \hline
-{\em G\+P\+I\+Ox} & Port of the input to consider \\
+{\em G\+P\+I\+Ox} & where x can be (A..G) to select the G\+P\+IO port of the input to consider \\
 \hline
-{\em G\+P\+I\+O\+\_\+\+Pin\+\_\+x} & Number of the pin to consider \\
+{\em G\+P\+I\+O\+\_\+\+Pin\+\_\+x} & Number of the pin to consider This parameter can be one of the following values\+:
+\begin{DoxyItemize}
+\item For G\+P\+I\+OA\+: x can be (0..7)
+\item For G\+P\+I\+OB\+: x can be (0..1)
+\item For G\+P\+I\+OC\+: x can be (0..5) 
+\end{DoxyItemize}\\
 \hline
-{\em Rank} & Place of this conversion in the conversions sequence \\
+{\em Rank} & Place of this conversion in the conversions sequence. This parameter must be between 1 to 16. \\
 \hline
 {\em Sample\+Time} & Averaging time (in number of cycles) This parameter can be one of the following values\+: \begin{DoxyItemize}
 \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+1\+Cycles5\+: Sample time equal to 1.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+7\+Cycles5\+: Sample time equal to 7.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+13\+Cycles5\+: Sample time equal to 13.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+28\+Cycles5\+: Sample time equal to 28.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+41\+Cycles5\+: Sample time equal to 41.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+55\+Cycles5\+: Sample time equal to 55.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+71\+Cycles5\+: Sample time equal to 71.\+5 cycles \item A\+D\+C\+\_\+\+Sample\+Time\+\_\+239\+Cycles5\+: Sample time equal to 239.\+5 cycles \end{DoxyItemize}
