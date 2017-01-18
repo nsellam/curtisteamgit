@@ -81,18 +81,11 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
         RCC_ADCCLKConfig(RCC_PCLK2_Div6);
         ADC_Clock_Enable(ADCx);
 
-        if(ADCx == ADC1) {
+        if(ADCx != ADC2) {
             DMA_QuickInit_Periph2Buffer(
-                ADC2DMA_Channel(ADC1), 
-                (uint32_t)&ADC1->DR,            DMA_PeripheralDataSize_HalfWord, 
-                (uint32_t)conversion_values[0], DMA_MemoryDataSize_HalfWord, 
-                ADC_NB_CHANNELS_MAX
-            );
-        } else if (ADCx == ADC3) {
-            DMA_QuickInit_Periph2Buffer(
-                ADC2DMA_Channel(ADC3), 
-                (uint32_t)&ADC3->DR,            DMA_PeripheralDataSize_HalfWord, 
-                (uint32_t)conversion_values[3], DMA_MemoryDataSize_HalfWord, 
+                ADC2DMA_Channel(ADCx), 
+                (uint32_t)&ADCx->DR,                        DMA_PeripheralDataSize_HalfWord, 
+                (uint32_t)conversion_values[ADC2int(ADCx)], DMA_MemoryDataSize_HalfWord, 
                 ADC_NB_CHANNELS_MAX
             );
         }
@@ -130,28 +123,32 @@ int ADC_QuickInit(ADC_TypeDef* ADCx, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin_x, u
         while (ADC_GetCalibrationStatus(ADCx));
         
         initialized[num] = 1;
+    
+        // Set ADC Conversion's sample time(channel, rank, sample time)
+        ADC_RegularChannelConfig(ADCx, channelx, Rank, SampleTime);
+        
+        ADC_SoftwareStartConvCmd(ADCx, ENABLE);
+        
     } else {
-            
-        // Disable ADC
-        ADC_Cmd(ADCx, DISABLE);
+
+        // Disable ADCx DMA
+        //ADC_DMACmd(ADCx, DISABLE);
         
         // Disable DMA
-        DMA_Cmd(ADC2DMA_Channel(ADCx), DISABLE);
+        //DMA_Cmd(ADC2DMA_Channel(ADCx), DISABLE);
         
         // Reset DMA counter
-        DMA_SetCurrDataCounter(ADC2DMA_Channel(ADCx), ADC_NB_CHANNELS_MAX);
+        //DMA_SetCurrDataCounter(ADC2DMA_Channel(ADCx), ADC_NB_CHANNELS_MAX);
         
         // Enable DMA
-        DMA_Cmd(ADC2DMA_Channel(ADCx), ENABLE);
-            
-        // Enable ADC
-        ADC_Cmd(ADCx, ENABLE);
+        //DMA_Cmd(ADC2DMA_Channel(ADCx), ENABLE);
+    
+        // Set ADC Conversion's sample time(channel, rank, sample time)
+        ADC_RegularChannelConfig(ADCx, channelx, Rank, SampleTime);
+
+        // Enable ADCx DMA
+        //ADC_DMACmd(ADCx, ENABLE);
     }
-    
-    // Set ADC Conversion's sample time(channel, rank, sample time)
-    ADC_RegularChannelConfig(ADCx, channelx, Rank, SampleTime);
-    
-    ADC_SoftwareStartConvCmd(ADCx, ENABLE);
 
     return ADC_NO_ERROR;
 }
