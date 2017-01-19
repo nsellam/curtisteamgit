@@ -19,10 +19,10 @@ int main(void) {
     //SpeedSensor_Example();
     //PWM_Example();
     //ADC_Example();
-    //GPIO_Example();
+    GPIO_Example();
     //FrontMotor_Example();
     //RearMotors_Example();
     //Battery_Example();
-    MotorCurrent_Example();
+    //MotorCurrent_Example();
     while(1) {}
 }
