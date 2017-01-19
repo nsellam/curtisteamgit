@@ -34,7 +34,7 @@ int fputc(int ch, FILE *f) {
 
 /**
  * @brief   For-loop sleep
- * @param   ms Number milliseconds
+ * @param   ms Number of milliseconds.
 */
 void dbg_sleep(uint32_t ms) {
     uint32_t i;

@@ -7,92 +7,69 @@
 /* Includes ------------------------------------------------------------------*/
 #include "data_interface.h"
 
+#include "common_constants.h"
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-/**
-* @brief    Value for 8 bits variables
-*/
-#define INITIAL_8B_VALUE      ((int8_t)0x00)
-
-/**
-* @brief    Value for 16 bits variables
-*/
-#define INITIAL_16B_VALUE     ((int16_t)0x0000)
-
-/**
-* @brief    Value for float variables
-*/
-#define INITIAL_FLOAT_VALUE   ((float)0.0)
-
-/**
-* @brief    Value for motors variables
-*/
-#define INITIAL_MOTOR_VALUE   127
 /* Private macro -------------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/
 /**
  * @brief   STM32 data
  */
-volatile data_STM_t data_STM;
-/**
- * @brief STM32 data
- */
-volatile data_STM_t *pdata_STM = &data_STM;
+volatile DataITF_STM_TypeDef *pDataITF_STM;
 /**
  * @brief   PI data
  */
-volatile data_PI_t data_PI;
-/**
- * @brief   PI data
- */
-volatile data_PI_t *pdata_PI = &data_PI;
+volatile DataITF_PI_TypeDef *pDataITF_PI;
+
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
-void init_data_PI(void);
-void init_data_STM(void);
+void DataITF_PI_Init(void);
+void DataITF_STM_Init(void);
 
 /* Public functions ----------------------------------------------------------*/
 /**
- * @brief   Initializes the data_PI and data_STM structures
+ * @brief   Initializes the DataITF_STM and DataITF_STM structures
  * @retval  None
  */
-void init_data(void) {
-   init_data_PI();
-   init_data_STM();
+void DataITF_Init(void) {
+   DataITF_PI_Init();
+   DataITF_STM_Init();
 }
 
 /* Private functions ---------------------------------------------------------*/
+
 /**
- * @brief   Initializes the data_STM structure with bytes of zeros
+ * @brief   Initializes the DataITF_PI structure with bytes of zeros
  * @retval  None
  */
-void init_data_STM(void) {
-   int i;
-
-   for(i = 0; i < DATA_STM_US_NUM; i++)
-      data_STM.ultrasonic_sensors[i] = INITIAL_8B_VALUE;
-
-   data_STM.wheel_position_sensor_R = INITIAL_8B_VALUE;
-   data_STM.wheel_position_sensor_L = INITIAL_8B_VALUE;
-   data_STM.steering_stop_sensor_R  = INITIAL_8B_VALUE;
-   data_STM.steering_stop_sensor_L  = INITIAL_8B_VALUE;
-   data_STM.motor_current_R         = INITIAL_16B_VALUE;
-   data_STM.motor_current_L         = INITIAL_16B_VALUE;
-   data_STM.errors_SPI              = INITIAL_8B_VALUE;
-
-	data_STM.wheel_speed_R					= INITIAL_MOTOR_VALUE;
-    data_STM.wheel_speed_L					= INITIAL_MOTOR_VALUE;
-	data_STM.travelled_distance_R		= INITIAL_FLOAT_VALUE;
-    data_STM.travelled_distance_L		= INITIAL_FLOAT_VALUE;
+void DataITF_PI_Init(void) {
+   pDataITF_PI->motor_prop            = 0;
+   pDataITF_PI->motor_dir             = NONE;
+   pDataITF_PI->enable_motors_control = 0;
+   pDataITF_PI->errors_SPI            = 0;
 }
-
 /**
- * @brief   Initializes the data_PI structure with bytes of zeros
+ * @brief   Initializes the DataITF_STM structure with bytes of zeros
  * @retval  None
  */
-void init_data_PI(void) {
-   data_PI.motor_prop = INITIAL_8B_VALUE;
-   data_PI.motor_dir  = INITIAL_8B_VALUE;
-   data_PI.enable_motors_control        = INITIAL_8B_VALUE;
-   data_PI.errors_SPI = INITIAL_8B_VALUE;
+void DataITF_STM_Init(void) {
+    int i;
+
+    for(i = 0; i < US_NUM; i++)
+        pDataITF_STM->ultrasonic_sensors[i] = 0;
+
+    pDataITF_STM->wheel_SENSOR_R = 0;
+    pDataITF_STM->wheel_SENSOR_L = 0;
+    pDataITF_STM->steering_stop_sensor_R  = 0;
+    pDataITF_STM->steering_stop_sensor_L  = 0;
+    pDataITF_STM->motor_current_R         = 0;
+    pDataITF_STM->motor_current_L         = 0;
+    pDataITF_STM->errors_SPI              = 0;
+
+    pDataITF_STM->wheel_speed_R          = 0.0;
+    pDataITF_STM->wheel_speed_L          = 0.0;
+	pDataITF_STM->travelled_distance_R   = 0.0;
+    pDataITF_STM->travelled_distance_L   = 0.0;
+    pDataITF_STM->battery_level          = 0;
 }

@@ -58,7 +58,7 @@
 /* Private functions ---------------------------------------------------------*/
 
 __weak void EXTI_ITHandler(uint32_t EXTI_Line) {}
-__weak void DMA_ITHandler(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {}
+__weak void DMA_ITHandler(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t itstatus) {}
 __weak void ADC_ITHandler(ADC_TypeDef* ADCx) {}
 __weak void TIM_ITHandler(TIM_TypeDef* TIMx) {}
 __weak void SPI_ITHandler(SPI_TypeDef* SPIx) {}

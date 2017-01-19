@@ -30,31 +30,3 @@
 /* Public functions ----------------------------------------------------------*/
 
 
-/** 
-* @brief  Initializes all the sensors / actuators in the same time
-* @retval none  
-*/
-
-void Init (void) {
-    
-    FrontMotor_QuickInit();
-    
-    RearMotors_QuickInit();
-    
-    init_data();
-    
-      
-    HallSensor_QuickInit(HALLSENSOR_L);
-    HallSensor_QuickInit(HALLSENSOR_R);
-        
-// SPIComm_QuickInit(uint8_t * buffer_Rx, uint8_t * buffer_Tx, size_t buffer_Rx_size, size_t buffer_Tx_size)
-    
-    PositionSensor_QuickInit(POSITION_SENSOR_L);
-    PositionSensor_QuickInit(POSITION_SENSOR_R);
-     
-
-    
-    //Mirroring_Init();
-
-}
-

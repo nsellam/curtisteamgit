@@ -20,16 +20,16 @@
 float position[HALLSENSORS_NUMBER]; 
 
 /* Private function prototypes -----------------------------------------------*/
-void PositionSensor_compute (PositionSensor_Enum PositionSensor_identifier);
+void PositionSensor_compute (Sensor_Enum PositionSensor_identifier);
 
 /* Public functions ----------------------------------------------------------*/
 /**
  * @brief   Initializes specified position sensor.
  * @param   PositionSensor_identifier Position sensor to be considered. 
 */
-void PositionSensor_QuickInit(PositionSensor_Enum PositionSensor_identifier) {
-            if (PositionSensor_identifier == HALLSENSOR_L) position[HALLSENSOR_L] = 0.0;
-    else    if (PositionSensor_identifier == HALLSENSOR_R) position[HALLSENSOR_R] = 0.0;
+void PositionSensor_QuickInit(Sensor_Enum PositionSensor_identifier) {
+            if (PositionSensor_identifier == SENSOR_L) position[SENSOR_L] = 0.0;
+    else    if (PositionSensor_identifier == SENSOR_R) position[SENSOR_R] = 0.0;
     else return;
     
     HallSensor_QuickInit(PositionSensor_identifier);
@@ -41,14 +41,14 @@ void PositionSensor_QuickInit(PositionSensor_Enum PositionSensor_identifier) {
  * @param   PositionSensor_identifier Position sensor to examine
  * @retval  Position sensor's value : unit depends on parameter passed as argument 
 */
-float PositionSensor_get(float unit, PositionSensor_Enum PositionSensor_identifier) {
+float PositionSensor_get(float unit, Sensor_Enum PositionSensor_identifier) {
 	PositionSensor_compute(PositionSensor_identifier);
 	return position[PositionSensor_identifier] * unit;
 }
 
 
 /* Private functions ---------------------------------------------------------*/
-void PositionSensor_compute(PositionSensor_Enum PositionSensor_identifier) {
+void PositionSensor_compute(Sensor_Enum PositionSensor_identifier) {
 	float lap = (float) HallSensor_getLap(PositionSensor_identifier);
 	float sector = (float) HallSensor_getSector(PositionSensor_identifier);
 	position[PositionSensor_identifier] = PI * CAR_WHEEL_SIZE * (lap +  sector / HALLSENSOR_NUMBER_OF_SECTORS);

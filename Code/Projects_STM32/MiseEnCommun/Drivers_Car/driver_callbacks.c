@@ -5,6 +5,8 @@
  */
  
 /* Includes ------------------------------------------------------------------*/
+#include <stdint.h>
+#include <stm32f10x.h>
 #include "driver_callbacks.h"
 #include "common_constants.h"
 #include "modules_definitions.h"
@@ -17,14 +19,24 @@
 /* Private function prototypes -----------------------------------------------*/
 /* Public functions ----------------------------------------------------------*/
 
-__weak void HallSensor_EdgeCallback(HallSensors_Enum hall_identifier) {}
-__weak void FrontMotor_Callback(side_TypeDef direction) {}
-    
+__weak void HallSensor_Handler(Sensor_Enum hall_identifier) {}
+__weak void FrontMotor_Handler(side_TypeDef direction) {}
+__weak void SPIComm_Rx_Data_Handler(void) {}
+__weak void SPIComm_Tx_Data_Handler(void) {}
+
 void EXTI_Callback(uint32_t EXTI_Line) {
-    if (EXTI_Line == HALLSENSOR_L_LINE) HallSensor_EdgeCallback(HALLSENSOR_L);
-    if (EXTI_Line == HALLSENSOR_R_LINE) HallSensor_EdgeCallback(HALLSENSOR_R);
-    if (EXTI_Line == FRONT_LINE_LEFT)   FrontMotor_Callback(LEFT);
-    if (EXTI_Line == FRONT_LINE_RIGHT)  FrontMotor_Callback(RIGHT);
+    if (EXTI_Line == SENSOR_L_LINE) HallSensor_Handler(SENSOR_L);
+    if (EXTI_Line == SENSOR_R_LINE) HallSensor_Handler(SENSOR_R);
+    if (EXTI_Line == FRONT_LINE_LEFT)   FrontMotor_Handler(LEFT);
+    if (EXTI_Line == FRONT_LINE_RIGHT)  FrontMotor_Handler(RIGHT);
+}
+
+void DMA_Callback(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t itstatus) {
+   if (DMAy_Channelx == SPICOMM_SPIx_DMA_Rx_Channel) {
+      if (itstatus & DMA_IT_TC) SPIComm_Rx_Data_Handler();
+   } else if (DMAy_Channelx == SPICOMM_SPIx_DMA_Tx_Channel) {
+      if (itstatus & DMA_IT_TC) SPIComm_Tx_Data_Handler();
+   }
 }
     
 /* Private functions ---------------------------------------------------------*/

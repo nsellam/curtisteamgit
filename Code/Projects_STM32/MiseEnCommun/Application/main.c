@@ -2,17 +2,9 @@
 #include <stm32f10x.h>
 
 #include "examples.h"
-#include "init.h"
-#include "rear_motors.h"
+#include "manager.h"
 
-int main(void) {
-
-    
-    
-    //Init();
-    //RearMotors_Enable();
- 
-    
+int main(void) { 
     //HallSensor_Example();
     //Motor_Example();
     //PositionSensor_Example();
@@ -23,6 +15,8 @@ int main(void) {
     //FrontMotor_Example();
     //RearMotors_Example();
     //Battery_Example();
-    MotorCurrent_Example();
+    //MotorCurrent_Example();
+    //Mirroring_Example();
+    Manager_Init();
     while(1) {}
 }

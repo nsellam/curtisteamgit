@@ -15,12 +15,9 @@
 
 /* Exported types ------------------------------------------------------------*/
 typedef enum {
-    HALLSENSOR_L = 0,
-    HALLSENSOR_R = 1
-} HallSensors_Enum;
-
-typedef HallSensors_Enum PositionSensor_Enum;
-typedef HallSensors_Enum SpeedSensor_Enum;
+    SENSOR_L = 0,
+    SENSOR_R = 1
+} Sensor_Enum;
 
 typedef enum {
     FRONT_MOTOR = 0,
@@ -47,32 +44,32 @@ typedef enum {
 /**
  * @brief       Number of the exti-line corresponding to the left hall sensor
 */
-#define HALLSENSOR_L_LINE                      EXTI_Line8
+#define SENSOR_L_LINE                      EXTI_Line8
 
 /**
  * @brief       Number of the exti-line corresponding to the right hall sensor
 */
-#define HALLSENSOR_R_LINE                      EXTI_Line9
+#define SENSOR_R_LINE                      EXTI_Line9
 
 /**
  * @brief       Number of the pin where the left hall sensor is plugged
 */
-#define HALLSENSOR_L_PIN                       GPIO_Pin_8
+#define SENSOR_L_PIN                       GPIO_Pin_8
 
 /**
  * @brief       Number of the pin where the right hall sensor is plugged
 */
-#define HALLSENSOR_R_PIN                       GPIO_Pin_9
+#define SENSOR_R_PIN                       GPIO_Pin_9
 
 /**
  * @brief       Pointer on the GPIO port interfacing the left hall sensor
 */
-#define HALLSENSOR_L_GPIO                      GPIOC
+#define SENSOR_L_GPIO                      GPIOC
 
 /**
  * @brief       Pointer on the GPIO port interfacing the right hall sensor
 */
-#define HALLSENSOR_R_GPIO                      GPIOC
+#define SENSOR_R_GPIO                      GPIOC
 
 /**
  * @brief       Number of fronts to count to get one full lap of wheel
@@ -313,6 +310,43 @@ typedef enum {
  * @brief       ADC scale for calculating the battery level value : 4069/3.3 *(3.2 - 1.6) = 1973 = 0x07B5
 */
 #define BATTERY_ADC_SCALE                           ((uint16_t)0x07B5) //1973
+
+
+
+/**
+ * @brief   SPI used.
+ */
+#define SPICOMM_SPIx                        SPI2
+
+/**
+ * @brief   DMA used by the SPI
+ */
+#define SPICOMM_SPIx_DMA                    DMA1
+
+/**
+ * @brief   Channel DMA used by the SPI for reception
+ */
+#define SPICOMM_SPIx_DMA_Rx_Channel         DMA1_Channel4
+
+/**
+ * @brief   Channel DMA used by the SPI for transmission
+ */
+#define SPICOMM_SPIx_DMA_Tx_Channel         DMA1_Channel5
+
+/**
+ * @brief   Interupt of the DMA used by the SPI for reception
+ */
+#define SPICOMM_SPIx_DMA_Rx_Channel_IRQn    DMA1_Channel4_IRQn
+
+/**
+ * @brief   Interupt of the DMA used by the SPI for transmission
+ */
+#define SPICOMM_SPIx_DMA_Tx_Channel_IRQn    DMA1_Channel5_IRQn
+
+/**
+ * @brief   Priority of the DMA interrupts used by the SPI
+ */
+#define SPICOMM_SPIx_DMA_PRIO               1
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */

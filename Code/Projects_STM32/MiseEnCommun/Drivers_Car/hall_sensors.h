@@ -54,12 +54,12 @@
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void HallSensor_QuickInit(HallSensors_Enum hall_identifier);
-void HallSensor_Callback(HallSensors_Enum hall_identifier);
-uint16_t HallSensor_getSector(HallSensors_Enum hall_identifier);
-int32_t HallSensor_getLap(HallSensors_Enum hall_identifier);
-uint64_t HallSensor_getLastPop(uint8_t n, HallSensors_Enum hall_identifier);
-int8_t HallSensor_getNumberTicksInPeriod(HallSensors_Enum hall_identifier);
-void HallSensor_EdgeCallback(HallSensors_Enum hall_identifier);
+void HallSensor_QuickInit(Sensor_Enum hall_identifier);
+void HallSensor_Callback(Sensor_Enum hall_identifier);
+uint16_t HallSensor_getSector(Sensor_Enum hall_identifier);
+int32_t HallSensor_getLap(Sensor_Enum hall_identifier);
+uint64_t HallSensor_getLastPop(uint8_t n, Sensor_Enum hall_identifier);
+int8_t HallSensor_getNumberTicksInPeriod(Sensor_Enum hall_identifier);
+void HallSensor_Handler(Sensor_Enum hall_identifier);
 void HallSensor_TimeCallback(void);
 #endif // _HALL_SENSORS_H

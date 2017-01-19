@@ -25,7 +25,7 @@ void EXTI_ITHandler(uint32_t EXTI_Line);
  * @param  flags Any combination of DMA_IT_TC, DMA_IT_HT, DMA_IT_TE
  * @retval None
 */
-void DMA_ITHandler(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags);
+void DMA_ITHandler(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t itstatus);
 
 void ADC_ITHandler(ADC_TypeDef* ADCx);
 
