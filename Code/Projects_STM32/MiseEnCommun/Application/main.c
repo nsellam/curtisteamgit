@@ -14,15 +14,14 @@ int main(void) {
  
     
     //HallSensor_Example();
-    //Motor_Example();
+    Motor_Example();
     //PositionSensor_Example();
     //SpeedSensor_Example();
     //PWM_Example();
     //ADC_Example();
-    GPIO_Example();
+    //GPIO_Example();
     //FrontMotor_Example();
     //RearMotors_Example();
     //Battery_Example();
-    //MotorCurrent_Example();
     while(1) {}
 }

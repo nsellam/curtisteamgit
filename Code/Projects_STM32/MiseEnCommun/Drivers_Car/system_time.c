@@ -44,9 +44,9 @@ void SysTick_Callback(void) {
     // Time increment 
     time_millis ++;
     
-    HallSensor_TimeCallback();
-    Manager_Callback();
-    RearMotors_Callback();
+    //HallSensor_TimeCallback();
+    //Manager_Callback();
+    //RearMotors_Callback();
     // Other periodic functions (every 1 ms)
     
     // Other periodic functions (every 10 ms)

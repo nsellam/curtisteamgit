@@ -14,55 +14,64 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
+/**
+ * @brief   Motor used for example.
+*/
+#define MOTOR               REAR_MOTOR_L
+
+/**
+ * @brief   Duration time of each step. 
+*/
+#define WAIT_TIME           3000 //ms
+
 /* Private macro -------------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
+void Current_display(void);
+
 /* Public functions ----------------------------------------------------------*/
 /**
- * @brief   Lauches motor. Motor is initalized, then set to forward 80% during 3 seconds, 
-                                                then stoped during 3seconds,
-                                                then set to backward 80% during 3 seconds,
-                                                and finally stoped.
+ * @brief   Lauches motor and displays the current in it. Motor is initalized, then set to forward 80% during 3 seconds, 
+                                                                then stoped during 3seconds,
+                                                                then set to backward 80% during 3 seconds,
+                                                                and finally stoped.
  * @retval  None
 */
 void Motor_Example(void) {   
     System_Time_QuickInit();
 
-    Motor_QuickInit(REAR_MOTOR_L);
-    //Motor_QuickInit(REAR_MOTOR_R);
+    Motor_QuickInit(MOTOR);
    
-    Motor_Enable(REAR_MOTOR_L);
-    //Motor_Enable(REAR_MOTOR_R);
+    Motor_Enable(MOTOR);
+
     
-    Motor_setSpeed(REAR_MOTOR_L, 1.0);
-    //Motor_setSpeed(REAR_MOTOR_R, 1.0);
-    pause(1000*3);
-    Motor_setSpeed(REAR_MOTOR_L, 0.0);
-    //Motor_setSpeed(REAR_MOTOR_R, 0.0);
-    pause(1000*3);
-    Motor_setSpeed(REAR_MOTOR_L, -1.0);
-    //Motor_setSpeed(REAR_MOTOR_R, -1.0);
-    pause(1000*3);
+    Motor_setSpeed(MOTOR, 1.0);
+    Current_display();
     
-    Motor_Disable(REAR_MOTOR_L);
-    //Motor_Disable(REAR_MOTOR_R);
+    Motor_setSpeed(MOTOR, 0.0);
+    Current_display();
+    
+    Motor_setSpeed(MOTOR, -1.0);
+    Current_display();
+    
+    Motor_Disable(MOTOR);
+    Current_display();
+
 }
 
 /**
- * @brief   Switches on a motor and displays continuously the value of its internal current. 
+ * @brief   Displays the current in the motor during a definied time. 
  * @retval  None
 */
-void MotorCurrent_Example(void) {
-    uint16_t current;
+void Current_display(void) {
+    int16_t current;
+    uint64_t arrivalTime = millis();
     
-    Motor_QuickInit(FRONT_MOTOR);
-    Motor_Enable(FRONT_MOTOR);
-    Motor_setSpeed(FRONT_MOTOR, 0.5);
-    
-    while(1) {
-        current = Motor_getCurrent(FRONT_MOTOR);
+    while(millis() - arrivalTime < WAIT_TIME) {
+        current = Motor_getCurrent(MOTOR);
         printf("%d mA\n", current);
+        pause(100);
     }
 }
 
