@@ -153,18 +153,23 @@ float ComputeMotorCommand_L (int16_t speed_cmd, int16_t current, int16_t speed){
     volatile int32_t in_PI;
     float current_f = (float)current;
     volatile float coef_in_PI;   // to adjust PI input depending on how close from MAX_CURRENT we are
+    
+    if (speed_cmd != 0) {
+        // duty cycle is 50 if current reaches MAX_CURRENT
+        if (fabs(current_f) > MAX_CURRENT) { 
+            dc = (uint8_t)MOTORS_PWM_ZERO;
+        }   
 
-    // duty cycle is 50 if current reaches MAX_CURRENT
-	if (fabs(current_f) > MAX_CURRENT) { 
-        dc = (uint8_t)MOTORS_PWM_ZERO;
-    }   
-
-    // If MAX_CURRENT is not reached     
-	else {
-        // PI controller input depends on how close from MAX_CURRENT is the current
-        coef_in_PI = (MAX_CURRENT - fabs(current_f)) / MAX_CURRENT;
-        in_PI = (int32_t)((float)((int32_t)speed_cmd - (int32_t)speed) * coef_in_PI);
-        dc = PI_Controller_L(in_PI) ; 
+        // If MAX_CURRENT is not reached     
+        else {
+            // PI controller input depends on how close from MAX_CURRENT is the current
+            coef_in_PI = (MAX_CURRENT - fabs(current_f)) / MAX_CURRENT;
+            in_PI = (int32_t)((float)((int32_t)speed_cmd - (int32_t)speed) * coef_in_PI);
+            dc = PI_Controller_L(in_PI) ; 
+        }
+    }
+    else {
+        dc = (float)MOTORS_PWM_ZERO;
     }
     
     return dc;
@@ -185,19 +190,23 @@ float ComputeMotorCommand_R (int16_t speed_cmd, int16_t current, int16_t speed){
     float current_f = (float)current;
     volatile float coef_in_PI;   // to adjust PI input depending on how close from MAX_CURRENT we are
     
-    // duty cycle is 50 if current reaches MAX_CURRENT
-	if (fabs(current_f) > MAX_CURRENT) { 
-        dc = (uint8_t)MOTORS_PWM_ZERO;
-    }   
+    if (speed_cmd != 0) {
+        // duty cycle is 50 if current reaches MAX_CURRENT
+        if (fabs(current_f) > MAX_CURRENT) { 
+            dc = (float)MOTORS_PWM_ZERO;
+        }   
 
-    // If MAX_CURRENT is not reached     
-	else {
-        // PI controller input depends on how close from MAX_CURRENT is the current
-        coef_in_PI = (MAX_CURRENT - fabs(current_f)) / MAX_CURRENT;
-        in_PI = (int32_t)((float)((int32_t)speed_cmd - (int32_t)speed) * coef_in_PI);
-        dc = PI_Controller_R(in_PI) ; 
+        // If MAX_CURRENT is not reached     
+        else {
+            // PI controller input depends on how close from MAX_CURRENT is the current
+            coef_in_PI = (MAX_CURRENT - fabs(current_f)) / MAX_CURRENT;
+            in_PI = (int32_t)((float)((int32_t)speed_cmd - (int32_t)speed) * coef_in_PI);
+            dc = PI_Controller_R(in_PI) ; 
+        }
     }
-    
+    else {
+        dc = (float)MOTORS_PWM_ZERO;
+    }
     return dc;
 }
 

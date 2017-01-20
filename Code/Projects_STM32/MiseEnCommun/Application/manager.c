@@ -60,7 +60,7 @@ void Manager_Init(void) {
     FrontMotor_QuickInit();
     RearMotors_QuickInit();
     
-    //RearMotors_Enable();
+    RearMotors_Enable();
     
     PositionSensor_QuickInit(SENSOR_L);
     PositionSensor_QuickInit(SENSOR_R);
