@@ -1,5 +1,5 @@
-\hypertarget{dma_8c}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/dma.c File Reference}
-\label{dma_8c}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/dma.\+c@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/dma.\+c}}
+\hypertarget{dma_8c}{}\section{Std\+Periph\+\_\+\+Ex/dma.c File Reference}
+\label{dma_8c}\index{Std\+Periph\+\_\+\+Ex/dma.\+c@{Std\+Periph\+\_\+\+Ex/dma.\+c}}
 
 
 Functions to handle D\+MA.  
@@ -15,10 +15,10 @@ void \hyperlink{dma_8c_a4582075925fffe70694a48fc32828b2a}{D\+M\+A\+\_\+\+Quick\+
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given Direct Memory Access (D\+MA) with the parameters specified. \end{DoxyCompactList}\item 
 void \hyperlink{dma_8c_a41ff6f6391bd2583c89309d7cfcb121a}{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Buffer2\+Periph} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint32\+\_\+t Peripheral\+Base\+Addr, uint32\+\_\+t Peripheral\+Data\+Size, uint32\+\_\+t Memory\+Base\+Addr, uint32\+\_\+t Memory\+Data\+Size, uint32\+\_\+t Memory\+Buffer\+Size)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given Direct Memory Access (D\+MA) with the parameters specified. \end{DoxyCompactList}\item 
-\hypertarget{dma_8c_ae88da9c90e6b562b30d5177c38441da4}{}\label{dma_8c_ae88da9c90e6b562b30d5177c38441da4} 
-\+\_\+\+\_\+weak void {\bfseries D\+M\+A\+\_\+\+Callback} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint8\+\_\+t flags)
+\mbox{\Hypertarget{dma_8c_a7e8db7c7b0248a0b47986abb54a86ee5}\label{dma_8c_a7e8db7c7b0248a0b47986abb54a86ee5}} 
+\+\_\+\+\_\+weak void {\bfseries D\+M\+A\+\_\+\+Callback} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint8\+\_\+t itstatus)
 \item 
-void \hyperlink{dma_8c_aac23c67b210acba646f913ddb26d225c}{D\+M\+A\+\_\+\+I\+T\+Handler} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint8\+\_\+t flags)
+void \hyperlink{dma_8c_af32eae3e8b1f2a8d384c578886c10ae5}{D\+M\+A\+\_\+\+I\+T\+Handler} (D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$D\+M\+Ay\+\_\+\+Channelx, uint8\+\_\+t itstatus)
 \begin{DoxyCompactList}\small\item\em Handler associated to D\+MA. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -31,7 +31,7 @@ Curtis Team
 
 
 \subsection{Function Documentation}
-\hypertarget{dma_8c_a4cc3ea5b240eb073b75a4d8b2313a3d0}{}\label{dma_8c_a4cc3ea5b240eb073b75a4d8b2313a3d0} 
+\mbox{\Hypertarget{dma_8c_a4cc3ea5b240eb073b75a4d8b2313a3d0}\label{dma_8c_a4cc3ea5b240eb073b75a4d8b2313a3d0}} 
 \index{dma.\+c@{dma.\+c}!D\+M\+A\+\_\+\+Clock\+Enable@{D\+M\+A\+\_\+\+Clock\+Enable}}
 \index{D\+M\+A\+\_\+\+Clock\+Enable@{D\+M\+A\+\_\+\+Clock\+Enable}!dma.\+c@{dma.\+c}}
 \subsubsection{\texorpdfstring{D\+M\+A\+\_\+\+Clock\+Enable()}{DMA\_ClockEnable()}}
@@ -51,17 +51,17 @@ Enables clock on the adequate D\+MA.
 {\em None} & \\
 \hline
 \end{DoxyRetVals}
-\hypertarget{dma_8c_aac23c67b210acba646f913ddb26d225c}{}\label{dma_8c_aac23c67b210acba646f913ddb26d225c} 
+\mbox{\Hypertarget{dma_8c_af32eae3e8b1f2a8d384c578886c10ae5}\label{dma_8c_af32eae3e8b1f2a8d384c578886c10ae5}} 
 \index{dma.\+c@{dma.\+c}!D\+M\+A\+\_\+\+I\+T\+Handler@{D\+M\+A\+\_\+\+I\+T\+Handler}}
 \index{D\+M\+A\+\_\+\+I\+T\+Handler@{D\+M\+A\+\_\+\+I\+T\+Handler}!dma.\+c@{dma.\+c}}
 \subsubsection{\texorpdfstring{D\+M\+A\+\_\+\+I\+T\+Handler()}{DMA\_ITHandler()}}
-{\footnotesize\ttfamily void D\+M\+A\+\_\+\+I\+T\+Handler (\begin{DoxyParamCaption}\item[{D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$}]{D\+M\+Ay\+\_\+\+Channelx,  }\item[{uint8\+\_\+t}]{flags }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void D\+M\+A\+\_\+\+I\+T\+Handler (\begin{DoxyParamCaption}\item[{D\+M\+A\+\_\+\+Channel\+\_\+\+Type\+Def $\ast$}]{D\+M\+Ay\+\_\+\+Channelx,  }\item[{uint8\+\_\+t}]{itstatus }\end{DoxyParamCaption})}
 
 
 
 Handler associated to D\+MA. 
 
-Handles D\+MA interrupt requests. \hypertarget{dma_8c_a41ff6f6391bd2583c89309d7cfcb121a}{}\label{dma_8c_a41ff6f6391bd2583c89309d7cfcb121a} 
+Handles D\+MA interrupt requests. \mbox{\Hypertarget{dma_8c_a41ff6f6391bd2583c89309d7cfcb121a}\label{dma_8c_a41ff6f6391bd2583c89309d7cfcb121a}} 
 \index{dma.\+c@{dma.\+c}!D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Buffer2\+Periph@{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Buffer2\+Periph}}
 \index{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Buffer2\+Periph@{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Buffer2\+Periph}!dma.\+c@{dma.\+c}}
 \subsubsection{\texorpdfstring{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Buffer2\+Periph()}{DMA\_QuickInit\_Buffer2Periph()}}
@@ -82,7 +82,7 @@ Makes the initialization of the given Direct Memory Access (D\+MA) with the para
 {\em data\+\_\+buffer\+\_\+size} & uint32\+\_\+t size of the buffer \\
 \hline
 \end{DoxyParams}
-\hypertarget{dma_8c_a4582075925fffe70694a48fc32828b2a}{}\label{dma_8c_a4582075925fffe70694a48fc32828b2a} 
+\mbox{\Hypertarget{dma_8c_a4582075925fffe70694a48fc32828b2a}\label{dma_8c_a4582075925fffe70694a48fc32828b2a}} 
 \index{dma.\+c@{dma.\+c}!D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Periph2\+Buffer@{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Periph2\+Buffer}}
 \index{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Periph2\+Buffer@{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Periph2\+Buffer}!dma.\+c@{dma.\+c}}
 \subsubsection{\texorpdfstring{D\+M\+A\+\_\+\+Quick\+Init\+\_\+\+Periph2\+Buffer()}{DMA\_QuickInit\_Periph2Buffer()}}

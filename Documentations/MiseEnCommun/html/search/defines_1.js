@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['canary',['CANARY',['../frame__check_8c.html#a3f66c64c3c72034ee0c901bd685bb179',1,'frame_check.c']]],
-  ['car_5fmax_5fspeed',['CAR_MAX_SPEED',['../common__constants_8h.html#a6de76e0180f116e1290911ef3a965545',1,'common_constants.h']]],
-  ['car_5fmin_5fspeed',['CAR_MIN_SPEED',['../common__constants_8h.html#adde72225f4a60b2248c6c13be34275b4',1,'common_constants.h']]],
-  ['car_5fwheel_5fsize',['CAR_WHEEL_SIZE',['../common__constants_8h.html#a79a7f225d5eeb00691e6a5807da68225',1,'common_constants.h']]],
-  ['count_5fadder',['COUNT_ADDER',['../hall__sensors_8c.html#a90fd11d70b1950c76e7eed8ad2459987',1,'hall_sensors.c']]]
+  ['battery_5fadc',['BATTERY_ADC',['../modules__definitions_8h.html#a999114ed6cde74b9d6aa9dfc76009e3d',1,'modules_definitions.h']]],
+  ['battery_5fadc_5fscale',['BATTERY_ADC_SCALE',['../modules__definitions_8h.html#a4543e762c6171c95bc089ebeac93182c',1,'modules_definitions.h']]],
+  ['battery_5fgpio',['BATTERY_GPIO',['../modules__definitions_8h.html#af0d822a9ef8e20047192a20e6fb7b975',1,'modules_definitions.h']]],
+  ['battery_5fpin',['BATTERY_PIN',['../modules__definitions_8h.html#a5319773dcd45d8609d58007cb4feb863',1,'modules_definitions.h']]],
+  ['battery_5frank',['BATTERY_RANK',['../modules__definitions_8h.html#acf4d9aa7d425dbbfa8d3686df49e977f',1,'modules_definitions.h']]],
+  ['battery_5fsampling',['BATTERY_SAMPLING',['../modules__definitions_8h.html#a2d10d50e27f9a649523b7a8e76d5c7a3',1,'modules_definitions.h']]]
 ];

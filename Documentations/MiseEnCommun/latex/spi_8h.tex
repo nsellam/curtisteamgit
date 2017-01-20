@@ -1,5 +1,5 @@
-\hypertarget{spi_8h}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/spi.h File Reference}
-\label{spi_8h}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/spi.\+h@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/spi.\+h}}
+\hypertarget{spi_8h}{}\section{Std\+Periph\+\_\+\+Ex/spi.h File Reference}
+\label{spi_8h}\index{Std\+Periph\+\_\+\+Ex/spi.\+h@{Std\+Periph\+\_\+\+Ex/spi.\+h}}
 
 
 Headers of functions to handle S\+PI.  
@@ -11,10 +11,14 @@ Headers of functions to handle S\+PI.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{spi_8h_a4f55c76c66800b153b5cd03520a96e42}{S\+P\+I\+\_\+\+Quick\+Init} (S\+P\+I\+\_\+\+Type\+Def \hyperlink{spi__comm_8c_ab2ca34290f0a875f59c8eb5ab2bd68e1}{S\+P\+Ix}, uint16\+\_\+t S\+P\+I\+\_\+\+Mode)
+void \hyperlink{spi_8h_a6d23bc35412ecf87622bd7e2b8f71494}{S\+P\+I\+\_\+\+Quick\+Init} (S\+P\+I\+\_\+\+Type\+Def $\ast$S\+P\+Ix, uint16\+\_\+t S\+P\+I\+\_\+\+Mode)
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the S\+PI with the parameters specified. \end{DoxyCompactList}\item 
-\hypertarget{spi_8h_ad5e6cbe9550ded627146ad22ca55c89c}{}\label{spi_8h_ad5e6cbe9550ded627146ad22ca55c89c} 
-void {\bfseries S\+P\+I\+\_\+\+Callback} (S\+P\+I\+\_\+\+Type\+Def \hyperlink{spi__comm_8c_ab2ca34290f0a875f59c8eb5ab2bd68e1}{S\+P\+Ix})
+void \hyperlink{spi_8h_ad613f528f10337f1928ca28848bafc54}{S\+P\+I\+\_\+\+Start} (S\+P\+I\+\_\+\+Type\+Def $\ast$S\+P\+Ix)
+\begin{DoxyCompactList}\small\item\em Starts the S\+PI. \end{DoxyCompactList}\item 
+void \hyperlink{spi_8h_aa4603ffb98e7bf06685a975acf5180de}{S\+P\+I\+\_\+\+Stop} (S\+P\+I\+\_\+\+Type\+Def $\ast$S\+P\+Ix)
+\begin{DoxyCompactList}\small\item\em Stops the S\+PI. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{spi_8h_a47b75d0276e32916de8d9cd671094b77}\label{spi_8h_a47b75d0276e32916de8d9cd671094b77}} 
+void {\bfseries S\+P\+I\+\_\+\+Callback} (S\+P\+I\+\_\+\+Type\+Def $\ast$S\+P\+Ix)
 \end{DoxyCompactItemize}
 
 
@@ -27,11 +31,11 @@ Curtis Team
 
 
 \subsection{Function Documentation}
-\hypertarget{spi_8h_a4f55c76c66800b153b5cd03520a96e42}{}\label{spi_8h_a4f55c76c66800b153b5cd03520a96e42} 
+\mbox{\Hypertarget{spi_8h_a6d23bc35412ecf87622bd7e2b8f71494}\label{spi_8h_a6d23bc35412ecf87622bd7e2b8f71494}} 
 \index{spi.\+h@{spi.\+h}!S\+P\+I\+\_\+\+Quick\+Init@{S\+P\+I\+\_\+\+Quick\+Init}}
 \index{S\+P\+I\+\_\+\+Quick\+Init@{S\+P\+I\+\_\+\+Quick\+Init}!spi.\+h@{spi.\+h}}
 \subsubsection{\texorpdfstring{S\+P\+I\+\_\+\+Quick\+Init()}{SPI\_QuickInit()}}
-{\footnotesize\ttfamily void S\+P\+I\+\_\+\+Quick\+Init (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Type\+Def}]{S\+P\+Ix,  }\item[{uint16\+\_\+t}]{S\+P\+I\+\_\+\+Mode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void S\+P\+I\+\_\+\+Quick\+Init (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Type\+Def $\ast$}]{S\+P\+Ix,  }\item[{uint16\+\_\+t}]{S\+P\+I\+\_\+\+Mode }\end{DoxyParamCaption})}
 
 
 
@@ -42,3 +46,29 @@ Makes the initialization of the S\+PI with the parameters specified.
 {\em S\+P\+I\+\_\+\+Mode} & uint16\+\_\+t Mode (master or slave) chosen for S\+T\+M32 (usage \+: S\+P\+I\+\_\+\+Mode\+\_\+\+Master or S\+P\+I\+\_\+\+Mode\+\_\+\+Slave) \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{spi_8h_ad613f528f10337f1928ca28848bafc54}\label{spi_8h_ad613f528f10337f1928ca28848bafc54}} 
+\index{spi.\+h@{spi.\+h}!S\+P\+I\+\_\+\+Start@{S\+P\+I\+\_\+\+Start}}
+\index{S\+P\+I\+\_\+\+Start@{S\+P\+I\+\_\+\+Start}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{S\+P\+I\+\_\+\+Start()}{SPI\_Start()}}
+{\footnotesize\ttfamily void S\+P\+I\+\_\+\+Start (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Type\+Def $\ast$}]{S\+P\+Ix }\end{DoxyParamCaption})}
+
+
+
+Starts the S\+PI. 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{spi_8h_aa4603ffb98e7bf06685a975acf5180de}\label{spi_8h_aa4603ffb98e7bf06685a975acf5180de}} 
+\index{spi.\+h@{spi.\+h}!S\+P\+I\+\_\+\+Stop@{S\+P\+I\+\_\+\+Stop}}
+\index{S\+P\+I\+\_\+\+Stop@{S\+P\+I\+\_\+\+Stop}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{S\+P\+I\+\_\+\+Stop()}{SPI\_Stop()}}
+{\footnotesize\ttfamily void S\+P\+I\+\_\+\+Stop (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Type\+Def $\ast$}]{S\+P\+Ix }\end{DoxyParamCaption})}
+
+
+
+Stops the S\+PI. 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}

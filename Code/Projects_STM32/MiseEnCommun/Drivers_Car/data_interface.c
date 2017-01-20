@@ -16,11 +16,19 @@
 /**
  * @brief   STM32 data
  */
-volatile DataITF_STM_TypeDef *pDataITF_STM;
+volatile DataITF_STM_TypeDef DataITF_STM;
+/**
+ * @brief   STM32 data
+ */
+volatile DataITF_STM_TypeDef *pDataITF_STM = &DataITF_STM;
 /**
  * @brief   PI data
  */
-volatile DataITF_PI_TypeDef *pDataITF_PI;
+volatile DataITF_PI_TypeDef DataITF_PI;
+/**
+ * @brief   PI data
+ */
+volatile DataITF_PI_TypeDef *pDataITF_PI = &DataITF_PI;
 
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
