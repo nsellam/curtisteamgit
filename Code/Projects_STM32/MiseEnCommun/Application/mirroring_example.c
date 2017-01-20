@@ -1,36 +1,34 @@
 /**
- * @file    systick.c
- * @author  Curtis Team
- * @brief   Functions to handle systick (STM internal time)  
+ * @file	mirroring_example.c
+ * @author	Curtis Team
+ * @brief	Template for all the files of the project  
  */
 
 /* Includes ------------------------------------------------------------------*/
-#include "systick.h"
-#include "nvic.h"
+#include <stdint.h>
+#include <stm32f10x.h>
+#include "mirroring.h"
+#include "data_interface.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
-/* Public variables ----------------------------------------------------------*/
+/* Public variables ----------------------------------------------------------*/ 
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /* Public functions ----------------------------------------------------------*/
-
-__weak void SysTick_Callback(void) {}
-
 /**
- * @brief   Makes the initialization of the systick system 
+ * @brief  Example for the Mirroring module
+ * @param  None
+ * @retval None
 */
-void SysTick_QuickInit(void) {
-    while (SysTick_Config(SystemCoreClock / SYSTICK_FREQ - 1) != 0);
-    NVIC_QuickInit(SysTick_IRQn, 1);
+void Mirroring_Example(void) {
+   Mirroring_Init();
+   pDataITF_STM->ultrasonic_sensors[0] = 10;
+   pDataITF_STM->battery_level = 91;
+   Mirroring_Start();
+   while(1){};
 }
 
-/**
- * @brief Handler associated to SysTick.  
-*/
-void SysTick_ITHandler(void) {
-    SysTick_Callback();
-}
 
 /* Private functions ---------------------------------------------------------*/

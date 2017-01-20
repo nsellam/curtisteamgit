@@ -790,8 +790,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = C:\Users\Clément\Documents\Cours\ProjetCurtis\curtisteamgit\Code\Projects_STM32\MiseEnCommun\StdPeriph_Ex \
-                         C:\Users\Clément\Documents\Cours\ProjetCurtis\curtisteamgit\Code\Projects_STM32\MiseEnCommun\Drivers_Car \
+INPUT                  = C:\Users\Clément\Documents\Cours\ProjetCurtis\curtisteamgit\Code\Projects_STM32\MiseEnCommun\Drivers_Car \
                          ../Code/Projects_STM32/MiseEnCommun/Common \
                          ../Code/Projects_STM32/MiseEnCommun/Application
 
@@ -909,7 +908,7 @@ EXCLUDE_SYMBOLS        =
 # that contain example code fragments that are included (see the \include
 # command).
 
-EXAMPLE_PATH           = 
+EXAMPLE_PATH           = ../Code/Projects_STM32/MiseEnCommun/Application
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp and

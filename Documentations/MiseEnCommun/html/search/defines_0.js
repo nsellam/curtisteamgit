@@ -1,11 +1,9 @@
 var searchData=
 [
-  ['adc_5ferror_5fpin',['ADC_ERROR_PIN',['../adc_8h.html#a0b870445558a3d9a59773dc14e617a98',1,'adc.h']]],
-  ['adc_5ferror_5fport',['ADC_ERROR_PORT',['../adc_8h.html#a6e26ec74ab495237e852f1ce42b8f13c',1,'adc.h']]],
-  ['adc_5ferror_5frank',['ADC_ERROR_RANK',['../adc_8h.html#a65e7e7dd930b0e7a56f510f4948700a8',1,'adc.h']]],
-  ['adc_5firq_5fhandler',['ADC_IRQ_HANDLER',['../it__handlers_8c.html#a42b8a092b6a411920c8e2970aa74a804',1,'it_handlers.c']]],
-  ['adc_5fnb',['ADC_NB',['../adc_8c.html#a463f0e4a963177026b901ac439ac4625',1,'adc.c']]],
-  ['adc_5fnb_5fchannels_5fmax',['ADC_NB_CHANNELS_MAX',['../adc_8h.html#a53f3bf26ad6198c3d5f4f69b76533c7c',1,'adc.h']]],
-  ['adc_5fno_5ferror',['ADC_NO_ERROR',['../adc_8h.html#a0f7cda37635b155238cafee84040dea6',1,'adc.h']]],
-  ['arr_5fvalue_5fmax',['ARR_VALUE_MAX',['../tim_8c.html#a8fb148bd93db41bed33d3f0072f51426',1,'tim.c']]]
+  ['battery_5fadc',['BATTERY_ADC',['../modules__definitions_8h.html#a999114ed6cde74b9d6aa9dfc76009e3d',1,'modules_definitions.h']]],
+  ['battery_5fadc_5fscale',['BATTERY_ADC_SCALE',['../modules__definitions_8h.html#a4543e762c6171c95bc089ebeac93182c',1,'modules_definitions.h']]],
+  ['battery_5fgpio',['BATTERY_GPIO',['../modules__definitions_8h.html#af0d822a9ef8e20047192a20e6fb7b975',1,'modules_definitions.h']]],
+  ['battery_5fpin',['BATTERY_PIN',['../modules__definitions_8h.html#a5319773dcd45d8609d58007cb4feb863',1,'modules_definitions.h']]],
+  ['battery_5frank',['BATTERY_RANK',['../modules__definitions_8h.html#acf4d9aa7d425dbbfa8d3686df49e977f',1,'modules_definitions.h']]],
+  ['battery_5fsampling',['BATTERY_SAMPLING',['../modules__definitions_8h.html#a2d10d50e27f9a649523b7a8e76d5c7a3',1,'modules_definitions.h']]]
 ];

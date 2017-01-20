@@ -76,10 +76,10 @@ void RearMotors_QuickInit(void) {
     Motor_QuickInit(REAR_MOTOR_L);
     Motor_QuickInit(REAR_MOTOR_R);
     
-    System_Time_QuickInit();
+    //System_Time_QuickInit();
     
-    SpeedSensor_QuickInit(SPEED_SENSOR_L);
-    SpeedSensor_QuickInit(SPEED_SENSOR_R);
+    SpeedSensor_QuickInit(SENSOR_L);
+    SpeedSensor_QuickInit(SENSOR_R);
 }
 
 /**
@@ -108,7 +108,7 @@ void RearMotors_Callback(void) {
     RearMotors_remainingTimeInCommandPeriod --;
     
     if (RearMotors_remainingTimeInCommandPeriod == 0) {      
-       if (pdata_PI->enable_motors_control == ENABLE) {
+       if (pDataITF_PI->enable_motors_control == ENABLE) {
          RearMotor_controlL(speed_cmd);
          RearMotor_controlR(speed_cmd);
        }
@@ -155,7 +155,7 @@ float ComputeMotorCommand_L (int16_t speed_cmd, int16_t current, int16_t speed){
     volatile float coef_in_PI;   // to adjust PI input depending on how close from MAX_CURRENT we are
 
     // duty cycle is 50 if current reaches MAX_CURRENT
-	if (fabs (current_f > MAX_CURRENT)) { 
+	if (fabs(current_f) > MAX_CURRENT) { 
         dc = (uint8_t)MOTORS_PWM_ZERO;
     }   
 
@@ -184,9 +184,9 @@ float ComputeMotorCommand_R (int16_t speed_cmd, int16_t current, int16_t speed){
     volatile int32_t in_PI;
     float current_f = (float)current;
     volatile float coef_in_PI;   // to adjust PI input depending on how close from MAX_CURRENT we are
-
+    
     // duty cycle is 50 if current reaches MAX_CURRENT
-	if (fabs (current_f > MAX_CURRENT)) { 
+	if (fabs(current_f) > MAX_CURRENT) { 
         dc = (uint8_t)MOTORS_PWM_ZERO;
     }   
 
@@ -215,8 +215,8 @@ float PI_Controller_L (int32_t in)
     static const float T = 0.01;                  // 100hz control loop frequency
     //volatile static const float a1_PI = Kp + T*Ki/2.0 ;      // coef. formula PI controller
     //volatile static const float a2_PI = Kp - T*Ki/2.0 ; 
-    volatile static const float a1_PI =  T*Ki/2.0 - Kp ;      // coef. formula PI controller
-    volatile static const float a2_PI =  T*Ki/2.0 + Kp; 
+    //volatile static const float a1_PI =  T*Ki/2.0 - Kp ;      // coef. formula PI controller
+    //volatile static const float a2_PI =  T*Ki/2.0 + Kp; 
 
     static float outPI_prec_no_offset = 0.0, unsat_PI_output_f = MOTORS_PWM_ZERO;            // buffer previous in & out
 
@@ -316,7 +316,7 @@ void RearMotor_controlL(int16_t speed_cmd){
     Motor_setSpeed(REAR_MOTOR_L, motor_speed_L);
 
     // ... so we need to compute the command for next send.
-    car_speed_L = SpeedSensor_get(SPEED_CM_S, SPEED_SENSOR_L);     
+    car_speed_L = SpeedSensor_get(SPEED_CM_S, SENSOR_L);     
     duty_cycle_L = ComputeMotorCommand_L(speed_cmd, current, car_speed_L);
 }
 
@@ -333,7 +333,7 @@ void RearMotor_controlR(int16_t speed_cmd){
     Motor_setSpeed(REAR_MOTOR_R, motor_speed_R);
 
     // ... so we need to compute the command for next sending.
-    car_speed_R = SpeedSensor_get(SPEED_CM_S, SPEED_SENSOR_R);     
+    car_speed_R = SpeedSensor_get(SPEED_CM_S, SENSOR_R);     
     duty_cycle_R = ComputeMotorCommand_R(speed_cmd, current, car_speed_R);
 }
 

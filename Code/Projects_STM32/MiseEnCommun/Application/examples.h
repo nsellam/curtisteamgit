@@ -25,5 +25,6 @@ void SpeedSensor_Example(void);
 void FrontMotor_Example(void);
 void RearMotors_Example(void);
 void Battery_Example(void);
+void Mirroring_Example(void);
 
 #endif // _EXAMPLES_H

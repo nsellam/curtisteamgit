@@ -8,6 +8,7 @@
 #include <stdint.h>
 #include <stm32f10x.h>
 #include "rear_motors.h"
+#include "system_time.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -22,8 +23,10 @@
 */
 void RearMotors_Example(void) {
     RearMotors_QuickInit();
+    System_Time_QuickInit();
     RearMotors_Enable();
     RearMotors_setSpeed(10);
+    while(1) {}
 }
 
 /* Private functions ---------------------------------------------------------*/

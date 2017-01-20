@@ -17,19 +17,9 @@
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-/**
- * @brief   Left position sensor identifier
-*/
-#define POSITION_SENSOR_L          HALLSENSOR_L
-
-/**
- * @brief   Right position sensor identifier
-*/
-#define POSITION_SENSOR_R          HALLSENSOR_R
-
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void PositionSensor_QuickInit(PositionSensor_Enum PositionSensor_identifier);
-float PositionSensor_get(float unit, PositionSensor_Enum PositionSensor_identifier);
+void PositionSensor_QuickInit(Sensor_Enum PositionSensor_identifier);
+float PositionSensor_get(float unit, Sensor_Enum PositionSensor_identifier);
 
 #endif // _POSITION_SENSOR_H

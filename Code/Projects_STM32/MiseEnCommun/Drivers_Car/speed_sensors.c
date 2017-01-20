@@ -52,9 +52,9 @@ float speed_tick[HALLSENSORS_NUMBER]; // cm/s
 float speed_time[HALLSENSORS_NUMBER]; // cm/s
 
 /* Private function prototypes -----------------------------------------------*/
-void SpeedSensor_compute(SpeedSensor_Enum SpeedSensor_identifier);
-void SpeedSensor_tickBasedMethod(SpeedSensor_Enum SpeedSensor_identifier);
-void SpeedSensor_timeBasedMethod(SpeedSensor_Enum SpeedSensor_identifier);
+void SpeedSensor_compute(Sensor_Enum SpeedSensor_identifier);
+void SpeedSensor_tickBasedMethod(Sensor_Enum SpeedSensor_identifier);
+void SpeedSensor_timeBasedMethod(Sensor_Enum SpeedSensor_identifier);
 
 /* Public functions ----------------------------------------------------------*/
 /**
@@ -62,7 +62,7 @@ void SpeedSensor_timeBasedMethod(SpeedSensor_Enum SpeedSensor_identifier);
  * @param   SpeedSensor_identifier Speed sensor to be considered. 
  * @retval  None
 */
-void SpeedSensor_QuickInit(SpeedSensor_Enum SpeedSensor_identifier) {
+void SpeedSensor_QuickInit(Sensor_Enum SpeedSensor_identifier) {
 	speed[SpeedSensor_identifier] = 0.0; 
 	
 	if (SPEED_SENSOR_SAMPLES_USED <= HALLSENSOR_MAX_SAVED_POP) {
@@ -79,7 +79,7 @@ void SpeedSensor_QuickInit(SpeedSensor_Enum SpeedSensor_identifier) {
  * @param   SpeedSensor_identifier Speed sensor to examine
  * @retval float (car speed : unit depends on parameter passed as argument) 
 */
-float SpeedSensor_get(float unit, SpeedSensor_Enum SpeedSensor_identifier) {
+float SpeedSensor_get(float unit, Sensor_Enum SpeedSensor_identifier) {
 	SpeedSensor_compute(SpeedSensor_identifier);
 	return speed[SpeedSensor_identifier] * unit;
 }
@@ -90,7 +90,7 @@ float SpeedSensor_get(float unit, SpeedSensor_Enum SpeedSensor_identifier) {
  * @param   SpeedSensor_identifier Speed sensor to consider.
  * @retval  None
 */
-void SpeedSensor_compute(SpeedSensor_Enum SpeedSensor_identifier) {
+void SpeedSensor_compute(Sensor_Enum SpeedSensor_identifier) {
 
     float time_based = 0.0;
     float tick_based = 0.0;
@@ -128,7 +128,7 @@ void SpeedSensor_compute(SpeedSensor_Enum SpeedSensor_identifier) {
  * @param   SpeedSensor_identifier Number of the speed sensor to consider.
  * @retval  None
 */
-void SpeedSensor_tickBasedMethod(SpeedSensor_Enum SpeedSensor_identifier) {
+void SpeedSensor_tickBasedMethod(Sensor_Enum SpeedSensor_identifier) {
     uint64_t tf = millis();
 	uint64_t t0 = HallSensor_getLastPop(SAMPLE_TO_USE, SpeedSensor_identifier);
 	
@@ -148,7 +148,7 @@ void SpeedSensor_tickBasedMethod(SpeedSensor_Enum SpeedSensor_identifier) {
  * @param SpeedSensor_identifier Number of the speed sensor to consider.
  * @retval  None
 */
-void SpeedSensor_timeBasedMethod(SpeedSensor_Enum SpeedSensor_identifier) {
+void SpeedSensor_timeBasedMethod(Sensor_Enum SpeedSensor_identifier) {
     int number_of_ticks = HallSensor_getNumberTicksInPeriod(SpeedSensor_identifier);
     speed_time[SpeedSensor_identifier] = (float) ((number_of_ticks * DELTA_DISTANCE) / SPEED_SENSOR_TIME_BETWEEN_TWO_UPDATES)*1000;
 }

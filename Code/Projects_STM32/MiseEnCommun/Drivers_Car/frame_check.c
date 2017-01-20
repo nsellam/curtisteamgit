@@ -12,7 +12,7 @@
 /**
  * @brief   Canary used for data transmissions
  */
-#define CANARY                      ((uint8_t)0xCA)
+#define CANARY  ((uint8_t)0xCA)
 /* Private macro -------------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/

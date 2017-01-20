@@ -17,12 +17,12 @@
 /* Private function prototypes -----------------------------------------------*/
 /* Public functions ----------------------------------------------------------*/
 /**
- * @brief   Lauches hall sensor. After this procedure, hall-sensor interrupts detected. Best way to see it is to run debug mode and insert a breakpoint in the function HallSensor_EdgeCallback().
+ * @brief   Lauches hall sensor. After this procedure, hall-sensor interrupts detected. Best way to see it is to run debug mode and insert a breakpoint in the function HallSensor_Handler().
  * @retval  None
 */
 void HallSensor_Example(void) {
-    HallSensor_QuickInit(HALLSENSOR_L);
-    HallSensor_QuickInit(HALLSENSOR_R);
+    HallSensor_QuickInit(SENSOR_L);
+    HallSensor_QuickInit(SENSOR_R);
 }
 
 /* Private functions ---------------------------------------------------------*/

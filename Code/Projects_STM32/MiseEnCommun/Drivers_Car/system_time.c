@@ -14,7 +14,7 @@
 /* Public variables ----------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /**
- * @brief     Current STM32 time (expressed in milliseconds)
+ * @brief   Current STM32 time (expressed in milliseconds)
 */
 static uint64_t time_millis;
 
@@ -27,8 +27,8 @@ __weak void RearMotors_Callback(void) {};
     
     
 /**
- * @brief       Makes the initialization of time for the whole system 
- * @retval      None
+ * @brief   Makes the initialization of time for the whole system 
+ * @retval  None
 */
 void System_Time_QuickInit(void) {
     time_millis = 0;
@@ -36,17 +36,17 @@ void System_Time_QuickInit(void) {
 }
 
 /**
- * @brief       Callback associated to SysTick. 
+ * @brief   Callback associated to SysTick. 
  * Please add here your periodic functions
- * @retval      None
+ * @retval  None
 */
 void SysTick_Callback(void) {
     // Time increment 
     time_millis ++;
     
-    //HallSensor_TimeCallback();
-    //Manager_Callback();
-    //RearMotors_Callback();
+    HallSensor_TimeCallback();
+    Manager_Callback();
+    RearMotors_Callback();
     // Other periodic functions (every 1 ms)
     
     // Other periodic functions (every 10 ms)
@@ -76,8 +76,7 @@ uint64_t millis(void) {
 */
 void pause(uint16_t ms) {
     uint64_t arrivalTime = time_millis;
-    while (time_millis < arrivalTime + ms) {
-    }
+    while (time_millis < arrivalTime + ms) {}
 }
 
 /* Private functions ---------------------------------------------------------*/

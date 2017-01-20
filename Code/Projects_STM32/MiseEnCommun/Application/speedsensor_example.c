@@ -30,13 +30,13 @@ void SpeedSensor_Example(void) {
     float WheelSpeed_R = 0; 
     
     System_Time_QuickInit();
-    PositionSensor_QuickInit(SPEED_SENSOR_L); 
-    PositionSensor_QuickInit(SPEED_SENSOR_R); 
+    PositionSensor_QuickInit(SENSOR_L); 
+    PositionSensor_QuickInit(SENSOR_R); 
     
     while(1) {
         pause(100); 
-        WheelSpeed_L = SpeedSensor_get(SPEED_M_S, SPEED_SENSOR_L);
-        WheelSpeed_R = SpeedSensor_get(SPEED_M_S, SPEED_SENSOR_R);
+        WheelSpeed_L = SpeedSensor_get(SPEED_M_S, SENSOR_L);
+        WheelSpeed_R = SpeedSensor_get(SPEED_M_S, SENSOR_R);
         printf("Left  wheel: %.2f \n", WheelSpeed_L);
         printf("Right wheel: %.2f \n", WheelSpeed_R);
     }

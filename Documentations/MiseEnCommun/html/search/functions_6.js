@@ -1,10 +1,15 @@
 var searchData=
 [
-  ['gpio_5fclockenable',['GPIO_ClockEnable',['../gpio_8c.html#a4b8be50dcfad06b88adc3751b005c7c0',1,'gpio.c']]],
-  ['gpio_5fexample',['GPIO_Example',['../examples_8h.html#ab22d2078b92beac752fd25e2a917c8eb',1,'GPIO_Example(void):&#160;gpio_example.c'],['../gpio__example_8c.html#ab22d2078b92beac752fd25e2a917c8eb',1,'GPIO_Example(void):&#160;gpio_example.c']]],
-  ['gpio_5fpin_5fto_5fexti_5fline',['GPIO_Pin_to_EXTI_Line',['../exti_8c.html#aceaf549452e1ac90710fce965f44a6a8',1,'exti.c']]],
-  ['gpio_5fpin_5fto_5fgpio_5fpinsource',['GPIO_Pin_to_GPIO_PinSource',['../exti_8c.html#a22079ee910ea1744e2e511dd103a9286',1,'exti.c']]],
-  ['gpio_5fquickinit',['GPIO_QuickInit',['../gpio_8c.html#a99a12b48b7b8c21c7864af515fbfccd3',1,'GPIO_QuickInit(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIOMode_TypeDef GPIO_Mode):&#160;gpio.c'],['../gpio_8h.html#a99a12b48b7b8c21c7864af515fbfccd3',1,'GPIO_QuickInit(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIOMode_TypeDef GPIO_Mode):&#160;gpio.c']]],
-  ['gpio_5ftypedef_5fto_5fgpio_5fportsource',['GPIO_TypeDef_to_GPIO_PortSource',['../exti_8c.html#a53bb1318a513f09312d02988b0d3179e',1,'exti.c']]],
-  ['gpiopin2adcchannel',['GPIOPin2ADCChannel',['../adc_8c.html#a4f78e57a5d57a726473d36b5127ce2f4',1,'adc.c']]]
+  ['hallsensor_5fcount',['HallSensor_count',['../hall__sensors_8c.html#abea5a61e5a9422028bac4ddd3df5b731',1,'hall_sensors.c']]],
+  ['hallsensor_5fcountperidodticks',['HallSensor_countPeridodTicks',['../hall__sensors_8c.html#af32be09e0001124a986d955ae918dd7e',1,'hall_sensors.c']]],
+  ['hallsensor_5fdecount',['HallSensor_decount',['../hall__sensors_8c.html#aad3cb81175b23674218b1949c21583ab',1,'hall_sensors.c']]],
+  ['hallsensor_5fexample',['HallSensor_Example',['../examples_8h.html#a01d3813fabd700f6446a66ebdb943f41',1,'HallSensor_Example(void):&#160;hallsensor_example.c'],['../hallsensor__example_8c.html#a01d3813fabd700f6446a66ebdb943f41',1,'HallSensor_Example(void):&#160;hallsensor_example.c']]],
+  ['hallsensor_5fgetlap',['HallSensor_getLap',['../hall__sensors_8c.html#a33ee827cd03c30d59e479c36778ad229',1,'HallSensor_getLap(Sensor_Enum hall_identifier):&#160;hall_sensors.c'],['../hall__sensors_8h.html#a33ee827cd03c30d59e479c36778ad229',1,'HallSensor_getLap(Sensor_Enum hall_identifier):&#160;hall_sensors.c']]],
+  ['hallsensor_5fgetlastpop',['HallSensor_getLastPop',['../hall__sensors_8c.html#ac7991bf175e1f4807d95e77f140594fb',1,'HallSensor_getLastPop(uint8_t n, Sensor_Enum hall_identifier):&#160;hall_sensors.c'],['../hall__sensors_8h.html#ac7991bf175e1f4807d95e77f140594fb',1,'HallSensor_getLastPop(uint8_t n, Sensor_Enum hall_identifier):&#160;hall_sensors.c']]],
+  ['hallsensor_5fgetnumberticksinperiod',['HallSensor_getNumberTicksInPeriod',['../hall__sensors_8c.html#af165c187144dbfa5abc883a1d1f80e10',1,'HallSensor_getNumberTicksInPeriod(Sensor_Enum hall_identifier):&#160;hall_sensors.c'],['../hall__sensors_8h.html#af165c187144dbfa5abc883a1d1f80e10',1,'HallSensor_getNumberTicksInPeriod(Sensor_Enum hall_identifier):&#160;hall_sensors.c']]],
+  ['hallsensor_5fgetsector',['HallSensor_getSector',['../hall__sensors_8c.html#aa0d87cf3bf28e2f197a996fcadbb1292',1,'HallSensor_getSector(Sensor_Enum hall_identifier):&#160;hall_sensors.c'],['../hall__sensors_8h.html#aa0d87cf3bf28e2f197a996fcadbb1292',1,'HallSensor_getSector(Sensor_Enum hall_identifier):&#160;hall_sensors.c']]],
+  ['hallsensor_5fhandler',['HallSensor_Handler',['../driver__callbacks_8h.html#a3f590393e8d4665d857aa87ce1cfc63b',1,'HallSensor_Handler(Sensor_Enum hall_identifier):&#160;driver_callbacks.c'],['../hall__sensors_8c.html#a3f590393e8d4665d857aa87ce1cfc63b',1,'HallSensor_Handler(Sensor_Enum hall_identifier):&#160;hall_sensors.c'],['../hall__sensors_8h.html#a3f590393e8d4665d857aa87ce1cfc63b',1,'HallSensor_Handler(Sensor_Enum hall_identifier):&#160;driver_callbacks.c']]],
+  ['hallsensor_5fnewedge',['HallSensor_newEdge',['../hall__sensors_8c.html#a90bd8a9729383226727d10189935882e',1,'hall_sensors.c']]],
+  ['hallsensor_5fquickinit',['HallSensor_QuickInit',['../hall__sensors_8c.html#a76608890ea403517c47f92c20ecdc1b2',1,'HallSensor_QuickInit(Sensor_Enum hall_identifier):&#160;hall_sensors.c'],['../hall__sensors_8h.html#a76608890ea403517c47f92c20ecdc1b2',1,'HallSensor_QuickInit(Sensor_Enum hall_identifier):&#160;hall_sensors.c']]],
+  ['hallsensor_5fsetcountdecount',['HallSensor_setCountDecount',['../hall__sensors_8c.html#aadbf64c2f4d52e217abca010f053dbdb',1,'hall_sensors.c']]]
 ];

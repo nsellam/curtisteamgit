@@ -7,20 +7,26 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include <stdint.h>
-#include <stm32f10x.h>
 
-#include "data_interface.h" 
-#include "rear_motors.h"
-#include "front_motor.h"
-#include "motors.h"
-#include "speed_sensors.h"
+#include "system_time.h"
+
 #include "position_sensors.h"
+#include "speed_sensors.h"
+
+#include "motors.h"
+#include "front_motor.h"
+#include "rear_motors.h"
+
+#include "data_interface.h"
+#include "mirroring.h"
 
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-
-#define MANAGER_TIME_BETWEEN_TWO_UPDATES 10
+/**
+ * @brief   Manager refresh time (in ms)
+*/
+#define MANAGER_TIME_BETWEEN_TWO_UPDATES 10 //ms
 
 /* Private macro -------------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/
@@ -28,12 +34,13 @@
 
 
 /* Private variables ---------------------------------------------------------*/
+/**
+ * @brief   Speed of the motors
+*/
 float motor_speed = 0.0;
 
 /* Private function prototypes -----------------------------------------------*/
 /* Public functions ----------------------------------------------------------*/
-
-
 
 
 /**
@@ -41,6 +48,31 @@ float motor_speed = 0.0;
 */
 uint32_t Manager_remainingTimeInCommandPeriod = MANAGER_TIME_BETWEEN_TWO_UPDATES;
 
+
+
+/** 
+* @brief  Initializes all the sensors / actuators
+* @retval none  
+*/
+
+void Manager_Init(void) {
+    
+    FrontMotor_QuickInit();
+    RearMotors_QuickInit();
+    
+    //RearMotors_Enable();
+    
+    PositionSensor_QuickInit(SENSOR_L);
+    PositionSensor_QuickInit(SENSOR_R);
+    
+    SpeedSensor_QuickInit(SENSOR_L);
+    SpeedSensor_QuickInit(SENSOR_R);
+
+    Mirroring_Init();
+    Mirroring_Start();
+    
+    System_Time_QuickInit();
+}
 
 /**
  * @brief   Callback associated to the nucleo functionnalities manager whose aim is to set the adequate command and update the sensors' data
@@ -52,37 +84,37 @@ void Manager_Callback(void) {
     if (Manager_remainingTimeInCommandPeriod == 0) {
     // ACTUATORS    
         // Rear motors
-        if (pdata_PI->enable_motors_control == ENABLE) {
-          speed_cmd = pdata_PI->motor_prop;  
+        if (pDataITF_PI->enable_motors_control == ENABLE) {
+          speed_cmd = pDataITF_PI->motor_prop;  
           RearMotors_setSpeed(speed_cmd);
         }
-        else if (pdata_PI->enable_motors_control != ENABLE) {
-            motor_speed = (float)(pdata_PI->motor_prop/100.0);
-            Motor_setSpeed(REAR_MOTOR_L, motor_speed);
+        else if (pDataITF_PI->enable_motors_control != ENABLE) {
+            motor_speed = (float)(pDataITF_PI->motor_prop/100.0);
             Motor_setSpeed(REAR_MOTOR_R, motor_speed);
+            Motor_setSpeed(REAR_MOTOR_L, motor_speed);
         }
     
         // Front motors
-        if (pdata_PI->motor_dir == LEFT || pdata_PI->motor_dir == RIGHT){
-          FrontMotor_turn (pdata_PI->motor_dir);
+        if (pDataITF_PI->motor_dir == LEFT || pDataITF_PI->motor_dir == RIGHT){
+          FrontMotor_turn (pDataITF_PI->motor_dir);
         }
-        else if (pdata_PI->motor_dir != LEFT && pdata_PI->motor_dir != RIGHT) {
+        else if (pDataITF_PI->motor_dir != LEFT && pDataITF_PI->motor_dir != RIGHT) {
             ;// do nothing
         }
         
     // SENSORS   
         // wheel speed    
-        pdata_STM->wheel_speed_R = SpeedSensor_get(SPEED_CM_S, SPEED_SENSOR_R);
-        pdata_STM->wheel_speed_L = SpeedSensor_get(SPEED_CM_S, SPEED_SENSOR_L);
+        pDataITF_STM->wheel_speed_R = SpeedSensor_get(SPEED_CM_S, SENSOR_R);
+        pDataITF_STM->wheel_speed_L = SpeedSensor_get(SPEED_CM_S, SENSOR_L);
         
         // travelled distance
-        pdata_STM->travelled_distance_R = PositionSensor_get(POSITION_CM, POSITION_SENSOR_R);
-        pdata_STM->travelled_distance_L = PositionSensor_get(POSITION_CM, POSITION_SENSOR_L);
+        pDataITF_STM->travelled_distance_R = PositionSensor_get(POSITION_CM, SENSOR_R);
+        pDataITF_STM->travelled_distance_L = PositionSensor_get(POSITION_CM, SENSOR_L);
         
         
         //motors current
-       // pdata_STM->motor_current_R = ;
-       // pdata_STM->motor_current_L = ;
+       // pDataITF_STM->motor_current_R = ;
+       // pDataITF_STM->motor_current_L = ;
         Manager_remainingTimeInCommandPeriod = MANAGER_TIME_BETWEEN_TWO_UPDATES;
 
 

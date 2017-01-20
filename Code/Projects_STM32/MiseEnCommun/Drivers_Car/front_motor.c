@@ -77,7 +77,7 @@ void FrontMotor_turn(side_TypeDef direction) {
  * @param   direction Direction of front motor
  * @retval  None
 */
-void FrontMotor_Callback(side_TypeDef direction) {
+void FrontMotor_Handler(side_TypeDef direction) {
 	if (direction ==  LEFT) { 
 		FrontMotor_speed = NONE;
 		FrontMotor_position = LEFT;

@@ -456,14 +456,19 @@
               <FilePath>..\Application\gpio_example.c</FilePath>
             </File>
             <File>
-              <FileName>nucleo_functionnalities_manager.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Application\nucleo_functionnalities_manager.c</FilePath>
-            </File>
-            <File>
               <FileName>battery_example.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Application\battery_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>mirroring_example.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\mirroring_example.c</FilePath>
+            </File>
+            <File>
+              <FileName>manager.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\manager.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -537,11 +542,6 @@
               <FileName>data_interface.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers_Car\data_interface.c</FilePath>
-            </File>
-            <File>
-              <FileName>init.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers_Car\init.c</FilePath>
             </File>
             <File>
               <FileName>battery.c</FileName>

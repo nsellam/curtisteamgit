@@ -85,7 +85,7 @@ void DMA_QuickInit_Buffer2Periph(DMA_Channel_TypeDef* DMAy_Channelx, uint32_t Pe
     
 }
 
-__weak void DMA_Callback(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {}
+__weak void DMA_Callback(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t itstatus) {}
 
 /* Private functions ---------------------------------------------------------*/
 /**
@@ -94,13 +94,13 @@ __weak void DMA_Callback(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {}
  * @retval  None
 */
 void DMA_ClockEnable(DMA_Channel_TypeDef* DMAy_Channelx) {
-    if ((DMAy_Channelx == DMA1_Channel1) || 
-        (DMAy_Channelx == DMA1_Channel2) || 
-        (DMAy_Channelx == DMA1_Channel3) || 
-        (DMAy_Channelx == DMA1_Channel4) || 
-        (DMAy_Channelx == DMA1_Channel5) || 
-        (DMAy_Channelx == DMA1_Channel6) || 
-        (DMAy_Channelx == DMA1_Channel7)) {
+        if ((DMAy_Channelx == DMA1_Channel1) || 
+            (DMAy_Channelx == DMA1_Channel2) || 
+            (DMAy_Channelx == DMA1_Channel3) || 
+            (DMAy_Channelx == DMA1_Channel4) || 
+            (DMAy_Channelx == DMA1_Channel5) || 
+            (DMAy_Channelx == DMA1_Channel6) || 
+            (DMAy_Channelx == DMA1_Channel7)) {
         RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
     }
     else if ((DMAy_Channelx == DMA2_Channel1) || 
@@ -115,6 +115,6 @@ void DMA_ClockEnable(DMA_Channel_TypeDef* DMAy_Channelx) {
 /**
  * @brief   Handler associated to DMA
 */
-void DMA_ITHandler(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t flags) {
-    DMA_Callback(DMAy_Channelx, flags);
+void DMA_ITHandler(DMA_Channel_TypeDef* DMAy_Channelx, uint8_t itstatus) {
+    DMA_Callback(DMAy_Channelx, itstatus);
 }

@@ -73,6 +73,7 @@ void print_voltages(void);
  *    - '-'  means the pin did not pass the test (yet)
  * Two 'OK' means the pin is very likely to work.
  * Although this test is not 100% reliable, it is a good tool to detect a malfunctioning pin.
+ * /!\ PA2 & PA3 are both connected to the USART for the ST_LINK debugger, these pins should not work.
  * @retval  None
 */
 void ADC_Example(void) {
