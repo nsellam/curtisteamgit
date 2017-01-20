@@ -4,9 +4,105 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 C:\Users\Clément\Documents\Cours\ProjetCurtis\curtisteamgit\CurtisProject\Project_Template\MDK-ARM\Project_Template.uvproj
-Project File Date:  01/12/2017
+Project File Date:  01/16/2017
 
 <h2>Output:</h2>
+Build target 'NUCLEO-F103RB'
+linking...
+Program Size: Code=23424 RO-data=268 RW-data=212 ZI-data=2900  
+".\Release\project.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Clément\\Documents\\Cours\\ProjetCurtis\\curtisteamgit\\CurtisProject\\Project_Template\\MDK-ARM\\Release\\project.axf" 
+Error: Flash Download failed  -  Target DLL has been cancelled
+Load "C:\\Users\\Clément\\Documents\\Cours\\ProjetCurtis\\curtisteamgit\\CurtisProject\\Project_Template\\MDK-ARM\\Release\\project.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
 </pre>
 </body>
 </html>
+nsors.c...
+compiling init.c...
+compiling mirroring.c...
+compiling motors.c...
+compiling position_sensors.c...
+compiling rear_motors.c...
+..\..\LIB\CurtisLib\Drivers_Car\rear_motors.c(223): warning:  #177-D: variable "Ki" was declared but never referenced
+      static const float Ki = 0.0;
+..\..\LIB\CurtisLib\Drivers_Car\rear_motors.c(224): warning:  #177-D: variable "T" was declared but never referenced
+      static const float T = 0.01;                  // 100hz control loop frequency
+..\..\LIB\CurtisLib\Drivers_Car\rear_motors.c: 2 warnings, 0 errors
+compiling speed_sensors.c...
+compiling spi_comm.c...
+compiling system_time.c...
+compiling us_sensors.c...
+compiling adc.c...
+compiling debug.c...
+compiling dma.c...
+compiling exti.c...
+compiling gpio.c...
+compiling it_handlers.c...
+compiling nvic.c...
+compiling pwm.c...
+compiling spi.c...
+compiling systick.c...
+compiling tim.c...
+compiling tim_ic.c...
+compiling core_cm3.c...
+compiling system_stm32f10x.c...
+assembling startup_stm32f10x_md.s...
+linking...
+.\Release\project.axf: Error: L6218E: Undefined symbol GPIO_ReadInputDataBit (referred from gpio_example.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol GPIO_ResetBits (referred from gpio_example.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol GPIO_SetBits (referred from gpio_example.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol GPIO_PinRemapConfig (referred from motors.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol DMA_ITConfig (referred from spi_comm.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol SPI_I2S_DMACmd (referred from spi_comm.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol ADC_Cmd (referred from adc.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol ADC_DMACmd (referred from adc.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol ADC_GetCalibrationStatus (referred from adc.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol ADC_GetResetCalibrationStatus (referred from adc.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol ADC_Init (referred from adc.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol ADC_RegularChannelConfig (referred from adc.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol ADC_ResetCalibration (referred from adc.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol ADC_SoftwareStartConvCmd (referred from adc.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol ADC_StartCalibration (referred from adc.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol RCC_ADCCLKConfig (referred from adc.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol RCC_APB2PeriphClockCmd (referred from adc.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol DMA_Cmd (referred from dma.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol DMA_Init (referred from dma.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol RCC_AHBPeriphClockCmd (referred from dma.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol EXTI_Init (referred from exti.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol GPIO_EXTILineConfig (referred from exti.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol GPIO_Init (referred from gpio.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol ADC_ClearITPendingBit (referred from it_handlers.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol ADC_GetITStatus (referred from it_handlers.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol DMA_ClearITPendingBit (referred from it_handlers.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol DMA_GetITStatus (referred from it_handlers.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol EXTI_ClearITPendingBit (referred from it_handlers.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol EXTI_GetITStatus (referred from it_handlers.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol NVIC_Init (referred from nvic.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol NVIC_PriorityGroupConfig (referred from nvic.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_CCxNCmd (referred from pwm.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_CtrlPWMOutputs (referred from pwm.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_OC1Init (referred from pwm.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_OC2Init (referred from pwm.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_OC3Init (referred from pwm.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_OC4Init (referred from pwm.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_OCStructInit (referred from pwm.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_SetCompare1 (referred from pwm.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_SetCompare2 (referred from pwm.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_SetCompare3 (referred from pwm.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_SetCompare4 (referred from pwm.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol RCC_APB1PeriphClockCmd (referred from spi.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol SPI_Cmd (referred from spi.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol SPI_I2S_GetFlagStatus (referred from spi.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol SPI_Init (referred from spi.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_Cmd (referred from tim.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_TimeBaseInit (referred from tim.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_TimeBaseStructInit (referred from tim.o).
+.\Release\project.axf: Error: L6218E: Undefined symbol TIM_ICInit (referred from tim_ic.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 50 error messages.
+".\Release\project.axf" - 50 Error(s), 2 Warning(s).
+Target not created
