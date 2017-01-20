@@ -30,14 +30,14 @@ void PositionSensor_Example(void) {
     
     System_Time_QuickInit();
     PositionSensor_QuickInit(SENSOR_L); 
-    PositionSensor_QuickInit(SENSOR_L); 
+    PositionSensor_QuickInit(SENSOR_R); 
     
     while(1) {
-        pause(100); 
         WheelPosition_L = PositionSensor_get(POSITION_CM, SENSOR_L);
         WheelPosition_R = PositionSensor_get(POSITION_CM, SENSOR_R);
         printf("Left  wheel: %.2f cm \n", WheelPosition_L);
         printf("Right wheel: %.2f cm \n", WheelPosition_R);
+        pause(100);
     }
 }
 

@@ -42,7 +42,7 @@ void System_Time_QuickInit(void) {
 */
 void SysTick_Callback(void) {
     // Time increment 
-    time_millis ++;
+    time_millis++;
     
     HallSensor_TimeCallback();
     Manager_Callback();

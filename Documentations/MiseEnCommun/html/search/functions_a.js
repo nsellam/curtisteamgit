@@ -1,19 +1,5 @@
 var searchData=
 [
-  ['sensor_5freset',['SENSOR_Reset',['../hall__sensors_8c.html#a8d7111e7ecc35b5e2acf34d87342da62',1,'hall_sensors.c']]],
-  ['sensor_5fresettimetonexthallperiod',['SENSOR_ResetTimeToNextHallPeriod',['../hall__sensors_8c.html#a3d9cfb4801a8bd7ad5e4d93673598a8d',1,'hall_sensors.c']]],
-  ['speedsensor_5fcompute',['SpeedSensor_compute',['../speed__sensors_8c.html#a1ee87ae2632775b300a80234bb81c5a6',1,'speed_sensors.c']]],
-  ['speedsensor_5fexample',['SpeedSensor_Example',['../examples_8h.html#a38fcde3e8103b0f18c87fa6451efd70e',1,'SpeedSensor_Example(void):&#160;speedsensor_example.c'],['../speedsensor__example_8c.html#a38fcde3e8103b0f18c87fa6451efd70e',1,'SpeedSensor_Example(void):&#160;speedsensor_example.c']]],
-  ['speedsensor_5fget',['SpeedSensor_get',['../speed__sensors_8c.html#a1bf03ed37adc1828f0d0f432fce6f573',1,'SpeedSensor_get(float unit, Sensor_Enum SpeedSensor_identifier):&#160;speed_sensors.c'],['../speed__sensors_8h.html#a1bf03ed37adc1828f0d0f432fce6f573',1,'SpeedSensor_get(float unit, Sensor_Enum SpeedSensor_identifier):&#160;speed_sensors.c']]],
-  ['speedsensor_5fquickinit',['SpeedSensor_QuickInit',['../speed__sensors_8c.html#abeede0fadf6e932b5b52d98b247e0ec0',1,'SpeedSensor_QuickInit(Sensor_Enum SpeedSensor_identifier):&#160;speed_sensors.c'],['../speed__sensors_8h.html#abeede0fadf6e932b5b52d98b247e0ec0',1,'SpeedSensor_QuickInit(Sensor_Enum SpeedSensor_identifier):&#160;speed_sensors.c']]],
-  ['speedsensor_5ftickbasedmethod',['SpeedSensor_tickBasedMethod',['../speed__sensors_8c.html#a12d67bb15c42be52272d6199bc02d22b',1,'speed_sensors.c']]],
-  ['speedsensor_5ftimebasedmethod',['SpeedSensor_timeBasedMethod',['../speed__sensors_8c.html#a62b384329c5e3356dac31c5dec9817f4',1,'speed_sensors.c']]],
-  ['spicomm_5fquickinit',['SPIComm_QuickInit',['../spi__comm_8c.html#a317da2ecc07a223fb899a353537b1915',1,'SPIComm_QuickInit(uint8_t *buffer_Rx, uint8_t *buffer_Tx, size_t buffer_Rx_size, size_t buffer_Tx_size):&#160;spi_comm.c'],['../spi__comm_8h.html#a317da2ecc07a223fb899a353537b1915',1,'SPIComm_QuickInit(uint8_t *buffer_Rx, uint8_t *buffer_Tx, size_t buffer_Rx_size, size_t buffer_Tx_size):&#160;spi_comm.c']]],
-  ['spicomm_5frx_5fdata_5fhandler',['SPIComm_Rx_Data_Handler',['../driver__callbacks_8h.html#a602d4656e1f0820770459b8cb24f2257',1,'SPIComm_Rx_Data_Handler(void):&#160;driver_callbacks.c'],['../spi__comm_8c.html#a602d4656e1f0820770459b8cb24f2257',1,'SPIComm_Rx_Data_Handler(void):&#160;spi_comm.c']]],
-  ['spicomm_5fstart',['SPIComm_Start',['../spi__comm_8c.html#abb5d3afb3c38453bdd7d871322866b7e',1,'SPIComm_Start(void):&#160;spi_comm.c'],['../spi__comm_8h.html#abb5d3afb3c38453bdd7d871322866b7e',1,'SPIComm_Start(void):&#160;spi_comm.c']]],
-  ['spicomm_5fstop',['SPIComm_Stop',['../spi__comm_8c.html#a4c42a504d2ed44ef91b47eaff4fcf349',1,'SPIComm_Stop(void):&#160;spi_comm.c'],['../spi__comm_8h.html#a4c42a504d2ed44ef91b47eaff4fcf349',1,'SPIComm_Stop(void):&#160;spi_comm.c']]],
-  ['spicomm_5ftx_5fdata_5fhandler',['SPIComm_Tx_Data_Handler',['../driver__callbacks_8h.html#a151c39be0fdecec6f3cfd224266cd053',1,'SPIComm_Tx_Data_Handler(void):&#160;driver_callbacks.c'],['../spi__comm_8c.html#a151c39be0fdecec6f3cfd224266cd053',1,'SPIComm_Tx_Data_Handler(void):&#160;spi_comm.c']]],
-  ['system_5ftime_5fquickinit',['System_Time_QuickInit',['../system__time_8c.html#a5839223d4dcfe51b12cf4efc9e69c387',1,'System_Time_QuickInit(void):&#160;system_time.c'],['../system__time_8h.html#a5839223d4dcfe51b12cf4efc9e69c387',1,'System_Time_QuickInit(void):&#160;system_time.c']]],
-  ['systemreset',['systemReset',['../gpio__example_8c.html#a6c693c89b8019cdd21599d1baa6b0434',1,'gpio_example.c']]],
-  ['systick_5fcallback',['SysTick_Callback',['../system__time_8c.html#a1776ae73b563f2f9fc51d6cd626f1a62',1,'SysTick_Callback(void):&#160;system_time.c'],['../system__time_8h.html#a1776ae73b563f2f9fc51d6cd626f1a62',1,'SysTick_Callback(void):&#160;system_time.c']]]
+  ['nmi_5fhandler',['NMI_Handler',['../it__handlers_8c.html#a6ad7a5e3ee69cb6db6a6b9111ba898bc',1,'it_handlers.c']]],
+  ['nvic_5fquickinit',['NVIC_QuickInit',['../nvic_8c.html#a373c2122552aec599bc56315e4c79472',1,'NVIC_QuickInit(int8_t IRQChannel, uint8_t Priority):&#160;nvic.c'],['../nvic_8h.html#a373c2122552aec599bc56315e4c79472',1,'NVIC_QuickInit(int8_t IRQChannel, uint8_t Priority):&#160;nvic.c']]]
 ];

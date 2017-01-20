@@ -1,5 +1,5 @@
-\hypertarget{adc_8h}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/adc.h File Reference}
-\label{adc_8h}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/adc.\+h@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/adc.\+h}}
+\hypertarget{adc_8h}{}\section{Std\+Periph\+\_\+\+Ex/adc.h File Reference}
+\label{adc_8h}\index{Std\+Periph\+\_\+\+Ex/adc.\+h@{Std\+Periph\+\_\+\+Ex/adc.\+h}}
 
 
 Headers of functions to handle A\+D\+Cs.  
@@ -10,19 +10,19 @@ Headers of functions to handle A\+D\+Cs.
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{adc_8h_a0f7cda37635b155238cafee84040dea6}{}\label{adc_8h_a0f7cda37635b155238cafee84040dea6} 
+\mbox{\Hypertarget{adc_8h_a0f7cda37635b155238cafee84040dea6}\label{adc_8h_a0f7cda37635b155238cafee84040dea6}} 
 \#define \hyperlink{adc_8h_a0f7cda37635b155238cafee84040dea6}{A\+D\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}~0
 \begin{DoxyCompactList}\small\item\em Given pin was succesfully initialized as analogic input. \end{DoxyCompactList}\item 
-\hypertarget{adc_8h_a6e26ec74ab495237e852f1ce42b8f13c}{}\label{adc_8h_a6e26ec74ab495237e852f1ce42b8f13c} 
+\mbox{\Hypertarget{adc_8h_a6e26ec74ab495237e852f1ce42b8f13c}\label{adc_8h_a6e26ec74ab495237e852f1ce42b8f13c}} 
 \#define \hyperlink{adc_8h_a6e26ec74ab495237e852f1ce42b8f13c}{A\+D\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+O\+RT}~(-\/1)
 \begin{DoxyCompactList}\small\item\em Given pin couldn\textquotesingle{}t be initialized\+: port is unreachable. \end{DoxyCompactList}\item 
-\hypertarget{adc_8h_a0b870445558a3d9a59773dc14e617a98}{}\label{adc_8h_a0b870445558a3d9a59773dc14e617a98} 
+\mbox{\Hypertarget{adc_8h_a0b870445558a3d9a59773dc14e617a98}\label{adc_8h_a0b870445558a3d9a59773dc14e617a98}} 
 \#define \hyperlink{adc_8h_a0b870445558a3d9a59773dc14e617a98}{A\+D\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+IN}~(-\/2)
 \begin{DoxyCompactList}\small\item\em Given pin couldn\textquotesingle{}t be initialized\+: pin is unreachable. \end{DoxyCompactList}\item 
-\hypertarget{adc_8h_a65e7e7dd930b0e7a56f510f4948700a8}{}\label{adc_8h_a65e7e7dd930b0e7a56f510f4948700a8} 
+\mbox{\Hypertarget{adc_8h_a65e7e7dd930b0e7a56f510f4948700a8}\label{adc_8h_a65e7e7dd930b0e7a56f510f4948700a8}} 
 \#define \hyperlink{adc_8h_a65e7e7dd930b0e7a56f510f4948700a8}{A\+D\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+A\+NK}~(-\/3)
 \begin{DoxyCompactList}\small\item\em Given rank couldn\textquotesingle{}t be initialized\+: rank is out of range. \end{DoxyCompactList}\item 
-\hypertarget{adc_8h_a53f3bf26ad6198c3d5f4f69b76533c7c}{}\label{adc_8h_a53f3bf26ad6198c3d5f4f69b76533c7c} 
+\mbox{\Hypertarget{adc_8h_a53f3bf26ad6198c3d5f4f69b76533c7c}\label{adc_8h_a53f3bf26ad6198c3d5f4f69b76533c7c}} 
 \#define \hyperlink{adc_8h_a53f3bf26ad6198c3d5f4f69b76533c7c}{A\+D\+C\+\_\+\+N\+B\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+AX}~16
 \begin{DoxyCompactList}\small\item\em Maximum number of channels for one A\+DC. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
@@ -32,7 +32,7 @@ int \hyperlink{adc_8h_ac9c1e16ff94fbf1cd518f1eb22c7bf76}{A\+D\+C\+\_\+\+Quick\+I
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given Analog to Digital Converter (A\+DC) with the parameters specified. \end{DoxyCompactList}\item 
 uint16\+\_\+t \hyperlink{adc_8h_a64c75c96fc4cec9e53881ec94471d1a6}{A\+D\+C\+\_\+\+Quick\+Get} (A\+D\+C\+\_\+\+Type\+Def $\ast$A\+D\+Cx, uint8\+\_\+t Rank)
 \begin{DoxyCompactList}\small\item\em Get the conversion value of an A\+DC at a given rank. \end{DoxyCompactList}\item 
-\hypertarget{adc_8h_a7defbc5079df7e920454289e8b819a2b}{}\label{adc_8h_a7defbc5079df7e920454289e8b819a2b} 
+\mbox{\Hypertarget{adc_8h_a7defbc5079df7e920454289e8b819a2b}\label{adc_8h_a7defbc5079df7e920454289e8b819a2b}} 
 void \hyperlink{adc_8h_a7defbc5079df7e920454289e8b819a2b}{A\+D\+C\+\_\+\+Callback} (void)
 \begin{DoxyCompactList}\small\item\em Callback associated to A\+DC interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -46,7 +46,7 @@ Curtis Team
 
 
 \subsection{Function Documentation}
-\hypertarget{adc_8h_a64c75c96fc4cec9e53881ec94471d1a6}{}\label{adc_8h_a64c75c96fc4cec9e53881ec94471d1a6} 
+\mbox{\Hypertarget{adc_8h_a64c75c96fc4cec9e53881ec94471d1a6}\label{adc_8h_a64c75c96fc4cec9e53881ec94471d1a6}} 
 \index{adc.\+h@{adc.\+h}!A\+D\+C\+\_\+\+Quick\+Get@{A\+D\+C\+\_\+\+Quick\+Get}}
 \index{A\+D\+C\+\_\+\+Quick\+Get@{A\+D\+C\+\_\+\+Quick\+Get}!adc.\+h@{adc.\+h}}
 \subsubsection{\texorpdfstring{A\+D\+C\+\_\+\+Quick\+Get()}{ADC\_QuickGet()}}
@@ -66,7 +66,7 @@ Get the conversion value of an A\+DC at a given rank.
 \begin{DoxyReturn}{Returns}
 Conversion value of the A\+DC at the rank 
 \end{DoxyReturn}
-\hypertarget{adc_8h_ac9c1e16ff94fbf1cd518f1eb22c7bf76}{}\label{adc_8h_ac9c1e16ff94fbf1cd518f1eb22c7bf76} 
+\mbox{\Hypertarget{adc_8h_ac9c1e16ff94fbf1cd518f1eb22c7bf76}\label{adc_8h_ac9c1e16ff94fbf1cd518f1eb22c7bf76}} 
 \index{adc.\+h@{adc.\+h}!A\+D\+C\+\_\+\+Quick\+Init@{A\+D\+C\+\_\+\+Quick\+Init}}
 \index{A\+D\+C\+\_\+\+Quick\+Init@{A\+D\+C\+\_\+\+Quick\+Init}!adc.\+h@{adc.\+h}}
 \subsubsection{\texorpdfstring{A\+D\+C\+\_\+\+Quick\+Init()}{ADC\_QuickInit()}}

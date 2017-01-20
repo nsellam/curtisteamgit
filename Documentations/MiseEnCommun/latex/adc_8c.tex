@@ -1,5 +1,5 @@
-\hypertarget{adc_8c}{}\section{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/adc.c File Reference}
-\label{adc_8c}\index{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/adc.\+c@{C\+:/\+Users/\+Clément/\+Documents/\+Cours/\+Projet\+Curtis/curtisteamgit/\+Code/\+Projects\+\_\+\+S\+T\+M32/\+Mise\+En\+Commun/\+Std\+Periph\+\_\+\+Ex/adc.\+c}}
+\hypertarget{adc_8c}{}\section{Std\+Periph\+\_\+\+Ex/adc.c File Reference}
+\label{adc_8c}\index{Std\+Periph\+\_\+\+Ex/adc.\+c@{Std\+Periph\+\_\+\+Ex/adc.\+c}}
 
 
 Functions to handle A\+D\+Cs.  
@@ -13,16 +13,16 @@ Functions to handle A\+D\+Cs.
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{adc_8c_af8a28af200c653cdf82311b4844e0e03}{}\label{adc_8c_af8a28af200c653cdf82311b4844e0e03} 
+\mbox{\Hypertarget{adc_8c_af8a28af200c653cdf82311b4844e0e03}\label{adc_8c_af8a28af200c653cdf82311b4844e0e03}} 
 \#define \hyperlink{adc_8c_af8a28af200c653cdf82311b4844e0e03}{G\+P\+I\+O\+\_\+\+M\+O\+D\+E\+\_\+\+A\+DC}~G\+P\+I\+O\+\_\+\+Mode\+\_\+\+A\+IN
 \begin{DoxyCompactList}\small\item\em G\+P\+I\+O\+Mode\+\_\+\+Type\+Def recommended to initialize G\+P\+IO for A\+DC. \end{DoxyCompactList}\item 
-\hypertarget{adc_8c_af0a320afa61a52db59de96a72ab64ee2}{}\label{adc_8c_af0a320afa61a52db59de96a72ab64ee2} 
+\mbox{\Hypertarget{adc_8c_af0a320afa61a52db59de96a72ab64ee2}\label{adc_8c_af0a320afa61a52db59de96a72ab64ee2}} 
 \#define \hyperlink{adc_8c_af0a320afa61a52db59de96a72ab64ee2}{E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+P\+O\+RT}~((uint8\+\_\+t) -\/1)
 \begin{DoxyCompactList}\small\item\em Specified port is not valid (only G\+P\+I\+OA, G\+P\+I\+OB an G\+P\+I\+OC are available) \end{DoxyCompactList}\item 
-\hypertarget{adc_8c_a12efaf0ce5990566e841716c0c6cea56}{}\label{adc_8c_a12efaf0ce5990566e841716c0c6cea56} 
+\mbox{\Hypertarget{adc_8c_a12efaf0ce5990566e841716c0c6cea56}\label{adc_8c_a12efaf0ce5990566e841716c0c6cea56}} 
 \#define \hyperlink{adc_8c_a12efaf0ce5990566e841716c0c6cea56}{E\+R\+R\+O\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+P\+IN}~((uint8\+\_\+t) -\/2)
 \begin{DoxyCompactList}\small\item\em Specified pin can\textquotesingle{}t be use on this port for A\+DC. \end{DoxyCompactList}\item 
-\hypertarget{adc_8c_a463f0e4a963177026b901ac439ac4625}{}\label{adc_8c_a463f0e4a963177026b901ac439ac4625} 
+\mbox{\Hypertarget{adc_8c_a463f0e4a963177026b901ac439ac4625}\label{adc_8c_a463f0e4a963177026b901ac439ac4625}} 
 \#define \hyperlink{adc_8c_a463f0e4a963177026b901ac439ac4625}{A\+D\+C\+\_\+\+NB}~3
 \begin{DoxyCompactList}\small\item\em Number of A\+D\+Cs. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
@@ -40,16 +40,16 @@ int \hyperlink{adc_8c_ac9c1e16ff94fbf1cd518f1eb22c7bf76}{A\+D\+C\+\_\+\+Quick\+I
 \begin{DoxyCompactList}\small\item\em Makes the initialization of the given Analog to Digital Converter (A\+DC) with the parameters specified. \end{DoxyCompactList}\item 
 uint16\+\_\+t \hyperlink{adc_8c_a64c75c96fc4cec9e53881ec94471d1a6}{A\+D\+C\+\_\+\+Quick\+Get} (A\+D\+C\+\_\+\+Type\+Def $\ast$A\+D\+Cx, uint8\+\_\+t Rank)
 \begin{DoxyCompactList}\small\item\em Get the conversion value of an A\+DC at a given rank. \end{DoxyCompactList}\item 
-\hypertarget{adc_8c_a7defbc5079df7e920454289e8b819a2b}{}\label{adc_8c_a7defbc5079df7e920454289e8b819a2b} 
+\mbox{\Hypertarget{adc_8c_a7defbc5079df7e920454289e8b819a2b}\label{adc_8c_a7defbc5079df7e920454289e8b819a2b}} 
 void \hyperlink{adc_8c_a7defbc5079df7e920454289e8b819a2b}{A\+D\+C\+\_\+\+Callback} (void)
 \begin{DoxyCompactList}\small\item\em Callback associated to A\+DC interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{adc_8c_a03896c549501608ff69c3c95ac3d30e4}{}\label{adc_8c_a03896c549501608ff69c3c95ac3d30e4} 
+\mbox{\Hypertarget{adc_8c_a03896c549501608ff69c3c95ac3d30e4}\label{adc_8c_a03896c549501608ff69c3c95ac3d30e4}} 
 int {\bfseries initialized} \mbox{[}\hyperlink{adc_8c_a463f0e4a963177026b901ac439ac4625}{A\+D\+C\+\_\+\+NB}\mbox{]} = \{0,0,0\}
 \item 
-\hypertarget{adc_8c_a9a9ebfd5a416435aa0ddda364be3b580}{}\label{adc_8c_a9a9ebfd5a416435aa0ddda364be3b580} 
+\mbox{\Hypertarget{adc_8c_a9a9ebfd5a416435aa0ddda364be3b580}\label{adc_8c_a9a9ebfd5a416435aa0ddda364be3b580}} 
 volatile uint16\+\_\+t {\bfseries conversion\+\_\+values} \mbox{[}\hyperlink{adc_8c_a463f0e4a963177026b901ac439ac4625}{A\+D\+C\+\_\+\+NB}\mbox{]}\mbox{[}\hyperlink{adc_8h_a53f3bf26ad6198c3d5f4f69b76533c7c}{A\+D\+C\+\_\+\+N\+B\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+AX}\mbox{]} = \{0\}
 \end{DoxyCompactItemize}
 
@@ -63,7 +63,7 @@ Curtis Team
 
 
 \subsection{Function Documentation}
-\hypertarget{adc_8c_ac9cd07f40e0006186e8b1d869a030aac}{}\label{adc_8c_ac9cd07f40e0006186e8b1d869a030aac} 
+\mbox{\Hypertarget{adc_8c_ac9cd07f40e0006186e8b1d869a030aac}\label{adc_8c_ac9cd07f40e0006186e8b1d869a030aac}} 
 \index{adc.\+c@{adc.\+c}!A\+D\+C2\+D\+M\+A\+\_\+\+Channel@{A\+D\+C2\+D\+M\+A\+\_\+\+Channel}}
 \index{A\+D\+C2\+D\+M\+A\+\_\+\+Channel@{A\+D\+C2\+D\+M\+A\+\_\+\+Channel}!adc.\+c@{adc.\+c}}
 \subsubsection{\texorpdfstring{A\+D\+C2\+D\+M\+A\+\_\+\+Channel()}{ADC2DMA\_Channel()}}
@@ -83,7 +83,7 @@ Returns the D\+MA channel associated to the A\+DC given.
 {\em D\+M\+Ax\+\_\+\+Channely.} & 0 if no D\+MA Channel could be found. \\
 \hline
 \end{DoxyRetVals}
-\hypertarget{adc_8c_a39a3ad92c4a8177ed4f677a86dcdb353}{}\label{adc_8c_a39a3ad92c4a8177ed4f677a86dcdb353} 
+\mbox{\Hypertarget{adc_8c_a39a3ad92c4a8177ed4f677a86dcdb353}\label{adc_8c_a39a3ad92c4a8177ed4f677a86dcdb353}} 
 \index{adc.\+c@{adc.\+c}!A\+D\+C2int@{A\+D\+C2int}}
 \index{A\+D\+C2int@{A\+D\+C2int}!adc.\+c@{adc.\+c}}
 \subsubsection{\texorpdfstring{A\+D\+C2int()}{ADC2int()}}
@@ -103,7 +103,7 @@ Returns an integer giving the reading mask for A\+DC.
 {\em Mask} & \\
 \hline
 \end{DoxyRetVals}
-\hypertarget{adc_8c_a3eeed6ce49f7b81ad12809e53461062e}{}\label{adc_8c_a3eeed6ce49f7b81ad12809e53461062e} 
+\mbox{\Hypertarget{adc_8c_a3eeed6ce49f7b81ad12809e53461062e}\label{adc_8c_a3eeed6ce49f7b81ad12809e53461062e}} 
 \index{adc.\+c@{adc.\+c}!A\+D\+C\+\_\+\+Clock\+\_\+\+Enable@{A\+D\+C\+\_\+\+Clock\+\_\+\+Enable}}
 \index{A\+D\+C\+\_\+\+Clock\+\_\+\+Enable@{A\+D\+C\+\_\+\+Clock\+\_\+\+Enable}!adc.\+c@{adc.\+c}}
 \subsubsection{\texorpdfstring{A\+D\+C\+\_\+\+Clock\+\_\+\+Enable()}{ADC\_Clock\_Enable()}}
@@ -123,7 +123,7 @@ Starts the A\+DC Clock.
 {\em None} & \\
 \hline
 \end{DoxyRetVals}
-\hypertarget{adc_8c_a64c75c96fc4cec9e53881ec94471d1a6}{}\label{adc_8c_a64c75c96fc4cec9e53881ec94471d1a6} 
+\mbox{\Hypertarget{adc_8c_a64c75c96fc4cec9e53881ec94471d1a6}\label{adc_8c_a64c75c96fc4cec9e53881ec94471d1a6}} 
 \index{adc.\+c@{adc.\+c}!A\+D\+C\+\_\+\+Quick\+Get@{A\+D\+C\+\_\+\+Quick\+Get}}
 \index{A\+D\+C\+\_\+\+Quick\+Get@{A\+D\+C\+\_\+\+Quick\+Get}!adc.\+c@{adc.\+c}}
 \subsubsection{\texorpdfstring{A\+D\+C\+\_\+\+Quick\+Get()}{ADC\_QuickGet()}}
@@ -143,7 +143,7 @@ Get the conversion value of an A\+DC at a given rank.
 \begin{DoxyReturn}{Returns}
 Conversion value of the A\+DC at the rank 
 \end{DoxyReturn}
-\hypertarget{adc_8c_ac9c1e16ff94fbf1cd518f1eb22c7bf76}{}\label{adc_8c_ac9c1e16ff94fbf1cd518f1eb22c7bf76} 
+\mbox{\Hypertarget{adc_8c_ac9c1e16ff94fbf1cd518f1eb22c7bf76}\label{adc_8c_ac9c1e16ff94fbf1cd518f1eb22c7bf76}} 
 \index{adc.\+c@{adc.\+c}!A\+D\+C\+\_\+\+Quick\+Init@{A\+D\+C\+\_\+\+Quick\+Init}}
 \index{A\+D\+C\+\_\+\+Quick\+Init@{A\+D\+C\+\_\+\+Quick\+Init}!adc.\+c@{adc.\+c}}
 \subsubsection{\texorpdfstring{A\+D\+C\+\_\+\+Quick\+Init()}{ADC\_QuickInit()}}
@@ -181,7 +181,7 @@ Makes the initialization of the given Analog to Digital Converter (A\+DC) with t
 \begin{DoxyReturn}{Returns}
 If everything went right A\+D\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR, if not A\+D\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+IN or A\+D\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+O\+RT 
 \end{DoxyReturn}
-\hypertarget{adc_8c_a4f78e57a5d57a726473d36b5127ce2f4}{}\label{adc_8c_a4f78e57a5d57a726473d36b5127ce2f4} 
+\mbox{\Hypertarget{adc_8c_a4f78e57a5d57a726473d36b5127ce2f4}\label{adc_8c_a4f78e57a5d57a726473d36b5127ce2f4}} 
 \index{adc.\+c@{adc.\+c}!G\+P\+I\+O\+Pin2\+A\+D\+C\+Channel@{G\+P\+I\+O\+Pin2\+A\+D\+C\+Channel}}
 \index{G\+P\+I\+O\+Pin2\+A\+D\+C\+Channel@{G\+P\+I\+O\+Pin2\+A\+D\+C\+Channel}!adc.\+c@{adc.\+c}}
 \subsubsection{\texorpdfstring{G\+P\+I\+O\+Pin2\+A\+D\+C\+Channel()}{GPIOPin2ADCChannel()}}
