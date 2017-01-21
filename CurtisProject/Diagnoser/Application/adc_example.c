@@ -76,7 +76,7 @@ void print_voltages(void);
  * /!\ PA2 & PA3 are both connected to the USART for the ST_LINK debugger, these pins should not work.
  * @retval  None
 */
-void ADC_Example(void) {
+void ADC_Diagnoser(void) {
     int i;
     int error = 0;
     

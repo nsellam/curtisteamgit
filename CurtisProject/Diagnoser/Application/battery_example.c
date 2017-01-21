@@ -20,7 +20,7 @@
  * @brief   Prints continuously battery level
  * @retval  None
  */
-void Battery_Example(void) {
+void Battery_Diagnoser(void) {
     uint8_t percentageBattery;
     Battery_QuickInit();
     

@@ -279,7 +279,7 @@ typedef enum {
 /**
  * @brief       Maximum current for the motors (mA)
 */
-#define MAX_CURRENT                                 ((float)4000.0)
+#define MAX_CURRENT                                 ((float)2000.0)
     
 /**
  * @brief       GPIO of the battery

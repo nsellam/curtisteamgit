@@ -105,7 +105,7 @@ int i = 0;
  * @brief 	Print a diagnotic of the GPIO pins. The only thing you have to do is to connect together all the pins to test. 
  * @retval  None
 */
-void GPIO_Example(void) {
+void GPIO_Diagnoser(void) {
 
     systemReset();
 

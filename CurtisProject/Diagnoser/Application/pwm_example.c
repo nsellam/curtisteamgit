@@ -1,13 +1,13 @@
 /**
- * @file    hallsensor_example.c
+ * @file    pwm_example.c
  * @author  Curtis Team
- * @brief   Hall sensors API use case example
+ * @brief   PWM API use case example
  */
  
 /* Includes ------------------------------------------------------------------*/
 #include <stdint.h>
 #include <stm32f10x.h>
-#include "hall_sensors.h"
+#include "pwm.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -17,12 +17,16 @@
 /* Private function prototypes -----------------------------------------------*/
 /* Public functions ----------------------------------------------------------*/
 /**
- * @brief   Lauches hall sensor. After this procedure, hall-sensor interrupts detected. Best way to see it is to run debug mode and insert a breakpoint in the function HallSensor_Handler().
- * @retval  None
+ * @brief 	Sets PWM output on PA8 and its complementary on PB13. PWMs frequency is 1 kHz. Duty cycle on PA8 is 0.75.
+ * @retval 	None
 */
-void HallSensor_Example(void) {
-    HallSensor_QuickInit(SENSOR_L);
-    HallSensor_QuickInit(SENSOR_R);
+void PWM_Diagnoser(void) {
+
+    PWM_QuickInit(TIM1, TIM_Channel_1, 1000.0);         // Output on PA8
+    PWM_QuickInit_Complementary(TIM1, TIM_Channel_1);   // Output on PB13
+    
+    PWM_SetDutyCycle(TIM1, TIM_Channel_1, 0.75);
+    PWM_Start(TIM1);
 }
 
 /* Private functions ---------------------------------------------------------*/

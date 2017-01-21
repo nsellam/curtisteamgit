@@ -220,8 +220,8 @@ float PI_Controller_L (int32_t in)
 {
     // PI controller
     static const float Kp = 0.00005;
-    static const float Ki = 0.0;
-    static const float T = 0.01;                  // 100hz control loop frequency
+    //static const float Ki = 0.0;
+    //static const float T = 0.01;                  // 100hz control loop frequency
     //volatile static const float a1_PI = Kp + T*Ki/2.0 ;      // coef. formula PI controller
     //volatile static const float a2_PI = Kp - T*Ki/2.0 ; 
     //volatile static const float a1_PI =  T*Ki/2.0 - Kp ;      // coef. formula PI controller

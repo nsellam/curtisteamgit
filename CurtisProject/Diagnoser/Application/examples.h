@@ -15,16 +15,11 @@
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-void ADC_Example(void);
-void PWM_Example(void);
-void GPIO_Example(void);
-void HallSensor_Example(void);
-void Motor_Example(void);
-void PositionSensor_Example(void);
-void SpeedSensor_Example(void);
-void FrontMotor_Example(void);
-void RearMotors_Example(void);
-void Battery_Example(void);
-void Mirroring_Example(void);
+void ADC_Diagnoser(void);              
+void GPIO_Diagnoser(void);             
+void Motor_Diagnoser(void);
+void PWM_Diagnoser(void);              
+void Battery_Diagnoser(void); 
+void HallSensor_Diagnoser(void);      
 
 #endif // _EXAMPLES_H

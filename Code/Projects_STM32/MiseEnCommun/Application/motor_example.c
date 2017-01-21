@@ -17,12 +17,12 @@
 /**
  * @brief   Motor used for example.
 */
-#define MOTOR               REAR_MOTOR_L
+#define MOTOR               REAR_MOTOR_R
 
 /**
  * @brief   Duration time of each step. 
 */
-#define WAIT_TIME           3000 //ms
+#define WAIT_TIME           10000 //ms
 
 /* Private macro -------------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/
