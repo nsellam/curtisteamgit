@@ -1,7 +1,6 @@
 #include <stdint.h>
 #include <stm32f10x.h>
 
-#include "examples.h"
 #include "manager.h"
 
 int main(void) { 

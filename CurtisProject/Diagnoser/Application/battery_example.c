@@ -25,6 +25,7 @@ void Battery_Diagnoser(void) {
     Battery_QuickInit();
     
     while(1) {
+        dbg_sleep(100);
         percentageBattery = Battery_get();
         printf("%d %% \n", percentageBattery);
     }
