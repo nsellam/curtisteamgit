@@ -1,0 +1,35 @@
+var data__interface_8h =
+[
+    [ "data_STM_t", "structdata___s_t_m__t.html", "structdata___s_t_m__t" ],
+    [ "data_PI_t", "structdata___p_i__t.html", "structdata___p_i__t" ],
+    [ "DATA_ALIGNMENT_PI", "data__interface_8h.html#a04a77a3b1fd11d02237a7103b1f56dad", null ],
+    [ "DATA_SIZE_MAX", "data__interface_8h.html#a331e94dbb0100545404dd45d3f7c464d", null ],
+    [ "DATA_SIZE_MAX_RAW", "data__interface_8h.html#a9ab4f60a13281a6067284a6d8a47ae46", null ],
+    [ "DATA_STM_US_NUM", "data__interface_8h.html#a8893fa1bedd387470b83d6f089c22bfa", null ],
+    [ "MC_L", "data__interface_8h.html#a0a93e43c4b5927c2ac8b5a7ed06840aa", null ],
+    [ "MC_R", "data__interface_8h.html#a2ee5b1664dd0bb88e0569039a8028ba1", null ],
+    [ "SS_L", "data__interface_8h.html#ab1e3db96bfb9a4885572e9fd132fe249", null ],
+    [ "SS_R", "data__interface_8h.html#adbf3f6538438231c8106dd9a7646dd7f", null ],
+    [ "US_BL", "data__interface_8h.html#a03ebf0197076ccb1a71bcd7e3aeb7151", null ],
+    [ "US_BM", "data__interface_8h.html#a87828392d38e49a4cca55123db207dc0", null ],
+    [ "US_BR", "data__interface_8h.html#a07ba1dcefa2585321495d8d9862c50b5", null ],
+    [ "US_FL", "data__interface_8h.html#a77141262fb06f1571cbe20c2eacca036", null ],
+    [ "US_FM", "data__interface_8h.html#a1b9a814d7be38cf75d93deb0149942c1", null ],
+    [ "US_FR", "data__interface_8h.html#a1af9d8abf1b2aa15a457776bd0085d6f", null ],
+    [ "WP_L", "data__interface_8h.html#a1d933f53a1dc6c1850997133ac635944", null ],
+    [ "WP_R", "data__interface_8h.html#ae9d7de04c9de30393cac3b9b312384d6", null ],
+    [ "side_TypeDef", "data__interface_8h.html#ac79657c83cd6056b74708c5a1f61ad52", [
+      [ "LEFT", "data__interface_8h.html#ac79657c83cd6056b74708c5a1f61ad52adb45120aafd37a973140edee24708065", null ],
+      [ "NONE", "data__interface_8h.html#ac79657c83cd6056b74708c5a1f61ad52ac157bdf0b85a40d2619cbc8bc1ae5fe2", null ],
+      [ "RIGHT", "data__interface_8h.html#ac79657c83cd6056b74708c5a1f61ad52aec8379af7490bb9eaaf579cf17876f38", null ]
+    ] ],
+    [ "init_data", "data__interface_8h.html#abd60fac8888c857e71d6d44253d5e14b", null ],
+    [ "canary_error_count", "data__interface_8h.html#a63ac2146b069f68affcf5ba94c484237", null ],
+    [ "crc_error_count", "data__interface_8h.html#a98df1986bdc789836e5272ed4a7e5cf7", null ],
+    [ "m_data_PI", "data__interface_8h.html#af609d664e39fb4f06dfbab437c46aaae", null ],
+    [ "m_data_STM", "data__interface_8h.html#a0e97596a28ece383393baa60251e954e", null ],
+    [ "mirroring_cycles_count", "data__interface_8h.html#a9f9cd5f6c7e982e701dbd6338c4a1e72", null ],
+    [ "pdata_PI", "data__interface_8h.html#a50f6b5135aaca4911c27e404e20378e9", null ],
+    [ "pdata_STM", "data__interface_8h.html#a011c933f0a9d617b20223bc33dff3678", null ],
+    [ "send_error", "data__interface_8h.html#a4a90cf3da541758ceee3923977ae9bdd", null ]
+];
