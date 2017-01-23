@@ -1,0 +1,46 @@
+var common__constants_8h =
+[
+    [ "CAR_MAX_SPEED", "common__constants_8h.html#a6de76e0180f116e1290911ef3a965545", null ],
+    [ "CAR_MIN_SPEED", "common__constants_8h.html#adde72225f4a60b2248c6c13be34275b4", null ],
+    [ "CAR_WHEEL_SIZE", "common__constants_8h.html#a79a7f225d5eeb00691e6a5807da68225", null ],
+    [ "INFINITE", "common__constants_8h.html#aa84a29002ab81c719c0d07bb446296e0", null ],
+    [ "PERCENTAGE", "common__constants_8h.html#a87c656818e14744e4d5cc0dff0d78327", null ],
+    [ "PI", "common__constants_8h.html#a598a3330b3c21701223ee0ca14316eca", null ],
+    [ "POSITION_CM", "common__constants_8h.html#a15c27b9e4f866a38409f361a78b4e97a", null ],
+    [ "POSITION_FT", "common__constants_8h.html#ae26bb8fecb6d0a7c5c7e898791772a20", null ],
+    [ "POSITION_IN", "common__constants_8h.html#a6a5af4926d7e8a7f821734945b4f5e69", null ],
+    [ "POSITION_KM", "common__constants_8h.html#ae6734a2bee16f55c160d466caf5d8535", null ],
+    [ "POSITION_M", "common__constants_8h.html#a7082886821e14ca323d0bede1940c4f5", null ],
+    [ "POSITION_MM", "common__constants_8h.html#afca3b1b3c0335c6078ab56cf59e91feb", null ],
+    [ "SPEED_CM_S", "common__constants_8h.html#ae1902d9c839980ffb256e282d4b95b4e", null ],
+    [ "SPEED_FT_S", "common__constants_8h.html#a8cfed979a8c757097011fecf4c0c0d66", null ],
+    [ "SPEED_KM_H", "common__constants_8h.html#a6171bc3bb95c19caefc193caaf1bac8b", null ],
+    [ "SPEED_KM_S", "common__constants_8h.html#a388a5ab03d956c45b7304fddfe93e477", null ],
+    [ "SPEED_KNOT", "common__constants_8h.html#a1268f968332a62765dcdceac0ad2cfd1", null ],
+    [ "SPEED_M_S", "common__constants_8h.html#afffb12f0221892492d7af94e5117e677", null ],
+    [ "SPEED_MI_H", "common__constants_8h.html#a9be002e706f71eb4971d4464698e01a7", null ],
+    [ "SPEED_MI_S", "common__constants_8h.html#a18c63f86cc7e887a88328ec6c9129973", null ],
+    [ "SPEED_MM_S", "common__constants_8h.html#a17d7010099c16046033460b0a93a751c", null ],
+    [ "SS_L", "common__constants_8h.html#ab1e3db96bfb9a4885572e9fd132fe249", null ],
+    [ "SS_R", "common__constants_8h.html#adbf3f6538438231c8106dd9a7646dd7f", null ],
+    [ "US_BL", "common__constants_8h.html#a03ebf0197076ccb1a71bcd7e3aeb7151", null ],
+    [ "US_BM", "common__constants_8h.html#a87828392d38e49a4cca55123db207dc0", null ],
+    [ "US_BR", "common__constants_8h.html#a07ba1dcefa2585321495d8d9862c50b5", null ],
+    [ "US_FL", "common__constants_8h.html#a77141262fb06f1571cbe20c2eacca036", null ],
+    [ "US_FM", "common__constants_8h.html#a1b9a814d7be38cf75d93deb0149942c1", null ],
+    [ "US_FR", "common__constants_8h.html#a1af9d8abf1b2aa15a457776bd0085d6f", null ],
+    [ "US_NUM", "common__constants_8h.html#a96b521945da936bf7a56c87215b56440", null ],
+    [ "US_PER_S", "common__constants_8h.html#ac135ed37ba33122189847fff976c0783", null ],
+    [ "WP_L", "common__constants_8h.html#a1d933f53a1dc6c1850997133ac635944", null ],
+    [ "WP_R", "common__constants_8h.html#ae9d7de04c9de30393cac3b9b312384d6", null ],
+    [ "direction_TypeDef", "common__constants_8h.html#a1ed50b689ade9b55c5f591be14d9807f", [
+      [ "NEUTRAL", "common__constants_8h.html#a1ed50b689ade9b55c5f591be14d9807faf46d14eb9d5d71afc9f6e747689fcb56", null ],
+      [ "FORWARD", "common__constants_8h.html#a1ed50b689ade9b55c5f591be14d9807faa26736999186daf8146f809e863712a1", null ],
+      [ "BACKWARD", "common__constants_8h.html#a1ed50b689ade9b55c5f591be14d9807fafed2fca77e454294d6b8bda1bf2c9fd6", null ]
+    ] ],
+    [ "side_TypeDef", "common__constants_8h.html#ac79657c83cd6056b74708c5a1f61ad52", [
+      [ "LEFT", "common__constants_8h.html#ac79657c83cd6056b74708c5a1f61ad52adb45120aafd37a973140edee24708065", null ],
+      [ "NONE", "common__constants_8h.html#ac79657c83cd6056b74708c5a1f61ad52ac157bdf0b85a40d2619cbc8bc1ae5fe2", null ],
+      [ "RIGHT", "common__constants_8h.html#ac79657c83cd6056b74708c5a1f61ad52aec8379af7490bb9eaaf579cf17876f38", null ]
+    ] ]
+];
