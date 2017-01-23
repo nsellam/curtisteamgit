@@ -1,3 +1,3 @@
 # curtisteamgit
 
-[![ Curtis Team - Project Presentation]](https://youtu.be/TNwr3ImfcAY)
+[Curtis Team - Project Presentation](https://youtu.be/TNwr3ImfcAY)
