@@ -1,3 +1,3 @@
 # curtisteamgit
 
-[![CurtisTeam](https://img.youtube.com/vi/oA2M7_L-Jao/0.jpg)](https://www.youtube.com/watch?v=oA2M7_L-Jao&feature=youtu.be)
+[![CurtisTeam](https://lh5.ggpht.com/jZ8XCjpCQWWZ5GLhbjRAufsw3JXePHUJVfEvMH3D055ghq0dyiSP3YxfSc_czPhtCLSO=w300)](https://youtu.be/TNwr3ImfcAY)
